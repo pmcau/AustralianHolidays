@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="NUnit" />
+    <PackageReference Include="NUnit3TestAdapter" />
+    <PackageReference Include="Verify.DiffPlex" />
+    <PackageReference Include="MarkdownSnippets.MsBuild" PrivateAssets="all" />
+    <PackageReference Include="Verify.NUnit" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="ProjectDefaults" PrivateAssets="all" />
+    <ProjectReference Include="..\AustralianHolidays\AustralianHolidays.csproj" />
+    <Using Include="NUnit.Framework.Legacy.ClassicAssert" Static="True" />
+    <Using Include="NUnit.Framework.Assert" Static="True" />
+  </ItemGroup>
+</Project>

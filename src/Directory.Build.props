@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <PropertyGroup>
+    <Version>0.1.0</Version>
+    <LangVersion>preview</LangVersion>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <Description>Australian Holidays.</Description>
+    <ResolveAssemblyReferencesSilent>true</ResolveAssemblyReferencesSilent>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <SuppressNETCoreSdkPreviewMessage>true</SuppressNETCoreSdkPreviewMessage>
+  </PropertyGroup>
+</Project>
