@@ -1,7 +1,16 @@
-using System.Diagnostics.CodeAnalysis;
-
 namespace AustralianHolidays;
 
+public enum States
+{
+    ACT,
+    NSW,
+    NT,
+    QLD,
+    SA,
+    TAS,
+    VIC,
+    WA
+}
 public static class Holidays
 {
     public static DateTimeOffset PreviousBusinessDay(this DateTimeOffset now)
