@@ -13,19 +13,6 @@ public enum States
 }
 public static class Holidays
 {
-    public static DateTimeOffset PreviousBusinessDay(this DateTimeOffset now)
-    {
-        var date = Date.FromDateTime(now.DateTime);
-        var (year, month, day) = date.PreviousBusinessDay();
-        return new(year, month, day, 0, 0, 0, now.Offset);
-    }
-
-    public static DateTimeOffset NextBusinessDay(this DateTimeOffset now)
-    {
-        var date = Date.FromDateTime(now.DateTime);
-        var (year, month, day) = date.NextBusinessDay();
-        return new(year, month, day, 0, 0, 0, now.Offset);
-    }
 
     public static Date NextBusinessDay(this Date now)
     {
