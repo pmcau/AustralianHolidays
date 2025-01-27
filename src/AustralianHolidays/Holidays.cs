@@ -114,22 +114,15 @@ public static class Holidays
             }
         }
 
-        var (easterFriday, _, easterMonday) = EasterCalculator.ForYear(date.Year);
-        if (date == easterFriday)
+        if (EasterCalculator.TryGetPublicHoliday(date, out name))
         {
-            name = "Easter Friday";
-            return true;
-        }
-
-        if (date == easterMonday)
-        {
-            name = "Easter Monday";
             return true;
         }
 
         name = null;
         return false;
     }
+
 
     static Date GetNewYears(int year)
     {

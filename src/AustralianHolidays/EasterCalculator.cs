@@ -1,5 +1,23 @@
 ﻿static class EasterCalculator
 {
+    public static bool TryGetPublicHoliday(Date date, [NotNullWhen(true)] out string? name)
+    {
+        var (easterFriday, _, easterMonday) = ForYear(date.Year);
+        if (date == easterFriday)
+        {
+            name = "Easter Friday";
+            return true;
+        }
+
+        if (date == easterMonday)
+        {
+            name = "Easter Monday";
+            return true;
+        }
+
+        name = null;
+        return false;
+    }
     public static (Date friday, Date sunday, Date monday) ForYear(int year)
     {
         var sunday = GetEasterSunday(year);
