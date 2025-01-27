@@ -11,6 +11,7 @@ public enum States
     VIC,
     WA
 }
+
 public static class Holidays
 {
 
@@ -113,14 +114,13 @@ public static class Holidays
             }
         }
 
-        var easterFriday = GetEasterFriday(date.Year);
+        var (easterFriday, _, easterMonday) = EasterCalculator.ForYear(date.Year);
         if (date == easterFriday)
         {
             name = "Easter Friday";
             return true;
         }
 
-        var easterMonday = easterFriday.AddDays(3);
         if (date == easterMonday)
         {
             name = "Easter Monday";
@@ -148,34 +148,5 @@ public static class Holidays
         }
 
         return oneJanuary;
-    }
-
-    internal static Date GetEasterFriday(int year)
-    {
-        var easterSunday = GetEasterSunday(year);
-        return easterSunday.AddDays(-2);
-    }
-
-    // computus algorithm
-    static Date GetEasterSunday(int year)
-    {
-        var month = 3;
-        //19 year metonic cycle
-        var goldenNumber = year % 19;
-        var century = year / 100;
-        // Easter Sunday is never celebrated on 21 March since it is the vernal equinox
-        // https://earthsky.org/astronomy-essentials/easter-full-moon-vernal-equinox/
-        // ReSharper disable once ArrangeRedundantParentheses
-        var daysFromMarch21ToFullMoon = (century - (century / 4) - (8 * century + 13) / 25 + 19 * goldenNumber + 15) % 30;
-        //handle edge cases
-        var adjustedDaysFromMatch21ToFullMoon = daysFromMarch21ToFullMoon - daysFromMarch21ToFullMoon / 28 * (1 - daysFromMarch21ToFullMoon / 28 * (29 / (daysFromMarch21ToFullMoon + 1)) * ((21 - goldenNumber) / 11));
-        var day = adjustedDaysFromMatch21ToFullMoon - (year + year / 4 + adjustedDaysFromMatch21ToFullMoon + 2 - century + century / 4) % 7 + 28;
-        if (day > 31)
-        {
-            month = 4;
-            day -= 31;
-        }
-
-        return new(year, month, day);
     }
 }

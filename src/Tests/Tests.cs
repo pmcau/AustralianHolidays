@@ -1,6 +1,3 @@
-using System.Globalization;
-using AustralianHolidays;
-
 [TestFixture]
 public class Tests
 {
@@ -99,16 +96,6 @@ public class Tests
         }
 
         return items.OrderBy(_ => _.date).ToList();
-    }
-
-    [Test]
-    public void GetEasterSunday()
-    {
-        for (var i = 2025; i <= 2044; i++)
-        {
-            var easterFriday = Holidays.GetEasterFriday(i);
-            AreEqual(easterFridays[i - 2025], easterFriday);
-        }
     }
 
     [Test]
