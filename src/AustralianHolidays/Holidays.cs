@@ -1,59 +1,7 @@
 namespace AustralianHolidays;
 
-public enum States
-{
-    ACT,
-    NSW,
-    NT,
-    QLD,
-    SA,
-    TAS,
-    VIC,
-    WA
-}
-
 public static class Holidays
 {
-
-    public static Date NextBusinessDay(this Date now)
-    {
-        var date = now.AddDays(1);
-        while (true)
-        {
-            if (date.IsWeekday() && !IsHoliday(date))
-            {
-                break;
-            }
-
-            date = date.AddDays(1);
-        }
-
-        return date;
-    }
-
-    public static Date PreviousBusinessDay(this Date date)
-    {
-        date = date.AddDays(-1);
-        while (true)
-        {
-            if (!date.IsWeekday())
-            {
-                date = date.AddDays(-1);
-                continue;
-            }
-
-            if (IsHoliday(date))
-            {
-                date = date.AddDays(-1);
-                continue;
-            }
-
-            break;
-        }
-
-        return date;
-    }
-
     internal static bool IsWeekday(this Date date) =>
         date.DayOfWeek is
             not DayOfWeek.Saturday and

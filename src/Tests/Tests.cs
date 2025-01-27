@@ -1,56 +1,6 @@
 [TestFixture]
 public class Tests
 {
-    [Test]
-    public Task NextBusinessDay()
-    {
-        var items = GetTestDates();
-
-        var builder = new StringBuilder();
-
-        foreach (var (date, value) in items)
-        {
-            var next = date.NextBusinessDay();
-            IsTrue(next > date);
-            IsTrue(next.IsWeekday());
-            IsFalse(next.IsHoliday());
-
-            builder.AppendLine(
-                $"""
-                 Input:           {date.ToString("yyyy MMM dd ddd", CultureInfo.InvariantCulture)} {value}
-                 NextBusinessDay: {next.ToString("yyyy MMM dd ddd", CultureInfo.InvariantCulture)}
-
-                 """);
-        }
-
-        return Verify(builder);
-    }
-
-    [Test]
-    public Task PreviousBusinessDay()
-    {
-        var items = GetTestDates();
-
-        var builder = new StringBuilder();
-
-        foreach (var (date, value) in items)
-        {
-            var businessDay = date.PreviousBusinessDay();
-            Less(businessDay, date);
-            IsTrue(businessDay.IsWeekday());
-            IsFalse(businessDay.IsHoliday());
-
-            builder.AppendLine(
-                $"""
-                 Input:               {date.ToString("yyyy MMM dd ddd", CultureInfo.InvariantCulture)} {value}
-                 PreviousBusinessDay: {businessDay.ToString("yyyy MMM dd ddd", CultureInfo.InvariantCulture)}
-
-                 """);
-        }
-
-        return Verify(builder);
-    }
-
     static List<(Date date, string name)> GetTestDates()
     {
         var items = new List<(Date date, string name)>();
