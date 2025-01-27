@@ -1,4 +1,6 @@
-﻿static class EasterCalculator
+﻿namespace AustralianHolidays;
+
+public static class EasterCalculator
 {
     public static bool TryGetPublicHoliday(Date date, [NotNullWhen(true)] out string? name)
     {
