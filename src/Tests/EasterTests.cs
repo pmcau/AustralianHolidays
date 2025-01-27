@@ -11,6 +11,11 @@ public class EasterTests
         }
     }
 
+    [Test]
+    public Task GetEaster() =>
+        VerifyTuple(() => EasterCalculator.ForYear(2020))
+            .DontScrubDateTimes();
+
     static List<Date> easterFridays =
     [
         new(2025, 4, 18),
