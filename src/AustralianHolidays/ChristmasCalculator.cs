@@ -2,7 +2,7 @@
 
 public static class ChristmasCalculator
 {
-    public  static bool IsChristmasDay(this Date date) =>
+    public static bool IsChristmasDay(this Date date) =>
         date == ChristmasDay(date.Year);
 
     public static Date ChristmasDay(int year) =>
@@ -14,7 +14,7 @@ public static class ChristmasCalculator
     public static bool IsBoxingDay(this Date date) =>
         date == BoxingDay(date.Year);
 
-    public  static bool TryGet(Date date, [NotNullWhen(true)] out string? name)
+    public static bool TryGet(Date date, [NotNullWhen(true)] out string? name)
     {
         var christmasDay = ChristmasDay(date.Year);
         if (date == christmasDay)

@@ -3,7 +3,7 @@ namespace AustralianHolidays;
 public static partial class Holidays
 {
     //https://www.cmtedd.act.gov.au/communication/holidays
-    public static bool IsActHoliday(this Date date, [NotNullWhen(true)] out string? name)
+    public static bool IsTasHoliday(this Date date, [NotNullWhen(true)] out string? name)
     {
         if (date.IsNewYearsDay())
         {
@@ -31,24 +31,17 @@ public static partial class Holidays
             }
         }
 
-        var reconciliationDayStart = new Date(date.Year, 5, 27);
-        var reconciliationDayEnd = reconciliationDayStart.AddDays(7);
-        if (date.DayOfWeek == DayOfWeek.Monday &&
-            date >= reconciliationDayStart &&
-            date <= reconciliationDayEnd)
+        if (date.Month == 3)
         {
-            name = "Reconciliation Day";
-            return true;
-        }
-
-        var labourDayStart = new Date(date.Year, 10, 1);
-        var labourDayEnd = labourDayStart.AddDays(7);
-        if (date.DayOfWeek == DayOfWeek.Monday &&
-            date >= labourDayStart &&
-            date <= labourDayEnd)
-        {
-            name = "Labour Day";
-            return true;
+            var firstDayOfMarch = new Date(date.Year, 3, 1);
+            var dayOfWeek = (int)firstDayOfMarch.DayOfWeek;
+            var daysUntilMonday = (8 - dayOfWeek) % 7;
+            var secondMonday = firstDayOfMarch.AddDays(daysUntilMonday + 7);
+            if (date == secondMonday)
+            {
+                name = "Eight Hours Day";
+                return true;
+            }
         }
 
         if (date.IsAnzacDay())
@@ -82,7 +75,29 @@ public static partial class Holidays
             return true;
         }
 
+        if (date == easterMonday.AddDays(1))
+        {
+            name = "Easter Tuesday (Government employees only)";
+            return true;
+        }
+
         name = null;
+        return false;
+    }
+
+    static bool IsSecondMondayInMarch(Date date)
+    {
+        if (date.Month == 3)
+        {
+            var firstDayOfMonth = new Date(date.Year, 3, 1);
+            if (firstDayOfMonth.DayOfWeek == DayOfWeek.Monday)
+            {
+                return date.Day is >= 8 and <= 14;
+            }
+
+            return date.Day is >= 9 and <= 15;
+        }
+
         return false;
     }
 }
