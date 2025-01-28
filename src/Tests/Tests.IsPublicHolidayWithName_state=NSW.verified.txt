@@ -1,182 +1,96 @@
 ﻿2024 Jan 01 Mon New Year's Day
 2024 Jan 26 Fri Australia Day
-2024 Mar 29 Fri Easter Friday
+2024 Mar 29 Fri Good Friday
 2024 Mar 30 Sat Easter Saturday
 2024 Mar 31 Sun Easter Sunday
 2024 Apr 01 Mon Easter Monday
-2024 Apr 02 Tue Easter Tuesday (Government employees only)
 2024 Apr 25 Thu Anzac Day
 2024 Dec 25 Wed Christmas Day
-2024 Dec 26 Thu Government shutdown
-2024 Dec 27 Fri Government shutdown
-2024 Dec 28 Sat Government shutdown
-2024 Dec 29 Sun Government shutdown
-2024 Dec 30 Mon Government shutdown
-2024 Dec 31 Tue Government shutdown
 2025 Jan 01 Wed New Year's Day
-2025 Jan 27 Mon Australia Day
-2025 Apr 18 Fri Easter Friday
+2025 Jan 27 Mon Australia Day Holiday
+2025 Apr 18 Fri Good Friday
 2025 Apr 19 Sat Easter Saturday
 2025 Apr 20 Sun Easter Sunday
 2025 Apr 21 Mon Easter Monday
-2025 Apr 22 Tue Easter Tuesday (Government employees only)
 2025 Apr 25 Fri Anzac Day
 2025 Dec 25 Thu Christmas Day
-2025 Dec 26 Fri Government shutdown
-2025 Dec 27 Sat Government shutdown
-2025 Dec 28 Sun Government shutdown
-2025 Dec 29 Mon Government shutdown
-2025 Dec 30 Tue Government shutdown
-2025 Dec 31 Wed Government shutdown
 2026 Jan 01 Thu New Year's Day
 2026 Jan 26 Mon Australia Day
-2026 Apr 03 Fri Easter Friday
+2026 Apr 03 Fri Good Friday
 2026 Apr 04 Sat Easter Saturday
 2026 Apr 05 Sun Easter Sunday
 2026 Apr 06 Mon Easter Monday
-2026 Apr 07 Tue Easter Tuesday (Government employees only)
 2026 Apr 25 Sat Anzac Day
 2026 Dec 25 Fri Christmas Day
-2026 Dec 26 Sat Government shutdown
-2026 Dec 27 Sun Government shutdown
-2026 Dec 28 Mon Government shutdown
-2026 Dec 29 Tue Government shutdown
-2026 Dec 30 Wed Government shutdown
-2026 Dec 31 Thu Government shutdown
 2027 Jan 01 Fri New Year's Day
 2027 Jan 26 Tue Australia Day
-2027 Mar 26 Fri Easter Friday
+2027 Mar 26 Fri Good Friday
 2027 Mar 27 Sat Easter Saturday
 2027 Mar 28 Sun Easter Sunday
 2027 Mar 29 Mon Easter Monday
-2027 Mar 30 Tue Easter Tuesday (Government employees only)
 2027 Apr 25 Sun Anzac Day
-2027 Apr 26 Mon Anzac Day Holiday
 2027 Dec 25 Sat Christmas Day
-2027 Dec 26 Sun Government shutdown
-2027 Dec 27 Mon Government shutdown
-2027 Dec 28 Tue Government shutdown
-2027 Dec 29 Wed Government shutdown
-2027 Dec 30 Thu Government shutdown
-2027 Dec 31 Fri Government shutdown
 2028 Jan 01 Sat New Year's Day
 2028 Jan 26 Wed Australia Day
-2028 Apr 14 Fri Easter Friday
+2028 Apr 14 Fri Good Friday
 2028 Apr 15 Sat Easter Saturday
 2028 Apr 16 Sun Easter Sunday
 2028 Apr 17 Mon Easter Monday
-2028 Apr 18 Tue Easter Tuesday (Government employees only)
 2028 Apr 25 Tue Anzac Day
 2028 Dec 25 Mon Christmas Day
-2028 Dec 26 Tue Government shutdown
-2028 Dec 27 Wed Government shutdown
-2028 Dec 28 Thu Government shutdown
-2028 Dec 29 Fri Government shutdown
-2028 Dec 30 Sat Government shutdown
-2028 Dec 31 Sun Government shutdown
 2029 Jan 01 Mon New Year's Day
 2029 Jan 26 Fri Australia Day
-2029 Mar 30 Fri Easter Friday
+2029 Mar 30 Fri Good Friday
 2029 Mar 31 Sat Easter Saturday
 2029 Apr 01 Sun Easter Sunday
 2029 Apr 02 Mon Easter Monday
-2029 Apr 03 Tue Easter Tuesday (Government employees only)
 2029 Apr 25 Wed Anzac Day
 2029 Dec 25 Tue Christmas Day
-2029 Dec 26 Wed Government shutdown
-2029 Dec 27 Thu Government shutdown
-2029 Dec 28 Fri Government shutdown
-2029 Dec 29 Sat Government shutdown
-2029 Dec 30 Sun Government shutdown
-2029 Dec 31 Mon Government shutdown
 2030 Jan 01 Tue New Year's Day
-2030 Jan 28 Mon Australia Day
-2030 Apr 19 Fri Easter Friday
+2030 Jan 28 Mon Australia Day Holiday
+2030 Apr 19 Fri Good Friday
 2030 Apr 20 Sat Easter Saturday
 2030 Apr 21 Sun Easter Sunday
 2030 Apr 22 Mon Easter Monday
-2030 Apr 23 Tue Easter Tuesday (Government employees only)
 2030 Apr 25 Thu Anzac Day
 2030 Dec 25 Wed Christmas Day
-2030 Dec 26 Thu Government shutdown
-2030 Dec 27 Fri Government shutdown
-2030 Dec 28 Sat Government shutdown
-2030 Dec 29 Sun Government shutdown
-2030 Dec 30 Mon Government shutdown
-2030 Dec 31 Tue Government shutdown
 2031 Jan 01 Wed New Year's Day
-2031 Jan 27 Mon Australia Day
-2031 Apr 11 Fri Easter Friday
+2031 Jan 27 Mon Australia Day Holiday
+2031 Apr 11 Fri Good Friday
 2031 Apr 12 Sat Easter Saturday
 2031 Apr 13 Sun Easter Sunday
 2031 Apr 14 Mon Easter Monday
-2031 Apr 15 Tue Easter Tuesday (Government employees only)
 2031 Apr 25 Fri Anzac Day
 2031 Dec 25 Thu Christmas Day
-2031 Dec 26 Fri Government shutdown
-2031 Dec 27 Sat Government shutdown
-2031 Dec 28 Sun Government shutdown
-2031 Dec 29 Mon Government shutdown
-2031 Dec 30 Tue Government shutdown
-2031 Dec 31 Wed Government shutdown
 2032 Jan 01 Thu New Year's Day
 2032 Jan 26 Mon Australia Day
-2032 Mar 26 Fri Easter Friday
+2032 Mar 26 Fri Good Friday
 2032 Mar 27 Sat Easter Saturday
 2032 Mar 28 Sun Easter Sunday
 2032 Mar 29 Mon Easter Monday
-2032 Mar 30 Tue Easter Tuesday (Government employees only)
 2032 Apr 25 Sun Anzac Day
-2032 Apr 26 Mon Anzac Day Holiday
 2032 Dec 25 Sat Christmas Day
-2032 Dec 26 Sun Government shutdown
-2032 Dec 27 Mon Government shutdown
-2032 Dec 28 Tue Government shutdown
-2032 Dec 29 Wed Government shutdown
-2032 Dec 30 Thu Government shutdown
-2032 Dec 31 Fri Government shutdown
 2033 Jan 01 Sat New Year's Day
 2033 Jan 26 Wed Australia Day
-2033 Apr 15 Fri Easter Friday
+2033 Apr 15 Fri Good Friday
 2033 Apr 16 Sat Easter Saturday
 2033 Apr 17 Sun Easter Sunday
 2033 Apr 18 Mon Easter Monday
-2033 Apr 19 Tue Easter Tuesday (Government employees only)
 2033 Apr 25 Mon Anzac Day
 2033 Dec 25 Sun Christmas Day
-2033 Dec 26 Mon Government shutdown
-2033 Dec 27 Tue Government shutdown
-2033 Dec 28 Wed Government shutdown
-2033 Dec 29 Thu Government shutdown
-2033 Dec 30 Fri Government shutdown
-2033 Dec 31 Sat Government shutdown
 2034 Jan 01 Sun New Year's Day
 2034 Jan 26 Thu Australia Day
-2034 Apr 07 Fri Easter Friday
+2034 Apr 07 Fri Good Friday
 2034 Apr 08 Sat Easter Saturday
 2034 Apr 09 Sun Easter Sunday
 2034 Apr 10 Mon Easter Monday
-2034 Apr 11 Tue Easter Tuesday (Government employees only)
 2034 Apr 25 Tue Anzac Day
 2034 Dec 25 Mon Christmas Day
-2034 Dec 26 Tue Government shutdown
-2034 Dec 27 Wed Government shutdown
-2034 Dec 28 Thu Government shutdown
-2034 Dec 29 Fri Government shutdown
-2034 Dec 30 Sat Government shutdown
-2034 Dec 31 Sun Government shutdown
 2035 Jan 01 Mon New Year's Day
 2035 Jan 26 Fri Australia Day
-2035 Mar 23 Fri Easter Friday
+2035 Mar 23 Fri Good Friday
 2035 Mar 24 Sat Easter Saturday
 2035 Mar 25 Sun Easter Sunday
 2035 Mar 26 Mon Easter Monday
-2035 Mar 27 Tue Easter Tuesday (Government employees only)
 2035 Apr 25 Wed Anzac Day
 2035 Dec 25 Tue Christmas Day
-2035 Dec 26 Wed Government shutdown
-2035 Dec 27 Thu Government shutdown
-2035 Dec 28 Fri Government shutdown
-2035 Dec 29 Sat Government shutdown
-2035 Dec 30 Sun Government shutdown
-2035 Dec 31 Mon Government shutdown

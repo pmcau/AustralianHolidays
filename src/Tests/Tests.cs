@@ -54,6 +54,14 @@ public class Tests
     public Task WriteTas() =>
         Verify(
             WriteForState(Holidays.IsTasHoliday));
+    [Test]
+    public Task WriteNt() =>
+        Verify(
+            WriteForState(Holidays.IsNtHoliday));
+    [Test]
+    public Task WriteQld() =>
+        Verify(
+            WriteForState(Holidays.IsQldHoliday));
 
     delegate bool IsHoliday(Date date, [NotNullWhen(true)] out string? name);
 

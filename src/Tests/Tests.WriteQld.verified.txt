@@ -6,6 +6,7 @@
     Easter Sunday         Apr 20 Sun
     Easter Monday         Apr 21 Mon
     Anzac Day             Apr 25 Fri
+    Labour Day            May 05 Mon
     Christmas Day         Dec 25 Thu
     Boxing Day            Dec 26 Fri
 2026
@@ -16,6 +17,7 @@
     Easter Sunday         Apr 05 Sun
     Easter Monday         Apr 06 Mon
     Anzac Day             Apr 25 Sat
+    Labour Day            May 04 Mon
     Christmas Day         Dec 25 Fri
     Boxing Day            Dec 26 Sat
     Christmas Holiday     Dec 28 Mon
@@ -27,6 +29,7 @@
     Easter Sunday         Mar 28 Sun
     Easter Monday         Mar 29 Mon
     Anzac Day             Apr 25 Sun
+    Labour Day            May 03 Mon
     Christmas Day         Dec 25 Sat
     Boxing Day            Dec 26 Sun
     Christmas Holiday     Dec 27 Mon
@@ -39,6 +42,7 @@
     Easter Sunday         Apr 16 Sun
     Easter Monday         Apr 17 Mon
     Anzac Day             Apr 25 Tue
+    Labour Day            May 01 Mon
     Christmas Day         Dec 25 Mon
     Boxing Day            Dec 26 Tue
     Christmas Holiday     Dec 27 Wed

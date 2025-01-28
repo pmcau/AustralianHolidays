@@ -3,7 +3,7 @@ namespace AustralianHolidays;
 public static partial class Holidays
 {
     //https://www.cmtedd.act.gov.au/communication/holidays
-    public static bool IsTasHoliday(this Date date, [NotNullWhen(true)] out string? name)
+    public static bool IsNtHoliday(this Date date, [NotNullWhen(true)] out string? name)
     {
         if (date.IsNewYearsDay())
         {
@@ -31,15 +31,27 @@ public static partial class Holidays
             }
         }
 
-        if (date.Month == 3)
+        if (date.Month == 5)
         {
-            var firstDayOfMarch = new Date(date.Year, 3, 1);
-            var dayOfWeek = (int)firstDayOfMarch.DayOfWeek;
+            var firstDayOfMay = new Date(date.Year, 5, 1);
+            var dayOfWeek = (int)firstDayOfMay.DayOfWeek;
             var daysUntilMonday = (8 - dayOfWeek) % 7;
-            var secondMonday = firstDayOfMarch.AddDays(daysUntilMonday + 7);
-            if (date == secondMonday)
+            var firstMonday = firstDayOfMay.AddDays(daysUntilMonday);
+            if (date == firstMonday)
             {
-                name = "Eight Hours Day";
+                name = "May Day";
+                return true;
+            }
+        }
+        if (date.Month == 8)
+        {
+            var firstDayOfAugust = new Date(date.Year, 8, 1);
+            var dayOfWeek = (int)firstDayOfAugust.DayOfWeek;
+            var daysUntilMonday = (8 - dayOfWeek) % 7;
+            var firstMonday = firstDayOfAugust.AddDays(daysUntilMonday);
+            if (date == firstMonday)
+            {
+                name = "Picnic Day";
                 return true;
             }
         }
@@ -72,12 +84,6 @@ public static partial class Holidays
         if (date == easterMonday)
         {
             name = "Easter Monday";
-            return true;
-        }
-
-        if (date == easterMonday.AddDays(1))
-        {
-            name = "Easter Tuesday (Government employees only)";
             return true;
         }
 

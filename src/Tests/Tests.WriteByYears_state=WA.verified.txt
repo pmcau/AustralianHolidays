@@ -1,1 +1,30 @@
-﻿
+﻿2025
+    New Year's Day        Jan 01 Wed
+    Australia Day Holiday Jan 27 Mon
+    Good Friday           Apr 18 Fri
+    Easter Monday         Apr 21 Mon
+    Anzac Day             Apr 25 Fri
+    Christmas Day         Dec 25 Thu
+2026
+    New Year's Day        Jan 01 Thu
+    Australia Day         Jan 26 Mon
+    Good Friday           Apr 03 Fri
+    Easter Monday         Apr 06 Mon
+    Anzac Day             Apr 25 Sat
+    Anzac Day Holiday     Apr 27 Mon
+    Christmas Day         Dec 25 Fri
+2027
+    New Year's Day        Jan 01 Fri
+    Australia Day         Jan 26 Tue
+    Good Friday           Mar 26 Fri
+    Easter Monday         Mar 29 Mon
+    Anzac Day             Apr 25 Sun
+    Anzac Day Holiday     Apr 26 Mon
+    Christmas Day         Dec 25 Sat
+2028
+    New Year's Day        Jan 01 Sat
+    Australia Day         Jan 26 Wed
+    Good Friday           Apr 14 Fri
+    Easter Monday         Apr 17 Mon
+    Anzac Day             Apr 25 Tue
+    Christmas Day         Dec 25 Mon
