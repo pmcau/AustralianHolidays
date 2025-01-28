@@ -20,6 +20,7 @@ public static class EasterCalculator
         name = null;
         return false;
     }
+
     public static (Date friday, Date sunday, Date monday) ForYear(int year)
     {
         var sunday = GetEasterSunday(year);

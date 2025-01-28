@@ -7,9 +7,9 @@ public static class Holidays
             not DayOfWeek.Saturday and
             not DayOfWeek.Sunday;
 
-    internal static bool IsHoliday(this Date date) => IsHoliday(date, out _);
+    internal static bool IsPublicHoliday(this Date date) => IsPublicHoliday(date, out _);
 
-    internal static bool IsHoliday(this Date date, [NotNullWhen(true)] out string? name)
+    internal static bool IsPublicHoliday(this Date date, [NotNullWhen(true)] out string? name)
     {
         if (date is { Month: 1, Day: 1 })
         {

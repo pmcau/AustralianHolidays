@@ -17,7 +17,9 @@ AustralianHolidays
 ## Usage
 
 
+## Notes
 
+https://www.vic.gov.au/ical#public-holiday-dates
 
 ## Icon
 
