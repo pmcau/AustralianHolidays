@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 [TestFixture]
 public class Tests
 {
@@ -20,7 +22,7 @@ public class Tests
     public Task WriteByYears(State state)
     {
         var builder = new StringBuilder();
-        for (var year = DateTime.Now.Year; year <= DateTime.Now.Year+3; year++)
+        for (var year = DateTime.Now.Year; year <= DateTime.Now.Year + 3; year++)
         {
             var start = new Date(year, 1, 1);
             var end = new Date(year, 12, 31);
@@ -39,10 +41,21 @@ public class Tests
     }
 
     [Test]
-    public Task WriteNsw()
+    public Task WriteNsw() =>
+        Verify(
+            WriteForState(Holidays.IsNswHoliday));
+
+    [Test]
+    public Task WriteAct() =>
+        Verify(
+            WriteForState(Holidays.IsActHoliday));
+
+    delegate bool IsHoliday(Date date, [NotNullWhen(true)] out string? name);
+
+    static string WriteForState(IsHoliday isHoliday)
     {
         var builder = new StringBuilder();
-        for (var year = DateTime.Now.Year; year <= DateTime.Now.Year+3; year++)
+        for (var year = DateTime.Now.Year; year <= DateTime.Now.Year + 3; year++)
         {
             var start = new Date(year, 1, 1);
             var end = new Date(year, 12, 31);
@@ -50,14 +63,14 @@ public class Tests
             builder.AppendLine($"{year}");
             for (var date = start; date <= end; date = date.AddDays(1))
             {
-                if (date.IsNswHoliday(out var name))
+                if (isHoliday(date, out var name))
                 {
                     builder.AppendLine($"    {name.PadRight(21)} {date.ToString("MMM dd ddd", CultureInfo.InvariantCulture)}");
                 }
             }
         }
 
-        return Verify(builder);
+        return builder.ToString();
     }
 
     [TestCaseSource(nameof(GetStates))]

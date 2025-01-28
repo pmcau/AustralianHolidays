@@ -1,6 +1,6 @@
 namespace AustralianHolidays;
 
-public static class Holidays
+public static partial class Holidays
 {
     internal static bool IsWeekday(this Date date) =>
         date.DayOfWeek is
@@ -41,103 +41,6 @@ public static class Holidays
         name = null;
         return false;
     }
-
-    public static bool IsNswHoliday(this Date date, [NotNullWhen(true)] out string? name)
-    {
-        if (date.IsNewYearsDay())
-        {
-            name = "New Year's Day";
-            return true;
-        }
-
-        var christmasDay = ChristmasDay(date.Year);
-        if (date == christmasDay)
-        {
-            name = "Christmas Day";
-            return true;
-        }
-
-        var boxingDay = BoxingDay(date.Year);
-        if (date == boxingDay)
-        {
-            name = "Boxing Day";
-            return true;
-        }
-        var boxingDayPlus1 = boxingDay.AddDays(1);
-        if (date == boxingDayPlus1 && boxingDayPlus1.IsWeekday())
-        {
-            name = "Christmas Holiday";
-            return true;
-        }
-
-        var boxingDayPlus2 = boxingDay.AddDays(1);
-        if (date == boxingDayPlus2 && boxingDayPlus2.IsWeekday())
-        {
-            name = "Christmas Holiday";
-            return true;
-        }
-
-        if (date.Month == 1)
-        {
-            if (date.Day == 26 && date.IsWeekday())
-            {
-                name = "Australia Day";
-                return true;
-            }
-
-            if (date is { DayOfWeek: DayOfWeek.Monday, Day: 27 or 28 })
-            {
-                name = "Australia Day Holiday";
-                return true;
-            }
-        }
-
-        if (date.IsAnzacDay())
-        {
-            name = "Anzac Day";
-            return true;
-        }
-
-        var (easterFriday, easterSaturday, easterSunday, easterMonday) = EasterCalculator.ForYear(date.Year);
-        if (date == easterFriday)
-        {
-            name = "Good Friday";
-            return true;
-        }
-
-        if (date == easterSaturday)
-        {
-            name = "Easter Saturday";
-            return true;
-        }
-
-        if (date == easterSunday)
-        {
-            name = "Easter Sunday";
-            return true;
-        }
-
-        if (date == easterMonday)
-        {
-            name = "Easter Monday";
-            return true;
-        }
-
-        name = null;
-        return false;
-    }
-
-    public  static bool IsChristmasDay(this Date date) =>
-        date == ChristmasDay(date.Year);
-
-    public static Date ChristmasDay(int year) =>
-        new(year, 12, 25);
-
-    public static Date BoxingDay(int year) =>
-        new(year, 12, 26);
-
-    public static bool IsBoxingDay(this Date date) =>
-        date == BoxingDay(date.Year);
 
     static bool IsNewYearsDay(this Date date) =>
         date is { Month: 1, Day: 1 };
