@@ -19,6 +19,8 @@ AustralianHolidays
 
 ## Notes
 
+https://publicholidays.com.au/anzac-day/
+https://www.clockon.com.au/blog/easter-public-holidays-across-australian-states-differences
 https://www.vic.gov.au/ical#public-holiday-dates
 
 ## Icon
