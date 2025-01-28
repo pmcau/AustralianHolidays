@@ -20,7 +20,7 @@ AustralianHolidays
 ## Notes
 
 
-https://www.commerce.wa.gov.au/labour-relations/public-holidays-western-australia
+https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia
 https://business.vic.gov.au/business-information/public-holidays
 https://worksafe.tas.gov.au/topics/laws-and-compliance/public-holidays
 https://www.safework.sa.gov.au/resources/public-holidays

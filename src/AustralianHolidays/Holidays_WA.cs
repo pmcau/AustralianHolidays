@@ -2,8 +2,8 @@ namespace AustralianHolidays;
 
 public static partial class Holidays
 {
-    //https://www.cmtedd.act.gov.au/communication/holidays
-    public static bool IsActHoliday(this Date date, [NotNullWhen(true)] out string? name)
+    //https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia
+    public static bool IsWaHoliday(this Date date, [NotNullWhen(true)] out string? name)
     {
         if (date.IsNewYearsDay())
         {
@@ -31,33 +31,50 @@ public static partial class Holidays
             }
         }
 
-        var reconciliationDayStart = new Date(date.Year, 5, 27);
-        var reconciliationDayEnd = reconciliationDayStart.AddDays(7);
-        if (date.DayOfWeek == DayOfWeek.Monday &&
-            date >= reconciliationDayStart &&
-            date <= reconciliationDayEnd)
-        {
-            name = "Reconciliation Day";
-            return true;
-        }
 
-        if (date.Month == 10)
+        if (date.Month == 3)
         {
-            var firstDayOfOctober = new Date(date.Year, 10, 1);
-            var dayOfWeek = (int)firstDayOfOctober.DayOfWeek;
+            var firstDayOfMarch = new Date(date.Year, 3, 1);
+            var dayOfWeek = (int)firstDayOfMarch.DayOfWeek;
             var daysUntilMonday = (8 - dayOfWeek) % 7;
-            var firstMonday = firstDayOfOctober.AddDays(daysUntilMonday);
+            var firstMonday = firstDayOfMarch.AddDays(daysUntilMonday);
             if (date == firstMonday)
             {
                 name = "Labour Day";
                 return true;
             }
         }
-
-        if (date.IsAnzacDay())
+        if (date.Month == 6)
         {
-            name = "Anzac Day";
-            return true;
+            var firstDayOfJune = new Date(date.Year, 6, 1);
+            var dayOfWeek = (int)firstDayOfJune.DayOfWeek;
+            var daysUntilMonday = (8 - dayOfWeek) % 7;
+            var firstMonday = firstDayOfJune.AddDays(daysUntilMonday);
+            if (date == firstMonday)
+            {
+                name = "Western Australia Day";
+                return true;
+            }
+        }
+
+        if (date.Month == 4)
+        {
+            if (date.Day == 25)
+            {
+                name = "Anzac Day";
+                return true;
+            }
+
+            // Anzac Day falls on a Saturday or Sunday
+            if (date is
+                {
+                    DayOfWeek: DayOfWeek.Monday,
+                    Day: 26 or 27
+                })
+            {
+                name = "Anzac Day Holiday";
+                return true;
+            }
         }
 
         var (easterFriday, easterSaturday, easterSunday, easterMonday) = EasterCalculator.ForYear(date.Year);

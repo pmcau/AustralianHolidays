@@ -51,6 +51,11 @@ public class Tests
             WriteForState(Holidays.IsActHoliday));
 
     [Test]
+    public Task WriteWa() =>
+        Verify(
+            WriteForState(Holidays.IsWaHoliday));
+
+    [Test]
     public Task WriteTas() =>
         Verify(
             WriteForState(Holidays.IsTasHoliday));
