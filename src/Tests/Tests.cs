@@ -1,13 +1,13 @@
 [TestFixture]
 public class Tests
 {
-    [TestCaseSource(nameof(GetArea))]
-    public Task IsPublicHolidayWithName(Area area)
+    [TestCaseSource(nameof(GetStates))]
+    public Task IsPublicHolidayWithName(State state)
     {
         var builder = new StringBuilder();
         foreach (var date in DateBuilder.Range())
         {
-            if (date.IsPublicHoliday(area, out var name))
+            if (date.IsPublicHoliday(state, out var name))
             {
                 builder.AppendLine($"{date.ToString("yyyy MMM dd ddd", CultureInfo.InvariantCulture)} {name}");
             }
@@ -16,13 +16,13 @@ public class Tests
         return Verify(builder);
     }
 
-    [TestCaseSource(nameof(GetArea))]
-    public Task IsPublicHoliday(Area area)
+    [TestCaseSource(nameof(GetStates))]
+    public Task IsPublicHoliday(State state)
     {
         var builder = new StringBuilder();
         foreach (var date in DateBuilder.Range())
         {
-            if (date.IsPublicHoliday(area))
+            if (date.IsPublicHoliday(state))
             {
                 builder.AppendLine($"{date.ToString("yyyy MMM dd ddd", CultureInfo.InvariantCulture)}");
             }
@@ -31,6 +31,6 @@ public class Tests
         return Verify(builder);
     }
 
-    public static IEnumerable<Area> GetArea() =>
-        Enum.GetValues<Area>();
+    public static IEnumerable<State> GetStates() =>
+        Enum.GetValues<State>();
 }

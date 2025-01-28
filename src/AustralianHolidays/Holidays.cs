@@ -7,9 +7,9 @@ public static class Holidays
             not DayOfWeek.Saturday and
             not DayOfWeek.Sunday;
 
-    internal static bool IsPublicHoliday(this Date date, Area area) => IsPublicHoliday(date,area, out _);
+    internal static bool IsPublicHoliday(this Date date, State state) => IsPublicHoliday(date,state, out _);
 
-    internal static bool IsPublicHoliday(this Date date, Area area, [NotNullWhen(true)] out string? name)
+    internal static bool IsPublicHoliday(this Date date, State state, [NotNullWhen(true)] out string? name)
     {
         if (date is { Month: 1, Day: 1 })
         {
@@ -62,7 +62,7 @@ public static class Holidays
             }
         }
 
-        if (EasterCalculator.TryGetPublicHoliday(date, out name))
+        if (EasterCalculator.TryGetPublicHoliday(date, state, out name))
         {
             return true;
         }

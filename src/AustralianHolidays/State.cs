@@ -1,6 +1,6 @@
 ﻿namespace AustralianHolidays;
 
-public enum Area
+public enum State
 {
     ACT,
     NSW,

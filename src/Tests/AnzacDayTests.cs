@@ -16,13 +16,13 @@ public class AnzacDayTests
         return Verify(builder);
     }
 
-    [TestCaseSource(nameof(GetArea))]
-    public Task IsAnzacDayHoliday(Area area)
+    [TestCaseSource(nameof(GetStates))]
+    public Task IsAnzacDayHoliday(State state)
     {
         var builder = new StringBuilder();
         foreach (var date in DateBuilder.Range())
         {
-            if (date.IsAnzacDayHoliday(area))
+            if (date.IsAnzacDayHoliday(state))
             {
                 builder.AppendLine($"{date.ToString("yyyy MMM dd ddd", CultureInfo.InvariantCulture)}");
             }
@@ -31,8 +31,8 @@ public class AnzacDayTests
         return Verify(builder);
     }
 
-    public static IEnumerable<Area> GetArea() =>
-        Enum.GetValues<Area>();
+    public static IEnumerable<State> GetStates() =>
+        Enum.GetValues<State>();
 
     [Test]
     public void GetEasterFriday()

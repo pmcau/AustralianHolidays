@@ -2,12 +2,44 @@
 
 public static class EasterCalculator
 {
-    public static bool TryGetPublicHoliday(Date date, [NotNullWhen(true)] out string? name)
+    //https://www.clockon.com.au/blog/easter-public-holidays-across-australian-states-differences
+    public static bool TryGetPublicHoliday(Date date, State state, [NotNullWhen(true)] out string? name)
     {
-        var (easterFriday, easterSunday, easterMonday) = ForYear(date.Year);
+        var (easterFriday, easterSaturday, easterSunday, easterMonday) = ForYear(date.Year);
         if (date == easterFriday)
         {
             name = "Easter Friday";
+            return true;
+        }
+
+        if (date == easterSaturday)
+        {
+            if (state != State.TAS &&
+                state != State.WA)
+            {
+                name = "Easter Saturday";
+                return true;
+            }
+
+            name = null;
+            return false;
+        }
+
+        if (date == easterSunday)
+        {
+            if (state == State.TAS)
+            {
+                name = null;
+                return false;
+            }
+
+            if (state == State.WA && date.Year >= 2022)
+            {
+                name = null;
+                return false;
+            }
+
+            name = "Easter Sunday";
             return true;
         }
 
@@ -17,22 +49,29 @@ public static class EasterCalculator
             return true;
         }
 
-        if (date == easterSunday)
+        if (date == easterMonday.AddDays(1))
         {
-            name = "Easter Sunday";
-            return true;
+            if (state != State.TAS)
+            {
+                name = "Easter Tuesday (Government employees only)";
+                return true;
+            }
+
+            name = null;
+            return false;
         }
 
         name = null;
         return false;
     }
 
-    public static (Date friday, Date sunday, Date monday) ForYear(int year)
+    public static (Date friday, Date saturday, Date sunday, Date monday) ForYear(int year)
     {
         var sunday = GetEasterSunday(year);
         var friday = sunday.AddDays(-2);
+        var saturday = sunday.AddDays(-1);
         var monday = sunday.AddDays(1);
-        return (friday, sunday, monday);
+        return (friday, saturday, sunday, monday);
     }
 
     public static Date GetEasterMonday(int year) =>
