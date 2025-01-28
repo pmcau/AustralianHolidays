@@ -35,7 +35,7 @@
 2026 Apr 05 Sun Easter Sunday
 2026 Apr 06 Mon Easter Monday
 2026 Apr 07 Tue Easter Tuesday (Government employees only)
-2026 Apr 27 Mon Anzac Day
+2026 Apr 25 Sat Anzac Day
 2026 Dec 25 Fri Christmas Day
 2026 Dec 26 Sat Government shutdown
 2026 Dec 27 Sun Government shutdown
@@ -50,7 +50,7 @@
 2027 Mar 28 Sun Easter Sunday
 2027 Mar 29 Mon Easter Monday
 2027 Mar 30 Tue Easter Tuesday (Government employees only)
-2027 Apr 26 Mon Anzac Day
+2027 Apr 25 Sun Anzac Day
 2027 Dec 25 Sat Christmas Day
 2027 Dec 26 Sun Government shutdown
 2027 Dec 27 Mon Government shutdown
@@ -125,7 +125,7 @@
 2032 Mar 28 Sun Easter Sunday
 2032 Mar 29 Mon Easter Monday
 2032 Mar 30 Tue Easter Tuesday (Government employees only)
-2032 Apr 26 Mon Anzac Day
+2032 Apr 25 Sun Anzac Day
 2032 Dec 25 Sat Christmas Day
 2032 Dec 26 Sun Government shutdown
 2032 Dec 27 Mon Government shutdown

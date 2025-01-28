@@ -52,7 +52,7 @@ public class DateBuilder
         foreach (var easterFriday in EasterFridays)
         {
             items.Add((easterFriday.AddDays(-1), "Before Easter"));
-            items.Add((easterFriday, "Easter Friday"));
+            items.Add((easterFriday, "Good Friday"));
             items.Add((easterFriday.AddDays(1), "Easter Saturday"));
             items.Add((easterFriday.AddDays(2), "Easter Sunday"));
             items.Add((easterFriday.AddDays(3), "Easter Monday"));

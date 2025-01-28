@@ -8,7 +8,7 @@ public static class EasterCalculator
         var (easterFriday, easterSaturday, easterSunday, easterMonday) = ForYear(date.Year);
         if (date == easterFriday)
         {
-            name = "Easter Friday";
+            name = "Good Friday";
             return true;
         }
 
@@ -51,7 +51,7 @@ public static class EasterCalculator
 
         if (date == easterMonday.AddDays(1))
         {
-            if (state != State.TAS)
+            if (state == State.TAS)
             {
                 name = "Easter Tuesday (Government employees only)";
                 return true;
