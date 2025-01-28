@@ -1,0 +1,48 @@
+﻿2024
+   friday: 2024 Mar 29 Fri
+   sunday: 2024 Mar 31 Sun
+   monday: 2024 Apr 01 Mon
+2025
+   friday: 2025 Apr 18 Fri
+   sunday: 2025 Apr 20 Sun
+   monday: 2025 Apr 21 Mon
+2026
+   friday: 2026 Apr 03 Fri
+   sunday: 2026 Apr 05 Sun
+   monday: 2026 Apr 06 Mon
+2027
+   friday: 2027 Mar 26 Fri
+   sunday: 2027 Mar 28 Sun
+   monday: 2027 Mar 29 Mon
+2028
+   friday: 2028 Apr 14 Fri
+   sunday: 2028 Apr 16 Sun
+   monday: 2028 Apr 17 Mon
+2029
+   friday: 2029 Mar 30 Fri
+   sunday: 2029 Apr 01 Sun
+   monday: 2029 Apr 02 Mon
+2030
+   friday: 2030 Apr 19 Fri
+   sunday: 2030 Apr 21 Sun
+   monday: 2030 Apr 22 Mon
+2031
+   friday: 2031 Apr 11 Fri
+   sunday: 2031 Apr 13 Sun
+   monday: 2031 Apr 14 Mon
+2032
+   friday: 2032 Mar 26 Fri
+   sunday: 2032 Mar 28 Sun
+   monday: 2032 Mar 29 Mon
+2033
+   friday: 2033 Apr 15 Fri
+   sunday: 2033 Apr 17 Sun
+   monday: 2033 Apr 18 Mon
+2034
+   friday: 2034 Apr 07 Fri
+   sunday: 2034 Apr 09 Sun
+   monday: 2034 Apr 10 Mon
+2035
+   friday: 2035 Mar 23 Fri
+   sunday: 2035 Mar 25 Sun
+   monday: 2035 Mar 26 Mon
