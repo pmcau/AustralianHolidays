@@ -21,7 +21,7 @@ AustralianHolidays
 
 
 https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia
-https://business.vic.gov.au/business-information/public-holidays
+https://business.vic.gov.au/business-information/public-holidays/victorian-public-holidays-2025
 https://worksafe.tas.gov.au/topics/laws-and-compliance/public-holidays
 https://www.safework.sa.gov.au/resources/public-holidays
 https://www.qld.gov.au/recreation/travel/holidays/public

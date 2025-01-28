@@ -59,10 +59,17 @@ public class Tests
     public Task WriteTas() =>
         Verify(
             WriteForState(Holidays.IsTasHoliday));
+
     [Test]
     public Task WriteNt() =>
         Verify(
             WriteForState(Holidays.IsNtHoliday));
+
+    [Test]
+    public Task WriteVic() =>
+        Verify(
+            WriteForState(Holidays.IsVicHoliday));
+
     [Test]
     public Task WriteQld() =>
         Verify(
