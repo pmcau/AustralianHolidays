@@ -31,7 +31,6 @@ public static partial class Holidays
             }
         }
 
-
         if (date.Month == 3)
         {
             var firstDayOfMarch = new Date(date.Year, 3, 1);
@@ -41,38 +40,6 @@ public static partial class Holidays
             if (date == firstMonday)
             {
                 name = "Labour Day";
-                return true;
-            }
-        }
-        if (date.Month == 6)
-        {
-            var firstDayOfJune = new Date(date.Year, 6, 1);
-            var dayOfWeek = (int)firstDayOfJune.DayOfWeek;
-            var daysUntilMonday = (8 - dayOfWeek) % 7;
-            var firstMonday = firstDayOfJune.AddDays(daysUntilMonday);
-            if (date == firstMonday)
-            {
-                name = "Western Australia Day";
-                return true;
-            }
-        }
-
-        if (date.Month == 4)
-        {
-            if (date.Day == 25)
-            {
-                name = "Anzac Day";
-                return true;
-            }
-
-            // Anzac Day falls on a Saturday or Sunday
-            if (date is
-                {
-                    DayOfWeek: DayOfWeek.Monday,
-                    Day: 26 or 27
-                })
-            {
-                name = "Anzac Day Holiday";
                 return true;
             }
         }
@@ -100,6 +67,39 @@ public static partial class Holidays
         {
             name = "Easter Monday";
             return true;
+        }
+
+        if (date.Month == 4)
+        {
+            if (date.Day == 25)
+            {
+                name = "Anzac Day";
+                return true;
+            }
+
+            // Anzac Day falls on a Saturday or Sunday
+            if (date is
+                {
+                    DayOfWeek: DayOfWeek.Monday,
+                    Day: 26 or 27
+                })
+            {
+                name = "Anzac Day Holiday";
+                return true;
+            }
+        }
+
+        if (date.Month == 6)
+        {
+            var firstDayOfJune = new Date(date.Year, 6, 1);
+            var dayOfWeek = (int)firstDayOfJune.DayOfWeek;
+            var daysUntilMonday = (8 - dayOfWeek) % 7;
+            var firstMonday = firstDayOfJune.AddDays(daysUntilMonday);
+            if (date == firstMonday)
+            {
+                name = "Western Australia Day";
+                return true;
+            }
         }
 
         name = null;
