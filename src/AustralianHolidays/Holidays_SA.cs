@@ -18,7 +18,7 @@ public static partial class Holidays
             return true;
         }
 
-        if (IsSecondMonday(date, Month.March))
+        if (date.IsSecondMonday(Month.March))
         {
             name = "Adelaide Cup Day";
             return true;
@@ -55,7 +55,7 @@ public static partial class Holidays
             return true;
         }
 
-        if (IsFirstMonday(date, Month.October))
+        if (date.IsFirstMonday(Month.October))
         {
             name = "Labour Day";
             return true;

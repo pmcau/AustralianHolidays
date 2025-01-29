@@ -74,7 +74,7 @@ public static partial class Holidays
         return oneJanuary;
     }
 
-    static bool IsFirstMonday(Date date, Month month)
+    static bool IsFirstMonday(this Date date, Month month)
     {
         var dateYear = date.Year;
         var firstDay = new Date(dateYear, (int)month, 1);
@@ -84,7 +84,7 @@ public static partial class Holidays
         return date == firstMonday;
     }
 
-    static bool IsSecondMonday(Date date, Month month)
+    static bool IsSecondMonday(this Date date, Month month)
     {
         var firstDay = new Date(date.Year, (int)month, 1);
         var dayOfWeek = (int)firstDay.DayOfWeek;

@@ -41,7 +41,7 @@ public static partial class Holidays
             return true;
         }
 
-        if (IsFirstMonday(date, Month.October))
+        if (date.IsFirstMonday(Month.October))
         {
             name = "Labour Day";
             return true;

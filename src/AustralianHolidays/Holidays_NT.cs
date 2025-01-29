@@ -31,13 +31,13 @@ public static partial class Holidays
             }
         }
 
-        if (IsFirstMonday(date, Month.May))
+        if (date.IsFirstMonday(Month.May))
         {
             name = "May Day";
             return true;
         }
 
-        if (IsFirstMonday(date, Month.August))
+        if (date.IsFirstMonday(Month.August))
         {
             name = "Picnic Day";
             return true;

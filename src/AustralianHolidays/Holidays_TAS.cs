@@ -31,7 +31,7 @@ public static partial class Holidays
             }
         }
 
-        if (IsSecondMonday(date, Month.March))
+        if (date.IsSecondMonday(Month.March))
         {
             name = "Eight Hours Day";
             return true;

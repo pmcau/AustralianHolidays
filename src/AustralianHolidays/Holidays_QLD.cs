@@ -31,7 +31,7 @@ public static partial class Holidays
             }
         }
 
-        if (IsFirstMonday(date, Month.May))
+        if (date.IsFirstMonday(Month.May))
         {
             name = "Labour Day";
             return true;

@@ -31,7 +31,7 @@ public static partial class Holidays
             }
         }
 
-        if (IsFirstMonday(date, Month.March))
+        if (date.IsFirstMonday(Month.March))
         {
             name = "Labour Day";
             return true;
@@ -82,7 +82,7 @@ public static partial class Holidays
             }
         }
 
-        if (IsFirstMonday(date, Month.June))
+        if (date.IsFirstMonday(Month.June))
         {
             name = "Western Australia Day";
             return true;
