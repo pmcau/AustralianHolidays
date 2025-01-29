@@ -22,7 +22,7 @@
 <!-- include: Tests.WriteByYears_state=ACT.verified.txt -->
 |      | 2025 | 2026 | 2027 | 2028 | 2029 |
 |------|------|------|------|------|------|
-| New Year's Day                 | Wed 01 Jan | Thu 01 Jan | Fri 01 Jan | Sat 01 Jan | Mon 01 Jan | 
+| New Year's Day                 | ``Wed 01 Jan`` | Thu 01 Jan | Fri 01 Jan | Sat 01 Jan | Mon 01 Jan | 
 | Australia Day                  |  | Mon 26 Jan | Tue 26 Jan | Wed 26 Jan | Fri 26 Jan | 
 | Australia Day<br>(additional)  | Mon 27 Jan |  |  |  |  | 
 | Canberra Day                   | Mon 10 Mar | Mon 09 Mar | Mon 08 Mar | Mon 13 Mar | Mon 12 Mar | 
