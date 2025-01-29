@@ -1,4 +1,19 @@
-﻿2025
+﻿2024
+    New Year's Day        Jan 01 Mon
+    Australia Day         Jan 26 Fri
+    Labour Day            Mar 11 Mon
+    Good Friday           Mar 29 Fri
+    Easter Saturday       Mar 30 Sat
+    Easter Sunday         Mar 31 Sun
+    Easter Monday         Apr 01 Mon
+    Anzac Day             Apr 25 Thu
+    King's Birthday       Jun 10 Mon
+    Friday before the AFL Grand Final (Subject to AFL schedule) Sep 27 Fri
+    Melbourne Cup Day     Nov 05 Tue
+    Christmas Day         Dec 25 Wed
+    Boxing Day            Dec 26 Thu
+    Christmas (additional) Dec 27 Fri
+2025
     New Year's Day        Jan 01 Wed
     Australia Day (additional) Jan 27 Mon
     Labour Day            Mar 10 Mon
@@ -59,3 +74,19 @@
     Boxing Day            Dec 26 Tue
     Christmas (additional) Dec 27 Wed
     Christmas (additional) Dec 28 Thu
+2029
+    New Year's Day        Jan 01 Mon
+    Australia Day         Jan 26 Fri
+    Labour Day            Mar 12 Mon
+    Good Friday           Mar 30 Fri
+    Easter Saturday       Mar 31 Sat
+    Easter Sunday         Apr 01 Sun
+    Easter Monday         Apr 02 Mon
+    Anzac Day             Apr 25 Wed
+    King's Birthday       Jun 11 Mon
+    Friday before the AFL Grand Final (Subject to AFL schedule) Sep 28 Fri
+    Melbourne Cup Day     Nov 06 Tue
+    Christmas Day         Dec 25 Tue
+    Boxing Day            Dec 26 Wed
+    Christmas (additional) Dec 27 Thu
+    Christmas (additional) Dec 28 Fri

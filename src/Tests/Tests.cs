@@ -42,7 +42,8 @@ public class Tests
 
     [Test]
     public Task ForYear() =>
-        Verify(Holidays.ForYear(2024));
+        Verify(Holidays.ForYear(2024))
+            .DontScrubDateTimes();
 
     [Test]
     public Task WriteNsw() =>
@@ -89,7 +90,7 @@ public class Tests
     static string WriteForState(IsHoliday isHoliday)
     {
         var builder = new StringBuilder();
-        for (var year = DateTime.Now.Year; year <= DateTime.Now.Year + 3; year++)
+        for (var year = DateTime.Now.Year-1; year <= DateTime.Now.Year + 4; year++)
         {
             var start = new Date(year, 1, 1);
             var end = new Date(year, 12, 31);

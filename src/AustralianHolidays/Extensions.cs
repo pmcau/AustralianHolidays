@@ -2,14 +2,6 @@
 
 static class Extensions
 {
-    public static bool IsLastMondayInMonth(this Date date, Month month)
-    {
-        var lastDayOfMonth = new Date(date.Year, (int)month, DateTime.DaysInMonth(date.Year, (int)month));
-        var dayOfWeek = (int)lastDayOfMonth.DayOfWeek;
-        var daysUntilMonday = dayOfWeek >= 1 ? dayOfWeek - 1 : 6;
-        var lastMonday = lastDayOfMonth.AddDays(-daysUntilMonday);
-        return date == lastMonday;
-    }
     public static bool IsFirstMonday(this Date date, Month month)
     {
         var firstDay = new Date(date.Year, (int)month, 1);

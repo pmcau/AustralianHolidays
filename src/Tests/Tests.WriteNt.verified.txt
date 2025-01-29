@@ -1,4 +1,20 @@
-﻿2025
+﻿2024
+    New Year's Day        Jan 01 Mon
+    Australia Day         Jan 26 Fri
+    Good Friday           Mar 29 Fri
+    Easter Saturday       Mar 30 Sat
+    Easter Sunday         Mar 31 Sun
+    Easter Monday         Apr 01 Mon
+    Anzac Day             Apr 25 Thu
+    May Day               May 06 Mon
+    King's Birthday       Jun 10 Mon
+    Picnic Day            Aug 05 Mon
+    Christmas Eve (part day holiday) Dec 24 Tue
+    Christmas Day         Dec 25 Wed
+    Boxing Day            Dec 26 Thu
+    Christmas (additional) Dec 27 Fri
+    New Year's Eve (part day holiday) Dec 31 Tue
+2025
     New Year's Day        Jan 01 Wed
     Australia Day (additional) Jan 27 Mon
     Good Friday           Apr 18 Fri
@@ -63,3 +79,20 @@
     Christmas (additional) Dec 27 Wed
     Christmas (additional) Dec 28 Thu
     New Year's Eve (part day holiday) Dec 31 Sun
+2029
+    New Year's Day        Jan 01 Mon
+    Australia Day         Jan 26 Fri
+    Good Friday           Mar 30 Fri
+    Easter Saturday       Mar 31 Sat
+    Easter Sunday         Apr 01 Sun
+    Easter Monday         Apr 02 Mon
+    Anzac Day             Apr 25 Wed
+    May Day               May 07 Mon
+    King's Birthday       Jun 11 Mon
+    Picnic Day            Aug 06 Mon
+    Christmas Eve (part day holiday) Dec 24 Mon
+    Christmas Day         Dec 25 Tue
+    Boxing Day            Dec 26 Wed
+    Christmas (additional) Dec 27 Thu
+    Christmas (additional) Dec 28 Fri
+    New Year's Eve (part day holiday) Dec 31 Mon

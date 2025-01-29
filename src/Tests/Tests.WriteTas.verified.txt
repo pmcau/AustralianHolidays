@@ -1,4 +1,18 @@
-﻿2025
+﻿2024
+    New Year's Day        Jan 01 Mon
+    Australia Day         Jan 26 Fri
+    Eight Hours Day       Mar 11 Mon
+    Good Friday           Mar 29 Fri
+    Easter Saturday       Mar 30 Sat
+    Easter Sunday         Mar 31 Sun
+    Easter Monday         Apr 01 Mon
+    Easter Tuesday (Government employees only) Apr 02 Tue
+    Anzac Day             Apr 25 Thu
+    King's Birthday       Jun 10 Mon
+    Christmas Day         Dec 25 Wed
+    Boxing Day            Dec 26 Thu
+    Christmas (additional) Dec 27 Fri
+2025
     New Year's Day        Jan 01 Wed
     Australia Day (additional) Jan 27 Mon
     Eight Hours Day       Mar 10 Mon
@@ -55,3 +69,18 @@
     Boxing Day            Dec 26 Tue
     Christmas (additional) Dec 27 Wed
     Christmas (additional) Dec 28 Thu
+2029
+    New Year's Day        Jan 01 Mon
+    Australia Day         Jan 26 Fri
+    Eight Hours Day       Mar 12 Mon
+    Good Friday           Mar 30 Fri
+    Easter Saturday       Mar 31 Sat
+    Easter Sunday         Apr 01 Sun
+    Easter Monday         Apr 02 Mon
+    Easter Tuesday (Government employees only) Apr 03 Tue
+    Anzac Day             Apr 25 Wed
+    King's Birthday       Jun 11 Mon
+    Christmas Day         Dec 25 Tue
+    Boxing Day            Dec 26 Wed
+    Christmas (additional) Dec 27 Thu
+    Christmas (additional) Dec 28 Fri
