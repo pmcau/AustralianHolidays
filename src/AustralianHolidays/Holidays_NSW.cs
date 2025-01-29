@@ -16,6 +16,18 @@ public static partial class Holidays
             return true;
         }
 
+        if (date is { Month: 1, Day: 2, DayOfWeek: DayOfWeek.Monday })
+        {
+            name = "New Year's Day Additional Holiday";
+            return true;
+        }
+
+        if (date is { Month: 1, Day: 3, DayOfWeek: DayOfWeek.Monday })
+        {
+            name = "New Year's Day Additional Holiday";
+            return true;
+        }
+
         if (date.Month == 1)
         {
             if (date.Day == 26 && date.IsWeekday())

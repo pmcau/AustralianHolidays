@@ -6,6 +6,10 @@ public static partial class Holidays
         date.DayOfWeek is
             not DayOfWeek.Saturday and
             not DayOfWeek.Sunday;
+    internal static bool IsWeekEnd(this Date date) =>
+        date.DayOfWeek is
+            DayOfWeek.Saturday or
+            DayOfWeek.Sunday;
 
     public static bool IsPublicHoliday(this Date date, State state) => IsPublicHoliday(date, state, out _);
 

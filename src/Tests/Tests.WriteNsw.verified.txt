@@ -42,6 +42,7 @@
     Christmas Holiday     Dec 28 Tue
 2028
     New Year's Day        Jan 01 Sat
+    New Year's Day Additional Holiday Jan 03 Mon
     Australia Day         Jan 26 Wed
     Good Friday           Apr 14 Fri
     Easter Saturday       Apr 15 Sat
