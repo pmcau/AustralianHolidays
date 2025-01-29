@@ -45,7 +45,7 @@ public class Tests
 
         foreach (var item in items)
         {
-            builder.Append("| " + item.Key.PadRight(30) + " | ");
+            builder.Append("| " + item.Key.Replace(" (","<br>(").PadRight(30) + " | ");
             foreach (var year in years)
             {
                 var dates = item.Select(_=>_.date).Where(_ => _.Year == year).ToList();
