@@ -29,4 +29,4 @@ AustralianHolidays
 
 ## Icon
 
-[Database](https://thenounproject.com/term/database/310841/) designed by [Creative Stall](https://thenounproject.com/creativestall/) from [The Noun Project](https://thenounproject.com).
+[Australia](https://thenounproject.com/term/australia/1053571/) designed by [Atterratio Aeternus](https://thenounproject.com/Atterratio/) from [The Noun Project](https://thenounproject.com).
