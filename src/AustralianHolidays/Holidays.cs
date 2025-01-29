@@ -25,10 +25,10 @@ public static partial class Holidays
         return list.OrderBy(_ => _.date);
     }
 
-    public static IOrderedEnumerable<(Date date, string name)> ForYears(State state,int startYear, int count = 1)
+    public static IOrderedEnumerable<(Date date, string name)> ForYears(State state, int startYear, int count = 1)
     {
         List<(Date date, string name)> list = [];
-        for (var year = startYear; year <= startYear+count; year++)
+        for (var year = startYear; year <= startYear + count; year++)
         {
             foreach (var date in GetAllDatesForYear(year))
             {
@@ -91,10 +91,10 @@ public static partial class Holidays
     }
 
     static bool IsNewYearsDay(this Date date) =>
-        date is { Month: 1, Day: 1 };
+        date is {Month: 1, Day: 1};
 
     static bool IsNewYearsEve(this Date date) =>
-        date is { Month: 12, Day: 31 };
+        date is {Month: 12, Day: 31};
 
     public static bool IsFederalGovernmentShutdown(this Date date)
     {
