@@ -19,6 +19,8 @@
 
 ### ACT
 
+[Reference](https://www.cmtedd.act.gov.au/communication/holidays)
+
 <!-- include: Tests.WriteByYears_state=ACT.verified.txt -->
 |      | 2025 | 2026 | 2027 | 2028 | 2029 |
 |------|------|------|------|------|------|
@@ -43,6 +45,8 @@
 
 ### NSW
 
+[Reference](https://www.nsw.gov.au/about-nsw/public-holidays)
+
 <!-- include: Tests.WriteByYears_state=NSW.verified.txt -->
 |      | 2025 | 2026 | 2027 | 2028 | 2029 |
 |------|------|------|------|------|------|
@@ -65,6 +69,8 @@
 
 
 ### NT
+
+[Reference](https://nt.gov.au/nt-public-holidays)
 
 <!-- include: Tests.WriteByYears_state=NT.verified.txt -->
 |      | 2025 | 2026 | 2027 | 2028 | 2029 |
@@ -90,6 +96,8 @@
 
 ### QLD
 
+[Reference](https://www.qld.gov.au/recreation/travel/holidays/public)
+
 <!-- include: Tests.WriteByYears_state=QLD.verified.txt -->
 |      | 2025 | 2026 | 2027 | 2028 | 2029 |
 |------|------|------|------|------|------|
@@ -111,6 +119,8 @@
 
 
 ### SA
+
+[Reference](https://www.safework.sa.gov.au/resources/public-holidays)
 
 <!-- include: Tests.WriteByYears_state=SA.verified.txt -->
 |      | 2025 | 2026 | 2027 | 2028 |
@@ -135,6 +145,8 @@
 
 ### TAS
 
+[Reference](https://worksafe.tas.gov.au/topics/laws-and-compliance/public-holidays)
+
 <!-- include: Tests.WriteByYears_state=TAS.verified.txt -->
 |      | 2025 | 2026 | 2027 | 2028 |
 |------|------|------|------|------|
@@ -156,6 +168,8 @@
 
 
 ### VIC
+
+[Reference](https://business.vic.gov.au/business-information/public-holidays/victorian-public-holidays-2025)
 
 <!-- include: Tests.WriteByYears_state=VIC.verified.txt -->
 |      | 2025 | 2026 | 2027 | 2028 |
@@ -180,6 +194,8 @@
 
 ### WA
 
+[Reference](https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia)
+
 <!-- include: Tests.WriteByYears_state=WA.verified.txt -->
 |      | 2025 | 2026 | 2027 | 2028 |
 |------|------|------|------|------|
@@ -201,18 +217,6 @@
 <!-- endInclude -->
 
 
-
-
-## Holiday references
-
- * [Australian Capital Territory](https://www.cmtedd.act.gov.au/communication/holidays)
- * [New South Wales](https://www.nsw.gov.au/about-nsw/public-holidays)
- * [Northern Territory](https://nt.gov.au/nt-public-holidays)
- * [Queensland](https://www.qld.gov.au/recreation/travel/holidays/public)
- * [South Australia](https://www.safework.sa.gov.au/resources/public-holidays)
- * [Tasmania](https://worksafe.tas.gov.au/topics/laws-and-compliance/public-holidays)
- * [Victoria](https://business.vic.gov.au/business-information/public-holidays/victorian-public-holidays-2025)
- * [Western Australia](https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia)
 
 ## Icon
 
