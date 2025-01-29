@@ -8,7 +8,7 @@
     Anzac Day             Apr 25 Thu
     Labour Day            May 06 Mon
     King's Birthday       Oct 07 Mon
-    Christmas Eve (part day holiday) Dec 24 Tue
+    Christmas Eve (part day) Dec 24 Tue
     Christmas Day         Dec 25 Wed
     Boxing Day            Dec 26 Thu
     Christmas (additional) Dec 27 Fri
@@ -22,7 +22,7 @@
     Anzac Day             Apr 25 Fri
     Labour Day            May 05 Mon
     King's Birthday       Oct 06 Mon
-    Christmas Eve (part day holiday) Dec 24 Wed
+    Christmas Eve (part day) Dec 24 Wed
     Christmas Day         Dec 25 Thu
     Boxing Day            Dec 26 Fri
 2026
@@ -35,7 +35,7 @@
     Anzac Day             Apr 25 Sat
     Labour Day            May 04 Mon
     King's Birthday       Oct 05 Mon
-    Christmas Eve (part day holiday) Dec 24 Thu
+    Christmas Eve (part day) Dec 24 Thu
     Christmas Day         Dec 25 Fri
     Boxing Day            Dec 26 Sat
     Christmas (additional) Dec 28 Mon
@@ -49,7 +49,7 @@
     Anzac Day             Apr 25 Sun
     Labour Day            May 03 Mon
     King's Birthday       Oct 04 Mon
-    Christmas Eve (part day holiday) Dec 24 Fri
+    Christmas Eve (part day) Dec 24 Fri
     Christmas Day         Dec 25 Sat
     Boxing Day            Dec 26 Sun
     Christmas (additional) Dec 27 Mon
@@ -64,7 +64,7 @@
     Anzac Day             Apr 25 Tue
     Labour Day            May 01 Mon
     King's Birthday       Oct 02 Mon
-    Christmas Eve (part day holiday) Dec 24 Sun
+    Christmas Eve (part day) Dec 24 Sun
     Christmas Day         Dec 25 Mon
     Boxing Day            Dec 26 Tue
     Christmas (additional) Dec 27 Wed
@@ -79,7 +79,7 @@
     Anzac Day             Apr 25 Wed
     Labour Day            May 07 Mon
     King's Birthday       Oct 01 Mon
-    Christmas Eve (part day holiday) Dec 24 Mon
+    Christmas Eve (part day) Dec 24 Mon
     Christmas Day         Dec 25 Tue
     Boxing Day            Dec 26 Wed
     Christmas (additional) Dec 27 Thu

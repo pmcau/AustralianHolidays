@@ -75,7 +75,7 @@ public static partial class Holidays
 
         if (date.IsChristmasEve())
         {
-            name = "Christmas Eve (part day holiday)";
+            name = "Christmas Eve (part day)";
             return true;
         }
 

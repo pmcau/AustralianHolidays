@@ -407,12 +407,12 @@
   {
     Item1: 2024-12-24,
     Item2: NT,
-    Item3: Christmas Eve (part day holiday)
+    Item3: Christmas Eve (part day)
   },
   {
     Item1: 2024-12-24,
     Item2: QLD,
-    Item3: Christmas Eve (part day holiday)
+    Item3: Christmas Eve (part day)
   },
   {
     Item1: 2024-12-25,
@@ -537,6 +537,6 @@
   {
     Item1: 2024-12-31,
     Item2: NT,
-    Item3: New Year's Eve (part day holiday)
+    Item3: New Year's Eve (part day)
   }
 ]
