@@ -2,7 +2,12 @@ namespace AustralianHolidays;
 
 public static partial class Holidays
 {
-    //https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia
+    /// <summary>
+    ///  Determines if the date is a public holiday in Victoria.
+    ///  Reference: https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia
+    /// </summary>
+    /// <param name="date">The date to check.</param>
+    /// <param name="name">The name of the holiday.</param>
     public static bool IsVicHoliday(this Date date, [NotNullWhen(true)] out string? name)
     {
         if (date.IsNewYearsDay())
