@@ -22,20 +22,39 @@ public class Tests
     [TestCaseSource(nameof(GetStates))]
     public Task WriteByYears(State state)
     {
-        var builder = new StringBuilder();
+        List<int> years = [];
         for (var year = DateTime.Now.Year; year <= DateTime.Now.Year + 3; year++)
         {
-            var start = new Date(year, 1, 1);
-            var end = new Date(year, 12, 31);
+            years.Add(year);
+        }
 
-            builder.AppendLine($"{year}");
-            for (var date = start; date <= end; date = date.AddDays(1))
+        var forYears = Holidays.ForYears(state, years);
+
+        var builder = new StringBuilder();
+        builder.AppendLine($"| {string.Join(" | ", years)} |");
+        builder.Append('|');
+        for (var index = 0; index < years.Count; index++)
+        {
+            builder.Append("------|");
+        }
+        builder.AppendLine();
+
+        var dictionary = forYears.GroupBy(_ => _.name)
+            .ToDictionary(_ => _.Key, _ =>_.ToList());
+        foreach (var (key, value) in dictionary)
+        {
+            builder.Append("| " + key.PadRight(30) + " | ");
+            foreach (var year in years)
             {
-                if (date.IsPublicHoliday(state, out var name))
+                var dates = value.Where(_ => _.date.Year == year).ToList();
+                if (dates.Count != 0)
                 {
-                    builder.AppendLine($"    {name.PadRight(35)} {date.ToString("MMM dd ddd", CultureInfo.InvariantCulture)}");
+                    builder.Append(string.Join(", ", dates.Select(_=>_.date.ToString("MMM dd ddd", CultureInfo.InvariantCulture))));
                 }
+
+                builder.Append(" | ");
             }
+            builder.AppendLine();
         }
 
         return Verify(builder);

@@ -2,16 +2,41 @@ namespace AustralianHolidays;
 
 public static partial class Holidays
 {
-    public static IOrderedEnumerable<(Date date, State state, string name)> ForYear(int year)
+    public static IOrderedEnumerable<(Date date, State state, string name)> ForYear(int year) =>
+        ForYears(year);
+
+    public static IOrderedEnumerable<(Date date, State state, string name)> ForYears(params IEnumerable<int> years)
     {
         List<(Date date, State state, string name)> list = [];
-        foreach (var date in GetAllDatesForYear(year))
+        foreach (var year in years)
         {
-            foreach (var state in Enum.GetValues<State>())
+            foreach (var date in GetAllDatesForYear(year))
+            {
+                foreach (var state in Enum.GetValues<State>())
+                {
+                    if (date.IsPublicHoliday(state, out var name))
+                    {
+                        list.Add((date, state, name));
+                    }
+                }
+            }
+        }
+
+        return list.OrderBy(_ => _.date);
+    }
+    public static IOrderedEnumerable<(Date date, string name)> ForYear(State state,int year) =>
+        ForYears(state, year);
+
+    public static IOrderedEnumerable<(Date date, string name)> ForYears(State state,params IEnumerable<int> years)
+    {
+        List<(Date date, string name)> list = [];
+        foreach (var year in years)
+        {
+            foreach (var date in GetAllDatesForYear(year))
             {
                 if (date.IsPublicHoliday(state, out var name))
                 {
-                    list.Add((date, state, name));
+                    list.Add((date, name));
                 }
             }
         }
