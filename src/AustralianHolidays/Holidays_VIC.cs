@@ -75,7 +75,7 @@ public static partial class Holidays
 
         if (date.IsLastFridayInMonth(Month.September))
         {
-            name = "Friday before the AFL Grand Final (Subject to AFL schedule)";
+            name = "Friday before AFL Grand Final (Subject to AFL schedule)";
             return true;
         }
 

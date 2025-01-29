@@ -10,7 +10,7 @@
 | Easter Monday                  | Mon 21 Apr | Mon 06 Apr | Mon 29 Mar | Mon 17 Apr | Mon 02 Apr | 
 | Anzac Day                      | Fri 25 Apr | Sat 25 Apr | Sun 25 Apr | Tue 25 Apr | Wed 25 Apr | 
 | King's Birthday                | Mon 09 Jun | Mon 08 Jun | Mon 14 Jun | Mon 12 Jun | Mon 11 Jun | 
-| Friday before the AFL Grand Final<br>(Subject to AFL schedule) | Fri 26 Sep | Fri 25 Sep | Fri 24 Sep | Fri 29 Sep | Fri 28 Sep | 
+| Friday before AFL Grand Final<br>(Subject to AFL schedule) | Fri 26 Sep | Fri 25 Sep | Fri 24 Sep | Fri 29 Sep | Fri 28 Sep | 
 | Melbourne Cup Day              | Tue 04 Nov | Tue 03 Nov | Tue 02 Nov | Tue 07 Nov | Tue 06 Nov | 
 | Christmas Day                  | Thu 25 Dec | Fri 25 Dec | Sat 25 Dec | Mon 25 Dec | Tue 25 Dec | 
 | Boxing Day                     | Fri 26 Dec | Sat 26 Dec | Sun 26 Dec | Tue 26 Dec | Wed 26 Dec | 

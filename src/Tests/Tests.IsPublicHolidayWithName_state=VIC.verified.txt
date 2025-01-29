@@ -7,7 +7,7 @@
 2024 Apr 01 Mon Easter Monday
 2024 Apr 25 Thu Anzac Day
 2024 Jun 10 Mon King's Birthday
-2024 Sep 27 Fri Friday before the AFL Grand Final (Subject to AFL schedule)
+2024 Sep 27 Fri Friday before AFL Grand Final (Subject to AFL schedule)
 2024 Nov 05 Tue Melbourne Cup Day
 2024 Dec 25 Wed Christmas Day
 2024 Dec 26 Thu Boxing Day
@@ -21,7 +21,7 @@
 2025 Apr 21 Mon Easter Monday
 2025 Apr 25 Fri Anzac Day
 2025 Jun 09 Mon King's Birthday
-2025 Sep 26 Fri Friday before the AFL Grand Final (Subject to AFL schedule)
+2025 Sep 26 Fri Friday before AFL Grand Final (Subject to AFL schedule)
 2025 Nov 04 Tue Melbourne Cup Day
 2025 Dec 25 Thu Christmas Day
 2025 Dec 26 Fri Boxing Day
@@ -34,7 +34,7 @@
 2026 Apr 06 Mon Easter Monday
 2026 Apr 25 Sat Anzac Day
 2026 Jun 08 Mon King's Birthday
-2026 Sep 25 Fri Friday before the AFL Grand Final (Subject to AFL schedule)
+2026 Sep 25 Fri Friday before AFL Grand Final (Subject to AFL schedule)
 2026 Nov 03 Tue Melbourne Cup Day
 2026 Dec 25 Fri Christmas Day
 2026 Dec 26 Sat Boxing Day
@@ -48,7 +48,7 @@
 2027 Mar 29 Mon Easter Monday
 2027 Apr 25 Sun Anzac Day
 2027 Jun 14 Mon King's Birthday
-2027 Sep 24 Fri Friday before the AFL Grand Final (Subject to AFL schedule)
+2027 Sep 24 Fri Friday before AFL Grand Final (Subject to AFL schedule)
 2027 Nov 02 Tue Melbourne Cup Day
 2027 Dec 25 Sat Christmas Day
 2027 Dec 26 Sun Boxing Day
@@ -63,7 +63,7 @@
 2028 Apr 17 Mon Easter Monday
 2028 Apr 25 Tue Anzac Day
 2028 Jun 12 Mon King's Birthday
-2028 Sep 29 Fri Friday before the AFL Grand Final (Subject to AFL schedule)
+2028 Sep 29 Fri Friday before AFL Grand Final (Subject to AFL schedule)
 2028 Nov 07 Tue Melbourne Cup Day
 2028 Dec 25 Mon Christmas Day
 2028 Dec 26 Tue Boxing Day
@@ -78,7 +78,7 @@
 2029 Apr 02 Mon Easter Monday
 2029 Apr 25 Wed Anzac Day
 2029 Jun 11 Mon King's Birthday
-2029 Sep 28 Fri Friday before the AFL Grand Final (Subject to AFL schedule)
+2029 Sep 28 Fri Friday before AFL Grand Final (Subject to AFL schedule)
 2029 Nov 06 Tue Melbourne Cup Day
 2029 Dec 25 Tue Christmas Day
 2029 Dec 26 Wed Boxing Day
@@ -93,7 +93,7 @@
 2030 Apr 22 Mon Easter Monday
 2030 Apr 25 Thu Anzac Day
 2030 Jun 10 Mon King's Birthday
-2030 Sep 27 Fri Friday before the AFL Grand Final (Subject to AFL schedule)
+2030 Sep 27 Fri Friday before AFL Grand Final (Subject to AFL schedule)
 2030 Nov 05 Tue Melbourne Cup Day
 2030 Dec 25 Wed Christmas Day
 2030 Dec 26 Thu Boxing Day
@@ -107,7 +107,7 @@
 2031 Apr 14 Mon Easter Monday
 2031 Apr 25 Fri Anzac Day
 2031 Jun 09 Mon King's Birthday
-2031 Sep 26 Fri Friday before the AFL Grand Final (Subject to AFL schedule)
+2031 Sep 26 Fri Friday before AFL Grand Final (Subject to AFL schedule)
 2031 Nov 04 Tue Melbourne Cup Day
 2031 Dec 25 Thu Christmas Day
 2031 Dec 26 Fri Boxing Day
@@ -120,7 +120,7 @@
 2032 Mar 29 Mon Easter Monday
 2032 Apr 25 Sun Anzac Day
 2032 Jun 14 Mon King's Birthday
-2032 Sep 24 Fri Friday before the AFL Grand Final (Subject to AFL schedule)
+2032 Sep 24 Fri Friday before AFL Grand Final (Subject to AFL schedule)
 2032 Nov 02 Tue Melbourne Cup Day
 2032 Dec 25 Sat Christmas Day
 2032 Dec 26 Sun Boxing Day
@@ -135,7 +135,7 @@
 2033 Apr 18 Mon Easter Monday
 2033 Apr 25 Mon Anzac Day
 2033 Jun 13 Mon King's Birthday
-2033 Sep 30 Fri Friday before the AFL Grand Final (Subject to AFL schedule)
+2033 Sep 30 Fri Friday before AFL Grand Final (Subject to AFL schedule)
 2033 Nov 01 Tue Melbourne Cup Day
 2033 Dec 25 Sun Christmas Day
 2033 Dec 26 Mon Boxing Day
@@ -150,7 +150,7 @@
 2034 Apr 10 Mon Easter Monday
 2034 Apr 25 Tue Anzac Day
 2034 Jun 12 Mon King's Birthday
-2034 Sep 29 Fri Friday before the AFL Grand Final (Subject to AFL schedule)
+2034 Sep 29 Fri Friday before AFL Grand Final (Subject to AFL schedule)
 2034 Nov 07 Tue Melbourne Cup Day
 2034 Dec 25 Mon Christmas Day
 2034 Dec 26 Tue Boxing Day
@@ -165,7 +165,7 @@
 2035 Mar 26 Mon Easter Monday
 2035 Apr 25 Wed Anzac Day
 2035 Jun 11 Mon King's Birthday
-2035 Sep 28 Fri Friday before the AFL Grand Final (Subject to AFL schedule)
+2035 Sep 28 Fri Friday before AFL Grand Final (Subject to AFL schedule)
 2035 Nov 06 Tue Melbourne Cup Day
 2035 Dec 25 Tue Christmas Day
 2035 Dec 26 Wed Boxing Day
