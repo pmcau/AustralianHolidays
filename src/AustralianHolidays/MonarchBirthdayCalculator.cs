@@ -54,4 +54,30 @@ static class MonarchBirthdayCalculator
         date.Year <= 2022 &&
         date.IsFirstMonday(Month.October);
 
+    public static bool IsMonarchBirthdayWa(this Date date, [NotNullWhen(true)] out string? name)
+    {
+        if (date.IsQueensBirthdayWa())
+        {
+            name = "Queens Birthday";
+            return true;
+        }
+
+        if (date.IsKingsBirthdayWa())
+        {
+            name = "Kings Birthday";
+            return true;
+        }
+
+        name = null;
+        return false;
+    }
+
+    public static bool IsKingsBirthdayWa(this Date date) =>
+        date.Year > 2022 &&
+        date.IsLastMondayInMonth(Month.September);
+
+    public static bool IsQueensBirthdayWa(this Date date) =>
+        date.Year <= 2022 &&
+        date.IsLastMondayInMonth(Month.September);
+
 }

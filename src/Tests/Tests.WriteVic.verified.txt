@@ -8,6 +8,8 @@
     Easter Monday         Apr 21 Mon
     Anzac Day             Apr 25 Fri
     Kings Birthday        Jun 09 Mon
+    Friday before the AFL Grand Final (Subject to AFL schedule) Sep 26 Fri
+    Melbourne Cup Day     Nov 04 Tue
     Christmas Day         Dec 25 Thu
     Boxing Day            Dec 26 Fri
 2026
@@ -20,6 +22,8 @@
     Easter Monday         Apr 06 Mon
     Anzac Day             Apr 25 Sat
     Kings Birthday        Jun 08 Mon
+    Friday before the AFL Grand Final (Subject to AFL schedule) Sep 25 Fri
+    Melbourne Cup Day     Nov 03 Tue
     Christmas Day         Dec 25 Fri
     Boxing Day            Dec 26 Sat
     Christmas (additional) Dec 28 Mon
@@ -33,6 +37,8 @@
     Easter Monday         Mar 29 Mon
     Anzac Day             Apr 25 Sun
     Kings Birthday        Jun 14 Mon
+    Friday before the AFL Grand Final (Subject to AFL schedule) Sep 24 Fri
+    Melbourne Cup Day     Nov 02 Tue
     Christmas Day         Dec 25 Sat
     Boxing Day            Dec 26 Sun
     Christmas (additional) Dec 27 Mon
@@ -47,6 +53,8 @@
     Easter Monday         Apr 17 Mon
     Anzac Day             Apr 25 Tue
     Kings Birthday        Jun 12 Mon
+    Friday before the AFL Grand Final (Subject to AFL schedule) Sep 29 Fri
+    Melbourne Cup Day     Nov 07 Tue
     Christmas Day         Dec 25 Mon
     Boxing Day            Dec 26 Tue
     Christmas (additional) Dec 27 Wed

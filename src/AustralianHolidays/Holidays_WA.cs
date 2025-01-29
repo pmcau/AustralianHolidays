@@ -88,7 +88,7 @@ public static partial class Holidays
             return true;
         }
 
-        if (date.IsMonarchBirthday(out name))
+        if (date.IsMonarchBirthdayWa(out name))
         {
             return true;
         }

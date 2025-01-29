@@ -73,6 +73,18 @@ public static partial class Holidays
             return true;
         }
 
+        if (date.IsLastFridayInMonth(Month.September))
+        {
+            name = "Friday before the AFL Grand Final (Subject to AFL schedule)";
+            return true;
+        }
+
+        if (date.IsFirstTuesday(Month.November))
+        {
+            name = "Melbourne Cup Day";
+            return true;
+        }
+
         if (ChristmasCalculator.TryGet(date, out name))
         {
             return true;
