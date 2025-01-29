@@ -4,7 +4,7 @@ public static partial class Holidays
 {
     /// <summary>
     ///  Determines if the date is a public holiday in Victoria.
-    ///  Reference: https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia
+    ///  Reference: https://business.vic.gov.au/business-information/public-holidays/victorian-public-holidays-2025
     /// </summary>
     /// <param name="date">The date to check.</param>
     /// <param name="name">The name of the holiday.</param>
