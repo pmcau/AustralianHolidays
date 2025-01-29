@@ -2,8 +2,8 @@ namespace AustralianHolidays;
 
 public static partial class Holidays
 {
-    //https://www.cmtedd.act.gov.au/communication/holidays
-    public static bool IsTasHoliday(this Date date, [NotNullWhen(true)] out string? name)
+    //https://www.safework.sa.gov.au/resources/public-holidays
+    public static bool IsSaHoliday(this Date date, [NotNullWhen(true)] out string? name)
     {
         if (date.IsNewYearsDay())
         {
@@ -11,35 +11,16 @@ public static partial class Holidays
             return true;
         }
 
-        if (ChristmasCalculator.TryGet(date, out name))
+        if (date.Month == 1 &&
+            date is { DayOfWeek: DayOfWeek.Monday, Day: 27 or 28 })
         {
+            name = "Australia Day Holiday";
             return true;
-        }
-
-        if (date.Month == 1)
-        {
-            if (date.Day == 26 && date.IsWeekday())
-            {
-                name = "Australia Day";
-                return true;
-            }
-
-            if (date is { DayOfWeek: DayOfWeek.Monday, Day: 27 or 28 })
-            {
-                name = "Australia Day Holiday";
-                return true;
-            }
         }
 
         if (IsSecondMonday(date, Month.March))
         {
-            name = "Eight Hours Day";
-            return true;
-        }
-
-        if (date.IsAnzacDay())
-        {
-            name = "Anzac Day";
+            name = "Adelaide Cup Day";
             return true;
         }
 
@@ -68,9 +49,20 @@ public static partial class Holidays
             return true;
         }
 
-        if (date == easterMonday.AddDays(1))
+        if (date.IsAnzacDay())
         {
-            name = "Easter Tuesday (Government employees only)";
+            name = "Anzac Day";
+            return true;
+        }
+
+        if (IsFirstMonday(date, Month.October))
+        {
+            name = "Labour Day";
+            return true;
+        }
+
+        if (ChristmasCalculator.TryGet(date, out name))
+        {
             return true;
         }
 

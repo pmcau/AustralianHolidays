@@ -26,17 +26,10 @@ public static partial class Holidays
             }
         }
 
-        if (date.Month == 3)
+        if (IsSecondMonday(date, Month.March))
         {
-            var firstDayOfMarch = new Date(date.Year, 3, 1);
-            var dayOfWeek = (int)firstDayOfMarch.DayOfWeek;
-            var daysUntilMonday = (8 - dayOfWeek) % 7;
-            var secondMonday = firstDayOfMarch.AddDays(daysUntilMonday + 7);
-            if (date == secondMonday)
-            {
-                name = "Labour Day";
-                return true;
-            }
+            name = "Labour Day";
+            return true;
         }
 
         var (easterFriday, easterSaturday, easterSunday, easterMonday) = EasterCalculator.ForYear(date.Year);

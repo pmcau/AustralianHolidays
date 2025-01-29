@@ -31,17 +31,10 @@ public static partial class Holidays
             }
         }
 
-        if (date.Month == 5)
+        if (IsFirstMonday(date, Month.May))
         {
-            var firstDayOfMay = new Date(date.Year, 5, 1);
-            var dayOfWeek = (int)firstDayOfMay.DayOfWeek;
-            var daysUntilMonday = (8 - dayOfWeek) % 7;
-            var firstMonday = firstDayOfMay.AddDays(daysUntilMonday);
-            if (date == firstMonday)
-            {
-                name = "Labour Day";
-                return true;
-            }
+            name = "Labour Day";
+            return true;
         }
 
         if (date.IsAnzacDay())

@@ -31,17 +31,10 @@ public static partial class Holidays
             }
         }
 
-        if (date.Month == 3)
+        if (IsFirstMonday(date, Month.March))
         {
-            var firstDayOfMarch = new Date(date.Year, 3, 1);
-            var dayOfWeek = (int)firstDayOfMarch.DayOfWeek;
-            var daysUntilMonday = (8 - dayOfWeek) % 7;
-            var firstMonday = firstDayOfMarch.AddDays(daysUntilMonday);
-            if (date == firstMonday)
-            {
-                name = "Labour Day";
-                return true;
-            }
+            name = "Labour Day";
+            return true;
         }
 
         var (easterFriday, easterSaturday, easterSunday, easterMonday) = EasterCalculator.ForYear(date.Year);
@@ -89,17 +82,10 @@ public static partial class Holidays
             }
         }
 
-        if (date.Month == 6)
+        if (IsFirstMonday(date, Month.June))
         {
-            var firstDayOfJune = new Date(date.Year, 6, 1);
-            var dayOfWeek = (int)firstDayOfJune.DayOfWeek;
-            var daysUntilMonday = (8 - dayOfWeek) % 7;
-            var firstMonday = firstDayOfJune.AddDays(daysUntilMonday);
-            if (date == firstMonday)
-            {
-                name = "Western Australia Day";
-                return true;
-            }
+            name = "Western Australia Day";
+            return true;
         }
 
         name = null;

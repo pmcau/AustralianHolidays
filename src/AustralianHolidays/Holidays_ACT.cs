@@ -41,17 +41,10 @@ public static partial class Holidays
             return true;
         }
 
-        if (date.Month == 10)
+        if (IsFirstMonday(date, Month.October))
         {
-            var firstDayOfOctober = new Date(date.Year, 10, 1);
-            var dayOfWeek = (int)firstDayOfOctober.DayOfWeek;
-            var daysUntilMonday = (8 - dayOfWeek) % 7;
-            var firstMonday = firstDayOfOctober.AddDays(daysUntilMonday);
-            if (date == firstMonday)
-            {
-                name = "Labour Day";
-                return true;
-            }
+            name = "Labour Day";
+            return true;
         }
 
         if (date.IsAnzacDay())

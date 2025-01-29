@@ -31,29 +31,16 @@ public static partial class Holidays
             }
         }
 
-        if (date.Month == 5)
+        if (IsFirstMonday(date, Month.May))
         {
-            var firstDayOfMay = new Date(date.Year, 5, 1);
-            var dayOfWeek = (int)firstDayOfMay.DayOfWeek;
-            var daysUntilMonday = (8 - dayOfWeek) % 7;
-            var firstMonday = firstDayOfMay.AddDays(daysUntilMonday);
-            if (date == firstMonday)
-            {
-                name = "May Day";
-                return true;
-            }
+            name = "May Day";
+            return true;
         }
-        if (date.Month == 8)
+
+        if (IsFirstMonday(date, Month.August))
         {
-            var firstDayOfAugust = new Date(date.Year, 8, 1);
-            var dayOfWeek = (int)firstDayOfAugust.DayOfWeek;
-            var daysUntilMonday = (8 - dayOfWeek) % 7;
-            var firstMonday = firstDayOfAugust.AddDays(daysUntilMonday);
-            if (date == firstMonday)
-            {
-                name = "Picnic Day";
-                return true;
-            }
+            name = "Picnic Day";
+            return true;
         }
 
         if (date.IsAnzacDay())
