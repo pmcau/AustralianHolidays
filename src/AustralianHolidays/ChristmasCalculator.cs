@@ -39,14 +39,14 @@ public static class ChristmasCalculator
         var boxingDayPlus1 = boxingDay.AddDays(1);
         if (date == boxingDayPlus1 && boxingDayPlus1.IsWeekday())
         {
-            name = "Christmas Holiday";
+            name = "Christmas (additional)";
             return true;
         }
 
         var boxingDayPlus2 = boxingDay.AddDays(2);
         if (date == boxingDayPlus2 && boxingDayPlus2.IsWeekday())
         {
-            name = "Christmas Holiday";
+            name = "Christmas (additional)";
             return true;
         }
 

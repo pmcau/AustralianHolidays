@@ -22,7 +22,7 @@
     Kings Birthday        Jun 08 Mon
     Christmas Day         Dec 25 Fri
     Boxing Day            Dec 26 Sat
-    Christmas Holiday     Dec 28 Mon
+    Christmas (additional) Dec 28 Mon
 2027
     New Year's Day        Jan 01 Fri
     Australia Day         Jan 26 Tue
@@ -35,8 +35,8 @@
     Kings Birthday        Jun 14 Mon
     Christmas Day         Dec 25 Sat
     Boxing Day            Dec 26 Sun
-    Christmas Holiday     Dec 27 Mon
-    Christmas Holiday     Dec 28 Tue
+    Christmas (additional) Dec 27 Mon
+    Christmas (additional) Dec 28 Tue
 2028
     New Year's Day        Jan 01 Sat
     Australia Day         Jan 26 Wed
@@ -49,5 +49,5 @@
     Kings Birthday        Jun 12 Mon
     Christmas Day         Dec 25 Mon
     Boxing Day            Dec 26 Tue
-    Christmas Holiday     Dec 27 Wed
-    Christmas Holiday     Dec 28 Thu
+    Christmas (additional) Dec 27 Wed
+    Christmas (additional) Dec 28 Thu

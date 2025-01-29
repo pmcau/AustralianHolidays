@@ -27,7 +27,7 @@
     Christmas Eve (part day holiday) Dec 24 Thu
     Christmas Day         Dec 25 Fri
     Boxing Day            Dec 26 Sat
-    Christmas Holiday     Dec 28 Mon
+    Christmas (additional) Dec 28 Mon
     New Year's Eve (part day holiday) Dec 31 Thu
 2027
     New Year's Day        Jan 01 Fri
@@ -43,8 +43,8 @@
     Christmas Eve (part day holiday) Dec 24 Fri
     Christmas Day         Dec 25 Sat
     Boxing Day            Dec 26 Sun
-    Christmas Holiday     Dec 27 Mon
-    Christmas Holiday     Dec 28 Tue
+    Christmas (additional) Dec 27 Mon
+    Christmas (additional) Dec 28 Tue
     New Year's Eve (part day holiday) Dec 31 Fri
 2028
     New Year's Day        Jan 01 Sat
@@ -60,6 +60,6 @@
     Christmas Eve (part day holiday) Dec 24 Sun
     Christmas Day         Dec 25 Mon
     Boxing Day            Dec 26 Tue
-    Christmas Holiday     Dec 27 Wed
-    Christmas Holiday     Dec 28 Thu
+    Christmas (additional) Dec 27 Wed
+    Christmas (additional) Dec 28 Thu
     New Year's Eve (part day holiday) Dec 31 Sun
