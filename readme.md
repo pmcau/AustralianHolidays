@@ -167,9 +167,7 @@
 <!-- endInclude -->
 
 
-### VIC
-
-[Reference](https://business.vic.gov.au/business-information/public-holidays/victorian-public-holidays-2025)
+### Victorian ([Reference](https://business.vic.gov.au/business-information/public-holidays/victorian-public-holidays-2025))
 
 <!-- include: Tests.WriteByYears_state=VIC.verified.txt -->
 |      | 2025 | 2026 | 2027 | 2028 |
@@ -192,7 +190,7 @@
 <!-- endInclude -->
 
 
-### WA
+### Western Australia
 
 [Reference](https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia)
 
