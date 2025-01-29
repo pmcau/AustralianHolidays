@@ -11,7 +11,7 @@
 2024 Dec 26 Thu Proclamation Day and Boxing Day
 2024 Dec 27 Fri Christmas (additional)
 2025 Jan 01 Wed New Year's Day
-2025 Jan 27 Mon Australia Day Holiday
+2025 Jan 27 Mon Australia Day (additional)
 2025 Mar 10 Mon Adelaide Cup Day
 2025 Apr 18 Fri Good Friday
 2025 Apr 19 Sat Easter Saturday
@@ -74,7 +74,7 @@
 2029 Dec 27 Thu Christmas (additional)
 2029 Dec 28 Fri Christmas (additional)
 2030 Jan 01 Tue New Year's Day
-2030 Jan 28 Mon Australia Day Holiday
+2030 Jan 28 Mon Australia Day (additional)
 2030 Mar 11 Mon Adelaide Cup Day
 2030 Apr 19 Fri Good Friday
 2030 Apr 20 Sat Easter Saturday
@@ -87,7 +87,7 @@
 2030 Dec 26 Thu Proclamation Day and Boxing Day
 2030 Dec 27 Fri Christmas (additional)
 2031 Jan 01 Wed New Year's Day
-2031 Jan 27 Mon Australia Day Holiday
+2031 Jan 27 Mon Australia Day (additional)
 2031 Mar 10 Mon Adelaide Cup Day
 2031 Apr 11 Fri Good Friday
 2031 Apr 12 Sat Easter Saturday

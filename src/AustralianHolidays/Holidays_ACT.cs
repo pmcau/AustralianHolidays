@@ -26,7 +26,7 @@ public static partial class Holidays
 
             if (date is { DayOfWeek: DayOfWeek.Monday, Day: 27 or 28 })
             {
-                name = "Australia Day Holiday";
+                name = "Australia Day (additional)";
                 return true;
             }
         }
@@ -52,7 +52,7 @@ public static partial class Holidays
             // Anzac Day falls on a Saturday
             if (date is { DayOfWeek: DayOfWeek.Monday, Day: 27 })
             {
-                name = "Anzac Day Holiday";
+                name = "Anzac Day (additional)";
                 return true;
             }
 

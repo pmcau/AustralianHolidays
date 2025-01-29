@@ -32,7 +32,7 @@ public class Tests
             {
                 if (date.IsPublicHoliday(state, out var name))
                 {
-                    builder.AppendLine($"    {name.PadRight(21)} {date.ToString("MMM dd ddd", CultureInfo.InvariantCulture)}");
+                    builder.AppendLine($"    {name.PadRight(35)} {date.ToString("MMM dd ddd", CultureInfo.InvariantCulture)}");
                 }
             }
         }

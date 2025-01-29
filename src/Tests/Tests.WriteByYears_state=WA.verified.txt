@@ -1,59 +1,59 @@
 ﻿2025
-    New Year's Day        Jan 01 Wed
-    Australia Day Holiday Jan 27 Mon
-    Labour Day            Mar 03 Mon
-    Good Friday           Apr 18 Fri
-    Easter Saturday       Apr 19 Sat
-    Easter Sunday         Apr 20 Sun
-    Easter Monday         Apr 21 Mon
-    Anzac Day             Apr 25 Fri
-    Western Australia Day Jun 02 Mon
-    Kings Birthday        Jun 09 Mon
-    Christmas Day         Dec 25 Thu
-    Boxing Day            Dec 26 Fri
+    New Year's Day                      Jan 01 Wed
+    Australia Day (additional)          Jan 27 Mon
+    Labour Day                          Mar 03 Mon
+    Good Friday                         Apr 18 Fri
+    Easter Saturday                     Apr 19 Sat
+    Easter Sunday                       Apr 20 Sun
+    Easter Monday                       Apr 21 Mon
+    Anzac Day                           Apr 25 Fri
+    Western Australia Day               Jun 02 Mon
+    Kings Birthday                      Jun 09 Mon
+    Christmas Day                       Dec 25 Thu
+    Boxing Day                          Dec 26 Fri
 2026
-    New Year's Day        Jan 01 Thu
-    Australia Day         Jan 26 Mon
-    Labour Day            Mar 02 Mon
-    Good Friday           Apr 03 Fri
-    Easter Saturday       Apr 04 Sat
-    Easter Sunday         Apr 05 Sun
-    Easter Monday         Apr 06 Mon
-    Anzac Day             Apr 25 Sat
-    Anzac Day Holiday     Apr 27 Mon
-    Western Australia Day Jun 01 Mon
-    Kings Birthday        Jun 08 Mon
-    Christmas Day         Dec 25 Fri
-    Boxing Day            Dec 26 Sat
-    Christmas (additional) Dec 28 Mon
+    New Year's Day                      Jan 01 Thu
+    Australia Day                       Jan 26 Mon
+    Labour Day                          Mar 02 Mon
+    Good Friday                         Apr 03 Fri
+    Easter Saturday                     Apr 04 Sat
+    Easter Sunday                       Apr 05 Sun
+    Easter Monday                       Apr 06 Mon
+    Anzac Day                           Apr 25 Sat
+    Anzac Day (additional)              Apr 27 Mon
+    Western Australia Day               Jun 01 Mon
+    Kings Birthday                      Jun 08 Mon
+    Christmas Day                       Dec 25 Fri
+    Boxing Day                          Dec 26 Sat
+    Christmas (additional)              Dec 28 Mon
 2027
-    New Year's Day        Jan 01 Fri
-    Australia Day         Jan 26 Tue
-    Labour Day            Mar 01 Mon
-    Good Friday           Mar 26 Fri
-    Easter Saturday       Mar 27 Sat
-    Easter Sunday         Mar 28 Sun
-    Easter Monday         Mar 29 Mon
-    Anzac Day             Apr 25 Sun
-    Anzac Day Holiday     Apr 26 Mon
-    Western Australia Day Jun 07 Mon
-    Kings Birthday        Jun 14 Mon
-    Christmas Day         Dec 25 Sat
-    Boxing Day            Dec 26 Sun
-    Christmas (additional) Dec 27 Mon
-    Christmas (additional) Dec 28 Tue
+    New Year's Day                      Jan 01 Fri
+    Australia Day                       Jan 26 Tue
+    Labour Day                          Mar 01 Mon
+    Good Friday                         Mar 26 Fri
+    Easter Saturday                     Mar 27 Sat
+    Easter Sunday                       Mar 28 Sun
+    Easter Monday                       Mar 29 Mon
+    Anzac Day                           Apr 25 Sun
+    Anzac Day (additional)              Apr 26 Mon
+    Western Australia Day               Jun 07 Mon
+    Kings Birthday                      Jun 14 Mon
+    Christmas Day                       Dec 25 Sat
+    Boxing Day                          Dec 26 Sun
+    Christmas (additional)              Dec 27 Mon
+    Christmas (additional)              Dec 28 Tue
 2028
-    New Year's Day        Jan 01 Sat
-    Australia Day         Jan 26 Wed
-    Labour Day            Mar 06 Mon
-    Good Friday           Apr 14 Fri
-    Easter Saturday       Apr 15 Sat
-    Easter Sunday         Apr 16 Sun
-    Easter Monday         Apr 17 Mon
-    Anzac Day             Apr 25 Tue
-    Western Australia Day Jun 05 Mon
-    Kings Birthday        Jun 12 Mon
-    Christmas Day         Dec 25 Mon
-    Boxing Day            Dec 26 Tue
-    Christmas (additional) Dec 27 Wed
-    Christmas (additional) Dec 28 Thu
+    New Year's Day                      Jan 01 Sat
+    Australia Day                       Jan 26 Wed
+    Labour Day                          Mar 06 Mon
+    Good Friday                         Apr 14 Fri
+    Easter Saturday                     Apr 15 Sat
+    Easter Sunday                       Apr 16 Sun
+    Easter Monday                       Apr 17 Mon
+    Anzac Day                           Apr 25 Tue
+    Western Australia Day               Jun 05 Mon
+    Kings Birthday                      Jun 12 Mon
+    Christmas Day                       Dec 25 Mon
+    Boxing Day                          Dec 26 Tue
+    Christmas (additional)              Dec 27 Wed
+    Christmas (additional)              Dec 28 Thu

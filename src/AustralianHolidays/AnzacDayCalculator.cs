@@ -17,7 +17,7 @@ public static class AnzacDayCalculator
             {
                 if (state == State.WA)
                 {
-                    name = "Anzac Day Holiday";
+                    name = "Anzac Day (additional)";
                     return true;
                 }
             }
@@ -31,7 +31,7 @@ public static class AnzacDayCalculator
                     return false;
                 }
 
-                name = "Anzac Day Holiday";
+                name = "Anzac Day (additional)";
                 return true;
             }
         }

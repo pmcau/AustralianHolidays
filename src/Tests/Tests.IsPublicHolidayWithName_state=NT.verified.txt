@@ -14,7 +14,7 @@
 2024 Dec 27 Fri Christmas (additional)
 2024 Dec 31 Tue New Year's Eve (part day holiday)
 2025 Jan 01 Wed New Year's Day
-2025 Jan 27 Mon Australia Day Holiday
+2025 Jan 27 Mon Australia Day (additional)
 2025 Apr 18 Fri Good Friday
 2025 Apr 19 Sat Easter Saturday
 2025 Apr 20 Sun Easter Sunday
@@ -91,7 +91,7 @@
 2029 Dec 28 Fri Christmas (additional)
 2029 Dec 31 Mon New Year's Eve (part day holiday)
 2030 Jan 01 Tue New Year's Day
-2030 Jan 28 Mon Australia Day Holiday
+2030 Jan 28 Mon Australia Day (additional)
 2030 Apr 19 Fri Good Friday
 2030 Apr 20 Sat Easter Saturday
 2030 Apr 21 Sun Easter Sunday
@@ -106,7 +106,7 @@
 2030 Dec 27 Fri Christmas (additional)
 2030 Dec 31 Tue New Year's Eve (part day holiday)
 2031 Jan 01 Wed New Year's Day
-2031 Jan 27 Mon Australia Day Holiday
+2031 Jan 27 Mon Australia Day (additional)
 2031 Apr 11 Fri Good Friday
 2031 Apr 12 Sat Easter Saturday
 2031 Apr 13 Sun Easter Sunday
