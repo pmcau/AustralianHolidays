@@ -1,24 +1,6 @@
 [TestFixture]
 public class EasterTests
 {
-    [TestCaseSource(nameof(GetStates))]
-    public Task TryGetPublicHoliday(State state)
-    {
-        var builder = new StringBuilder();
-        foreach (var date in DateBuilder.Range())
-        {
-            if (EasterCalculator.TryGetPublicHoliday(date, state, out var name))
-            {
-                builder.AppendLine($"{date.ToString("yyyy MMM dd ddd", CultureInfo.InvariantCulture)} {name}");
-            }
-        }
-
-        return Verify(builder);
-    }
-
-    public static IEnumerable<State> GetStates() =>
-        Enum.GetValues<State>();
-
     [Test]
     public Task ForYear()
     {

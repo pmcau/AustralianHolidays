@@ -19,19 +19,14 @@ AustralianHolidays
 
 ## Notes
 
-
-https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia
-https://business.vic.gov.au/business-information/public-holidays/victorian-public-holidays-2025
-https://worksafe.tas.gov.au/topics/laws-and-compliance/public-holidays
-https://www.safework.sa.gov.au/resources/public-holidays
-https://www.qld.gov.au/recreation/travel/holidays/public
-https://nt.gov.au/nt-public-holidays
-https://www.nsw.gov.au/about-nsw/public-holidays
-https://www.cmtedd.act.gov.au/communication/holidays
-
-https://publicholidays.com.au/anzac-day/
-https://www.clockon.com.au/blog/easter-public-holidays-across-australian-states-differences
-https://www.vic.gov.au/ical#public-holiday-dates
+ * [Australian Capital Territory](https://www.cmtedd.act.gov.au/communication/holidays)
+ * [New South Wales](https://www.nsw.gov.au/about-nsw/public-holidays)
+ * [Northern Territory](https://nt.gov.au/nt-public-holidays)
+ * [Queensland](https://www.qld.gov.au/recreation/travel/holidays/public)
+ * [South Australia](https://www.safework.sa.gov.au/resources/public-holidays)
+ * [Tasmania](https://worksafe.tas.gov.au/topics/laws-and-compliance/public-holidays)
+ * [Victoria](https://business.vic.gov.au/business-information/public-holidays/victorian-public-holidays-2025)
+ * [Western Australia](https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia)
 
 ## Icon
 
