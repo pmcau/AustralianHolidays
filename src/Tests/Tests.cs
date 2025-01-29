@@ -31,9 +31,9 @@ public class Tests
         var forYears = Holidays.ForYears(state, years);
 
         var builder = new StringBuilder();
-        builder.AppendLine($"| {string.Join(" | ", years)} |");
+        builder.AppendLine($"|      | {string.Join(" | ", years)} |");
         builder.Append('|');
-        for (var index = 0; index < years.Count; index++)
+        for (var index = 0; index < years.Count+1; index++)
         {
             builder.Append("------|");
         }
@@ -51,7 +51,7 @@ public class Tests
                 var dates = item.Select(_=>_.date).Where(_ => _.Year == year).ToList();
                 if (dates.Count != 0)
                 {
-                    builder.Append(string.Join(", ", dates.Select(_=>_.ToString("ddd  dd MMM", CultureInfo.InvariantCulture))));
+                    builder.Append(string.Join(", ", dates.Select(_=>_.ToString("ddd dd MMM", CultureInfo.InvariantCulture))));
                 }
 
                 builder.Append(" | ");

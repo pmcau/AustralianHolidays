@@ -1,18 +1,18 @@
-﻿| 2025 | 2026 | 2027 | 2028 |
-|------|------|------|------|
-| New Year's Day                 | Jan 01 Wed | Jan 01 Thu | Jan 01 Fri | Jan 01 Sat | 
-| Australia Day                  |  | Jan 26 Mon | Jan 26 Tue | Jan 26 Wed | 
-| Australia Day (additional)     | Jan 27 Mon |  |  |  | 
-| Canberra Day                   | Mar 10 Mon | Mar 09 Mon | Mar 08 Mon | Mar 13 Mon | 
-| Good Friday                    | Apr 18 Fri | Apr 03 Fri | Mar 26 Fri | Apr 14 Fri | 
-| Easter Saturday                | Apr 19 Sat | Apr 04 Sat | Mar 27 Sat | Apr 15 Sat | 
-| Easter Sunday                  | Apr 20 Sun | Apr 05 Sun | Mar 28 Sun | Apr 16 Sun | 
-| Easter Monday                  | Apr 21 Mon | Apr 06 Mon | Mar 29 Mon | Apr 17 Mon | 
-| Anzac Day                      | Apr 25 Fri |  | Apr 25 Sun | Apr 25 Tue | 
-| Anzac Day (additional)         |  | Apr 27 Mon |  |  | 
-| Reconciliation Day             | Jun 02 Mon | Jun 01 Mon | May 31 Mon | May 29 Mon | 
-| King's Birthday                | Jun 09 Mon | Jun 08 Mon | Jun 14 Mon | Jun 12 Mon | 
-| Labour Day                     | Oct 06 Mon | Oct 05 Mon | Oct 04 Mon | Oct 02 Mon | 
-| Christmas Day                  | Dec 25 Thu | Dec 25 Fri | Dec 25 Sat | Dec 25 Mon | 
-| Boxing Day                     | Dec 26 Fri | Dec 26 Sat | Dec 26 Sun | Dec 26 Tue | 
-| Christmas (additional)         |  | Dec 28 Mon | Dec 27 Mon, Dec 28 Tue | Dec 27 Wed, Dec 28 Thu | 
+﻿|      | 2025 | 2026 | 2027 | 2028 |
+|------|------|------|------|------|
+| New Year's Day                 | Wed 01 Jan | Thu 01 Jan | Fri 01 Jan | Sat 01 Jan | 
+| Australia Day                  |  | Mon 26 Jan | Tue 26 Jan | Wed 26 Jan | 
+| Australia Day (additional)     | Mon 27 Jan |  |  |  | 
+| Canberra Day                   | Mon 10 Mar | Mon 09 Mar | Mon 08 Mar | Mon 13 Mar | 
+| Good Friday                    | Fri 18 Apr | Fri 03 Apr | Fri 26 Mar | Fri 14 Apr | 
+| Easter Saturday                | Sat 19 Apr | Sat 04 Apr | Sat 27 Mar | Sat 15 Apr | 
+| Easter Sunday                  | Sun 20 Apr | Sun 05 Apr | Sun 28 Mar | Sun 16 Apr | 
+| Easter Monday                  | Mon 21 Apr | Mon 06 Apr | Mon 29 Mar | Mon 17 Apr | 
+| Anzac Day                      | Fri 25 Apr |  | Sun 25 Apr | Tue 25 Apr | 
+| Anzac Day (additional)         |  | Mon 27 Apr |  |  | 
+| Reconciliation Day             | Mon 02 Jun | Mon 01 Jun | Mon 31 May | Mon 29 May | 
+| King's Birthday                | Mon 09 Jun | Mon 08 Jun | Mon 14 Jun | Mon 12 Jun | 
+| Labour Day                     | Mon 06 Oct | Mon 05 Oct | Mon 04 Oct | Mon 02 Oct | 
+| Christmas Day                  | Thu 25 Dec | Fri 25 Dec | Sat 25 Dec | Mon 25 Dec | 
+| Boxing Day                     | Fri 26 Dec | Sat 26 Dec | Sun 26 Dec | Tue 26 Dec | 
+| Christmas (additional)         |  | Mon 28 Dec | Mon 27 Dec, Tue 28 Dec | Wed 27 Dec, Thu 28 Dec | 
