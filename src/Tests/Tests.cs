@@ -28,7 +28,7 @@ public class Tests
             years.Add(year);
         }
 
-        var forYears = Holidays.ForYears(state, years);
+        var forYears = Holidays.ForYears(state, DateTime.Now.Year, 4);
 
         var builder = new StringBuilder();
         builder.AppendLine($"|      | {string.Join(" | ", years)} |");

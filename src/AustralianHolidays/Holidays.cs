@@ -24,13 +24,11 @@ public static partial class Holidays
 
         return list.OrderBy(_ => _.date);
     }
-    public static IOrderedEnumerable<(Date date, string name)> ForYear(State state,int year) =>
-        ForYears(state, year);
 
-    public static IOrderedEnumerable<(Date date, string name)> ForYears(State state,params IEnumerable<int> years)
+    public static IOrderedEnumerable<(Date date, string name)> ForYears(State state,int startYear, int count = 1)
     {
         List<(Date date, string name)> list = [];
-        foreach (var year in years)
+        for (var year = startYear; year <= startYear+count; year++)
         {
             foreach (var date in GetAllDatesForYear(year))
             {
