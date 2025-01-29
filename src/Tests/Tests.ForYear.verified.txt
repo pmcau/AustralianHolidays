@@ -1,6 +1,7 @@
 ﻿[
   {
     Item1: 2024-01-01,
+    Item2: ACT,
     Item3: New Year's Day
   },
   {
@@ -40,6 +41,7 @@
   },
   {
     Item1: 2024-01-26,
+    Item2: ACT,
     Item3: Australia Day
   },
   {
@@ -79,6 +81,7 @@
   },
   {
     Item1: 2024-03-11,
+    Item2: ACT,
     Item3: Canberra Day
   },
   {
@@ -98,6 +101,7 @@
   },
   {
     Item1: 2024-03-29,
+    Item2: ACT,
     Item3: Good Friday
   },
   {
@@ -137,6 +141,7 @@
   },
   {
     Item1: 2024-03-30,
+    Item2: ACT,
     Item3: Easter Saturday
   },
   {
@@ -176,6 +181,7 @@
   },
   {
     Item1: 2024-03-31,
+    Item2: ACT,
     Item3: Easter Sunday
   },
   {
@@ -215,6 +221,7 @@
   },
   {
     Item1: 2024-04-01,
+    Item2: ACT,
     Item3: Easter Monday
   },
   {
@@ -259,6 +266,7 @@
   },
   {
     Item1: 2024-04-25,
+    Item2: ACT,
     Item3: Anzac Day
   },
   {
@@ -308,10 +316,12 @@
   },
   {
     Item1: 2024-05-27,
+    Item2: ACT,
     Item3: Reconciliation Day
   },
   {
     Item1: 2024-06-03,
+    Item2: ACT,
     Item3: Reconciliation Day
   },
   {
@@ -321,6 +331,7 @@
   },
   {
     Item1: 2024-06-10,
+    Item2: ACT,
     Item3: King's Birthday
   },
   {
@@ -370,6 +381,7 @@
   },
   {
     Item1: 2024-10-07,
+    Item2: ACT,
     Item3: Labour Day
   },
   {
@@ -404,6 +416,7 @@
   },
   {
     Item1: 2024-12-25,
+    Item2: ACT,
     Item3: Christmas Day
   },
   {
@@ -443,6 +456,7 @@
   },
   {
     Item1: 2024-12-26,
+    Item2: ACT,
     Item3: Boxing Day
   },
   {
@@ -482,6 +496,7 @@
   },
   {
     Item1: 2024-12-27,
+    Item2: ACT,
     Item3: Christmas (additional)
   },
   {

@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Argon;
 
 [TestFixture]
 public class Tests
@@ -43,7 +44,8 @@ public class Tests
     [Test]
     public Task ForYear() =>
         Verify(Holidays.ForYear(2024))
-            .DontScrubDateTimes();
+            .DontScrubDateTimes()
+            .AddExtraSettings(_ => _.DefaultValueHandling = DefaultValueHandling.Include);
 
     [Test]
     public Task WriteNsw() =>
@@ -90,7 +92,7 @@ public class Tests
     static string WriteForState(IsHoliday isHoliday)
     {
         var builder = new StringBuilder();
-        for (var year = DateTime.Now.Year-1; year <= DateTime.Now.Year + 4; year++)
+        for (var year = DateTime.Now.Year - 1; year <= DateTime.Now.Year + 4; year++)
         {
             var start = new Date(year, 1, 1);
             var end = new Date(year, 12, 31);
