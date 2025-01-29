@@ -51,7 +51,7 @@
 2027 Dec 27 Mon Christmas Holiday
 2027 Dec 28 Tue Christmas Holiday
 2028 Jan 01 Sat New Year's Day
-2028 Jan 03 Mon New Year's Day Additional Holiday
+2028 Jan 03 Mon New Year's Day (additional)
 2028 Jan 26 Wed Australia Day
 2028 Apr 14 Fri Good Friday
 2028 Apr 15 Sat Easter Saturday
@@ -119,7 +119,7 @@
 2032 Dec 27 Mon Christmas Holiday
 2032 Dec 28 Tue Christmas Holiday
 2033 Jan 01 Sat New Year's Day
-2033 Jan 03 Mon New Year's Day Additional Holiday
+2033 Jan 03 Mon New Year's Day (additional)
 2033 Jan 26 Wed Australia Day
 2033 Apr 15 Fri Good Friday
 2033 Apr 16 Sat Easter Saturday
@@ -134,7 +134,7 @@
 2033 Dec 27 Tue Christmas Holiday
 2033 Dec 28 Wed Christmas Holiday
 2034 Jan 01 Sun New Year's Day
-2034 Jan 02 Mon New Year's Day Additional Holiday
+2034 Jan 02 Mon New Year's Day (additional)
 2034 Jan 26 Thu Australia Day
 2034 Apr 07 Fri Good Friday
 2034 Apr 08 Sat Easter Saturday

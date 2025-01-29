@@ -71,6 +71,35 @@ public static partial class Holidays
             return true;
         }
 
+        if (date.Month == 12)
+        {
+            if (date.Day == 26)
+            {
+                if (date.IsWeekday())
+                {
+                    name = "Proclamation Day and Boxing Day";
+                    return true;
+                }
+
+                name = "Proclamation Day";
+                return true;
+            }
+
+            //When 26 December falls on a Saturday the following Monday is a public holiday
+            if (date is { Day: 28, DayOfWeek: DayOfWeek.Monday })
+            {
+                name = "Proclamation Day (additional)";
+                return true;
+            }
+
+            //When 26 December falls on a Sunday the following Tuesday is a public holiday
+            if (date is { Day: 28, DayOfWeek: DayOfWeek.Tuesday })
+            {
+                name = "Proclamation Day (additional)";
+                return true;
+            }
+        }
+
         if (ChristmasCalculator.TryGet(date, out name))
         {
             return true;

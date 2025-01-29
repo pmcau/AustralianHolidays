@@ -10,7 +10,7 @@
     Kings Birthday        Jun 09 Mon
     Labour Day            Oct 06 Mon
     Christmas Day         Dec 25 Thu
-    Boxing Day            Dec 26 Fri
+    Proclamation Day and Boxing Day Dec 26 Fri
 2026
     New Year's Day        Jan 01 Thu
     Adelaide Cup Day      Mar 09 Mon
@@ -22,8 +22,8 @@
     Kings Birthday        Jun 08 Mon
     Labour Day            Oct 05 Mon
     Christmas Day         Dec 25 Fri
-    Boxing Day            Dec 26 Sat
-    Christmas Holiday     Dec 28 Mon
+    Proclamation Day      Dec 26 Sat
+    Proclamation Day (additional) Dec 28 Mon
 2027
     New Year's Day        Jan 01 Fri
     Adelaide Cup Day      Mar 08 Mon
@@ -35,9 +35,9 @@
     Kings Birthday        Jun 14 Mon
     Labour Day            Oct 04 Mon
     Christmas Day         Dec 25 Sat
-    Boxing Day            Dec 26 Sun
+    Proclamation Day      Dec 26 Sun
     Christmas Holiday     Dec 27 Mon
-    Christmas Holiday     Dec 28 Tue
+    Proclamation Day (additional) Dec 28 Tue
 2028
     New Year's Day        Jan 01 Sat
     Adelaide Cup Day      Mar 13 Mon
@@ -49,6 +49,6 @@
     Kings Birthday        Jun 12 Mon
     Labour Day            Oct 02 Mon
     Christmas Day         Dec 25 Mon
-    Boxing Day            Dec 26 Tue
+    Proclamation Day and Boxing Day Dec 26 Tue
     Christmas Holiday     Dec 27 Wed
     Christmas Holiday     Dec 28 Thu

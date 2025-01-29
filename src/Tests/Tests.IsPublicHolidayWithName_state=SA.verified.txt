@@ -8,7 +8,7 @@
 2024 Jun 10 Mon Kings Birthday
 2024 Oct 07 Mon Labour Day
 2024 Dec 25 Wed Christmas Day
-2024 Dec 26 Thu Boxing Day
+2024 Dec 26 Thu Proclamation Day and Boxing Day
 2024 Dec 27 Fri Christmas Holiday
 2025 Jan 01 Wed New Year's Day
 2025 Jan 27 Mon Australia Day Holiday
@@ -21,7 +21,7 @@
 2025 Jun 09 Mon Kings Birthday
 2025 Oct 06 Mon Labour Day
 2025 Dec 25 Thu Christmas Day
-2025 Dec 26 Fri Boxing Day
+2025 Dec 26 Fri Proclamation Day and Boxing Day
 2026 Jan 01 Thu New Year's Day
 2026 Mar 09 Mon Adelaide Cup Day
 2026 Apr 03 Fri Good Friday
@@ -32,8 +32,8 @@
 2026 Jun 08 Mon Kings Birthday
 2026 Oct 05 Mon Labour Day
 2026 Dec 25 Fri Christmas Day
-2026 Dec 26 Sat Boxing Day
-2026 Dec 28 Mon Christmas Holiday
+2026 Dec 26 Sat Proclamation Day
+2026 Dec 28 Mon Proclamation Day (additional)
 2027 Jan 01 Fri New Year's Day
 2027 Mar 08 Mon Adelaide Cup Day
 2027 Mar 26 Fri Good Friday
@@ -44,9 +44,9 @@
 2027 Jun 14 Mon Kings Birthday
 2027 Oct 04 Mon Labour Day
 2027 Dec 25 Sat Christmas Day
-2027 Dec 26 Sun Boxing Day
+2027 Dec 26 Sun Proclamation Day
 2027 Dec 27 Mon Christmas Holiday
-2027 Dec 28 Tue Christmas Holiday
+2027 Dec 28 Tue Proclamation Day (additional)
 2028 Jan 01 Sat New Year's Day
 2028 Mar 13 Mon Adelaide Cup Day
 2028 Apr 14 Fri Good Friday
@@ -57,7 +57,7 @@
 2028 Jun 12 Mon Kings Birthday
 2028 Oct 02 Mon Labour Day
 2028 Dec 25 Mon Christmas Day
-2028 Dec 26 Tue Boxing Day
+2028 Dec 26 Tue Proclamation Day and Boxing Day
 2028 Dec 27 Wed Christmas Holiday
 2028 Dec 28 Thu Christmas Holiday
 2029 Jan 01 Mon New Year's Day
@@ -70,7 +70,7 @@
 2029 Jun 11 Mon Kings Birthday
 2029 Oct 01 Mon Labour Day
 2029 Dec 25 Tue Christmas Day
-2029 Dec 26 Wed Boxing Day
+2029 Dec 26 Wed Proclamation Day and Boxing Day
 2029 Dec 27 Thu Christmas Holiday
 2029 Dec 28 Fri Christmas Holiday
 2030 Jan 01 Tue New Year's Day
@@ -84,7 +84,7 @@
 2030 Jun 10 Mon Kings Birthday
 2030 Oct 07 Mon Labour Day
 2030 Dec 25 Wed Christmas Day
-2030 Dec 26 Thu Boxing Day
+2030 Dec 26 Thu Proclamation Day and Boxing Day
 2030 Dec 27 Fri Christmas Holiday
 2031 Jan 01 Wed New Year's Day
 2031 Jan 27 Mon Australia Day Holiday
@@ -97,7 +97,7 @@
 2031 Jun 09 Mon Kings Birthday
 2031 Oct 06 Mon Labour Day
 2031 Dec 25 Thu Christmas Day
-2031 Dec 26 Fri Boxing Day
+2031 Dec 26 Fri Proclamation Day and Boxing Day
 2032 Jan 01 Thu New Year's Day
 2032 Mar 08 Mon Adelaide Cup Day
 2032 Mar 26 Fri Good Friday
@@ -108,9 +108,9 @@
 2032 Jun 14 Mon Kings Birthday
 2032 Oct 04 Mon Labour Day
 2032 Dec 25 Sat Christmas Day
-2032 Dec 26 Sun Boxing Day
+2032 Dec 26 Sun Proclamation Day
 2032 Dec 27 Mon Christmas Holiday
-2032 Dec 28 Tue Christmas Holiday
+2032 Dec 28 Tue Proclamation Day (additional)
 2033 Jan 01 Sat New Year's Day
 2033 Mar 14 Mon Adelaide Cup Day
 2033 Apr 15 Fri Good Friday
@@ -121,7 +121,7 @@
 2033 Jun 13 Mon Kings Birthday
 2033 Oct 03 Mon Labour Day
 2033 Dec 25 Sun Christmas Day
-2033 Dec 26 Mon Boxing Day
+2033 Dec 26 Mon Proclamation Day and Boxing Day
 2033 Dec 27 Tue Christmas Holiday
 2033 Dec 28 Wed Christmas Holiday
 2034 Jan 01 Sun New Year's Day
@@ -134,7 +134,7 @@
 2034 Jun 12 Mon Kings Birthday
 2034 Oct 02 Mon Labour Day
 2034 Dec 25 Mon Christmas Day
-2034 Dec 26 Tue Boxing Day
+2034 Dec 26 Tue Proclamation Day and Boxing Day
 2034 Dec 27 Wed Christmas Holiday
 2034 Dec 28 Thu Christmas Holiday
 2035 Jan 01 Mon New Year's Day
@@ -147,6 +147,6 @@
 2035 Jun 11 Mon Kings Birthday
 2035 Oct 01 Mon Labour Day
 2035 Dec 25 Tue Christmas Day
-2035 Dec 26 Wed Boxing Day
+2035 Dec 26 Wed Proclamation Day and Boxing Day
 2035 Dec 27 Thu Christmas Holiday
 2035 Dec 28 Fri Christmas Holiday
