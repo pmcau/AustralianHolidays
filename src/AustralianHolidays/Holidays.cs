@@ -11,35 +11,27 @@ public static partial class Holidays
 
     public static bool IsPublicHoliday(this Date date, State state, [NotNullWhen(true)] out string? name)
     {
-        if (date.IsNewYearsDay())
+        switch (state)
         {
-            name = "New Year's Day";
-            return true;
+            case State.NSW:
+                return IsNswHoliday(date, out name);
+            case State.VIC:
+                return IsVicHoliday(date, out name);
+            case State.QLD:
+                return IsQldHoliday(date, out name);
+            case State.ACT:
+                return IsActHoliday(date, out name);
+            case State.NT:
+                return IsNtHoliday(date, out name);
+            case State.SA:
+                return IsSaHoliday(date, out name);
+            case State.TAS:
+                return IsTasHoliday(date, out name);
+            case State.WA:
+                return IsWaHoliday(date, out name);
+            default:
+                throw new ArgumentOutOfRangeException(nameof(state), state, null);
         }
-
-        if (date.IsChristmasDay())
-        {
-            name = "Christmas Day";
-            return true;
-        }
-
-        if (AustraliaDayCalculator.TryGetPublicHoliday(date, out name))
-        {
-            return true;
-        }
-
-        if (AnzacDayCalculator.TryGetPublicHoliday(date, state, out name))
-        {
-            return true;
-        }
-
-        if (EasterCalculator.TryGetPublicHoliday(date, state, out name))
-        {
-            return true;
-        }
-
-        name = null;
-        return false;
     }
 
     static bool IsNewYearsDay(this Date date) =>
@@ -72,24 +64,5 @@ public static partial class Holidays
         }
 
         return oneJanuary;
-    }
-
-    static bool IsFirstMonday(this Date date, Month month)
-    {
-        var dateYear = date.Year;
-        var firstDay = new Date(dateYear, (int)month, 1);
-        var dayOfWeek = (int)firstDay.DayOfWeek;
-        var daysUntilMonday = (8 - dayOfWeek) % 7;
-        var firstMonday = firstDay.AddDays(daysUntilMonday);
-        return date == firstMonday;
-    }
-
-    static bool IsSecondMonday(this Date date, Month month)
-    {
-        var firstDay = new Date(date.Year, (int)month, 1);
-        var dayOfWeek = (int)firstDay.DayOfWeek;
-        var daysUntilMonday = (8 - dayOfWeek) % 7;
-        var secondMonday = firstDay.AddDays(daysUntilMonday + 7);
-        return date == secondMonday;
     }
 }

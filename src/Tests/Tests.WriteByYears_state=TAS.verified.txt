@@ -1,32 +1,53 @@
 ﻿2025
     New Year's Day        Jan 01 Wed
     Australia Day Holiday Jan 27 Mon
+    Eight Hours Day       Mar 10 Mon
     Good Friday           Apr 18 Fri
+    Easter Saturday       Apr 19 Sat
+    Easter Sunday         Apr 20 Sun
     Easter Monday         Apr 21 Mon
     Easter Tuesday (Government employees only) Apr 22 Tue
     Anzac Day             Apr 25 Fri
     Christmas Day         Dec 25 Thu
+    Boxing Day            Dec 26 Fri
 2026
     New Year's Day        Jan 01 Thu
     Australia Day         Jan 26 Mon
+    Eight Hours Day       Mar 09 Mon
     Good Friday           Apr 03 Fri
+    Easter Saturday       Apr 04 Sat
+    Easter Sunday         Apr 05 Sun
     Easter Monday         Apr 06 Mon
     Easter Tuesday (Government employees only) Apr 07 Tue
     Anzac Day             Apr 25 Sat
     Christmas Day         Dec 25 Fri
+    Boxing Day            Dec 26 Sat
+    Christmas Holiday     Dec 28 Mon
 2027
     New Year's Day        Jan 01 Fri
     Australia Day         Jan 26 Tue
+    Eight Hours Day       Mar 08 Mon
     Good Friday           Mar 26 Fri
+    Easter Saturday       Mar 27 Sat
+    Easter Sunday         Mar 28 Sun
     Easter Monday         Mar 29 Mon
     Easter Tuesday (Government employees only) Mar 30 Tue
     Anzac Day             Apr 25 Sun
     Christmas Day         Dec 25 Sat
+    Boxing Day            Dec 26 Sun
+    Christmas Holiday     Dec 27 Mon
+    Christmas Holiday     Dec 28 Tue
 2028
     New Year's Day        Jan 01 Sat
     Australia Day         Jan 26 Wed
+    Eight Hours Day       Mar 13 Mon
     Good Friday           Apr 14 Fri
+    Easter Saturday       Apr 15 Sat
+    Easter Sunday         Apr 16 Sun
     Easter Monday         Apr 17 Mon
     Easter Tuesday (Government employees only) Apr 18 Tue
     Anzac Day             Apr 25 Tue
     Christmas Day         Dec 25 Mon
+    Boxing Day            Dec 26 Tue
+    Christmas Holiday     Dec 27 Wed
+    Christmas Holiday     Dec 28 Thu

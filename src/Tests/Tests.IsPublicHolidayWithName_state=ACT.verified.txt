@@ -5,7 +5,12 @@
 2024 Mar 31 Sun Easter Sunday
 2024 Apr 01 Mon Easter Monday
 2024 Apr 25 Thu Anzac Day
+2024 May 27 Mon Reconciliation Day
+2024 Jun 03 Mon Reconciliation Day
+2024 Oct 07 Mon Labour Day
 2024 Dec 25 Wed Christmas Day
+2024 Dec 26 Thu Boxing Day
+2024 Dec 27 Fri Christmas Holiday
 2025 Jan 01 Wed New Year's Day
 2025 Jan 27 Mon Australia Day Holiday
 2025 Apr 18 Fri Good Friday
@@ -13,7 +18,10 @@
 2025 Apr 20 Sun Easter Sunday
 2025 Apr 21 Mon Easter Monday
 2025 Apr 25 Fri Anzac Day
+2025 Jun 02 Mon Reconciliation Day
+2025 Oct 06 Mon Labour Day
 2025 Dec 25 Thu Christmas Day
+2025 Dec 26 Fri Boxing Day
 2026 Jan 01 Thu New Year's Day
 2026 Jan 26 Mon Australia Day
 2026 Apr 03 Fri Good Friday
@@ -21,7 +29,11 @@
 2026 Apr 05 Sun Easter Sunday
 2026 Apr 06 Mon Easter Monday
 2026 Apr 25 Sat Anzac Day
+2026 Jun 01 Mon Reconciliation Day
+2026 Oct 05 Mon Labour Day
 2026 Dec 25 Fri Christmas Day
+2026 Dec 26 Sat Boxing Day
+2026 Dec 28 Mon Christmas Holiday
 2027 Jan 01 Fri New Year's Day
 2027 Jan 26 Tue Australia Day
 2027 Mar 26 Fri Good Friday
@@ -29,8 +41,12 @@
 2027 Mar 28 Sun Easter Sunday
 2027 Mar 29 Mon Easter Monday
 2027 Apr 25 Sun Anzac Day
-2027 Apr 26 Mon Anzac Day Holiday
+2027 May 31 Mon Reconciliation Day
+2027 Oct 04 Mon Labour Day
 2027 Dec 25 Sat Christmas Day
+2027 Dec 26 Sun Boxing Day
+2027 Dec 27 Mon Christmas Holiday
+2027 Dec 28 Tue Christmas Holiday
 2028 Jan 01 Sat New Year's Day
 2028 Jan 26 Wed Australia Day
 2028 Apr 14 Fri Good Friday
@@ -38,7 +54,12 @@
 2028 Apr 16 Sun Easter Sunday
 2028 Apr 17 Mon Easter Monday
 2028 Apr 25 Tue Anzac Day
+2028 May 29 Mon Reconciliation Day
+2028 Oct 02 Mon Labour Day
 2028 Dec 25 Mon Christmas Day
+2028 Dec 26 Tue Boxing Day
+2028 Dec 27 Wed Christmas Holiday
+2028 Dec 28 Thu Christmas Holiday
 2029 Jan 01 Mon New Year's Day
 2029 Jan 26 Fri Australia Day
 2029 Mar 30 Fri Good Friday
@@ -46,7 +67,12 @@
 2029 Apr 01 Sun Easter Sunday
 2029 Apr 02 Mon Easter Monday
 2029 Apr 25 Wed Anzac Day
+2029 May 28 Mon Reconciliation Day
+2029 Oct 01 Mon Labour Day
 2029 Dec 25 Tue Christmas Day
+2029 Dec 26 Wed Boxing Day
+2029 Dec 27 Thu Christmas Holiday
+2029 Dec 28 Fri Christmas Holiday
 2030 Jan 01 Tue New Year's Day
 2030 Jan 28 Mon Australia Day Holiday
 2030 Apr 19 Fri Good Friday
@@ -54,7 +80,12 @@
 2030 Apr 21 Sun Easter Sunday
 2030 Apr 22 Mon Easter Monday
 2030 Apr 25 Thu Anzac Day
+2030 May 27 Mon Reconciliation Day
+2030 Jun 03 Mon Reconciliation Day
+2030 Oct 07 Mon Labour Day
 2030 Dec 25 Wed Christmas Day
+2030 Dec 26 Thu Boxing Day
+2030 Dec 27 Fri Christmas Holiday
 2031 Jan 01 Wed New Year's Day
 2031 Jan 27 Mon Australia Day Holiday
 2031 Apr 11 Fri Good Friday
@@ -62,7 +93,10 @@
 2031 Apr 13 Sun Easter Sunday
 2031 Apr 14 Mon Easter Monday
 2031 Apr 25 Fri Anzac Day
+2031 Jun 02 Mon Reconciliation Day
+2031 Oct 06 Mon Labour Day
 2031 Dec 25 Thu Christmas Day
+2031 Dec 26 Fri Boxing Day
 2032 Jan 01 Thu New Year's Day
 2032 Jan 26 Mon Australia Day
 2032 Mar 26 Fri Good Friday
@@ -70,8 +104,12 @@
 2032 Mar 28 Sun Easter Sunday
 2032 Mar 29 Mon Easter Monday
 2032 Apr 25 Sun Anzac Day
-2032 Apr 26 Mon Anzac Day Holiday
+2032 May 31 Mon Reconciliation Day
+2032 Oct 04 Mon Labour Day
 2032 Dec 25 Sat Christmas Day
+2032 Dec 26 Sun Boxing Day
+2032 Dec 27 Mon Christmas Holiday
+2032 Dec 28 Tue Christmas Holiday
 2033 Jan 01 Sat New Year's Day
 2033 Jan 26 Wed Australia Day
 2033 Apr 15 Fri Good Friday
@@ -79,7 +117,12 @@
 2033 Apr 17 Sun Easter Sunday
 2033 Apr 18 Mon Easter Monday
 2033 Apr 25 Mon Anzac Day
+2033 May 30 Mon Reconciliation Day
+2033 Oct 03 Mon Labour Day
 2033 Dec 25 Sun Christmas Day
+2033 Dec 26 Mon Boxing Day
+2033 Dec 27 Tue Christmas Holiday
+2033 Dec 28 Wed Christmas Holiday
 2034 Jan 01 Sun New Year's Day
 2034 Jan 26 Thu Australia Day
 2034 Apr 07 Fri Good Friday
@@ -87,7 +130,12 @@
 2034 Apr 09 Sun Easter Sunday
 2034 Apr 10 Mon Easter Monday
 2034 Apr 25 Tue Anzac Day
+2034 May 29 Mon Reconciliation Day
+2034 Oct 02 Mon Labour Day
 2034 Dec 25 Mon Christmas Day
+2034 Dec 26 Tue Boxing Day
+2034 Dec 27 Wed Christmas Holiday
+2034 Dec 28 Thu Christmas Holiday
 2035 Jan 01 Mon New Year's Day
 2035 Jan 26 Fri Australia Day
 2035 Mar 23 Fri Good Friday
@@ -95,4 +143,9 @@
 2035 Mar 25 Sun Easter Sunday
 2035 Mar 26 Mon Easter Monday
 2035 Apr 25 Wed Anzac Day
+2035 May 28 Mon Reconciliation Day
+2035 Oct 01 Mon Labour Day
 2035 Dec 25 Tue Christmas Day
+2035 Dec 26 Wed Boxing Day
+2035 Dec 27 Thu Christmas Holiday
+2035 Dec 28 Fri Christmas Holiday

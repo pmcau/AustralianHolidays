@@ -6,7 +6,10 @@
     Easter Sunday         Apr 20 Sun
     Easter Monday         Apr 21 Mon
     Anzac Day             Apr 25 Fri
+    Reconciliation Day    Jun 02 Mon
+    Labour Day            Oct 06 Mon
     Christmas Day         Dec 25 Thu
+    Boxing Day            Dec 26 Fri
 2026
     New Year's Day        Jan 01 Thu
     Australia Day         Jan 26 Mon
@@ -15,7 +18,11 @@
     Easter Sunday         Apr 05 Sun
     Easter Monday         Apr 06 Mon
     Anzac Day             Apr 25 Sat
+    Reconciliation Day    Jun 01 Mon
+    Labour Day            Oct 05 Mon
     Christmas Day         Dec 25 Fri
+    Boxing Day            Dec 26 Sat
+    Christmas Holiday     Dec 28 Mon
 2027
     New Year's Day        Jan 01 Fri
     Australia Day         Jan 26 Tue
@@ -24,8 +31,12 @@
     Easter Sunday         Mar 28 Sun
     Easter Monday         Mar 29 Mon
     Anzac Day             Apr 25 Sun
-    Anzac Day Holiday     Apr 26 Mon
+    Reconciliation Day    May 31 Mon
+    Labour Day            Oct 04 Mon
     Christmas Day         Dec 25 Sat
+    Boxing Day            Dec 26 Sun
+    Christmas Holiday     Dec 27 Mon
+    Christmas Holiday     Dec 28 Tue
 2028
     New Year's Day        Jan 01 Sat
     Australia Day         Jan 26 Wed
@@ -34,4 +45,9 @@
     Easter Sunday         Apr 16 Sun
     Easter Monday         Apr 17 Mon
     Anzac Day             Apr 25 Tue
+    Reconciliation Day    May 29 Mon
+    Labour Day            Oct 02 Mon
     Christmas Day         Dec 25 Mon
+    Boxing Day            Dec 26 Tue
+    Christmas Holiday     Dec 27 Wed
+    Christmas Holiday     Dec 28 Thu
