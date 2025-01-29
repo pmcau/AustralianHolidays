@@ -8,7 +8,7 @@
     Easter Monday         Apr 21 Mon
     Anzac Day             Apr 25 Fri
     Reconciliation Day    Jun 02 Mon
-    Kings Birthday        Jun 09 Mon
+    King's Birthday       Jun 09 Mon
     Labour Day            Oct 06 Mon
     Christmas Day         Dec 25 Thu
     Boxing Day            Dec 26 Fri
@@ -22,7 +22,7 @@
     Easter Monday         Apr 06 Mon
     Anzac Day (additional) Apr 27 Mon
     Reconciliation Day    Jun 01 Mon
-    Kings Birthday        Jun 08 Mon
+    King's Birthday       Jun 08 Mon
     Labour Day            Oct 05 Mon
     Christmas Day         Dec 25 Fri
     Boxing Day            Dec 26 Sat
@@ -37,7 +37,7 @@
     Easter Monday         Mar 29 Mon
     Anzac Day             Apr 25 Sun
     Reconciliation Day    May 31 Mon
-    Kings Birthday        Jun 14 Mon
+    King's Birthday       Jun 14 Mon
     Labour Day            Oct 04 Mon
     Christmas Day         Dec 25 Sat
     Boxing Day            Dec 26 Sun
@@ -53,7 +53,7 @@
     Easter Monday         Apr 17 Mon
     Anzac Day             Apr 25 Tue
     Reconciliation Day    May 29 Mon
-    Kings Birthday        Jun 12 Mon
+    King's Birthday       Jun 12 Mon
     Labour Day            Oct 02 Mon
     Christmas Day         Dec 25 Mon
     Boxing Day            Dec 26 Tue

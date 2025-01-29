@@ -16,9 +16,6 @@ public class AnzacDayTests
         return Verify(builder);
     }
 
-    public static IEnumerable<State> GetStates() =>
-        Enum.GetValues<State>();
-
     [Test]
     public void GetEasterFriday()
     {

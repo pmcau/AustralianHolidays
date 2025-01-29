@@ -7,7 +7,7 @@
     Easter Sunday                       Apr 20 Sun
     Easter Monday                       Apr 21 Mon
     Anzac Day                           Apr 25 Fri
-    Kings Birthday                      Jun 09 Mon
+    King's Birthday                     Jun 09 Mon
     Labour Day                          Oct 06 Mon
     Christmas Day                       Dec 25 Thu
     Proclamation Day and Boxing Day     Dec 26 Fri
@@ -19,7 +19,7 @@
     Easter Sunday                       Apr 05 Sun
     Easter Monday                       Apr 06 Mon
     Anzac Day                           Apr 25 Sat
-    Kings Birthday                      Jun 08 Mon
+    King's Birthday                     Jun 08 Mon
     Labour Day                          Oct 05 Mon
     Christmas Day                       Dec 25 Fri
     Proclamation Day                    Dec 26 Sat
@@ -32,7 +32,7 @@
     Easter Sunday                       Mar 28 Sun
     Easter Monday                       Mar 29 Mon
     Anzac Day                           Apr 25 Sun
-    Kings Birthday                      Jun 14 Mon
+    King's Birthday                     Jun 14 Mon
     Labour Day                          Oct 04 Mon
     Christmas Day                       Dec 25 Sat
     Proclamation Day                    Dec 26 Sun
@@ -46,7 +46,7 @@
     Easter Sunday                       Apr 16 Sun
     Easter Monday                       Apr 17 Mon
     Anzac Day                           Apr 25 Tue
-    Kings Birthday                      Jun 12 Mon
+    King's Birthday                     Jun 12 Mon
     Labour Day                          Oct 02 Mon
     Christmas Day                       Dec 25 Mon
     Proclamation Day and Boxing Day     Dec 26 Tue

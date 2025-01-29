@@ -8,7 +8,7 @@
     Easter Monday         Apr 21 Mon
     Anzac Day             Apr 25 Fri
     Western Australia Day Jun 02 Mon
-    Kings Birthday        Sep 29 Mon
+    King's Birthday       Sep 29 Mon
     Christmas Day         Dec 25 Thu
     Boxing Day            Dec 26 Fri
 2026
@@ -22,7 +22,7 @@
     Anzac Day             Apr 25 Sat
     Anzac Day (additional) Apr 27 Mon
     Western Australia Day Jun 01 Mon
-    Kings Birthday        Sep 28 Mon
+    King's Birthday       Sep 28 Mon
     Christmas Day         Dec 25 Fri
     Boxing Day            Dec 26 Sat
     Christmas (additional) Dec 28 Mon
@@ -37,7 +37,7 @@
     Anzac Day             Apr 25 Sun
     Anzac Day (additional) Apr 26 Mon
     Western Australia Day Jun 07 Mon
-    Kings Birthday        Sep 27 Mon
+    King's Birthday       Sep 27 Mon
     Christmas Day         Dec 25 Sat
     Boxing Day            Dec 26 Sun
     Christmas (additional) Dec 27 Mon
@@ -52,7 +52,7 @@
     Easter Monday         Apr 17 Mon
     Anzac Day             Apr 25 Tue
     Western Australia Day Jun 05 Mon
-    Kings Birthday        Sep 25 Mon
+    King's Birthday       Sep 25 Mon
     Christmas Day         Dec 25 Mon
     Boxing Day            Dec 26 Tue
     Christmas (additional) Dec 27 Wed

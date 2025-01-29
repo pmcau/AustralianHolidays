@@ -2,10 +2,38 @@ namespace AustralianHolidays;
 
 public static partial class Holidays
 {
+    public static IOrderedEnumerable<(Date date, State state, string name)> ForYear(int year)
+    {
+        List<(Date date, State state, string name)> list = [];
+        foreach (var date in GetAllDatesForYear(year))
+        {
+            foreach (var state in Enum.GetValues<State>())
+            {
+                if (date.IsPublicHoliday(state, out var name))
+                {
+                    list.Add((date, state, name));
+                }
+            }
+        }
+        return list.OrderBy(_ => _.date);
+    }
+
+    static IEnumerable<Date> GetAllDatesForYear(int year)
+    {
+        var startDate = new Date(year, 1, 1);
+        var endDate = new Date(year, 12, 31);
+
+        for (var date = startDate; date <= endDate; date = date.AddDays(1))
+        {
+            yield return date;
+        }
+    }
+
     internal static bool IsWeekday(this Date date) =>
         date.DayOfWeek is
             not DayOfWeek.Saturday and
             not DayOfWeek.Sunday;
+
     internal static bool IsWeekEnd(this Date date) =>
         date.DayOfWeek is
             DayOfWeek.Saturday or

@@ -7,7 +7,7 @@
     Easter Sunday                       Apr 20 Sun
     Easter Monday                       Apr 21 Mon
     Anzac Day                           Apr 25 Fri
-    Kings Birthday                      Jun 09 Mon
+    King's Birthday                     Jun 09 Mon
     Friday before the AFL Grand Final (Subject to AFL schedule) Sep 26 Fri
     Melbourne Cup Day                   Nov 04 Tue
     Christmas Day                       Dec 25 Thu
@@ -21,7 +21,7 @@
     Easter Sunday                       Apr 05 Sun
     Easter Monday                       Apr 06 Mon
     Anzac Day                           Apr 25 Sat
-    Kings Birthday                      Jun 08 Mon
+    King's Birthday                     Jun 08 Mon
     Friday before the AFL Grand Final (Subject to AFL schedule) Sep 25 Fri
     Melbourne Cup Day                   Nov 03 Tue
     Christmas Day                       Dec 25 Fri
@@ -36,7 +36,7 @@
     Easter Sunday                       Mar 28 Sun
     Easter Monday                       Mar 29 Mon
     Anzac Day                           Apr 25 Sun
-    Kings Birthday                      Jun 14 Mon
+    King's Birthday                     Jun 14 Mon
     Friday before the AFL Grand Final (Subject to AFL schedule) Sep 24 Fri
     Melbourne Cup Day                   Nov 02 Tue
     Christmas Day                       Dec 25 Sat
@@ -52,7 +52,7 @@
     Easter Sunday                       Apr 16 Sun
     Easter Monday                       Apr 17 Mon
     Anzac Day                           Apr 25 Tue
-    Kings Birthday                      Jun 12 Mon
+    King's Birthday                     Jun 12 Mon
     Friday before the AFL Grand Final (Subject to AFL schedule) Sep 29 Fri
     Melbourne Cup Day                   Nov 07 Tue
     Christmas Day                       Dec 25 Mon

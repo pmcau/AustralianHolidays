@@ -6,13 +6,13 @@ static class MonarchBirthdayCalculator
     {
         if (date.IsQueensBirthday())
         {
-            name = "Queens Birthday";
+            name = "Queen's Birthday";
             return true;
         }
 
         if (date.IsKingsBirthday())
         {
-            name = "Kings Birthday";
+            name = "King's Birthday";
             return true;
         }
 
@@ -32,13 +32,13 @@ static class MonarchBirthdayCalculator
     {
         if (date.IsQueensBirthdayQld())
         {
-            name = "Queens Birthday";
+            name = "Queen's Birthday";
             return true;
         }
 
         if (date.IsKingsBirthdayQld())
         {
-            name = "Kings Birthday";
+            name = "King's Birthday";
             return true;
         }
 
@@ -58,13 +58,13 @@ static class MonarchBirthdayCalculator
     {
         if (date.IsQueensBirthdayWa())
         {
-            name = "Queens Birthday";
+            name = "Queen's Birthday";
             return true;
         }
 
         if (date.IsKingsBirthdayWa())
         {
-            name = "Kings Birthday";
+            name = "King's Birthday";
             return true;
         }
 

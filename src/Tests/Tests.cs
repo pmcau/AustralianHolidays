@@ -41,6 +41,10 @@ public class Tests
     }
 
     [Test]
+    public Task ForYear() =>
+        Verify(Holidays.ForYear(2024));
+
+    [Test]
     public Task WriteNsw() =>
         Verify(
             WriteForState(Holidays.IsNswHoliday));
