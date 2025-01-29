@@ -1,12 +1,10 @@
 namespace AustralianHolidays;
 
-//https://www.nsw.gov.au/sites/default/files/noindex/2024-08/NSW-Public-Holidays-2021-2023.pdf
-//https://www.nsw.gov.au/sites/default/files/noindex/2024-08/NSW-Public-Holiday-Guide-2024-2025-2026.pdf
 public static partial class Holidays
 {
     /// <summary>
     ///  Determines if the date is a public holiday in the Northern Territory.
-    ///  Reference: https://nt.gov.au/nt-public-holidays
+    ///  Reference: https://www.nsw.gov.au/about-nsw/public-holidays
     /// </summary>
     /// <param name="date">The date to check.</param>
     /// <param name="name">The name of the holiday.</param>
@@ -66,6 +64,18 @@ public static partial class Holidays
 
         if (date.IsMonarchBirthday(out name))
         {
+            return true;
+        }
+
+        if (date.IsFirstMonday(Month.August))
+        {
+            name = "Bank Holiday";
+            return true;
+        }
+
+        if (date.IsFirstMonday(Month.October))
+        {
+            name = "Labour Day";
             return true;
         }
 
