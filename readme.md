@@ -17,9 +17,7 @@
 ## Sample output
 
 
-### ACT
-
-[Reference](https://www.cmtedd.act.gov.au/communication/holidays)
+### Australian Capital Territory ([Reference](https://www.cmtedd.act.gov.au/communication/holidays))
 
 <!-- include: Tests.WriteByYears_state=ACT.verified.txt -->
 |      | 2025 | 2026 | 2027 | 2028 | 2029 |
@@ -43,9 +41,7 @@
 <!-- endInclude -->
 
 
-### NSW
-
-[Reference](https://www.nsw.gov.au/about-nsw/public-holidays)
+### New South Wales ([Reference](https://www.nsw.gov.au/about-nsw/public-holidays))
 
 <!-- include: Tests.WriteByYears_state=NSW.verified.txt -->
 |      | 2025 | 2026 | 2027 | 2028 | 2029 |
@@ -68,9 +64,7 @@
 <!-- endInclude -->
 
 
-### NT
-
-[Reference](https://nt.gov.au/nt-public-holidays)
+### Northern Territory ([Reference](https://nt.gov.au/nt-public-holidays))
 
 <!-- include: Tests.WriteByYears_state=NT.verified.txt -->
 |      | 2025 | 2026 | 2027 | 2028 | 2029 |
@@ -94,9 +88,7 @@
 <!-- endInclude -->
 
 
-### QLD
-
-[Reference](https://www.qld.gov.au/recreation/travel/holidays/public)
+### Queensland ([Reference](https://www.qld.gov.au/recreation/travel/holidays/public))
 
 <!-- include: Tests.WriteByYears_state=QLD.verified.txt -->
 |      | 2025 | 2026 | 2027 | 2028 | 2029 |
@@ -118,9 +110,7 @@
 <!-- endInclude -->
 
 
-### SA
-
-[Reference](https://www.safework.sa.gov.au/resources/public-holidays)
+### South Australia ([Reference](https://www.safework.sa.gov.au/resources/public-holidays))
 
 <!-- include: Tests.WriteByYears_state=SA.verified.txt -->
 |      | 2025 | 2026 | 2027 | 2028 |
@@ -143,9 +133,7 @@
 <!-- endInclude -->
 
 
-### TAS
-
-[Reference](https://worksafe.tas.gov.au/topics/laws-and-compliance/public-holidays)
+### Tasmania ([Reference](https://worksafe.tas.gov.au/topics/laws-and-compliance/public-holidays))
 
 <!-- include: Tests.WriteByYears_state=TAS.verified.txt -->
 |      | 2025 | 2026 | 2027 | 2028 |
@@ -190,9 +178,7 @@
 <!-- endInclude -->
 
 
-### Western Australia
-
-[Reference](https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia)
+### Western Australia ([Reference](https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia))
 
 <!-- include: Tests.WriteByYears_state=WA.verified.txt -->
 |      | 2025 | 2026 | 2027 | 2028 |
