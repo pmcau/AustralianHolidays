@@ -41,7 +41,7 @@ public class Tests
 
         var dictionary = forYears.GroupBy(_ => _.name)
             .ToDictionary(_ => _.Key, _ =>_.ToList());
-        foreach (var (key, value) in dictionary)
+        foreach (var (key, value) in dictionary.OrderBy(_=>_.Value.OrderByDescending(_=>_.date).First().date))
         {
             builder.Append("| " + key.PadRight(30) + " | ");
             foreach (var year in years)
