@@ -36,18 +36,6 @@ public static partial class Holidays
             }
         }
 
-        if (date.IsFirstMonday(Month.May))
-        {
-            name = "Labour Day";
-            return true;
-        }
-
-        if (date.IsAnzacDay())
-        {
-            name = "Anzac Day";
-            return true;
-        }
-
         var (easterFriday, easterSaturday, easterSunday, easterMonday) = EasterCalculator.ForYear(date.Year);
         if (date == easterFriday)
         {
@@ -70,6 +58,23 @@ public static partial class Holidays
         if (date == easterMonday)
         {
             name = "Easter Monday";
+            return true;
+        }
+
+        if (date.IsAnzacDay())
+        {
+            name = "Anzac Day";
+            return true;
+        }
+
+        if (date.IsFirstMonday(Month.May))
+        {
+            name = "Labour Day";
+            return true;
+        }
+
+        if (date.IsMonarchBirthday(out name))
+        {
             return true;
         }
 

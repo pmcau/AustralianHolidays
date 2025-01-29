@@ -7,6 +7,7 @@
 2024 Apr 01 Mon Easter Monday
 2024 Apr 02 Tue Easter Tuesday (Government employees only)
 2024 Apr 25 Thu Anzac Day
+2024 Jun 10 Mon Kings Birthday
 2024 Dec 25 Wed Christmas Day
 2024 Dec 26 Thu Boxing Day
 2024 Dec 27 Fri Christmas Holiday
@@ -19,6 +20,7 @@
 2025 Apr 21 Mon Easter Monday
 2025 Apr 22 Tue Easter Tuesday (Government employees only)
 2025 Apr 25 Fri Anzac Day
+2025 Jun 09 Mon Kings Birthday
 2025 Dec 25 Thu Christmas Day
 2025 Dec 26 Fri Boxing Day
 2026 Jan 01 Thu New Year's Day
@@ -30,6 +32,7 @@
 2026 Apr 06 Mon Easter Monday
 2026 Apr 07 Tue Easter Tuesday (Government employees only)
 2026 Apr 25 Sat Anzac Day
+2026 Jun 08 Mon Kings Birthday
 2026 Dec 25 Fri Christmas Day
 2026 Dec 26 Sat Boxing Day
 2026 Dec 28 Mon Christmas Holiday
@@ -42,6 +45,7 @@
 2027 Mar 29 Mon Easter Monday
 2027 Mar 30 Tue Easter Tuesday (Government employees only)
 2027 Apr 25 Sun Anzac Day
+2027 Jun 14 Mon Kings Birthday
 2027 Dec 25 Sat Christmas Day
 2027 Dec 26 Sun Boxing Day
 2027 Dec 27 Mon Christmas Holiday
@@ -55,6 +59,7 @@
 2028 Apr 17 Mon Easter Monday
 2028 Apr 18 Tue Easter Tuesday (Government employees only)
 2028 Apr 25 Tue Anzac Day
+2028 Jun 12 Mon Kings Birthday
 2028 Dec 25 Mon Christmas Day
 2028 Dec 26 Tue Boxing Day
 2028 Dec 27 Wed Christmas Holiday
@@ -68,6 +73,7 @@
 2029 Apr 02 Mon Easter Monday
 2029 Apr 03 Tue Easter Tuesday (Government employees only)
 2029 Apr 25 Wed Anzac Day
+2029 Jun 11 Mon Kings Birthday
 2029 Dec 25 Tue Christmas Day
 2029 Dec 26 Wed Boxing Day
 2029 Dec 27 Thu Christmas Holiday
@@ -81,6 +87,7 @@
 2030 Apr 22 Mon Easter Monday
 2030 Apr 23 Tue Easter Tuesday (Government employees only)
 2030 Apr 25 Thu Anzac Day
+2030 Jun 10 Mon Kings Birthday
 2030 Dec 25 Wed Christmas Day
 2030 Dec 26 Thu Boxing Day
 2030 Dec 27 Fri Christmas Holiday
@@ -93,6 +100,7 @@
 2031 Apr 14 Mon Easter Monday
 2031 Apr 15 Tue Easter Tuesday (Government employees only)
 2031 Apr 25 Fri Anzac Day
+2031 Jun 09 Mon Kings Birthday
 2031 Dec 25 Thu Christmas Day
 2031 Dec 26 Fri Boxing Day
 2032 Jan 01 Thu New Year's Day
@@ -104,6 +112,7 @@
 2032 Mar 29 Mon Easter Monday
 2032 Mar 30 Tue Easter Tuesday (Government employees only)
 2032 Apr 25 Sun Anzac Day
+2032 Jun 14 Mon Kings Birthday
 2032 Dec 25 Sat Christmas Day
 2032 Dec 26 Sun Boxing Day
 2032 Dec 27 Mon Christmas Holiday
@@ -117,6 +126,7 @@
 2033 Apr 18 Mon Easter Monday
 2033 Apr 19 Tue Easter Tuesday (Government employees only)
 2033 Apr 25 Mon Anzac Day
+2033 Jun 13 Mon Kings Birthday
 2033 Dec 25 Sun Christmas Day
 2033 Dec 26 Mon Boxing Day
 2033 Dec 27 Tue Christmas Holiday
@@ -130,6 +140,7 @@
 2034 Apr 10 Mon Easter Monday
 2034 Apr 11 Tue Easter Tuesday (Government employees only)
 2034 Apr 25 Tue Anzac Day
+2034 Jun 12 Mon Kings Birthday
 2034 Dec 25 Mon Christmas Day
 2034 Dec 26 Tue Boxing Day
 2034 Dec 27 Wed Christmas Holiday
@@ -143,6 +154,7 @@
 2035 Mar 26 Mon Easter Monday
 2035 Mar 27 Tue Easter Tuesday (Government employees only)
 2035 Apr 25 Wed Anzac Day
+2035 Jun 11 Mon Kings Birthday
 2035 Dec 25 Tue Christmas Day
 2035 Dec 26 Wed Boxing Day
 2035 Dec 27 Thu Christmas Holiday

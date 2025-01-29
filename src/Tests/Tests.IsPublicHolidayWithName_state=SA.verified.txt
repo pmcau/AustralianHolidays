@@ -5,6 +5,7 @@
 2024 Mar 31 Sun Easter Sunday
 2024 Apr 01 Mon Easter Monday
 2024 Apr 25 Thu Anzac Day
+2024 Jun 10 Mon Kings Birthday
 2024 Oct 07 Mon Labour Day
 2024 Dec 25 Wed Christmas Day
 2024 Dec 26 Thu Boxing Day
@@ -17,6 +18,7 @@
 2025 Apr 20 Sun Easter Sunday
 2025 Apr 21 Mon Easter Monday
 2025 Apr 25 Fri Anzac Day
+2025 Jun 09 Mon Kings Birthday
 2025 Oct 06 Mon Labour Day
 2025 Dec 25 Thu Christmas Day
 2025 Dec 26 Fri Boxing Day
@@ -27,6 +29,7 @@
 2026 Apr 05 Sun Easter Sunday
 2026 Apr 06 Mon Easter Monday
 2026 Apr 25 Sat Anzac Day
+2026 Jun 08 Mon Kings Birthday
 2026 Oct 05 Mon Labour Day
 2026 Dec 25 Fri Christmas Day
 2026 Dec 26 Sat Boxing Day
@@ -38,6 +41,7 @@
 2027 Mar 28 Sun Easter Sunday
 2027 Mar 29 Mon Easter Monday
 2027 Apr 25 Sun Anzac Day
+2027 Jun 14 Mon Kings Birthday
 2027 Oct 04 Mon Labour Day
 2027 Dec 25 Sat Christmas Day
 2027 Dec 26 Sun Boxing Day
@@ -50,6 +54,7 @@
 2028 Apr 16 Sun Easter Sunday
 2028 Apr 17 Mon Easter Monday
 2028 Apr 25 Tue Anzac Day
+2028 Jun 12 Mon Kings Birthday
 2028 Oct 02 Mon Labour Day
 2028 Dec 25 Mon Christmas Day
 2028 Dec 26 Tue Boxing Day
@@ -62,6 +67,7 @@
 2029 Apr 01 Sun Easter Sunday
 2029 Apr 02 Mon Easter Monday
 2029 Apr 25 Wed Anzac Day
+2029 Jun 11 Mon Kings Birthday
 2029 Oct 01 Mon Labour Day
 2029 Dec 25 Tue Christmas Day
 2029 Dec 26 Wed Boxing Day
@@ -75,6 +81,7 @@
 2030 Apr 21 Sun Easter Sunday
 2030 Apr 22 Mon Easter Monday
 2030 Apr 25 Thu Anzac Day
+2030 Jun 10 Mon Kings Birthday
 2030 Oct 07 Mon Labour Day
 2030 Dec 25 Wed Christmas Day
 2030 Dec 26 Thu Boxing Day
@@ -87,6 +94,7 @@
 2031 Apr 13 Sun Easter Sunday
 2031 Apr 14 Mon Easter Monday
 2031 Apr 25 Fri Anzac Day
+2031 Jun 09 Mon Kings Birthday
 2031 Oct 06 Mon Labour Day
 2031 Dec 25 Thu Christmas Day
 2031 Dec 26 Fri Boxing Day
@@ -97,6 +105,7 @@
 2032 Mar 28 Sun Easter Sunday
 2032 Mar 29 Mon Easter Monday
 2032 Apr 25 Sun Anzac Day
+2032 Jun 14 Mon Kings Birthday
 2032 Oct 04 Mon Labour Day
 2032 Dec 25 Sat Christmas Day
 2032 Dec 26 Sun Boxing Day
@@ -109,6 +118,7 @@
 2033 Apr 17 Sun Easter Sunday
 2033 Apr 18 Mon Easter Monday
 2033 Apr 25 Mon Anzac Day
+2033 Jun 13 Mon Kings Birthday
 2033 Oct 03 Mon Labour Day
 2033 Dec 25 Sun Christmas Day
 2033 Dec 26 Mon Boxing Day
@@ -121,6 +131,7 @@
 2034 Apr 09 Sun Easter Sunday
 2034 Apr 10 Mon Easter Monday
 2034 Apr 25 Tue Anzac Day
+2034 Jun 12 Mon Kings Birthday
 2034 Oct 02 Mon Labour Day
 2034 Dec 25 Mon Christmas Day
 2034 Dec 26 Tue Boxing Day
@@ -133,6 +144,7 @@
 2035 Mar 25 Sun Easter Sunday
 2035 Mar 26 Mon Easter Monday
 2035 Apr 25 Wed Anzac Day
+2035 Jun 11 Mon Kings Birthday
 2035 Oct 01 Mon Labour Day
 2035 Dec 25 Tue Christmas Day
 2035 Dec 26 Wed Boxing Day

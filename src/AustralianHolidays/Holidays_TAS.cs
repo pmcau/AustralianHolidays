@@ -16,11 +16,6 @@ public static partial class Holidays
             return true;
         }
 
-        if (ChristmasCalculator.TryGet(date, out name))
-        {
-            return true;
-        }
-
         if (date.Month == 1)
         {
             if (date.Day == 26 && date.IsWeekday())
@@ -39,12 +34,6 @@ public static partial class Holidays
         if (date.IsSecondMonday(Month.March))
         {
             name = "Eight Hours Day";
-            return true;
-        }
-
-        if (date.IsAnzacDay())
-        {
-            name = "Anzac Day";
             return true;
         }
 
@@ -76,6 +65,22 @@ public static partial class Holidays
         if (date == easterMonday.AddDays(1))
         {
             name = "Easter Tuesday (Government employees only)";
+            return true;
+        }
+
+        if (date.IsAnzacDay())
+        {
+            name = "Anzac Day";
+            return true;
+        }
+
+        if (date.IsMonarchBirthday(out name))
+        {
+            return true;
+        }
+
+        if (ChristmasCalculator.TryGet(date, out name))
+        {
             return true;
         }
 

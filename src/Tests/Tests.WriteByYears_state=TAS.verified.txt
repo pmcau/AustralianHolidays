@@ -8,6 +8,7 @@
     Easter Monday         Apr 21 Mon
     Easter Tuesday (Government employees only) Apr 22 Tue
     Anzac Day             Apr 25 Fri
+    Kings Birthday        Jun 09 Mon
     Christmas Day         Dec 25 Thu
     Boxing Day            Dec 26 Fri
 2026
@@ -20,6 +21,7 @@
     Easter Monday         Apr 06 Mon
     Easter Tuesday (Government employees only) Apr 07 Tue
     Anzac Day             Apr 25 Sat
+    Kings Birthday        Jun 08 Mon
     Christmas Day         Dec 25 Fri
     Boxing Day            Dec 26 Sat
     Christmas Holiday     Dec 28 Mon
@@ -33,6 +35,7 @@
     Easter Monday         Mar 29 Mon
     Easter Tuesday (Government employees only) Mar 30 Tue
     Anzac Day             Apr 25 Sun
+    Kings Birthday        Jun 14 Mon
     Christmas Day         Dec 25 Sat
     Boxing Day            Dec 26 Sun
     Christmas Holiday     Dec 27 Mon
@@ -47,6 +50,7 @@
     Easter Monday         Apr 17 Mon
     Easter Tuesday (Government employees only) Apr 18 Tue
     Anzac Day             Apr 25 Tue
+    Kings Birthday        Jun 12 Mon
     Christmas Day         Dec 25 Mon
     Boxing Day            Dec 26 Tue
     Christmas Holiday     Dec 27 Wed

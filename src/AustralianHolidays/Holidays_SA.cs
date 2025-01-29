@@ -60,6 +60,11 @@ public static partial class Holidays
             return true;
         }
 
+        if (date.IsMonarchBirthday(out name))
+        {
+            return true;
+        }
+
         if (date.IsFirstMonday(Month.October))
         {
             name = "Labour Day";

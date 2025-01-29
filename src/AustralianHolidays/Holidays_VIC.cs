@@ -63,6 +63,11 @@ public static partial class Holidays
             return true;
         }
 
+        if (date.IsMonarchBirthday(out name))
+        {
+            return true;
+        }
+
         if (ChristmasCalculator.TryGet(date, out name))
         {
             return true;

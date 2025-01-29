@@ -4,7 +4,7 @@ public static partial class Holidays
 {
     /// <summary>
     ///  Determines if the date is a public holiday in the Northern Territory.
-    ///  Reference: https://nt.gov.au/nt-public-holidays
+    ///  Reference: https://www.nsw.gov.au/about-nsw/public-holidays
     /// </summary>
     /// <param name="date">The date to check.</param>
     /// <param name="name">The name of the holiday.</param>
@@ -42,18 +42,6 @@ public static partial class Holidays
             return true;
         }
 
-        if (date.IsFirstMonday(Month.August))
-        {
-            name = "Picnic Day";
-            return true;
-        }
-
-        if (date.IsAnzacDay())
-        {
-            name = "Anzac Day";
-            return true;
-        }
-
         var (easterFriday, easterSaturday, easterSunday, easterMonday) = EasterCalculator.ForYear(date.Year);
         if (date == easterFriday)
         {
@@ -76,6 +64,23 @@ public static partial class Holidays
         if (date == easterMonday)
         {
             name = "Easter Monday";
+            return true;
+        }
+
+        if (date.IsAnzacDay())
+        {
+            name = "Anzac Day";
+            return true;
+        }
+
+        if (date.IsMonarchBirthday(out name))
+        {
+            return true;
+        }
+
+        if (date.IsFirstMonday(Month.August))
+        {
+            name = "Picnic Day";
             return true;
         }
 

@@ -4,16 +4,17 @@ namespace AustralianHolidays;
 //https://www.nsw.gov.au/sites/default/files/noindex/2024-08/NSW-Public-Holiday-Guide-2024-2025-2026.pdf
 public static partial class Holidays
 {
+    /// <summary>
+    ///  Determines if the date is a public holiday in the Northern Territory.
+    ///  Reference: https://nt.gov.au/nt-public-holidays
+    /// </summary>
+    /// <param name="date">The date to check.</param>
+    /// <param name="name">The name of the holiday.</param>
     public static bool IsNswHoliday(this Date date, [NotNullWhen(true)] out string? name)
     {
         if (date.IsNewYearsDay())
         {
             name = "New Year's Day";
-            return true;
-        }
-
-        if (ChristmasCalculator.TryGet(date, out name))
-        {
             return true;
         }
 
@@ -60,6 +61,16 @@ public static partial class Holidays
         if (date == easterMonday)
         {
             name = "Easter Monday";
+            return true;
+        }
+
+        if (date.IsMonarchBirthday(out name))
+        {
+            return true;
+        }
+
+        if (ChristmasCalculator.TryGet(date, out name))
+        {
             return true;
         }
 
