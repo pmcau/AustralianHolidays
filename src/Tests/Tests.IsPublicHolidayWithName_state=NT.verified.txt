@@ -8,11 +8,11 @@
 2024 May 06 Mon May Day
 2024 Jun 10 Mon King's Birthday
 2024 Aug 05 Mon Picnic Day
-2024 Dec 24 Tue Christmas Eve (part day)
+2024 Dec 24 Tue Christmas Eve (partial day)
 2024 Dec 25 Wed Christmas Day
 2024 Dec 26 Thu Boxing Day
 2024 Dec 27 Fri Christmas (additional)
-2024 Dec 31 Tue New Year's Eve (part day)
+2024 Dec 31 Tue New Year's Eve (partial day)
 2025 Jan 01 Wed New Year's Day
 2025 Jan 27 Mon Australia Day (additional)
 2025 Apr 18 Fri Good Friday
@@ -23,10 +23,10 @@
 2025 May 05 Mon May Day
 2025 Jun 09 Mon King's Birthday
 2025 Aug 04 Mon Picnic Day
-2025 Dec 24 Wed Christmas Eve (part day)
+2025 Dec 24 Wed Christmas Eve (partial day)
 2025 Dec 25 Thu Christmas Day
 2025 Dec 26 Fri Boxing Day
-2025 Dec 31 Wed New Year's Eve (part day)
+2025 Dec 31 Wed New Year's Eve (partial day)
 2026 Jan 01 Thu New Year's Day
 2026 Jan 26 Mon Australia Day
 2026 Apr 03 Fri Good Friday
@@ -37,11 +37,11 @@
 2026 May 04 Mon May Day
 2026 Jun 08 Mon King's Birthday
 2026 Aug 03 Mon Picnic Day
-2026 Dec 24 Thu Christmas Eve (part day)
+2026 Dec 24 Thu Christmas Eve (partial day)
 2026 Dec 25 Fri Christmas Day
 2026 Dec 26 Sat Boxing Day
 2026 Dec 28 Mon Christmas (additional)
-2026 Dec 31 Thu New Year's Eve (part day)
+2026 Dec 31 Thu New Year's Eve (partial day)
 2027 Jan 01 Fri New Year's Day
 2027 Jan 26 Tue Australia Day
 2027 Mar 26 Fri Good Friday
@@ -52,12 +52,12 @@
 2027 May 03 Mon May Day
 2027 Jun 14 Mon King's Birthday
 2027 Aug 02 Mon Picnic Day
-2027 Dec 24 Fri Christmas Eve (part day)
+2027 Dec 24 Fri Christmas Eve (partial day)
 2027 Dec 25 Sat Christmas Day
 2027 Dec 26 Sun Boxing Day
 2027 Dec 27 Mon Christmas (additional)
 2027 Dec 28 Tue Christmas (additional)
-2027 Dec 31 Fri New Year's Eve (part day)
+2027 Dec 31 Fri New Year's Eve (partial day)
 2028 Jan 01 Sat New Year's Day
 2028 Jan 26 Wed Australia Day
 2028 Apr 14 Fri Good Friday
@@ -68,12 +68,12 @@
 2028 May 01 Mon May Day
 2028 Jun 12 Mon King's Birthday
 2028 Aug 07 Mon Picnic Day
-2028 Dec 24 Sun Christmas Eve (part day)
+2028 Dec 24 Sun Christmas Eve (partial day)
 2028 Dec 25 Mon Christmas Day
 2028 Dec 26 Tue Boxing Day
 2028 Dec 27 Wed Christmas (additional)
 2028 Dec 28 Thu Christmas (additional)
-2028 Dec 31 Sun New Year's Eve (part day)
+2028 Dec 31 Sun New Year's Eve (partial day)
 2029 Jan 01 Mon New Year's Day
 2029 Jan 26 Fri Australia Day
 2029 Mar 30 Fri Good Friday
@@ -84,12 +84,12 @@
 2029 May 07 Mon May Day
 2029 Jun 11 Mon King's Birthday
 2029 Aug 06 Mon Picnic Day
-2029 Dec 24 Mon Christmas Eve (part day)
+2029 Dec 24 Mon Christmas Eve (partial day)
 2029 Dec 25 Tue Christmas Day
 2029 Dec 26 Wed Boxing Day
 2029 Dec 27 Thu Christmas (additional)
 2029 Dec 28 Fri Christmas (additional)
-2029 Dec 31 Mon New Year's Eve (part day)
+2029 Dec 31 Mon New Year's Eve (partial day)
 2030 Jan 01 Tue New Year's Day
 2030 Jan 28 Mon Australia Day (additional)
 2030 Apr 19 Fri Good Friday
@@ -100,11 +100,11 @@
 2030 May 06 Mon May Day
 2030 Jun 10 Mon King's Birthday
 2030 Aug 05 Mon Picnic Day
-2030 Dec 24 Tue Christmas Eve (part day)
+2030 Dec 24 Tue Christmas Eve (partial day)
 2030 Dec 25 Wed Christmas Day
 2030 Dec 26 Thu Boxing Day
 2030 Dec 27 Fri Christmas (additional)
-2030 Dec 31 Tue New Year's Eve (part day)
+2030 Dec 31 Tue New Year's Eve (partial day)
 2031 Jan 01 Wed New Year's Day
 2031 Jan 27 Mon Australia Day (additional)
 2031 Apr 11 Fri Good Friday
@@ -115,10 +115,10 @@
 2031 May 05 Mon May Day
 2031 Jun 09 Mon King's Birthday
 2031 Aug 04 Mon Picnic Day
-2031 Dec 24 Wed Christmas Eve (part day)
+2031 Dec 24 Wed Christmas Eve (partial day)
 2031 Dec 25 Thu Christmas Day
 2031 Dec 26 Fri Boxing Day
-2031 Dec 31 Wed New Year's Eve (part day)
+2031 Dec 31 Wed New Year's Eve (partial day)
 2032 Jan 01 Thu New Year's Day
 2032 Jan 26 Mon Australia Day
 2032 Mar 26 Fri Good Friday
@@ -129,12 +129,12 @@
 2032 May 03 Mon May Day
 2032 Jun 14 Mon King's Birthday
 2032 Aug 02 Mon Picnic Day
-2032 Dec 24 Fri Christmas Eve (part day)
+2032 Dec 24 Fri Christmas Eve (partial day)
 2032 Dec 25 Sat Christmas Day
 2032 Dec 26 Sun Boxing Day
 2032 Dec 27 Mon Christmas (additional)
 2032 Dec 28 Tue Christmas (additional)
-2032 Dec 31 Fri New Year's Eve (part day)
+2032 Dec 31 Fri New Year's Eve (partial day)
 2033 Jan 01 Sat New Year's Day
 2033 Jan 26 Wed Australia Day
 2033 Apr 15 Fri Good Friday
@@ -145,12 +145,12 @@
 2033 May 02 Mon May Day
 2033 Jun 13 Mon King's Birthday
 2033 Aug 01 Mon Picnic Day
-2033 Dec 24 Sat Christmas Eve (part day)
+2033 Dec 24 Sat Christmas Eve (partial day)
 2033 Dec 25 Sun Christmas Day
 2033 Dec 26 Mon Boxing Day
 2033 Dec 27 Tue Christmas (additional)
 2033 Dec 28 Wed Christmas (additional)
-2033 Dec 31 Sat New Year's Eve (part day)
+2033 Dec 31 Sat New Year's Eve (partial day)
 2034 Jan 01 Sun New Year's Day
 2034 Jan 26 Thu Australia Day
 2034 Apr 07 Fri Good Friday
@@ -161,12 +161,12 @@
 2034 May 01 Mon May Day
 2034 Jun 12 Mon King's Birthday
 2034 Aug 07 Mon Picnic Day
-2034 Dec 24 Sun Christmas Eve (part day)
+2034 Dec 24 Sun Christmas Eve (partial day)
 2034 Dec 25 Mon Christmas Day
 2034 Dec 26 Tue Boxing Day
 2034 Dec 27 Wed Christmas (additional)
 2034 Dec 28 Thu Christmas (additional)
-2034 Dec 31 Sun New Year's Eve (part day)
+2034 Dec 31 Sun New Year's Eve (partial day)
 2035 Jan 01 Mon New Year's Day
 2035 Jan 26 Fri Australia Day
 2035 Mar 23 Fri Good Friday
@@ -177,9 +177,9 @@
 2035 May 07 Mon May Day
 2035 Jun 11 Mon King's Birthday
 2035 Aug 06 Mon Picnic Day
-2035 Dec 24 Mon Christmas Eve (part day)
+2035 Dec 24 Mon Christmas Eve (partial day)
 2035 Dec 25 Tue Christmas Day
 2035 Dec 26 Wed Boxing Day
 2035 Dec 27 Thu Christmas (additional)
 2035 Dec 28 Fri Christmas (additional)
-2035 Dec 31 Mon New Year's Eve (part day)
+2035 Dec 31 Mon New Year's Eve (partial day)
