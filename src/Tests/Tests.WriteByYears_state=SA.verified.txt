@@ -13,5 +13,5 @@
 | Christmas Day                  | Dec 25 Thu | Dec 25 Fri | Dec 25 Sat | Dec 25 Mon | 
 | Proclamation Day and Boxing Day | Dec 26 Fri |  |  | Dec 26 Tue | 
 | Proclamation Day               |  | Dec 26 Sat | Dec 26 Sun |  | 
-| Proclamation Day (additional)  |  | Dec 28 Mon | Dec 28 Tue |  | 
 | Christmas (additional)         |  |  | Dec 27 Mon | Dec 27 Wed, Dec 28 Thu | 
+| Proclamation Day (additional)  |  | Dec 28 Mon | Dec 28 Tue |  | 

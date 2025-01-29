@@ -39,17 +39,19 @@ public class Tests
         }
         builder.AppendLine();
 
-        var dictionary = forYears.GroupBy(_ => _.name)
-            .ToDictionary(_ => _.Key, _ =>_.ToList());
-        foreach (var (key, value) in dictionary.OrderBy(_=>_.Value.OrderByDescending(_=>_.date).First().date))
+        var items = forYears.GroupBy(_ => _.name)
+            .OrderBy(_=> _.First().date.Month)
+            .ThenBy(_=> _.First().date.Day);
+
+        foreach (var item in items)
         {
-            builder.Append("| " + key.PadRight(30) + " | ");
+            builder.Append("| " + item.Key.PadRight(30) + " | ");
             foreach (var year in years)
             {
-                var dates = value.Where(_ => _.date.Year == year).ToList();
+                var dates = item.Select(_=>_.date).Where(_ => _.Year == year).ToList();
                 if (dates.Count != 0)
                 {
-                    builder.Append(string.Join(", ", dates.Select(_=>_.date.ToString("MMM dd ddd", CultureInfo.InvariantCulture))));
+                    builder.Append(string.Join(", ", dates.Select(_=>_.ToString("MMM dd ddd", CultureInfo.InvariantCulture))));
                 }
 
                 builder.Append(" | ");

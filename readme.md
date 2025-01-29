@@ -19,16 +19,16 @@
 <!-- include: Tests.WriteByYears_state=ACT.verified.txt -->
 | 2025 | 2026 | 2027 | 2028 |
 |------|------|------|------|
-| Australia Day (additional)     | Jan 27 Mon |  |  |  | 
-| Anzac Day (additional)         |  | Apr 27 Mon |  |  | 
 | New Year's Day                 | Jan 01 Wed | Jan 01 Thu | Jan 01 Fri | Jan 01 Sat | 
 | Australia Day                  |  | Jan 26 Mon | Jan 26 Tue | Jan 26 Wed | 
+| Australia Day (additional)     | Jan 27 Mon |  |  |  | 
 | Canberra Day                   | Mar 10 Mon | Mar 09 Mon | Mar 08 Mon | Mar 13 Mon | 
 | Good Friday                    | Apr 18 Fri | Apr 03 Fri | Mar 26 Fri | Apr 14 Fri | 
 | Easter Saturday                | Apr 19 Sat | Apr 04 Sat | Mar 27 Sat | Apr 15 Sat | 
 | Easter Sunday                  | Apr 20 Sun | Apr 05 Sun | Mar 28 Sun | Apr 16 Sun | 
 | Easter Monday                  | Apr 21 Mon | Apr 06 Mon | Mar 29 Mon | Apr 17 Mon | 
 | Anzac Day                      | Apr 25 Fri |  | Apr 25 Sun | Apr 25 Tue | 
+| Anzac Day (additional)         |  | Apr 27 Mon |  |  | 
 | Reconciliation Day             | Jun 02 Mon | Jun 01 Mon | May 31 Mon | May 29 Mon | 
 | King's Birthday                | Jun 09 Mon | Jun 08 Mon | Jun 14 Mon | Jun 12 Mon | 
 | Labour Day                     | Oct 06 Mon | Oct 05 Mon | Oct 04 Mon | Oct 02 Mon | 
