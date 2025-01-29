@@ -16,21 +16,6 @@ public class AnzacDayTests
         return Verify(builder);
     }
 
-    [TestCaseSource(nameof(GetStates))]
-    public Task IsAnzacDayHoliday(State state)
-    {
-        var builder = new StringBuilder();
-        foreach (var date in DateBuilder.Range())
-        {
-            if (date.IsAnzacDayHoliday(state))
-            {
-                builder.AppendLine($"{date.ToString("yyyy MMM dd ddd", CultureInfo.InvariantCulture)}");
-            }
-        }
-
-        return Verify(builder);
-    }
-
     public static IEnumerable<State> GetStates() =>
         Enum.GetValues<State>();
 

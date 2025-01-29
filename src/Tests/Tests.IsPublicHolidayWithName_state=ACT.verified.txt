@@ -33,7 +33,7 @@
 2026 Apr 04 Sat Easter Saturday
 2026 Apr 05 Sun Easter Sunday
 2026 Apr 06 Mon Easter Monday
-2026 Apr 25 Sat Anzac Day
+2026 Apr 27 Mon Anzac Day Holiday
 2026 Jun 01 Mon Reconciliation Day
 2026 Jun 08 Mon Kings Birthday
 2026 Oct 05 Mon Labour Day

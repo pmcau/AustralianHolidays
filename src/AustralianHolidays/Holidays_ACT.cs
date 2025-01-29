@@ -47,10 +47,21 @@ public static partial class Holidays
             return true;
         }
 
-        if (date.IsAnzacDay())
+        if (date.Month == 4)
         {
-            name = "Anzac Day";
-            return true;
+            // Anzac Day falls on a Saturday
+            if (date is { DayOfWeek: DayOfWeek.Monday, Day: 27 })
+            {
+                name = "Anzac Day Holiday";
+                return true;
+            }
+
+            if (date.DayOfWeek != DayOfWeek.Saturday &&
+                date.Day == 25)
+            {
+                name = "Anzac Day";
+                return true;
+            }
         }
 
         var (easterFriday, easterSaturday, easterSunday, easterMonday) = EasterCalculator.ForYear(date.Year);
