@@ -68,8 +68,14 @@ public static partial class Holidays
             return true;
         }
 
-        if (date.IsMonarchBirthday(out name))
+        if (date.IsMonarchBirthdayQld(out name))
         {
+            return true;
+        }
+
+        if (date.IsChristmasEve())
+        {
+            name = "Christmas Eve (part day holiday)";
             return true;
         }
 

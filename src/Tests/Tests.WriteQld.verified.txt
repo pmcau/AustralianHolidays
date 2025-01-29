@@ -7,7 +7,8 @@
     Easter Monday         Apr 21 Mon
     Anzac Day             Apr 25 Fri
     Labour Day            May 05 Mon
-    Kings Birthday        Jun 09 Mon
+    Kings Birthday        Oct 06 Mon
+    Christmas Eve (part day holiday) Dec 24 Wed
     Christmas Day         Dec 25 Thu
     Boxing Day            Dec 26 Fri
 2026
@@ -19,7 +20,8 @@
     Easter Monday         Apr 06 Mon
     Anzac Day             Apr 25 Sat
     Labour Day            May 04 Mon
-    Kings Birthday        Jun 08 Mon
+    Kings Birthday        Oct 05 Mon
+    Christmas Eve (part day holiday) Dec 24 Thu
     Christmas Day         Dec 25 Fri
     Boxing Day            Dec 26 Sat
     Christmas Holiday     Dec 28 Mon
@@ -32,7 +34,8 @@
     Easter Monday         Mar 29 Mon
     Anzac Day             Apr 25 Sun
     Labour Day            May 03 Mon
-    Kings Birthday        Jun 14 Mon
+    Kings Birthday        Oct 04 Mon
+    Christmas Eve (part day holiday) Dec 24 Fri
     Christmas Day         Dec 25 Sat
     Boxing Day            Dec 26 Sun
     Christmas Holiday     Dec 27 Mon
@@ -46,7 +49,8 @@
     Easter Monday         Apr 17 Mon
     Anzac Day             Apr 25 Tue
     Labour Day            May 01 Mon
-    Kings Birthday        Jun 12 Mon
+    Kings Birthday        Oct 02 Mon
+    Christmas Eve (part day holiday) Dec 24 Sun
     Christmas Day         Dec 25 Mon
     Boxing Day            Dec 26 Tue
     Christmas Holiday     Dec 27 Wed
