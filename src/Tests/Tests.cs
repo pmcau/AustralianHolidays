@@ -33,29 +33,31 @@ public class Tests
         var builder = new StringBuilder();
         builder.AppendLine($"|      | {string.Join(" | ", years)} |");
         builder.Append('|');
-        for (var index = 0; index < years.Count+1; index++)
+        for (var index = 0; index < years.Count + 1; index++)
         {
             builder.Append("------|");
         }
+
         builder.AppendLine();
 
         var items = forYears.GroupBy(_ => _.name)
-            .OrderBy(_=> _.First().date.Month)
-            .ThenBy(_=> _.First().date.Day);
+            .OrderBy(_ => _.First().date.Month)
+            .ThenBy(_ => _.First().date.Day);
 
         foreach (var item in items)
         {
-            builder.Append("| " + item.Key.Replace(" (","<br>(").PadRight(30) + " | ");
+            builder.Append("| " + item.Key.Replace(" (", "<br>(").PadRight(30) + " | ");
             foreach (var year in years)
             {
-                var dates = item.Select(_=>_.date).Where(_ => _.Year == year).ToList();
+                var dates = item.Select(_ => _.date).Where(_ => _.Year == year).ToList();
                 if (dates.Count != 0)
                 {
-                    builder.Append(string.Join("<br>", dates.Select(_=>_.ToString("ddd dd MMM", CultureInfo.InvariantCulture))));
+                    builder.Append(string.Join("<br>", dates.Select(_ => _.ToString("``ddd dd MMM``", CultureInfo.InvariantCulture))));
                 }
 
                 builder.Append(" | ");
             }
+
             builder.AppendLine();
         }
 
