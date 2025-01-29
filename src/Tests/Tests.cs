@@ -51,7 +51,7 @@ public class Tests
                 var dates = item.Select(_=>_.date).Where(_ => _.Year == year).ToList();
                 if (dates.Count != 0)
                 {
-                    builder.Append(string.Join(", ", dates.Select(_=>_.ToString("MMM dd ddd", CultureInfo.InvariantCulture))));
+                    builder.Append(string.Join(", ", dates.Select(_=>_.ToString("ddd  dd MMM", CultureInfo.InvariantCulture))));
                 }
 
                 builder.Append(" | ");
