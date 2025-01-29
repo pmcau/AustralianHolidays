@@ -15,6 +15,7 @@ public static partial class Holidays
                 }
             }
         }
+
         return list.OrderBy(_ => _.date);
     }
 
