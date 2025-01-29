@@ -37,7 +37,7 @@
 | Labour Day                     | Mon 06 Oct | Mon 05 Oct | Mon 04 Oct | Mon 02 Oct | 
 | Christmas Day                  | Thu 25 Dec | Fri 25 Dec | Sat 25 Dec | Mon 25 Dec | 
 | Boxing Day                     | Fri 26 Dec | Sat 26 Dec | Sun 26 Dec | Tue 26 Dec | 
-| Christmas (additional)         |  | Mon 28 Dec | Mon 27 Dec, Tue 28 Dec | Wed 27 Dec, Thu 28 Dec | 
+| Christmas (additional)         |  | Mon 28 Dec | Mon 27 Dec<br>Tue 28 Dec | Wed 27 Dec<br>Thu 28 Dec | 
 <!-- endInclude -->
 
 
@@ -60,7 +60,7 @@
 | Labour Day                     | Mon 06 Oct | Mon 05 Oct | Mon 04 Oct | Mon 02 Oct | 
 | Christmas Day                  | Thu 25 Dec | Fri 25 Dec | Sat 25 Dec | Mon 25 Dec | 
 | Boxing Day                     | Fri 26 Dec | Sat 26 Dec | Sun 26 Dec | Tue 26 Dec | 
-| Christmas (additional)         |  | Mon 28 Dec | Mon 27 Dec, Tue 28 Dec | Wed 27 Dec, Thu 28 Dec | 
+| Christmas (additional)         |  | Mon 28 Dec | Mon 27 Dec<br>Tue 28 Dec | Wed 27 Dec<br>Thu 28 Dec | 
 <!-- endInclude -->
 
 
@@ -83,7 +83,7 @@
 | Christmas Eve (part day holiday) | Wed 24 Dec | Thu 24 Dec | Fri 24 Dec | Sun 24 Dec | 
 | Christmas Day                  | Thu 25 Dec | Fri 25 Dec | Sat 25 Dec | Mon 25 Dec | 
 | Boxing Day                     | Fri 26 Dec | Sat 26 Dec | Sun 26 Dec | Tue 26 Dec | 
-| Christmas (additional)         |  | Mon 28 Dec | Mon 27 Dec, Tue 28 Dec | Wed 27 Dec, Thu 28 Dec | 
+| Christmas (additional)         |  | Mon 28 Dec | Mon 27 Dec<br>Tue 28 Dec | Wed 27 Dec<br>Thu 28 Dec | 
 | New Year's Eve (part day holiday) | Wed 31 Dec | Thu 31 Dec | Fri 31 Dec | Sun 31 Dec | 
 <!-- endInclude -->
 
@@ -106,7 +106,7 @@
 | Christmas Eve (part day holiday) | Wed 24 Dec | Thu 24 Dec | Fri 24 Dec | Sun 24 Dec | 
 | Christmas Day                  | Thu 25 Dec | Fri 25 Dec | Sat 25 Dec | Mon 25 Dec | 
 | Boxing Day                     | Fri 26 Dec | Sat 26 Dec | Sun 26 Dec | Tue 26 Dec | 
-| Christmas (additional)         |  | Mon 28 Dec | Mon 27 Dec, Tue 28 Dec | Wed 27 Dec, Thu 28 Dec | 
+| Christmas (additional)         |  | Mon 28 Dec | Mon 27 Dec<br>Tue 28 Dec | Wed 27 Dec<br>Thu 28 Dec | 
 <!-- endInclude -->
 
 
