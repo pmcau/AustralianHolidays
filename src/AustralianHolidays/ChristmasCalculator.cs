@@ -5,8 +5,14 @@ public static class ChristmasCalculator
     public static bool IsChristmasDay(this Date date) =>
         date == ChristmasDay(date.Year);
 
+    public static bool IsChristmasEve(this Date date) =>
+        date == ChristmasEve(date.Year);
+
     public static Date ChristmasDay(int year) =>
         new(year, 12, 25);
+
+    public static Date ChristmasEve(int year) =>
+        new(year, 12, 24);
 
     public static Date BoxingDay(int year) =>
         new(year, 12, 26);

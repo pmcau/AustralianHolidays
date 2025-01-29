@@ -9,8 +9,10 @@
     May Day               May 05 Mon
     Kings Birthday        Jun 09 Mon
     Picnic Day            Aug 04 Mon
+    Christmas Eve (part day holiday) Dec 24 Wed
     Christmas Day         Dec 25 Thu
     Boxing Day            Dec 26 Fri
+    New Year's Eve (part day holiday) Dec 31 Wed
 2026
     New Year's Day        Jan 01 Thu
     Australia Day         Jan 26 Mon
@@ -22,9 +24,11 @@
     May Day               May 04 Mon
     Kings Birthday        Jun 08 Mon
     Picnic Day            Aug 03 Mon
+    Christmas Eve (part day holiday) Dec 24 Thu
     Christmas Day         Dec 25 Fri
     Boxing Day            Dec 26 Sat
     Christmas Holiday     Dec 28 Mon
+    New Year's Eve (part day holiday) Dec 31 Thu
 2027
     New Year's Day        Jan 01 Fri
     Australia Day         Jan 26 Tue
@@ -36,10 +40,12 @@
     May Day               May 03 Mon
     Kings Birthday        Jun 14 Mon
     Picnic Day            Aug 02 Mon
+    Christmas Eve (part day holiday) Dec 24 Fri
     Christmas Day         Dec 25 Sat
     Boxing Day            Dec 26 Sun
     Christmas Holiday     Dec 27 Mon
     Christmas Holiday     Dec 28 Tue
+    New Year's Eve (part day holiday) Dec 31 Fri
 2028
     New Year's Day        Jan 01 Sat
     Australia Day         Jan 26 Wed
@@ -51,7 +57,9 @@
     May Day               May 01 Mon
     Kings Birthday        Jun 12 Mon
     Picnic Day            Aug 07 Mon
+    Christmas Eve (part day holiday) Dec 24 Sun
     Christmas Day         Dec 25 Mon
     Boxing Day            Dec 26 Tue
     Christmas Holiday     Dec 27 Wed
     Christmas Holiday     Dec 28 Thu
+    New Year's Eve (part day holiday) Dec 31 Sun

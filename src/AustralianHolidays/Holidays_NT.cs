@@ -4,7 +4,7 @@ public static partial class Holidays
 {
     /// <summary>
     ///  Determines if the date is a public holiday in the Northern Territory.
-    ///  Reference: https://www.nsw.gov.au/about-nsw/public-holidays
+    ///  Reference: https://nt.gov.au/nt-public-holidays
     /// </summary>
     /// <param name="date">The date to check.</param>
     /// <param name="name">The name of the holiday.</param>
@@ -79,8 +79,20 @@ public static partial class Holidays
             return true;
         }
 
+        if (date.IsChristmasEve())
+        {
+            name = "Christmas Eve (part day holiday)";
+            return true;
+        }
+
         if (ChristmasCalculator.TryGet(date, out name))
         {
+            return true;
+        }
+
+        if (date.IsNewYearsEve())
+        {
+            name = "New Year's Eve (part day holiday)";
             return true;
         }
 

@@ -41,6 +41,9 @@ public static partial class Holidays
     static bool IsNewYearsDay(this Date date) =>
         date is { Month: 1, Day: 1 };
 
+    static bool IsNewYearsEve(this Date date) =>
+        date is { Month: 12, Day: 31 };
+
     public static bool IsFederalGovernmentShutdown(this Date date)
     {
         var christmas = new Date(date.Year, 12, 25);
