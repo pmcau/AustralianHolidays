@@ -16,11 +16,6 @@ public static partial class Holidays
             return true;
         }
 
-        if (ChristmasCalculator.TryGet(date, out name))
-        {
-            return true;
-        }
-
         if (date.Month == 1)
         {
             if (date.Day == 26 && date.IsWeekday())
@@ -74,6 +69,11 @@ public static partial class Holidays
         }
 
         if (date.IsMonarchBirthday(out name))
+        {
+            return true;
+        }
+
+        if (ChristmasCalculator.TryGet(date, out name))
         {
             return true;
         }

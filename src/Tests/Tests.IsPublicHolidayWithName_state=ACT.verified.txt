@@ -1,5 +1,6 @@
 ﻿2024 Jan 01 Mon New Year's Day
 2024 Jan 26 Fri Australia Day
+2024 Mar 11 Mon Canberra Day
 2024 Mar 29 Fri Good Friday
 2024 Mar 30 Sat Easter Saturday
 2024 Mar 31 Sun Easter Sunday
@@ -14,6 +15,7 @@
 2024 Dec 27 Fri Christmas Holiday
 2025 Jan 01 Wed New Year's Day
 2025 Jan 27 Mon Australia Day Holiday
+2025 Mar 10 Mon Canberra Day
 2025 Apr 18 Fri Good Friday
 2025 Apr 19 Sat Easter Saturday
 2025 Apr 20 Sun Easter Sunday
@@ -26,6 +28,7 @@
 2025 Dec 26 Fri Boxing Day
 2026 Jan 01 Thu New Year's Day
 2026 Jan 26 Mon Australia Day
+2026 Mar 09 Mon Canberra Day
 2026 Apr 03 Fri Good Friday
 2026 Apr 04 Sat Easter Saturday
 2026 Apr 05 Sun Easter Sunday
@@ -39,6 +42,7 @@
 2026 Dec 28 Mon Christmas Holiday
 2027 Jan 01 Fri New Year's Day
 2027 Jan 26 Tue Australia Day
+2027 Mar 08 Mon Canberra Day
 2027 Mar 26 Fri Good Friday
 2027 Mar 27 Sat Easter Saturday
 2027 Mar 28 Sun Easter Sunday
@@ -53,6 +57,7 @@
 2027 Dec 28 Tue Christmas Holiday
 2028 Jan 01 Sat New Year's Day
 2028 Jan 26 Wed Australia Day
+2028 Mar 13 Mon Canberra Day
 2028 Apr 14 Fri Good Friday
 2028 Apr 15 Sat Easter Saturday
 2028 Apr 16 Sun Easter Sunday
@@ -67,6 +72,7 @@
 2028 Dec 28 Thu Christmas Holiday
 2029 Jan 01 Mon New Year's Day
 2029 Jan 26 Fri Australia Day
+2029 Mar 12 Mon Canberra Day
 2029 Mar 30 Fri Good Friday
 2029 Mar 31 Sat Easter Saturday
 2029 Apr 01 Sun Easter Sunday
@@ -81,6 +87,7 @@
 2029 Dec 28 Fri Christmas Holiday
 2030 Jan 01 Tue New Year's Day
 2030 Jan 28 Mon Australia Day Holiday
+2030 Mar 11 Mon Canberra Day
 2030 Apr 19 Fri Good Friday
 2030 Apr 20 Sat Easter Saturday
 2030 Apr 21 Sun Easter Sunday
@@ -95,6 +102,7 @@
 2030 Dec 27 Fri Christmas Holiday
 2031 Jan 01 Wed New Year's Day
 2031 Jan 27 Mon Australia Day Holiday
+2031 Mar 10 Mon Canberra Day
 2031 Apr 11 Fri Good Friday
 2031 Apr 12 Sat Easter Saturday
 2031 Apr 13 Sun Easter Sunday
@@ -107,6 +115,7 @@
 2031 Dec 26 Fri Boxing Day
 2032 Jan 01 Thu New Year's Day
 2032 Jan 26 Mon Australia Day
+2032 Mar 08 Mon Canberra Day
 2032 Mar 26 Fri Good Friday
 2032 Mar 27 Sat Easter Saturday
 2032 Mar 28 Sun Easter Sunday
@@ -121,6 +130,7 @@
 2032 Dec 28 Tue Christmas Holiday
 2033 Jan 01 Sat New Year's Day
 2033 Jan 26 Wed Australia Day
+2033 Mar 14 Mon Canberra Day
 2033 Apr 15 Fri Good Friday
 2033 Apr 16 Sat Easter Saturday
 2033 Apr 17 Sun Easter Sunday
@@ -135,6 +145,7 @@
 2033 Dec 28 Wed Christmas Holiday
 2034 Jan 01 Sun New Year's Day
 2034 Jan 26 Thu Australia Day
+2034 Mar 13 Mon Canberra Day
 2034 Apr 07 Fri Good Friday
 2034 Apr 08 Sat Easter Saturday
 2034 Apr 09 Sun Easter Sunday
@@ -149,6 +160,7 @@
 2034 Dec 28 Thu Christmas Holiday
 2035 Jan 01 Mon New Year's Day
 2035 Jan 26 Fri Australia Day
+2035 Mar 12 Mon Canberra Day
 2035 Mar 23 Fri Good Friday
 2035 Mar 24 Sat Easter Saturday
 2035 Mar 25 Sun Easter Sunday

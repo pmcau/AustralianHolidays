@@ -1,6 +1,7 @@
 ﻿2025
     New Year's Day        Jan 01 Wed
     Australia Day Holiday Jan 27 Mon
+    Canberra Day          Mar 10 Mon
     Good Friday           Apr 18 Fri
     Easter Saturday       Apr 19 Sat
     Easter Sunday         Apr 20 Sun
@@ -14,6 +15,7 @@
 2026
     New Year's Day        Jan 01 Thu
     Australia Day         Jan 26 Mon
+    Canberra Day          Mar 09 Mon
     Good Friday           Apr 03 Fri
     Easter Saturday       Apr 04 Sat
     Easter Sunday         Apr 05 Sun
@@ -28,6 +30,7 @@
 2027
     New Year's Day        Jan 01 Fri
     Australia Day         Jan 26 Tue
+    Canberra Day          Mar 08 Mon
     Good Friday           Mar 26 Fri
     Easter Saturday       Mar 27 Sat
     Easter Sunday         Mar 28 Sun
@@ -43,6 +46,7 @@
 2028
     New Year's Day        Jan 01 Sat
     Australia Day         Jan 26 Wed
+    Canberra Day          Mar 13 Mon
     Good Friday           Apr 14 Fri
     Easter Saturday       Apr 15 Sat
     Easter Sunday         Apr 16 Sun

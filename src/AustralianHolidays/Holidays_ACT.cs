@@ -16,11 +16,6 @@ public static partial class Holidays
             return true;
         }
 
-        if (ChristmasCalculator.TryGet(date, out name))
-        {
-            return true;
-        }
-
         if (date.Month == 1)
         {
             if (date.Day == 26 && date.IsWeekday())
@@ -36,6 +31,12 @@ public static partial class Holidays
             }
         }
 
+        if (date.IsSecondMonday(Month.March))
+        {
+            name = "Canberra Day";
+            return true;
+        }
+
         var reconciliationDayStart = new Date(date.Year, 5, 27);
         var reconciliationDayEnd = reconciliationDayStart.AddDays(7);
         if (date.DayOfWeek == DayOfWeek.Monday &&
@@ -45,6 +46,7 @@ public static partial class Holidays
             name = "Reconciliation Day";
             return true;
         }
+
         if (date.IsAnzacDay())
         {
             name = "Anzac Day";
@@ -87,6 +89,10 @@ public static partial class Holidays
             return true;
         }
 
+        if (ChristmasCalculator.TryGet(date, out name))
+        {
+            return true;
+        }
 
         name = null;
         return false;
