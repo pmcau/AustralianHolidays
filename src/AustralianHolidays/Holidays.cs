@@ -2,6 +2,11 @@ namespace AustralianHolidays;
 
 public static partial class Holidays
 {
+    static readonly State[] states;
+
+    static Holidays() =>
+        states = Enum.GetValues<State>();
+
     public static IOrderedEnumerable<(Date date, State state, string name)> ForYears(int startYear, int yearCount = 1)
     {
         List<(Date date, State state, string name)> list = [];
@@ -9,7 +14,7 @@ public static partial class Holidays
         {
             foreach (var date in GetAllDatesForYear(year))
             {
-                foreach (var state in Enum.GetValues<State>())
+                foreach (var state in states)
                 {
                     if (date.IsHoliday(state, out var name))
                     {
