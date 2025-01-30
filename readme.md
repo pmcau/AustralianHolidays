@@ -46,7 +46,6 @@ AreEqual("Christmas Day", name);
 
 ### IsHolidayForState
 
-
 <!-- snippet: IsHolidayForState -->
 <a id='snippet-IsHolidayForState'></a>
 ```cs
@@ -317,7 +316,6 @@ AreEqual(new Date(2025, 1, 1), end);
 | Boxing Day                     | `Fri 26 Dec` | `Sat 26 Dec` | `Sun 26 Dec` | `Tue 26 Dec` | `Wed 26 Dec` | 
 | Christmas<br>(additional)      |  | `Mon 28 Dec` | `Mon 27 Dec`<br>`Tue 28 Dec` | `Wed 27 Dec`<br>`Thu 28 Dec` | `Thu 27 Dec`<br>`Fri 28 Dec` | 
 <!-- endInclude -->
-
 
 
 ## Icon
