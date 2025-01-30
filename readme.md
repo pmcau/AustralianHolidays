@@ -25,7 +25,7 @@ var date = new Date(2024, 12, 25);
 
 IsTrue(date.IsHoliday(State.NSW));
 ```
-<sup><a href='/src/Tests/Tests.cs#L125-L131' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsHoliday' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L138-L144' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsHoliday' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -40,7 +40,7 @@ IsTrue(date.IsHoliday(State.NSW, out var name));
 
 AreEqual("Christmas Day", name);
 ```
-<sup><a href='/src/Tests/Tests.cs#L162-L170' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsHolidayNamed' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L175-L183' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsHolidayNamed' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -53,7 +53,7 @@ var date = new Date(2024, 12, 25);
 
 IsTrue(date.IsNswHoliday());
 ```
-<sup><a href='/src/Tests/Tests.cs#L150-L156' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsHolidayForState' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L163-L169' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsHolidayForState' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -67,7 +67,7 @@ var date = new Date(2024, 12, 25);
 IsTrue(date.IsNswHoliday(out var name));
 AreEqual("Christmas Day", name);
 ```
-<sup><a href='/src/Tests/Tests.cs#L137-L144' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsHolidayForStateNamed' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L150-L157' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsHolidayForStateNamed' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -100,6 +100,22 @@ foreach (var (date, name) in holidays)
 <sup><a href='/src/Tests/Tests.cs#L92-L100' title='Snippet source file'>snippet source</a> | <a href='#snippet-ForYearsState' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
+
+### GetHolidays
+
+<!-- snippet: GetHolidays -->
+<a id='snippet-GetHolidays'></a>
+```cs
+var holidays = Holidays.GetNswHolidays(2025);
+foreach (var (date, name) in holidays)
+{
+    Console.WriteLine($"date: {date}, name: {name}");
+}
+```
+<sup><a href='/src/Tests/Tests.cs#L105-L113' title='Snippet source file'>snippet source</a> | <a href='#snippet-GetHolidays' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
 ### Federal government shutdown
 
 
@@ -113,7 +129,7 @@ var result = date.IsFederalGovernmentShutdown();
 
 IsTrue(result);
 ```
-<sup><a href='/src/Tests/Tests.cs#L176-L183' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsFederalGovernmentShutdown' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L189-L196' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsFederalGovernmentShutdown' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -127,7 +143,7 @@ var (start, end) = Holidays.GetFederalGovernmentShutdown(yearStart: 2024);
 AreEqual(new Date(2024, 12, 25), start);
 AreEqual(new Date(2025, 1, 1), end);
 ```
-<sup><a href='/src/Tests/Tests.cs#L112-L119' title='Snippet source file'>snippet source</a> | <a href='#snippet-GetFederalGovernmentShutdown' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L125-L132' title='Snippet source file'>snippet source</a> | <a href='#snippet-GetFederalGovernmentShutdown' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 

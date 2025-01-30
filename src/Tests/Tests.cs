@@ -99,6 +99,19 @@ public class Tests
 
         #endregion
     }
+    [Test]
+    public void GetHolidays()
+    {
+        #region GetHolidays
+
+        var holidays = Holidays.GetNswHolidays(2025);
+        foreach (var (date, name) in holidays)
+        {
+            Console.WriteLine($"date: {date}, name: {name}");
+        }
+
+        #endregion
+    }
 
     [Test]
     public Task ForYears() =>

@@ -2,6 +2,8 @@ namespace AustralianHolidays;
 
 public static partial class Holidays
 {
+    static ConcurrentDictionary<int, Dictionary<Date, string>> tasHolidays = new();
+
     /// <summary>
     ///  Determines if the date is a public holiday in Tasmania.
     ///  Reference: https://worksafe.tas.gov.au/topics/laws-and-compliance/public-holidays
@@ -19,18 +21,19 @@ public static partial class Holidays
     public static bool IsTasHoliday(this Date date, [NotNullWhen(true)] out string? name)
     {
         var holidays = GetTasHolidays(date.Year);
-        name = holidays
-            .Where(_ => _.date == date)
-            .Select(_ => _.name)
-            .SingleOrDefault();
-        return name != null;
+
+        return holidays.TryGetValue(date, out name);
     }
 
     /// <summary>
-    ///  Gets all public holidays for Tasmania.
-    ///  Reference: https://worksafe.tas.gov.au/topics/laws-and-compliance/public-holidays
+    ///  Gets all public holidays for Tasmania for the specified year.
     /// </summary>
-    public static IEnumerable<(Date date, string name)> GetTasHolidays(int year)
+    public static IReadOnlyDictionary<Date, string> GetTasHolidays(int year) =>
+        tasHolidays.GetOrAdd(
+            year,
+            year => BuildTasHolidays(year).ToDictionary(_ => _.date, _ => _.name));
+
+    static IEnumerable<(Date date, string name)> BuildTasHolidays(int year)
     {
         yield return (new(year, (int) Month.January, 1), "New Year's Day");
 

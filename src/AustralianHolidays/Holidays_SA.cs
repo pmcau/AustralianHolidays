@@ -2,6 +2,8 @@ namespace AustralianHolidays;
 
 public static partial class Holidays
 {
+    static ConcurrentDictionary<int, Dictionary<Date, string>> saHolidays = new();
+
     /// <summary>
     ///  Determines if the date is a public holiday in South Australia.
     ///  Reference: https://www.safework.sa.gov.au/resources/public-holidays
@@ -19,18 +21,19 @@ public static partial class Holidays
     public static bool IsSaHoliday(this Date date, [NotNullWhen(true)] out string? name)
     {
         var holidays = GetSaHolidays(date.Year);
-        name = holidays
-            .Where(_ => _.date == date)
-            .Select(_ => _.name)
-            .SingleOrDefault();
-        return name != null;
+
+        return holidays.TryGetValue(date, out name);
     }
 
     /// <summary>
-    ///  Gets all public holidays for South Australia.
-    ///  Reference: https://www.safework.sa.gov.au/resources/public-holidays
+    ///  Gets all public holidays for South Australia for the specified year.
     /// </summary>
-    public static IEnumerable<(Date date, string name)> GetSaHolidays(int year)
+    public static IReadOnlyDictionary<Date, string> GetSaHolidays(int year) =>
+        saHolidays.GetOrAdd(
+            year,
+            year => BuildSaHolidays(year).ToDictionary(_ => _.date, _ => _.name));
+
+    static IEnumerable<(Date date, string name)> BuildSaHolidays(int year)
     {
         yield return (new(year, (int) Month.January, 1), "New Year's Day");
 
@@ -68,7 +71,7 @@ public static partial class Holidays
         yield return (ChristmasCalculator.ChristmasEve(year), "Christmas Eve (partial day)");
         yield return (ChristmasCalculator.ChristmasDay(year), "Christmas Day");
 
-        var proclamationDay = new Date(year, (int) Month.December,26);
+        var proclamationDay = new Date(year, (int) Month.December, 26);
         if (proclamationDay.IsWeekday())
         {
             if (proclamationDay.IsWeekday())
@@ -80,12 +83,12 @@ public static partial class Holidays
                 yield return (proclamationDay, "Proclamation Day");
             }
         }
-        else if(proclamationDay.DayOfWeek == DayOfWeek.Saturday)
+        else if (proclamationDay.DayOfWeek == DayOfWeek.Saturday)
         {
             yield return (proclamationDay, "Proclamation Day");
             yield return (proclamationDay.AddDays(2), "Proclamation Day (additional)");
         }
-        else if(proclamationDay.DayOfWeek == DayOfWeek.Sunday)
+        else if (proclamationDay.DayOfWeek == DayOfWeek.Sunday)
         {
             yield return (proclamationDay, "Proclamation Day");
             yield return (proclamationDay.AddDays(1), "Proclamation Day (additional)");

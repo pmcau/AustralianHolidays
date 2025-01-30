@@ -2,6 +2,8 @@ namespace AustralianHolidays;
 
 public static partial class Holidays
 {
+    static ConcurrentDictionary<int, Dictionary<Date, string>> vicHolidays = new();
+
     /// <summary>
     ///  Determines if the date is a public holiday in Victoria.
     ///  Reference: https://business.vic.gov.au/business-information/public-holidays/victorian-public-holidays-2025
@@ -19,18 +21,19 @@ public static partial class Holidays
     public static bool IsVicHoliday(this Date date, [NotNullWhen(true)] out string? name)
     {
         var holidays = GetVicHolidays(date.Year);
-        name = holidays
-            .Where(_ => _.date == date)
-            .Select(_ => _.name)
-            .SingleOrDefault();
-        return name != null;
+
+        return holidays.TryGetValue(date, out name);
     }
 
     /// <summary>
-    ///  Gets all public holidays for Victoria.
-    ///  Reference: https://business.vic.gov.au/business-information/public-holidays/victorian-public-holidays-2025
+    /// Gets all public holidays for Victoria for the specified year.
     /// </summary>
-    public static IEnumerable<(Date date, string name)> GetVicHolidays(int year)
+    public static IReadOnlyDictionary<Date, string> GetVicHolidays(int year) =>
+        vicHolidays.GetOrAdd(
+            year,
+            year => BuildVicHolidays(year).ToDictionary(_ => _.date, _ => _.name));
+
+    static IEnumerable<(Date date, string name)> BuildVicHolidays(int year)
     {
         yield return (new(year, (int) Month.January, 1), "New Year's Day");
 

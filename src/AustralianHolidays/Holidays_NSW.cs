@@ -2,6 +2,8 @@ namespace AustralianHolidays;
 
 public static partial class Holidays
 {
+    static ConcurrentDictionary<int, Dictionary<Date, string>> nswHolidays = new();
+
     /// <summary>
     ///  Determines if the date is a public holiday in the New South Wales.
     ///  Reference: https://www.nsw.gov.au/about-nsw/public-holidays
@@ -19,18 +21,19 @@ public static partial class Holidays
     public static bool IsNswHoliday(this Date date, [NotNullWhen(true)] out string? name)
     {
         var holidays = GetNswHolidays(date.Year);
-        name = holidays
-            .Where(_ => _.date == date)
-            .Select(_ => _.name)
-            .SingleOrDefault();
-        return name != null;
+
+        return holidays.TryGetValue(date, out name);
     }
 
     /// <summary>
-    ///  Gets all public holidays for New South Wales.
-    ///  Reference: https://www.nsw.gov.au/about-nsw/public-holidays
+    ///  Gets all public holidays for New South Wales for the specified year.
     /// </summary>
-    public static IEnumerable<(Date date, string name)> GetNswHolidays(int year)
+    public static IReadOnlyDictionary<Date, string> GetNswHolidays(int year) =>
+        nswHolidays.GetOrAdd(
+            year,
+            year => BuildNswHolidays(year).ToDictionary(_ => _.date, _ => _.name));
+
+    static IEnumerable<(Date date, string name)> BuildNswHolidays(int year)
     {
         var newYears = new Date(year, (int) Month.January, 1);
         yield return (newYears, "New Year's Day");

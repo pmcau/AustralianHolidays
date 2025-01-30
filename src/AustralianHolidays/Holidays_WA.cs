@@ -2,6 +2,8 @@ namespace AustralianHolidays;
 
 public static partial class Holidays
 {
+    static ConcurrentDictionary<int, Dictionary<Date, string>> waHolidays = new();
+
     /// <summary>
     ///  Determines if the date is a public holiday in Western Australia.
     ///  Reference: https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia
@@ -17,20 +19,19 @@ public static partial class Holidays
     public static bool IsWaHoliday(this Date date, [NotNullWhen(true)] out string? name)
     {
         var holidays = GetWaHolidays(date.Year);
-        name = holidays
-            .Where(_ => _.date == date)
-            .Select(_ => _.name)
-            .SingleOrDefault();
-        return name != null;
+
+        return holidays.TryGetValue(date, out name);
     }
 
     /// <summary>
-    ///  Determines if the date is a public holiday in Western Australia.
-    ///  Reference: https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia
+    /// Gets all public holidays for Western Australia for the specified year.
     /// </summary>
-    /// <param name="date">The date to check.</param>
-    /// <param name="name">The name of the holiday.</param>
-    public static IEnumerable<(Date date, string name)> GetWaHolidays(int year)
+    public static IReadOnlyDictionary<Date, string> GetWaHolidays(int year) =>
+        waHolidays.GetOrAdd(
+            year,
+            year => BuildWaHolidays(year).ToDictionary(_ => _.date, _ => _.name));
+
+    static IEnumerable<(Date date, string name)> BuildWaHolidays(int year)
     {
         yield return (new(year, (int) Month.January, 1), "New Year's Day");
 
@@ -65,6 +66,7 @@ public static partial class Holidays
         {
             yield return (new(year, (int) Month.April, 27), "Anzac Day (additional)");
         }
+
         if (anzacDate.DayOfWeek == DayOfWeek.Sunday)
         {
             yield return (new(year, (int) Month.April, 26), "Anzac Day (additional)");

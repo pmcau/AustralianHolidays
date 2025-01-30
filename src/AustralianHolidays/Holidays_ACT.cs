@@ -2,7 +2,8 @@ namespace AustralianHolidays;
 
 public static partial class Holidays
 {
-    ConcurrentDictionary<Date,string> actHolidays = new ConcurrentDictionary<Date, string>()
+    static ConcurrentDictionary<int, Dictionary<Date, string>> actHolidays = new();
+
     /// <summary>
     ///  Determines if the date is a public holiday in the Australian Capital Territory.
     ///  Reference: https://www.cmtedd.act.gov.au/communication/holidays
@@ -20,18 +21,19 @@ public static partial class Holidays
     public static bool IsActHoliday(this Date date, [NotNullWhen(true)] out string? name)
     {
         var holidays = GetActHolidays(date.Year);
-        name = holidays
-            .Where(_ => _.date == date)
-            .Select(_ => _.name)
-            .SingleOrDefault();
-        return name != null;
+
+        return holidays.TryGetValue(date, out name);
     }
 
     /// <summary>
-    ///  Gets all public holidays for the Australian Capital Territory.
-    ///  Reference: https://www.cmtedd.act.gov.au/communication/holidays
+    /// Gets all public holidays for the Australian Capital Territory for the specified year.
     /// </summary>
-    public static IEnumerable<(Date date, string name)> GetActHolidays(int year)
+    public static IReadOnlyDictionary<Date, string> GetActHolidays(int year) =>
+        actHolidays.GetOrAdd(
+            year,
+            year => BuildActHolidays(year).ToDictionary(_ => _.date, _ => _.name));
+
+    static IEnumerable<(Date date, string name)> BuildActHolidays(int year)
     {
         yield return (new(year, (int) Month.January, 1), "New Year's Day");
 
