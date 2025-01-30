@@ -137,8 +137,8 @@ AreEqual(new Date(2025, 1, 1), end);
 ### Australian Capital Territory ([Reference](https://www.cmtedd.act.gov.au/communication/holidays))
 
 <!-- include: Tests.WriteByYears_state=ACT.verified.txt -->
-|      | 2025 | 2026 | 2027 | 2028 | 2029 |
-|------|------|------|------|------|------|
+|                                   | 2025         | 2026         | 2027         | 2028         | 2029 |
+|-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Wed 01 Jan` | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | 
 | Australia Day                     |              | `Mon 26 Jan` | `Tue 26 Jan` | `Wed 26 Jan` | `Fri 26 Jan` | 
 | Australia Day<br>(additional)     | `Mon 27 Jan` |              |              |              |              | 
@@ -161,8 +161,8 @@ AreEqual(new Date(2025, 1, 1), end);
 ### New South Wales ([Reference](https://www.nsw.gov.au/about-nsw/public-holidays))
 
 <!-- include: Tests.WriteByYears_state=NSW.verified.txt -->
-|      | 2025 | 2026 | 2027 | 2028 | 2029 |
-|------|------|------|------|------|------|
+|                                   | 2025         | 2026         | 2027         | 2028         | 2029 |
+|-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Wed 01 Jan` | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | 
 | New Year's Day<br>(additional)    |              |              |              | `Mon 03 Jan` |              | 
 | Australia Day                     |              | `Mon 26 Jan` | `Tue 26 Jan` | `Wed 26 Jan` | `Fri 26 Jan` | 
@@ -184,8 +184,8 @@ AreEqual(new Date(2025, 1, 1), end);
 ### Northern Territory ([Reference](https://nt.gov.au/nt-public-holidays))
 
 <!-- include: Tests.WriteByYears_state=NT.verified.txt -->
-|      | 2025 | 2026 | 2027 | 2028 | 2029 |
-|------|------|------|------|------|------|
+|                                   | 2025         | 2026         | 2027         | 2028         | 2029 |
+|-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Wed 01 Jan` | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | 
 | Australia Day                     |              | `Mon 26 Jan` | `Tue 26 Jan` | `Wed 26 Jan` | `Fri 26 Jan` | 
 | Australia Day<br>(additional)     | `Mon 27 Jan` |              |              |              |              | 
@@ -208,8 +208,8 @@ AreEqual(new Date(2025, 1, 1), end);
 ### Queensland ([Reference](https://www.qld.gov.au/recreation/travel/holidays/public))
 
 <!-- include: Tests.WriteByYears_state=QLD.verified.txt -->
-|      | 2025 | 2026 | 2027 | 2028 | 2029 |
-|------|------|------|------|------|------|
+|                                   | 2025         | 2026         | 2027         | 2028         | 2029 |
+|-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Wed 01 Jan` | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | 
 | Australia Day                     |              | `Mon 26 Jan` | `Tue 26 Jan` | `Wed 26 Jan` | `Fri 26 Jan` | 
 | Australia Day<br>(additional)     | `Mon 27 Jan` |              |              |              |              | 
@@ -230,8 +230,8 @@ AreEqual(new Date(2025, 1, 1), end);
 ### South Australia ([Reference](https://www.safework.sa.gov.au/resources/public-holidays))
 
 <!-- include: Tests.WriteByYears_state=SA.verified.txt -->
-|      | 2025 | 2026 | 2027 | 2028 | 2029 |
-|------|------|------|------|------|------|
+|                                   | 2025         | 2026         | 2027         | 2028         | 2029 |
+|-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Wed 01 Jan` | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | 
 | Australia Day                     |              | `Mon 26 Jan` | `Tue 26 Jan` | `Wed 26 Jan` | `Fri 26 Jan` | 
 | Australia Day<br>(additional)     | `Mon 27 Jan` |              |              |              |              | 
@@ -254,8 +254,8 @@ AreEqual(new Date(2025, 1, 1), end);
 ### Tasmania ([Reference](https://worksafe.tas.gov.au/topics/laws-and-compliance/public-holidays))
 
 <!-- include: Tests.WriteByYears_state=TAS.verified.txt -->
-|      | 2025 | 2026 | 2027 | 2028 | 2029 |
-|------|------|------|------|------|------|
+|                                   | 2025         | 2026         | 2027         | 2028         | 2029 |
+|-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Wed 01 Jan` | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | 
 | Australia Day                     |              | `Mon 26 Jan` | `Tue 26 Jan` | `Wed 26 Jan` | `Fri 26 Jan` | 
 | Australia Day<br>(additional)     | `Mon 27 Jan` |              |              |              |              | 
@@ -276,8 +276,8 @@ AreEqual(new Date(2025, 1, 1), end);
 ### Victorian ([Reference](https://business.vic.gov.au/business-information/public-holidays/victorian-public-holidays-2025))
 
 <!-- include: Tests.WriteByYears_state=VIC.verified.txt -->
-|      | 2025 | 2026 | 2027 | 2028 | 2029 |
-|------|------|------|------|------|------|
+|                                   | 2025         | 2026         | 2027         | 2028         | 2029 |
+|-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Wed 01 Jan` | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | 
 | Australia Day                     |              | `Mon 26 Jan` | `Tue 26 Jan` | `Wed 26 Jan` | `Fri 26 Jan` | 
 | Australia Day<br>(additional)     | `Mon 27 Jan` |              |              |              |              | 
@@ -299,8 +299,8 @@ AreEqual(new Date(2025, 1, 1), end);
 ### Western Australia ([Reference](https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia))
 
 <!-- include: Tests.WriteByYears_state=WA.verified.txt -->
-|      | 2025 | 2026 | 2027 | 2028 | 2029 |
-|------|------|------|------|------|------|
+|                                   | 2025         | 2026         | 2027         | 2028         | 2029 |
+|-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Wed 01 Jan` | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | 
 | Australia Day                     |              | `Mon 26 Jan` | `Tue 26 Jan` | `Wed 26 Jan` | `Fri 26 Jan` | 
 | Australia Day<br>(additional)     | `Mon 27 Jan` |              |              |              |              | 
