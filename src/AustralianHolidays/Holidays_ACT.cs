@@ -2,6 +2,7 @@ namespace AustralianHolidays;
 
 public static partial class Holidays
 {
+    ConcurrentDictionary<Date,string> actHolidays = new ConcurrentDictionary<Date, string>()
     /// <summary>
     ///  Determines if the date is a public holiday in the Australian Capital Territory.
     ///  Reference: https://www.cmtedd.act.gov.au/communication/holidays
