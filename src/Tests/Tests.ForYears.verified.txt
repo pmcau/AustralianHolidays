@@ -321,11 +321,6 @@
   },
   {
     Item1: 2024-06-03,
-    Item2: ACT,
-    Item3: Reconciliation Day
-  },
-  {
-    Item1: 2024-06-03,
     Item2: WA,
     Item3: Western Australia Day
   },

@@ -1,5 +1,16 @@
 ﻿static class MonarchBirthdayCalculator
 {
+    public static (Date, string) GetMonarchBirthday(int year)
+    {
+        var date = Extensions.GetSecondMonday(Month.June, year);
+        if (year <= 2022)
+        {
+            return (date, "Queen's Birthday");
+        }
+
+        return (date, "King's Birthday");
+    }
+
     public static bool IsMonarchBirthday(this Date date, [NotNullWhen(true)] out string? name)
     {
         if (date.IsSecondMonday(Month.June))

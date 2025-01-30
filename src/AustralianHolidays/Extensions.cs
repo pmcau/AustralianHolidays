@@ -2,20 +2,33 @@
 {
     public static bool IsFirstMonday(this Date date, Month month)
     {
-        var firstDay = new Date(date.Year, (int)month, 1);
+        var year = date.Year;
+        var firstMonday = GetFirstMonday(month, year);
+        return date == firstMonday;
+    }
+
+    public static Date GetFirstMonday(Month month, int year)
+    {
+        var firstDay = new Date(year, (int)month, 1);
         var dayOfWeek = (int)firstDay.DayOfWeek;
         var daysUntilMonday = (8 - dayOfWeek) % 7;
-        var firstMonday = firstDay.AddDays(daysUntilMonday);
-        return date == firstMonday;
+        return firstDay.AddDays(daysUntilMonday);
     }
 
     public static bool IsSecondMonday(this Date date, Month month)
     {
-        var firstDay = new Date(date.Year, (int)month, 1);
+        var year = date.Year;
+        var secondMonday = GetSecondMonday(month, year);
+        return date == secondMonday;
+    }
+
+    public static Date GetSecondMonday(Month month, int year)
+    {
+        var firstDay = new Date(year, (int)month, 1);
         var dayOfWeek = (int)firstDay.DayOfWeek;
         var daysUntilMonday = (8 - dayOfWeek) % 7;
         var secondMonday = firstDay.AddDays(daysUntilMonday + 7);
-        return date == secondMonday;
+        return secondMonday;
     }
 
     public static bool IsFirstTuesday(this Date date, Month month)
