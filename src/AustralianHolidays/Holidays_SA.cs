@@ -18,102 +18,76 @@ public static partial class Holidays
     /// <param name="name">The name of the holiday.</param>
     public static bool IsSaHoliday(this Date date, [NotNullWhen(true)] out string? name)
     {
-        if (date.IsNewYearsDay())
-        {
-            name = "New Year's Day";
-            return true;
-        }
+        var holidays = GetSaHolidays(date.Year);
+        name = holidays
+            .Where(_ => _.date == date)
+            .Select(_ => _.name)
+            .SingleOrDefault();
+        return name != null;
+    }
 
-        if (date.Month == 1 &&
-            date is { DayOfWeek: DayOfWeek.Monday, Day: 27 or 28 })
-        {
-            name = "Australia Day (additional)";
-            return true;
-        }
+    /// <summary>
+    ///  Gets all public holidays for South Australia.
+    ///  Reference: https://www.safework.sa.gov.au/resources/public-holidays
+    /// </summary>
+    public static IEnumerable<(Date date, string name)> GetSaHolidays(int year)
+    {
+        yield return (new(year, (int) Month.January, 1), "New Year's Day");
 
-        if (date.IsSecondMonday(Month.March))
+        var australiaDay = GetAustraliaDay(year);
+        if (australiaDay.IsWeekday())
         {
-            name = "Adelaide Cup Day";
-            return true;
+            yield return (australiaDay, "Australia Day");
         }
-
-        var (easterFriday, easterSaturday, easterSunday, easterMonday) = EasterCalculator.ForYear(date.Year);
-        if (date == easterFriday)
+        else
         {
-            name = "Good Friday";
-            return true;
-        }
-
-        if (date == easterSaturday)
-        {
-            name = "Easter Saturday";
-            return true;
-        }
-
-        if (date == easterSunday)
-        {
-            name = "Easter Sunday";
-            return true;
-        }
-
-        if (date == easterMonday)
-        {
-            name = "Easter Monday";
-            return true;
-        }
-
-        if (date.IsAnzacDay())
-        {
-            name = "Anzac Day";
-            return true;
-        }
-
-        if (date.IsMonarchBirthday(out name))
-        {
-            return true;
-        }
-
-        if (date.IsFirstMonday(Month.October))
-        {
-            name = "Labour Day";
-            return true;
-        }
-
-        if (date.Month == 12)
-        {
-            if (date.Day == 26)
+            if (australiaDay.DayOfWeek == DayOfWeek.Saturday)
             {
-                if (date.IsWeekday())
-                {
-                    name = "Proclamation Day and Boxing Day";
-                    return true;
-                }
-
-                name = "Proclamation Day";
-                return true;
+                yield return (new(year, (int) Month.January, 28), "Australia Day (additional)");
             }
-
-            //When 26 December falls on a Saturday the following Monday is a public holiday
-            if (date is { Day: 28, DayOfWeek: DayOfWeek.Monday })
+            else if (australiaDay.DayOfWeek == DayOfWeek.Sunday)
             {
-                name = "Proclamation Day (additional)";
-                return true;
-            }
-
-            //When 26 December falls on a Sunday the following Tuesday is a public holiday
-            if (date is { Day: 28, DayOfWeek: DayOfWeek.Tuesday })
-            {
-                name = "Proclamation Day (additional)";
-                return true;
+                yield return (new(year, (int) Month.January, 27), "Australia Day (additional)");
             }
         }
 
-        if (ChristmasCalculator.TryGet(date, out name))
-        {
-            return true;
-        }
+        yield return (Extensions.GetSecondMonday(Month.March, year), "Adelaide Cup Day");
 
-        name = null;
-        return false;
+        var (easterFriday, easterSaturday, easterSunday, easterMonday) = EasterCalculator.ForYear(year);
+        yield return (easterFriday, "Good Friday");
+        yield return (easterSaturday, "Easter Saturday");
+        yield return (easterSunday, "Easter Sunday");
+        yield return (easterMonday, "Easter Monday");
+
+        yield return (new(year, (int) Month.April, 25), "Anzac Day");
+
+        yield return MonarchBirthdayCalculator.GetMonarchBirthday(year);
+
+        yield return (Extensions.GetFirstMonday(Month.October, year), "Labour Day");
+
+        yield return (ChristmasCalculator.ChristmasDay(year), "Christmas Day");
+
+        var proclamationDay = new Date(year, (int) Month.December,26);
+        if (proclamationDay.IsWeekday())
+        {
+            if (proclamationDay.IsWeekday())
+            {
+                yield return (proclamationDay, "Proclamation Day and Boxing Day");
+            }
+            else
+            {
+                yield return (proclamationDay, "Proclamation Day");
+            }
+        }
+        else if(proclamationDay.DayOfWeek == DayOfWeek.Saturday)
+        {
+            yield return (proclamationDay, "Proclamation Day");
+            yield return (proclamationDay.AddDays(2), "Proclamation Day (additional)");
+        }
+        else if(proclamationDay.DayOfWeek == DayOfWeek.Sunday)
+        {
+            yield return (proclamationDay, "Proclamation Day");
+            yield return (proclamationDay.AddDays(1), "Proclamation Day (additional)");
+        }
     }
 }

@@ -54,9 +54,9 @@ public static class ChristmasCalculator
         return false;
     }
 
-    public static IEnumerable<(Date dateOnly, string name)> Get(int year)
+    public static IEnumerable<(Date date, string name)> Get(int year)
     {
-        yield return (ChristmasDay(year), "Christmas Day");
+        yield return (AustralianHolidays.ChristmasCalculator.ChristmasDay(year), "Christmas Day");
         var boxingDay = BoxingDay(year);
         yield return (boxingDay, "Boxing Day");
 

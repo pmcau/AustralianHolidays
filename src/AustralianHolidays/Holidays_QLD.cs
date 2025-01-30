@@ -18,81 +18,56 @@ public static partial class Holidays
     /// <param name="name">The name of the holiday.</param>
     public static bool IsQldHoliday(this Date date, [NotNullWhen(true)] out string? name)
     {
-        if (date.IsNewYearsDay())
-        {
-            name = "New Year's Day";
-            return true;
-        }
+        var holidays = GetQldHolidays(date.Year);
+        name = holidays
+            .Where(_ => _.date == date)
+            .Select(_ => _.name)
+            .SingleOrDefault();
+        return name != null;
+    }
 
-        if (date.Month == 1)
+    /// <summary>
+    ///  Gets all public holidays for Queensland.
+    ///  Reference: https://www.qld.gov.au/recreation/travel/holidays/public
+    /// </summary>
+    public static IEnumerable<(Date date, string name)> GetQldHolidays(int year)
+    {
+        yield return (new(year, (int) Month.January, 1), "New Year's Day");
+
+        var australiaDay = GetAustraliaDay(year);
+        if (australiaDay.IsWeekday())
         {
-            if (date.Day == 26 && date.IsWeekday())
+            yield return (australiaDay, "Australia Day");
+        }
+        else
+        {
+            if (australiaDay.DayOfWeek == DayOfWeek.Saturday)
             {
-                name = "Australia Day";
-                return true;
+                yield return (new(year, (int) Month.January, 28), "Australia Day (additional)");
             }
-
-            if (date is {DayOfWeek: DayOfWeek.Monday, Day: 27 or 28})
+            else if (australiaDay.DayOfWeek == DayOfWeek.Sunday)
             {
-                name = "Australia Day (additional)";
-                return true;
+                yield return (new(year, (int) Month.January, 27), "Australia Day (additional)");
             }
         }
 
-        var (easterFriday, easterSaturday, easterSunday, easterMonday) = EasterCalculator.ForYear(date.Year);
-        if (date == easterFriday)
-        {
-            name = "Good Friday";
-            return true;
-        }
+        var (easterFriday, easterSaturday, easterSunday, easterMonday) = EasterCalculator.ForYear(year);
+        yield return (easterFriday, "Good Friday");
+        yield return (easterSaturday, "Easter Saturday");
+        yield return (easterSunday, "Easter Sunday");
+        yield return (easterMonday, "Easter Monday");
 
-        if (date == easterSaturday)
-        {
-            name = "Easter Saturday";
-            return true;
-        }
+        yield return (new(year, (int) Month.April, 25), "Anzac Day");
 
-        if (date == easterSunday)
-        {
-            name = "Easter Sunday";
-            return true;
-        }
+        yield return (Extensions.GetFirstMonday(Month.May, year), "Labour Day");
 
-        if (date == easterMonday)
-        {
-            name = "Easter Monday";
-            return true;
-        }
+        yield return MonarchBirthdayCalculator.GetMonarchBirthdayQld(year);
 
-        if (date.IsAnzacDay())
-        {
-            name = "Anzac Day";
-            return true;
-        }
+        yield return (ChristmasCalculator.ChristmasEve(year), "Christmas Eve (partial day)");
 
-        if (date.IsFirstMonday(Month.May))
+        foreach (var date in ChristmasCalculator.Get(year))
         {
-            name = "Labour Day";
-            return true;
+            yield return date;
         }
-
-        if (date.IsMonarchBirthdayQld(out name))
-        {
-            return true;
-        }
-
-        if (date.IsChristmasEve())
-        {
-            name = "Christmas Eve (partial day)";
-            return true;
-        }
-
-        if (ChristmasCalculator.TryGet(date, out name))
-        {
-            return true;
-        }
-
-        name = null;
-        return false;
     }
 }

@@ -18,93 +18,60 @@ public static partial class Holidays
     /// <param name="name">The name of the holiday.</param>
     public static bool IsNtHoliday(this Date date, [NotNullWhen(true)] out string? name)
     {
-        if (date.IsNewYearsDay())
-        {
-            name = "New Year's Day";
-            return true;
-        }
+        var holidays = GetNtHolidays(date.Year);
+        name = holidays
+            .Where(_ => _.date == date)
+            .Select(_ => _.name)
+            .SingleOrDefault();
+        return name != null;
+    }
 
-        if (date.Month == 1)
+    /// <summary>
+    ///  Gets all public holidays for the Northern Territory.
+    ///  Reference: https://nt.gov.au/nt-public-holidays
+    /// </summary>
+    public static IEnumerable<(Date date, string name)> GetNtHolidays(int year)
+    {
+        yield return (new(year, (int) Month.January, 1), "New Year's Day");
+
+        var australiaDay = GetAustraliaDay(year);
+        if (australiaDay.IsWeekday())
         {
-            if (date.Day == 26 && date.IsWeekday())
+            yield return (australiaDay, "Australia Day");
+        }
+        else
+        {
+            if (australiaDay.DayOfWeek == DayOfWeek.Saturday)
             {
-                name = "Australia Day";
-                return true;
+                yield return (new(year, (int) Month.January, 28), "Australia Day (additional)");
             }
-
-            if (date is { DayOfWeek: DayOfWeek.Monday, Day: 27 or 28 })
+            else if (australiaDay.DayOfWeek == DayOfWeek.Sunday)
             {
-                name = "Australia Day (additional)";
-                return true;
+                yield return (new(year, (int) Month.January, 27), "Australia Day (additional)");
             }
         }
 
-        if (date.IsFirstMonday(Month.May))
+        yield return (Extensions.GetFirstMonday(Month.May, year), "May Day");
+
+        var (easterFriday, easterSaturday, easterSunday, easterMonday) = EasterCalculator.ForYear(year);
+        yield return (easterFriday, "Good Friday");
+        yield return (easterSaturday, "Easter Saturday");
+        yield return (easterSunday, "Easter Sunday");
+        yield return (easterMonday, "Easter Monday");
+
+        yield return (new(year, (int) Month.April, 25), "Anzac Day");
+
+        yield return MonarchBirthdayCalculator.GetMonarchBirthday(year);
+
+        yield return (Extensions.GetFirstMonday(Month.August, year), "Picnic Day");
+
+        yield return (ChristmasCalculator.ChristmasEve(year), "Christmas Eve (partial day)");
+
+        foreach (var date in ChristmasCalculator.Get(year))
         {
-            name = "May Day";
-            return true;
+            yield return date;
         }
 
-        var (easterFriday, easterSaturday, easterSunday, easterMonday) = EasterCalculator.ForYear(date.Year);
-        if (date == easterFriday)
-        {
-            name = "Good Friday";
-            return true;
-        }
-
-        if (date == easterSaturday)
-        {
-            name = "Easter Saturday";
-            return true;
-        }
-
-        if (date == easterSunday)
-        {
-            name = "Easter Sunday";
-            return true;
-        }
-
-        if (date == easterMonday)
-        {
-            name = "Easter Monday";
-            return true;
-        }
-
-        if (date.IsAnzacDay())
-        {
-            name = "Anzac Day";
-            return true;
-        }
-
-        if (date.IsMonarchBirthday(out name))
-        {
-            return true;
-        }
-
-        if (date.IsFirstMonday(Month.August))
-        {
-            name = "Picnic Day";
-            return true;
-        }
-
-        if (date.IsChristmasEve())
-        {
-            name = "Christmas Eve (partial day)";
-            return true;
-        }
-
-        if (ChristmasCalculator.TryGet(date, out name))
-        {
-            return true;
-        }
-
-        if (date.IsNewYearsEve())
-        {
-            name = "New Year's Eve (partial day)";
-            return true;
-        }
-
-        name = null;
-        return false;
+        yield return (new(year, (int) Month.December, 31), "New Year's Eve (partial day)");
     }
 }

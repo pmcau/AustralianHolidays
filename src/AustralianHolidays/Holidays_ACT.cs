@@ -18,8 +18,8 @@ public static partial class Holidays
     /// <param name="name">The name of the holiday.</param>
     public static bool IsActHoliday(this Date date, [NotNullWhen(true)] out string? name)
     {
-        var actHolidays = GetActHolidays(date.Year);
-        name = actHolidays
+        var holidays = GetActHolidays(date.Year);
+        name = holidays
             .Where(_ => _.date == date)
             .Select(_ => _.name)
             .SingleOrDefault();
@@ -30,11 +30,11 @@ public static partial class Holidays
     ///  Gets all public holidays for the Australian Capital Territory.
     ///  Reference: https://www.cmtedd.act.gov.au/communication/holidays
     /// </summary>
-    public static IEnumerable<(Date date, string name)> GetActHolidays(this int year)
+    public static IEnumerable<(Date date, string name)> GetActHolidays(int year)
     {
         yield return (new(year, (int) Month.January, 1), "New Year's Day");
 
-        var australiaDay = new Date(year, (int) Month.January, 26);
+        var australiaDay = GetAustraliaDay(year);
         if (australiaDay.IsWeekday())
         {
             yield return (australiaDay, "Australia Day");
@@ -89,4 +89,6 @@ public static partial class Holidays
             yield return date;
         }
     }
+
+    private static Date GetAustraliaDay(int year) => new(year, (int) Month.January, 26);
 }

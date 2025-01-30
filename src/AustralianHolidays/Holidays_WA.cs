@@ -18,95 +18,67 @@ public static partial class Holidays
     /// <param name="name">The name of the holiday.</param>
     public static bool IsWaHoliday(this Date date, [NotNullWhen(true)] out string? name)
     {
-        if (date.IsNewYearsDay())
-        {
-            name = "New Year's Day";
-            return true;
-        }
+        var holidays = GetWaHolidays(date.Year);
+        name = holidays
+            .Where(_ => _.date == date)
+            .Select(_ => _.name)
+            .SingleOrDefault();
+        return name != null;
+    }
 
-        if (date.Month == 1)
+    /// <summary>
+    ///  Determines if the date is a public holiday in Western Australia.
+    ///  Reference: https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia
+    /// </summary>
+    /// <param name="date">The date to check.</param>
+    /// <param name="name">The name of the holiday.</param>
+    public static IEnumerable<(Date date, string name)> GetWaHolidays(int year)
+    {
+        yield return (new(year, (int) Month.January, 1), "New Year's Day");
+
+        var australiaDay = GetAustraliaDay(year);
+        if (australiaDay.IsWeekday())
         {
-            if (date.Day == 26 && date.IsWeekday())
+            yield return (australiaDay, "Australia Day");
+        }
+        else
+        {
+            if (australiaDay.DayOfWeek == DayOfWeek.Saturday)
             {
-                name = "Australia Day";
-                return true;
+                yield return (new(year, (int) Month.January, 28), "Australia Day (additional)");
             }
-
-            if (date is { DayOfWeek: DayOfWeek.Monday, Day: 27 or 28 })
+            else if (australiaDay.DayOfWeek == DayOfWeek.Sunday)
             {
-                name = "Australia Day (additional)";
-                return true;
-            }
-        }
-
-        if (date.IsFirstMonday(Month.March))
-        {
-            name = "Labour Day";
-            return true;
-        }
-
-        var (easterFriday, easterSaturday, easterSunday, easterMonday) = EasterCalculator.ForYear(date.Year);
-        if (date == easterFriday)
-        {
-            name = "Good Friday";
-            return true;
-        }
-
-        if (date == easterSaturday)
-        {
-            name = "Easter Saturday";
-            return true;
-        }
-
-        if (date == easterSunday)
-        {
-            name = "Easter Sunday";
-            return true;
-        }
-
-        if (date == easterMonday)
-        {
-            name = "Easter Monday";
-            return true;
-        }
-
-        if (date.Month == 4)
-        {
-            if (date.Day == 25)
-            {
-                name = "Anzac Day";
-                return true;
-            }
-
-            // Anzac Day falls on a Saturday or Sunday
-            if (date is
-                {
-                    DayOfWeek: DayOfWeek.Monday,
-                    Day: 26 or 27
-                })
-            {
-                name = "Anzac Day (additional)";
-                return true;
+                yield return (new(year, (int) Month.January, 27), "Australia Day (additional)");
             }
         }
 
-        if (date.IsFirstMonday(Month.June))
+        yield return (Extensions.GetFirstMonday(Month.March, year), "Labour Day");
+
+        var (easterFriday, easterSaturday, easterSunday, easterMonday) = EasterCalculator.ForYear(year);
+        yield return (easterFriday, "Good Friday");
+        yield return (easterSaturday, "Easter Saturday");
+        yield return (easterSunday, "Easter Sunday");
+        yield return (easterMonday, "Easter Monday");
+
+        var anzacDate = new Date(year, (int) Month.April, 25);
+        yield return (anzacDate, "Anzac Day");
+        if (anzacDate.DayOfWeek == DayOfWeek.Saturday)
         {
-            name = "Western Australia Day";
-            return true;
+            yield return (new(year, (int) Month.April, 27), "Anzac Day (additional)");
+        }
+        if (anzacDate.DayOfWeek == DayOfWeek.Sunday)
+        {
+            yield return (new(year, (int) Month.April, 26), "Anzac Day (additional)");
         }
 
-        if (date.IsMonarchBirthdayWa(out name))
-        {
-            return true;
-        }
+        yield return (Extensions.GetFirstMonday(Month.June, year), "Western Australia Day");
 
-        if (ChristmasCalculator.TryGet(date, out name))
-        {
-            return true;
-        }
+        yield return MonarchBirthdayCalculator.GetMonarchBirthdayWa(year);
 
-        name = null;
-        return false;
+        foreach (var date in ChristmasCalculator.Get(year))
+        {
+            yield return date;
+        }
     }
 }

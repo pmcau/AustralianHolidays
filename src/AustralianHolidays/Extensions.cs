@@ -33,19 +33,32 @@
 
     public static bool IsFirstTuesday(this Date date, Month month)
     {
-        var firstDay = new Date(date.Year, (int)month, 1);
+        var year = date.Year;
+        var firstTuesday = GetFirstTuesday(month, year);
+        return date == firstTuesday;
+    }
+
+    public static Date GetFirstTuesday(Month month, int year)
+    {
+        var firstDay = new Date(year, (int)month, 1);
         var dayOfWeek = (int)firstDay.DayOfWeek;
         var daysUntilTuesday = (9 - dayOfWeek) % 7;
         var firstTuesday = firstDay.AddDays(daysUntilTuesday);
-        return date == firstTuesday;
+        return firstTuesday;
     }
 
     public static bool IsLastFridayInMonth(this Date date, Month month)
     {
-        var lastDayOfMonth = new Date(date.Year, (int)month, DateTime.DaysInMonth(date.Year, (int)month));
+        var year = date.Year;
+        var lastFriday = GetLastFriday(month, year);
+        return date == lastFriday;
+    }
+
+    public static Date GetLastFriday(Month month, int year)
+    {
+        var lastDayOfMonth = new Date(year, (int)month, DateTime.DaysInMonth(year, (int)month));
         var dayOfWeek = (int)lastDayOfMonth.DayOfWeek;
         var daysUntilFriday = dayOfWeek >= 5 ? dayOfWeek - 5 : dayOfWeek + 2;
-        var lastFriday = lastDayOfMonth.AddDays(-daysUntilFriday);
-        return date == lastFriday;
+        return lastDayOfMonth.AddDays(-daysUntilFriday);
     }
 }
