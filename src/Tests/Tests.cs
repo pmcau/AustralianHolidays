@@ -29,7 +29,7 @@ public class Tests
             years.Add(year);
         }
 
-        var forYears = Holidays.ForYears(state, start, 4);
+        var forYears = Holidays.ForYears(state, start, 5);
 
         var builder = new StringBuilder();
         builder.AppendLine($"|                                   | {string.Join("         | ", years)} |");
@@ -99,6 +99,7 @@ public class Tests
 
         #endregion
     }
+
     [Test]
     public void GetHolidays()
     {
@@ -116,6 +117,12 @@ public class Tests
     [Test]
     public Task ForYears() =>
         Verify(Holidays.ForYears(2024))
+            .DontScrubDateTimes()
+            .AddExtraSettings(_ => _.DefaultValueHandling = DefaultValueHandling.Include);
+
+    [Test]
+    public Task ForYearsState() =>
+        Verify(Holidays.ForYears(State.NT, 2024))
             .DontScrubDateTimes()
             .AddExtraSettings(_ => _.DefaultValueHandling = DefaultValueHandling.Include);
 

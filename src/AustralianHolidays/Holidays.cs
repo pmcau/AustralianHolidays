@@ -10,17 +10,11 @@ public static partial class Holidays
     public static IOrderedEnumerable<(Date date, State state, string name)> ForYears(int startYear, int yearCount = 1)
     {
         List<(Date date, State state, string name)> list = [];
-        for (var year = startYear; year <= startYear + yearCount; year++)
+        foreach (var state in states)
         {
-            foreach (var date in GetAllDatesForYear(year))
+            foreach (var (date, name) in ForYears(state, startYear, yearCount))
             {
-                foreach (var state in states)
-                {
-                    if (date.IsHoliday(state, out var name))
-                    {
-                        list.Add((date, state, name));
-                    }
-                }
+                list.Add((date, state, name));
             }
         }
 
@@ -29,19 +23,59 @@ public static partial class Holidays
 
     public static IOrderedEnumerable<(Date date, string name)> ForYears(State state, int startYear, int yearCount = 1)
     {
+        var action = GetStateAction(state);
         List<(Date date, string name)> list = [];
-        for (var year = startYear; year <= startYear + yearCount; year++)
+        for (var year = startYear; year <= startYear + yearCount -1; year++)
         {
-            foreach (var date in GetAllDatesForYear(year))
+            foreach (var (key, value) in action(year))
             {
-                if (date.IsHoliday(state, out var name))
+#if DEBUG
+                if (list.Any(_ => _.date == key && _.name == value))
                 {
-                    list.Add((date, name));
+                    throw new InvalidOperationException($"Duplicate: {key} {value}");
                 }
+#endif
+                list.Add((key, value));
             }
         }
 
         return list.OrderBy(_ => _.date);
+    }
+
+    static Func<int, IReadOnlyDictionary<Date, string>> GetStateAction(State state)
+    {
+        Func<int, IReadOnlyDictionary<Date,string>> action;
+        switch (state)
+        {
+            case State.ACT:
+                action = GetActHolidays;
+                break;
+            case State.NSW:
+                action = GetNswHolidays;
+                break;
+            case State.NT:
+                action = GetNtHolidays;
+                break;
+            case State.QLD:
+                action = GetQldHolidays;
+                break;
+            case State.SA:
+                action = GetSaHolidays;
+                break;
+            case State.TAS:
+                action = GetTasHolidays;
+                break;
+            case State.VIC:
+                action = GetVicHolidays;
+                break;
+            case State.WA:
+                action = GetWaHolidays;
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(state), state, null);
+        }
+
+        return action;
     }
 
     static IEnumerable<Date> GetAllDatesForYear(int year)
@@ -67,30 +101,19 @@ public static partial class Holidays
 
     public static bool IsHoliday(this Date date, State state) => IsHoliday(date, state, out _);
 
-    public static bool IsHoliday(this Date date, State state, [NotNullWhen(true)] out string? name)
-    {
-        switch (state)
+    public static bool IsHoliday(this Date date, State state, [NotNullWhen(true)] out string? name) =>
+        state switch
         {
-            case State.NSW:
-                return IsNswHoliday(date, out name);
-            case State.VIC:
-                return IsVicHoliday(date, out name);
-            case State.QLD:
-                return IsQldHoliday(date, out name);
-            case State.ACT:
-                return IsActHoliday(date, out name);
-            case State.NT:
-                return IsNtHoliday(date, out name);
-            case State.SA:
-                return IsSaHoliday(date, out name);
-            case State.TAS:
-                return IsTasHoliday(date, out name);
-            case State.WA:
-                return IsWaHoliday(date, out name);
-            default:
-                throw new ArgumentOutOfRangeException(nameof(state), state, null);
-        }
-    }
+            State.NSW => IsNswHoliday(date, out name),
+            State.VIC => IsVicHoliday(date, out name),
+            State.QLD => IsQldHoliday(date, out name),
+            State.ACT => IsActHoliday(date, out name),
+            State.NT => IsNtHoliday(date, out name),
+            State.SA => IsSaHoliday(date, out name),
+            State.TAS => IsTasHoliday(date, out name),
+            State.WA => IsWaHoliday(date, out name),
+            _ => throw new ArgumentOutOfRangeException(nameof(state), state, null)
+        };
 
     static bool IsNewYearsDay(this Date date) =>
         date is {Month: 1, Day: 1};
