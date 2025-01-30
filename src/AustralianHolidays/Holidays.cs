@@ -2,13 +2,10 @@ namespace AustralianHolidays;
 
 public static partial class Holidays
 {
-    public static IOrderedEnumerable<(Date date, State state, string name)> ForYear(int year) =>
-        ForYears(year);
-
-    public static IOrderedEnumerable<(Date date, State state, string name)> ForYears(params IEnumerable<int> years)
+    public static IOrderedEnumerable<(Date date, State state, string name)> ForYears(int startYear, int yearCount = 1)
     {
         List<(Date date, State state, string name)> list = [];
-        foreach (var year in years)
+        for (var year = startYear; year <= startYear + yearCount; year++)
         {
             foreach (var date in GetAllDatesForYear(year))
             {
@@ -25,10 +22,10 @@ public static partial class Holidays
         return list.OrderBy(_ => _.date);
     }
 
-    public static IOrderedEnumerable<(Date date, string name)> ForYears(State state, int startYear, int count = 1)
+    public static IOrderedEnumerable<(Date date, string name)> ForYears(State state, int startYear, int yearCount = 1)
     {
         List<(Date date, string name)> list = [];
-        for (var year = startYear; year <= startYear + count; year++)
+        for (var year = startYear; year <= startYear + yearCount; year++)
         {
             foreach (var date in GetAllDatesForYear(year))
             {
@@ -104,6 +101,15 @@ public static partial class Holidays
 
         return date >= christmas &&
                date <= newYearsHoliday;
+    }
+
+    public static (Date start, Date end) GetFederalGovernmentShutdown(int yearStart)
+    {
+        var christmas = new Date(yearStart, 12, 25);
+
+        var newYearsHoliday = GetNewYearsHoliday(yearStart + 1);
+
+        return(christmas, newYearsHoliday);
     }
 
     static Date GetNewYearsHoliday(int year)

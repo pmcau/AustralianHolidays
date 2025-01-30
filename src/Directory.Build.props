@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project>
   <PropertyGroup>
-    <Version>0.1.0</Version>
+    <Version>0.2.0</Version>
     <LangVersion>preview</LangVersion>
     <AssemblyVersion>1.0.0</AssemblyVersion>
-    <Description>Australian Holidays.</Description>
+    <Description>Australian Holidays</Description>
     <ResolveAssemblyReferencesSilent>true</ResolveAssemblyReferencesSilent>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>

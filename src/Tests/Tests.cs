@@ -65,10 +65,88 @@ public class Tests
     }
 
     [Test]
-    public Task ForYear() =>
-        Verify(Holidays.ForYear(2024))
+    public void ForYearsSnippet()
+    {
+        #region ForYears
+
+        var holidays = Holidays.ForYears(startYear: 2025, yearCount: 2);
+        foreach (var (date, state, name) in holidays)
+        {
+            Console.WriteLine($"date: {date}, state: {state}, name: {name}");
+        }
+
+        #endregion
+    }
+    [Test]
+    public void ForYearsStateSnippet()
+    {
+        #region ForYearsState
+
+        var holidays = Holidays.ForYears(State.NSW, startYear: 2025, yearCount: 2);
+        foreach (var (date, name) in holidays)
+        {
+            Console.WriteLine($"date: {date}, name: {name}");
+        }
+
+        #endregion
+    }
+
+    [Test]
+    public Task ForYears() =>
+        Verify(Holidays.ForYears(2024))
             .DontScrubDateTimes()
             .AddExtraSettings(_ => _.DefaultValueHandling = DefaultValueHandling.Include);
+
+    [Test]
+    public void GetFederalGovernmentShutdown()
+    {
+        #region GetFederalGovernmentShutdown
+
+        var (start, end) = Holidays.GetFederalGovernmentShutdown(yearStart: 2024);
+
+        AreEqual(new Date(2024, 12, 25), start);
+        AreEqual(new Date(2025, 1, 1), end);
+
+        #endregion
+    }
+
+    [Test]
+    public void IsPublicHoliday()
+    {
+        #region IsPublicHoliday
+
+        var date = new Date(2024, 12, 25);
+
+        IsTrue(date.IsPublicHoliday(State.NSW));
+
+        #endregion
+    }
+    [Test]
+    public void IsPublicHolidayNamed()
+    {
+        #region IsPublicHolidayNamed
+
+        var date = new Date(2024, 12, 25);
+
+        IsTrue(date.IsPublicHoliday(State.NSW, out var name));
+
+        AreEqual("Christmas Day", name);
+
+        #endregion
+    }
+
+    [Test]
+    public void IsFederalGovernmentShutdown()
+    {
+        #region IsFederalGovernmentShutdown
+
+        var date = new Date(2025, 12, 30);
+        var result = date.IsFederalGovernmentShutdown();
+
+        IsTrue(result);
+
+        #endregion
+    }
 
     [Test]
     public Task WriteNsw() =>

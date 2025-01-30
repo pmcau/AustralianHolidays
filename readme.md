@@ -13,6 +13,96 @@
 
 ## Usage
 
+The main entry point is `AustralianHolidays.Holidays`
+
+
+### IsPublicHoliday
+
+<!-- snippet: IsPublicHoliday -->
+<a id='snippet-IsPublicHoliday'></a>
+```cs
+var date = new Date(2024, 12, 25);
+
+IsTrue(date.IsPublicHoliday(State.NSW));
+```
+<sup><a href='/src/Tests/Tests.cs#L116-L122' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsPublicHoliday' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
+#### With holiday name
+
+<!-- snippet: IsPublicHolidayNamed -->
+<a id='snippet-IsPublicHolidayNamed'></a>
+```cs
+var date = new Date(2024, 12, 25);
+
+IsTrue(date.IsPublicHoliday(State.NSW, out var name));
+
+AreEqual("Christmas Day", name);
+```
+<sup><a href='/src/Tests/Tests.cs#L127-L135' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsPublicHolidayNamed' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
+### ForYears
+
+<!-- snippet: ForYears -->
+<a id='snippet-ForYears'></a>
+```cs
+var holidays = Holidays.ForYears(startYear: 2025, yearCount: 2);
+foreach (var (date, state, name) in holidays)
+{
+    Console.WriteLine($"date: {date}, state: {state}, name: {name}");
+}
+```
+<sup><a href='/src/Tests/Tests.cs#L70-L78' title='Snippet source file'>snippet source</a> | <a href='#snippet-ForYears' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
+#### For single state
+
+<!-- snippet: ForYearsState -->
+<a id='snippet-ForYearsState'></a>
+```cs
+var holidays = Holidays.ForYears(State.NSW, startYear: 2025, yearCount: 2);
+foreach (var (date, name) in holidays)
+{
+    Console.WriteLine($"date: {date}, name: {name}");
+}
+```
+<sup><a href='/src/Tests/Tests.cs#L83-L91' title='Snippet source file'>snippet source</a> | <a href='#snippet-ForYearsState' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+### Federal government shutdown
+
+
+#### IsFederalGovernmentShutdown
+
+<!-- snippet: IsFederalGovernmentShutdown -->
+<a id='snippet-IsFederalGovernmentShutdown'></a>
+```cs
+var date = new Date(2025, 12, 30);
+var result = date.IsFederalGovernmentShutdown();
+
+IsTrue(result);
+```
+<sup><a href='/src/Tests/Tests.cs#L141-L148' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsFederalGovernmentShutdown' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
+#### GetFederalGovernmentShutdown
+
+<!-- snippet: GetFederalGovernmentShutdown -->
+<a id='snippet-GetFederalGovernmentShutdown'></a>
+```cs
+var (start, end) = Holidays.GetFederalGovernmentShutdown(yearStart: 2024);
+
+AreEqual(new Date(2024, 12, 25), start);
+AreEqual(new Date(2025, 1, 1), end);
+```
+<sup><a href='/src/Tests/Tests.cs#L103-L110' title='Snippet source file'>snippet source</a> | <a href='#snippet-GetFederalGovernmentShutdown' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
 
 ## Sample output
 
