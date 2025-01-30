@@ -10,7 +10,7 @@ public class Tests
         var builder = new StringBuilder();
         foreach (var date in DateBuilder.Range())
         {
-            if (date.IsPublicHoliday(state, out var name))
+            if (date.IsHoliday(state, out var name))
             {
                 builder.AppendLine($"{date.ToString("yyyy MMM dd ddd", CultureInfo.InvariantCulture)} {name}");
             }
@@ -77,6 +77,7 @@ public class Tests
 
         #endregion
     }
+
     [Test]
     public void ForYearsStateSnippet()
     {
@@ -111,24 +112,50 @@ public class Tests
     }
 
     [Test]
-    public void IsPublicHoliday()
+    public void IsHoliday()
     {
-        #region IsPublicHoliday
+        #region IsHoliday
 
         var date = new Date(2024, 12, 25);
 
-        IsTrue(date.IsPublicHoliday(State.NSW));
+        IsTrue(date.IsHoliday(State.NSW));
 
         #endregion
     }
+
     [Test]
-    public void IsPublicHolidayNamed()
+    public void IsHolidayForStateNamed()
     {
-        #region IsPublicHolidayNamed
+        #region IsHolidayForStateNamed
 
         var date = new Date(2024, 12, 25);
 
-        IsTrue(date.IsPublicHoliday(State.NSW, out var name));
+        IsTrue(date.IsNswHoliday(out var name));
+        AreEqual("Christmas Day", name);
+
+        #endregion
+    }
+
+    [Test]
+    public void IsHolidayForState()
+    {
+        #region IsHolidayForState
+
+        var date = new Date(2024, 12, 25);
+
+        IsTrue(date.IsNswHoliday());
+
+        #endregion
+    }
+
+    [Test]
+    public void IsHolidayNamed()
+    {
+        #region IsHolidayNamed
+
+        var date = new Date(2024, 12, 25);
+
+        IsTrue(date.IsHoliday(State.NSW, out var name));
 
         AreEqual("Christmas Day", name);
 
@@ -188,9 +215,9 @@ public class Tests
         Verify(
             WriteForState(Holidays.IsQldHoliday));
 
-    delegate bool IsHoliday(Date date, [NotNullWhen(true)] out string? name);
+    delegate bool HolidayCheck(Date date, [NotNullWhen(true)] out string? name);
 
-    static string WriteForState(IsHoliday isHoliday)
+    static string WriteForState(HolidayCheck isHoliday)
     {
         var builder = new StringBuilder();
         for (var year = DateTime.Now.Year - 1; year <= DateTime.Now.Year + 4; year++)
@@ -217,7 +244,7 @@ public class Tests
         var builder = new StringBuilder();
         foreach (var date in DateBuilder.Range())
         {
-            if (date.IsPublicHoliday(state))
+            if (date.IsHoliday(state))
             {
                 builder.AppendLine($"{date.ToString("yyyy MMM dd ddd", CultureInfo.InvariantCulture)}");
             }

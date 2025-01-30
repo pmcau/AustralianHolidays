@@ -11,7 +11,7 @@ public static partial class Holidays
             {
                 foreach (var state in Enum.GetValues<State>())
                 {
-                    if (date.IsPublicHoliday(state, out var name))
+                    if (date.IsHoliday(state, out var name))
                     {
                         list.Add((date, state, name));
                     }
@@ -29,7 +29,7 @@ public static partial class Holidays
         {
             foreach (var date in GetAllDatesForYear(year))
             {
-                if (date.IsPublicHoliday(state, out var name))
+                if (date.IsHoliday(state, out var name))
                 {
                     list.Add((date, name));
                 }
@@ -60,9 +60,9 @@ public static partial class Holidays
             DayOfWeek.Saturday or
             DayOfWeek.Sunday;
 
-    public static bool IsPublicHoliday(this Date date, State state) => IsPublicHoliday(date, state, out _);
+    public static bool IsHoliday(this Date date, State state) => IsHoliday(date, state, out _);
 
-    public static bool IsPublicHoliday(this Date date, State state, [NotNullWhen(true)] out string? name)
+    public static bool IsHoliday(this Date date, State state, [NotNullWhen(true)] out string? name)
     {
         switch (state)
         {
@@ -92,25 +92,6 @@ public static partial class Holidays
 
     static bool IsNewYearsEve(this Date date) =>
         date is {Month: 12, Day: 31};
-
-    public static bool IsFederalGovernmentShutdown(this Date date)
-    {
-        var christmas = new Date(date.Year, 12, 25);
-
-        var newYearsHoliday = GetNewYearsHoliday(date.Year + 1);
-
-        return date >= christmas &&
-               date <= newYearsHoliday;
-    }
-
-    public static (Date start, Date end) GetFederalGovernmentShutdown(int yearStart)
-    {
-        var christmas = new Date(yearStart, 12, 25);
-
-        var newYearsHoliday = GetNewYearsHoliday(yearStart + 1);
-
-        return(christmas, newYearsHoliday);
-    }
 
     static Date GetNewYearsHoliday(int year)
     {

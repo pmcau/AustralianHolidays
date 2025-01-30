@@ -3,7 +3,15 @@ namespace AustralianHolidays;
 public static partial class Holidays
 {
     /// <summary>
-    ///  Determines if the date is a public holiday in the Northern Territory.
+    ///  Determines if the date is a public holiday in the New South Wales.
+    ///  Reference: https://www.nsw.gov.au/about-nsw/public-holidays
+    /// </summary>
+    /// <param name="date">The date to check.</param>
+    public static bool IsNswHoliday(this Date date) =>
+        IsNswHoliday(date, out _);
+
+    /// <summary>
+    ///  Determines if the date is a public holiday in the New South Wales.
     ///  Reference: https://www.nsw.gov.au/about-nsw/public-holidays
     /// </summary>
     /// <param name="date">The date to check.</param>

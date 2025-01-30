@@ -7,6 +7,14 @@ public static partial class Holidays
     ///  Reference: https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia
     /// </summary>
     /// <param name="date">The date to check.</param>
+    public static bool IsWaHoliday(this Date date) =>
+        IsWaHoliday(date, out _);
+
+    /// <summary>
+    ///  Determines if the date is a public holiday in Western Australia.
+    ///  Reference: https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia
+    /// </summary>
+    /// <param name="date">The date to check.</param>
     /// <param name="name">The name of the holiday.</param>
     public static bool IsWaHoliday(this Date date, [NotNullWhen(true)] out string? name)
     {

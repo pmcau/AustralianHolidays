@@ -7,6 +7,14 @@ public static partial class Holidays
     ///  Reference: https://www.qld.gov.au/recreation/travel/holidays/public
     /// </summary>
     /// <param name="date">The date to check.</param>
+    public static bool IsQldHoliday(this Date date) =>
+        IsQldHoliday(date, out _);
+
+    /// <summary>
+    ///  Determines if the date is a public holiday in Queensland.
+    ///  Reference: https://www.qld.gov.au/recreation/travel/holidays/public
+    /// </summary>
+    /// <param name="date">The date to check.</param>
     /// <param name="name">The name of the holiday.</param>
     public static bool IsQldHoliday(this Date date, [NotNullWhen(true)] out string? name)
     {
@@ -24,7 +32,7 @@ public static partial class Holidays
                 return true;
             }
 
-            if (date is { DayOfWeek: DayOfWeek.Monday, Day: 27 or 28 })
+            if (date is {DayOfWeek: DayOfWeek.Monday, Day: 27 or 28})
             {
                 name = "Australia Day (additional)";
                 return true;

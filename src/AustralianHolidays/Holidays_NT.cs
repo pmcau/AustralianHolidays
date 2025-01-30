@@ -7,6 +7,14 @@ public static partial class Holidays
     ///  Reference: https://nt.gov.au/nt-public-holidays
     /// </summary>
     /// <param name="date">The date to check.</param>
+    public static bool IsNtHoliday(this Date date) =>
+        IsNtHoliday(date, out _);
+
+    /// <summary>
+    ///  Determines if the date is a public holiday in the Northern Territory.
+    ///  Reference: https://nt.gov.au/nt-public-holidays
+    /// </summary>
+    /// <param name="date">The date to check.</param>
     /// <param name="name">The name of the holiday.</param>
     public static bool IsNtHoliday(this Date date, [NotNullWhen(true)] out string? name)
     {

@@ -7,6 +7,14 @@ public static partial class Holidays
     ///  Reference: https://business.vic.gov.au/business-information/public-holidays/victorian-public-holidays-2025
     /// </summary>
     /// <param name="date">The date to check.</param>
+    public static bool IsVicHoliday(this Date date) =>
+        IsVicHoliday(date, out _);
+
+    /// <summary>
+    ///  Determines if the date is a public holiday in Victoria.
+    ///  Reference: https://business.vic.gov.au/business-information/public-holidays/victorian-public-holidays-2025
+    /// </summary>
+    /// <param name="date">The date to check.</param>
     /// <param name="name">The name of the holiday.</param>
     public static bool IsVicHoliday(this Date date, [NotNullWhen(true)] out string? name)
     {

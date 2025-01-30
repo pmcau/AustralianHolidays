@@ -7,6 +7,14 @@ public static partial class Holidays
     ///  Reference: https://worksafe.tas.gov.au/topics/laws-and-compliance/public-holidays
     /// </summary>
     /// <param name="date">The date to check.</param>
+    public static bool IsTasHoliday(this Date date) =>
+        IsTasHoliday(date, out _);
+
+    /// <summary>
+    ///  Determines if the date is a public holiday in Tasmania.
+    ///  Reference: https://worksafe.tas.gov.au/topics/laws-and-compliance/public-holidays
+    /// </summary>
+    /// <param name="date">The date to check.</param>
     /// <param name="name">The name of the holiday.</param>
     public static bool IsTasHoliday(this Date date, [NotNullWhen(true)] out string? name)
     {
