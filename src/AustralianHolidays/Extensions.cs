@@ -1,6 +1,4 @@
-﻿namespace AustralianHolidays;
-
-static class Extensions
+﻿static class Extensions
 {
     public static bool IsFirstMonday(this Date date, Month month)
     {

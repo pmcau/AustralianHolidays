@@ -1,6 +1,4 @@
-﻿namespace AustralianHolidays;
-
-static class MonarchBirthdayCalculator
+﻿static class MonarchBirthdayCalculator
 {
     public static bool IsMonarchBirthday(this Date date, [NotNullWhen(true)] out string? name)
     {

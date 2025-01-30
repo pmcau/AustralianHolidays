@@ -1,6 +1,4 @@
-﻿namespace AustralianHolidays;
-
-enum Month
+﻿enum Month
 {
     January = 1,
     February = 2,
