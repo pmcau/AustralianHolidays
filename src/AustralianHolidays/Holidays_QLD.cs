@@ -57,7 +57,7 @@ public static partial class Holidays
         yield return (easterSunday, "Easter Sunday");
         yield return (easterMonday, "Easter Monday");
 
-        yield return (new(year, (int) Month.April, 25), "Anzac Day");
+        yield return (AnzacDayCalculator.GetAnzacDay(year), "Anzac Day");
 
         yield return (Extensions.GetFirstMonday(Month.May, year), "Labour Day");
 

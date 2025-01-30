@@ -62,7 +62,7 @@ public static partial class Holidays
             }
         }
 
-        yield return (new(year, (int) Month.April, 25), "Anzac Day");
+        yield return (AnzacDayCalculator.GetAnzacDay(year), "Anzac Day");
 
         var (easterFriday, easterSaturday, easterSunday, easterMonday) = EasterCalculator.ForYear(year);
         yield return (easterFriday, "Good Friday");

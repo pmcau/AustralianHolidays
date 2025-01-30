@@ -61,7 +61,7 @@ public static partial class Holidays
 
         yield return (easterMonday.AddDays(1), "Easter Tuesday (Government employees only)");
 
-        yield return (new(year, (int) Month.April, 25), "Anzac Day");
+        yield return (AnzacDayCalculator.GetAnzacDay(year), "Anzac Day");
 
         yield return MonarchBirthdayCalculator.GetMonarchBirthday(year);
 

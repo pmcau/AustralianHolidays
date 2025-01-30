@@ -63,7 +63,7 @@ public static partial class Holidays
 
         yield return (GetReconciliationDay(), "Reconciliation Day");
 
-        var anzacDate = new Date(year, (int) Month.April, 25);
+        var anzacDate = AnzacDayCalculator.GetAnzacDay(year);
 
         if (anzacDate.DayOfWeek == DayOfWeek.Saturday)
         {
