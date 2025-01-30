@@ -61,6 +61,11 @@
   },
   {
     Item1: 2024-01-26,
+    Item2: SA,
+    Item3: Australia Day
+  },
+  {
+    Item1: 2024-01-26,
     Item2: TAS,
     Item3: Australia Day
   },
@@ -410,6 +415,11 @@
     Item3: Christmas Eve (partial day)
   },
   {
+    Item1: 2024-12-24,
+    Item2: SA,
+    Item3: Christmas Eve (partial day)
+  },
+  {
     Item1: 2024-12-25,
     Item2: ACT,
     Item3: Christmas Day
@@ -507,11 +517,6 @@
   {
     Item1: 2024-12-27,
     Item2: QLD,
-    Item3: Christmas (additional)
-  },
-  {
-    Item1: 2024-12-27,
-    Item2: SA,
     Item3: Christmas (additional)
   },
   {
@@ -947,6 +952,11 @@
   {
     Item1: 2025-12-24,
     Item2: QLD,
+    Item3: Christmas Eve (partial day)
+  },
+  {
+    Item1: 2025-12-24,
+    Item2: SA,
     Item3: Christmas Eve (partial day)
   },
   {

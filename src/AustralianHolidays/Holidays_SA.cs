@@ -65,6 +65,7 @@ public static partial class Holidays
 
         yield return (Extensions.GetFirstMonday(Month.October, year), "Labour Day");
 
+        yield return (ChristmasCalculator.ChristmasEve(year), "Christmas Eve (partial day)");
         yield return (ChristmasCalculator.ChristmasDay(year), "Christmas Day");
 
         var proclamationDay = new Date(year, (int) Month.December,26);

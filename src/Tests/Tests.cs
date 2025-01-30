@@ -23,19 +23,21 @@ public class Tests
     public Task WriteByYears(State state)
     {
         List<int> years = [];
-        for (var year = DateTime.Now.Year; year <= DateTime.Now.Year + 4; year++)
+        var start = DateTime.Now.Year;
+        for (var year = start; year <= start + 4; year++)
         {
             years.Add(year);
         }
 
-        var forYears = Holidays.ForYears(state, DateTime.Now.Year, 4);
+        var forYears = Holidays.ForYears(state, start, 4);
 
         var builder = new StringBuilder();
-        builder.AppendLine($"|      | {string.Join(" | ", years)} |");
+        builder.AppendLine($"|                                   | {string.Join("         | ", years)} |");
         builder.Append('|');
-        for (var index = 0; index < years.Count + 1; index++)
+        builder.Append("-----------------------------------|");
+        for (var index = 1; index < years.Count + 1; index++)
         {
-            builder.Append("------|");
+            builder.Append("--------------|");
         }
 
         builder.AppendLine();
@@ -49,7 +51,9 @@ public class Tests
             builder.Append("| " + item.Key.Replace(" (", "<br>(").PadRight(33) + " | ");
             foreach (var year in years)
             {
-                var dates = item.Select(_ => _.date).Where(_ => _.Year == year).ToList();
+                var dates = item.Select(_ => _.date)
+                    .Where(_ => _.Year == year)
+                    .ToList();
                 if (dates.Count == 0)
                 {
                     builder.Append("            ");
