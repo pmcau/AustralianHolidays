@@ -46,11 +46,15 @@ public class Tests
 
         foreach (var item in items)
         {
-            builder.Append("| " + item.Key.Replace(" (", "<br>(").PadRight(30) + " | ");
+            builder.Append("| " + item.Key.Replace(" (", "<br>(").PadRight(33) + " | ");
             foreach (var year in years)
             {
                 var dates = item.Select(_ => _.date).Where(_ => _.Year == year).ToList();
-                if (dates.Count != 0)
+                if (dates.Count == 0)
+                {
+                    builder.Append("            ");
+                }
+                else
                 {
                     builder.Append(string.Join("<br>", dates.Select(_ => _.ToString("`ddd dd MMM`", CultureInfo.InvariantCulture))));
                 }
