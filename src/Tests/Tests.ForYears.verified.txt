@@ -538,5 +538,10 @@
     Item1: 2024-12-31,
     Item2: NT,
     Item3: New Year's Eve (partial day)
+  },
+  {
+    Item1: 2024-12-31,
+    Item2: SA,
+    Item3: New Year's Eve (partial day)
   }
 ]

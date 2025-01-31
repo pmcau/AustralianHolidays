@@ -264,6 +264,7 @@ AreEqual(new Date(2025, 1, 1), end);
 | Proclamation Day and Boxing Day   | `Fri 26 Dec` |              |              | `Tue 26 Dec` | `Wed 26 Dec` | 
 | Proclamation Day                  |              | `Sat 26 Dec` | `Sun 26 Dec` |              |              | 
 | Proclamation Day<br>(additional)  |              | `Mon 28 Dec` | `Mon 27 Dec` |              |              | 
+| New Year's Eve<br>(partial day)   | `Wed 31 Dec` | `Thu 31 Dec` | `Fri 31 Dec` | `Sun 31 Dec` | `Mon 31 Dec` | 
 <!-- endInclude -->
 
 

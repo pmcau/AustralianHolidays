@@ -103,12 +103,6 @@ public static partial class Holidays
             _ => throw new ArgumentOutOfRangeException(nameof(state), state, null)
         };
 
-    static bool IsNewYearsDay(this Date date) =>
-        date is {Month: 1, Day: 1};
-
-    static bool IsNewYearsEve(this Date date) =>
-        date is {Month: 12, Day: 31};
-
     static Date GetNewYearsHoliday(int year)
     {
         var oneJanuary = new Date(year, 1, 1);

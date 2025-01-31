@@ -91,5 +91,7 @@ public static partial class Holidays
             yield return (proclamationDay, "Proclamation Day");
             yield return (proclamationDay.AddDays(1), "Proclamation Day (additional)");
         }
+
+        yield return (new(year, (int) Month.December, 31), "New Year's Eve (partial day)");
     }
 }

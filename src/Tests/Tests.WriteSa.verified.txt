@@ -12,6 +12,7 @@
     Christmas Eve (partial day) Dec 24 Tue
     Christmas Day         Dec 25 Wed
     Proclamation Day and Boxing Day Dec 26 Thu
+    New Year's Eve (partial day) Dec 31 Tue
 2025
     New Year's Day        Jan 01 Wed
     Australia Day (additional) Jan 27 Mon
@@ -26,6 +27,7 @@
     Christmas Eve (partial day) Dec 24 Wed
     Christmas Day         Dec 25 Thu
     Proclamation Day and Boxing Day Dec 26 Fri
+    New Year's Eve (partial day) Dec 31 Wed
 2026
     New Year's Day        Jan 01 Thu
     Australia Day         Jan 26 Mon
@@ -41,6 +43,7 @@
     Christmas Day         Dec 25 Fri
     Proclamation Day      Dec 26 Sat
     Proclamation Day (additional) Dec 28 Mon
+    New Year's Eve (partial day) Dec 31 Thu
 2027
     New Year's Day        Jan 01 Fri
     Australia Day         Jan 26 Tue
@@ -56,6 +59,7 @@
     Christmas Day         Dec 25 Sat
     Proclamation Day      Dec 26 Sun
     Proclamation Day (additional) Dec 27 Mon
+    New Year's Eve (partial day) Dec 31 Fri
 2028
     New Year's Day        Jan 01 Sat
     Australia Day         Jan 26 Wed
@@ -70,6 +74,7 @@
     Christmas Eve (partial day) Dec 24 Sun
     Christmas Day         Dec 25 Mon
     Proclamation Day and Boxing Day Dec 26 Tue
+    New Year's Eve (partial day) Dec 31 Sun
 2029
     New Year's Day        Jan 01 Mon
     Australia Day         Jan 26 Fri
@@ -84,3 +89,4 @@
     Christmas Eve (partial day) Dec 24 Mon
     Christmas Day         Dec 25 Tue
     Proclamation Day and Boxing Day Dec 26 Wed
+    New Year's Eve (partial day) Dec 31 Mon
