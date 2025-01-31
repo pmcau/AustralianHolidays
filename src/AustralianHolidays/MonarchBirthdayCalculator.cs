@@ -1,81 +1,36 @@
 ﻿static class MonarchBirthdayCalculator
 {
-    public static bool IsMonarchBirthday(this Date date, [NotNullWhen(true)] out string? name)
+    public static (Date, string) GetMonarchBirthday(int year)
     {
-        if (date.IsSecondMonday(Month.June))
+        var date = Extensions.GetSecondMonday(Month.June, year);
+        if (year <= 2022)
         {
-            if (date.Year <= 2022)
-            {
-                name = "Queen's Birthday";
-                return true;
-            }
-
-            if (date.Year > 2022)
-            {
-                name = "King's Birthday";
-                return true;
-            }
+            return (date, "Queen's Birthday");
         }
 
-        name = null;
-        return false;
+        return (date, "King's Birthday");
     }
 
-    public static bool IsMonarchBirthdayQld(this Date date, [NotNullWhen(true)] out string? name)
+    public static (Date, string) GetMonarchBirthdayQld(int year)
     {
-        if (date.IsFirstMonday(Month.October))
+        var date = Extensions.GetFirstMonday(Month.October, year);
+        if (year <= 2022)
         {
-            if (date.Year <= 2022)
-            {
-                name = "Queen's Birthday";
-                return true;
-            }
-
-            if (date.Year > 2022)
-            {
-                name = "King's Birthday";
-                return true;
-            }
+            return (date, "Queen's Birthday");
         }
 
-        name = null;
-        return false;
+        return (date, "King's Birthday");
     }
 
-    public static bool IsMonarchBirthdayWa(this Date date, [NotNullWhen(true)] out string? name)
+    public static (Date, string) GetMonarchBirthdayWa(int year)
     {
-        name = null;
-        if (date.Month != (int)Month.September)
+        var birthday = GetBirthday(year);
+        if (year > 2022)
         {
-            return false;
+            return (birthday, "King's Birthday");
         }
 
-        if (date.DayOfWeek != DayOfWeek.Monday)
-        {
-            return false;
-        }
-
-        if (date.Day < 23)
-        {
-            return false;
-        }
-
-        var birthday = GetBirthday(date.Year);
-        if (birthday == date)
-        {
-            if (date.Year > 2022)
-            {
-                name = "King's Birthday";
-            }
-            else
-            {
-                name = "Queen's Birthday";
-            }
-
-            return true;
-        }
-
-        return false;
+        return (birthday, "Queen's Birthday");
 
         static Date GetBirthday(int year)
         {

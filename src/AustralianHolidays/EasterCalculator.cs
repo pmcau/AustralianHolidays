@@ -27,7 +27,7 @@ public static class EasterCalculator
         GetEasterSunday(date.Year) == date;
 
     // computus algorithm
-    public static Date GetEasterSunday(int year)
+    static Date GetEasterSunday(int year)
     {
         var month = 3;
         //19 year metonic cycle

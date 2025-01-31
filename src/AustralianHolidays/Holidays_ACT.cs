@@ -2,13 +2,16 @@ namespace AustralianHolidays;
 
 public static partial class Holidays
 {
+    static ConcurrentDictionary<int, Dictionary<Date, string>> actCache;
+
     /// <summary>
     ///  Determines if the date is a public holiday in the Australian Capital Territory.
     ///  Reference: https://www.cmtedd.act.gov.au/communication/holidays
     /// </summary>
     /// <param name="date">The date to check.</param>
     public static bool IsActHoliday(this Date date) =>
-        IsActHoliday(date, out _);
+        GetActHolidays(date.Year)
+            .ContainsKey(date);
 
     /// <summary>
     ///  Determines if the date is a public holiday in the Australian Capital Territory.
@@ -16,105 +19,77 @@ public static partial class Holidays
     /// </summary>
     /// <param name="date">The date to check.</param>
     /// <param name="name">The name of the holiday.</param>
-    public static bool IsActHoliday(this Date date, [NotNullWhen(true)] out string? name)
+    public static bool IsActHoliday(this Date date, [NotNullWhen(true)] out string? name) =>
+        GetActHolidays(date.Year)
+            .TryGetValue(date, out name);
+
+    /// <summary>
+    /// Gets all public holidays for the Australian Capital Territory for the specified year.
+    /// </summary>
+    public static IReadOnlyDictionary<Date, string> GetActHolidays(int year) =>
+        actCache.GetOrAdd(
+            year,
+            year => BuildActHolidays(year).ToDictionary(_ => _.date, _ => _.name));
+
+    static IEnumerable<(Date date, string name)> BuildActHolidays(int year)
     {
-        if (date.IsNewYearsDay())
+        yield return (new(year, (int) Month.January, 1), "New Year's Day");
+
+        var australiaDay = GetAustraliaDay(year);
+        if (australiaDay.IsWeekday())
         {
-            name = "New Year's Day";
-            return true;
+            yield return (australiaDay, "Australia Day");
         }
-
-        if (date.Month == 1)
+        else
         {
-            if (date.Day == 26 && date.IsWeekday())
+            if (australiaDay.DayOfWeek == DayOfWeek.Saturday)
             {
-                name = "Australia Day";
-                return true;
+                yield return (new(year, (int) Month.January, 28), "Australia Day (additional)");
             }
-
-            if (date is { DayOfWeek: DayOfWeek.Monday, Day: 27 or 28 })
+            else if (australiaDay.DayOfWeek == DayOfWeek.Sunday)
             {
-                name = "Australia Day (additional)";
-                return true;
+                yield return (new(year, (int) Month.January, 27), "Australia Day (additional)");
             }
         }
 
-        if (date.IsSecondMonday(Month.March))
+        yield return (Extensions.GetSecondMonday(Month.March, year), "Canberra Day");
+
+        Date GetReconciliationDay()
         {
-            name = "Canberra Day";
-            return true;
+            var startDate = new Date(year, (int) Month.May, 27);
+            var dayOfWeek = (int)startDate.DayOfWeek;
+            var daysUntilMonday = (8 - dayOfWeek) % 7;
+            return startDate.AddDays(daysUntilMonday);
         }
 
-        var reconciliationDayStart = new Date(date.Year, 5, 27);
-        var reconciliationDayEnd = reconciliationDayStart.AddDays(7);
-        if (date.DayOfWeek == DayOfWeek.Monday &&
-            date >= reconciliationDayStart &&
-            date <= reconciliationDayEnd)
+        yield return (GetReconciliationDay(), "Reconciliation Day");
+
+        var anzacDate = AnzacDayCalculator.GetAnzacDay(year);
+
+        if (anzacDate.DayOfWeek == DayOfWeek.Saturday)
         {
-            name = "Reconciliation Day";
-            return true;
+            yield return (new(year, (int) Month.April, 27), "Anzac Day (additional)");
+        }
+        else
+        {
+            yield return (anzacDate, "Anzac Day");
         }
 
-        if (date.Month == 4)
+        var (easterFriday, easterSaturday, easterSunday, easterMonday) = EasterCalculator.ForYear(year);
+        yield return (easterFriday, "Good Friday");
+        yield return (easterSaturday, "Easter Saturday");
+        yield return (easterSunday, "Easter Sunday");
+        yield return (easterMonday, "Easter Monday");
+
+        yield return MonarchBirthdayCalculator.GetMonarchBirthday(year);
+
+        yield return (Extensions.GetFirstMonday(Month.October, year), "Labour Day");
+
+        foreach (var date in ChristmasCalculator.Get(year))
         {
-            // Anzac Day falls on a Saturday
-            if (date is { DayOfWeek: DayOfWeek.Monday, Day: 27 })
-            {
-                name = "Anzac Day (additional)";
-                return true;
-            }
-
-            if (date.DayOfWeek != DayOfWeek.Saturday &&
-                date.Day == 25)
-            {
-                name = "Anzac Day";
-                return true;
-            }
+            yield return date;
         }
-
-        var (easterFriday, easterSaturday, easterSunday, easterMonday) = EasterCalculator.ForYear(date.Year);
-        if (date == easterFriday)
-        {
-            name = "Good Friday";
-            return true;
-        }
-
-        if (date == easterSaturday)
-        {
-            name = "Easter Saturday";
-            return true;
-        }
-
-        if (date == easterSunday)
-        {
-            name = "Easter Sunday";
-            return true;
-        }
-
-        if (date == easterMonday)
-        {
-            name = "Easter Monday";
-            return true;
-        }
-
-        if (date.IsMonarchBirthday(out name))
-        {
-            return true;
-        }
-
-        if (date.IsFirstMonday(Month.October))
-        {
-            name = "Labour Day";
-            return true;
-        }
-
-        if (ChristmasCalculator.TryGet(date, out name))
-        {
-            return true;
-        }
-
-        name = null;
-        return false;
     }
 
+    private static Date GetAustraliaDay(int year) => new(year, (int) Month.January, 26);
 }

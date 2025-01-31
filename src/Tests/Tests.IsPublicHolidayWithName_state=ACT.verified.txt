@@ -7,7 +7,6 @@
 2024 Apr 01 Mon Easter Monday
 2024 Apr 25 Thu Anzac Day
 2024 May 27 Mon Reconciliation Day
-2024 Jun 03 Mon Reconciliation Day
 2024 Jun 10 Mon King's Birthday
 2024 Oct 07 Mon Labour Day
 2024 Dec 25 Wed Christmas Day
@@ -94,7 +93,6 @@
 2030 Apr 22 Mon Easter Monday
 2030 Apr 25 Thu Anzac Day
 2030 May 27 Mon Reconciliation Day
-2030 Jun 03 Mon Reconciliation Day
 2030 Jun 10 Mon King's Birthday
 2030 Oct 07 Mon Labour Day
 2030 Dec 25 Wed Christmas Day

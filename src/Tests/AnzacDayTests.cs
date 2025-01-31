@@ -15,20 +15,4 @@ public class AnzacDayTests
 
         return Verify(builder);
     }
-
-    [Test]
-    public void GetEasterFriday()
-    {
-        for (var i = 2025; i <= 2044; i++)
-        {
-            var easterFriday = EasterCalculator.GetEasterFriday(i);
-            AreEqual(DateBuilder.EasterFridays[i - 2025], easterFriday);
-        }
-    }
-
-    [Test]
-    public Task GetEaster() =>
-        VerifyTuple(() => EasterCalculator.ForYear(2020))
-            .DontScrubDateTimes();
-
 }
