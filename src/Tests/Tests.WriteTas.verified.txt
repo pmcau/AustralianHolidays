@@ -3,7 +3,6 @@
     Australia Day         Jan 26 Fri
     Eight Hours Day       Mar 11 Mon
     Good Friday           Mar 29 Fri
-    Easter Saturday       Mar 30 Sat
     Easter Sunday         Mar 31 Sun
     Easter Monday         Apr 01 Mon
     Easter Tuesday (Government employees only) Apr 02 Tue
@@ -17,7 +16,6 @@
     Australia Day (additional) Jan 27 Mon
     Eight Hours Day       Mar 10 Mon
     Good Friday           Apr 18 Fri
-    Easter Saturday       Apr 19 Sat
     Easter Sunday         Apr 20 Sun
     Easter Monday         Apr 21 Mon
     Easter Tuesday (Government employees only) Apr 22 Tue
@@ -30,7 +28,6 @@
     Australia Day         Jan 26 Mon
     Eight Hours Day       Mar 09 Mon
     Good Friday           Apr 03 Fri
-    Easter Saturday       Apr 04 Sat
     Easter Sunday         Apr 05 Sun
     Easter Monday         Apr 06 Mon
     Easter Tuesday (Government employees only) Apr 07 Tue
@@ -44,7 +41,6 @@
     Australia Day         Jan 26 Tue
     Eight Hours Day       Mar 08 Mon
     Good Friday           Mar 26 Fri
-    Easter Saturday       Mar 27 Sat
     Easter Sunday         Mar 28 Sun
     Easter Monday         Mar 29 Mon
     Easter Tuesday (Government employees only) Mar 30 Tue
@@ -59,7 +55,6 @@
     Australia Day         Jan 26 Wed
     Eight Hours Day       Mar 13 Mon
     Good Friday           Apr 14 Fri
-    Easter Saturday       Apr 15 Sat
     Easter Sunday         Apr 16 Sun
     Easter Monday         Apr 17 Mon
     Easter Tuesday (Government employees only) Apr 18 Tue
@@ -74,7 +69,6 @@
     Australia Day         Jan 26 Fri
     Eight Hours Day       Mar 12 Mon
     Good Friday           Mar 30 Fri
-    Easter Saturday       Mar 31 Sat
     Easter Sunday         Apr 01 Sun
     Easter Monday         Apr 02 Mon
     Easter Tuesday (Government employees only) Apr 03 Tue
