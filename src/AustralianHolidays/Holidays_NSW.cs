@@ -2,7 +2,7 @@ namespace AustralianHolidays;
 
 public static partial class Holidays
 {
-    static ConcurrentDictionary<int, Dictionary<Date, string>> nswHolidays = new();
+    static ConcurrentDictionary<int, Dictionary<Date, string>> nswCache;
 
     /// <summary>
     ///  Determines if the date is a public holiday in the New South Wales.
@@ -10,7 +10,8 @@ public static partial class Holidays
     /// </summary>
     /// <param name="date">The date to check.</param>
     public static bool IsNswHoliday(this Date date) =>
-        IsNswHoliday(date, out _);
+        GetNswHolidays(date.Year)
+            .ContainsKey(date);
 
     /// <summary>
     ///  Determines if the date is a public holiday in the New South Wales.
@@ -18,18 +19,15 @@ public static partial class Holidays
     /// </summary>
     /// <param name="date">The date to check.</param>
     /// <param name="name">The name of the holiday.</param>
-    public static bool IsNswHoliday(this Date date, [NotNullWhen(true)] out string? name)
-    {
-        var holidays = GetNswHolidays(date.Year);
-
-        return holidays.TryGetValue(date, out name);
-    }
+    public static bool IsNswHoliday(this Date date, [NotNullWhen(true)] out string? name) =>
+        GetNswHolidays(date.Year)
+            .TryGetValue(date, out name);
 
     /// <summary>
     ///  Gets all public holidays for New South Wales for the specified year.
     /// </summary>
     public static IReadOnlyDictionary<Date, string> GetNswHolidays(int year) =>
-        nswHolidays.GetOrAdd(
+        nswCache.GetOrAdd(
             year,
             year => BuildNswHolidays(year).ToDictionary(_ => _.date, _ => _.name));
 

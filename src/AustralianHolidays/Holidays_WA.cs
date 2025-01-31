@@ -2,7 +2,7 @@ namespace AustralianHolidays;
 
 public static partial class Holidays
 {
-    static ConcurrentDictionary<int, Dictionary<Date, string>> waHolidays = new();
+    static ConcurrentDictionary<int, Dictionary<Date, string>> waCache;
 
     /// <summary>
     ///  Determines if the date is a public holiday in Western Australia.
@@ -10,24 +10,22 @@ public static partial class Holidays
     /// </summary>
     /// <param name="date">The date to check.</param>
     public static bool IsWaHoliday(this Date date) =>
-        IsWaHoliday(date, out _);
+        GetWaHolidays(date.Year)
+            .ContainsKey(date);
 
     /// <summary>
     ///  Gets all public holidays for  Western Australia.
     ///  Reference: https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia
     /// </summary>
-    public static bool IsWaHoliday(this Date date, [NotNullWhen(true)] out string? name)
-    {
-        var holidays = GetWaHolidays(date.Year);
-
-        return holidays.TryGetValue(date, out name);
-    }
+    public static bool IsWaHoliday(this Date date, [NotNullWhen(true)] out string? name) =>
+        GetWaHolidays(date.Year)
+            .TryGetValue(date, out name);
 
     /// <summary>
     /// Gets all public holidays for Western Australia for the specified year.
     /// </summary>
     public static IReadOnlyDictionary<Date, string> GetWaHolidays(int year) =>
-        waHolidays.GetOrAdd(
+        waCache.GetOrAdd(
             year,
             year => BuildWaHolidays(year).ToDictionary(_ => _.date, _ => _.name));
 

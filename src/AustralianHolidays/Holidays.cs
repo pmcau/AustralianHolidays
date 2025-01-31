@@ -4,8 +4,40 @@ public static partial class Holidays
 {
     static readonly State[] states;
 
-    static Holidays() =>
+    static Holidays()
+    {
         states = Enum.GetValues<State>();
+        PopulateCache(DateTime.Now.Year - 1, 12);
+    }
+
+    [MemberNotNull(nameof(actCache))]
+    [MemberNotNull(nameof(waCache))]
+    [MemberNotNull(nameof(nswCache))]
+    [MemberNotNull(nameof(saCache))]
+    [MemberNotNull(nameof(ntCache))]
+    [MemberNotNull(nameof(tasCache))]
+    [MemberNotNull(nameof(vicCache))]
+    [MemberNotNull(nameof(qldCache))]
+    public static void PopulateCache(int startYear, int count)
+    {
+        actCache = new(BuildForMultipleYears(BuildActHolidays, startYear, count));
+        waCache = new(BuildForMultipleYears(BuildWaHolidays, startYear, count));
+        nswCache = new(BuildForMultipleYears(BuildNswHolidays, startYear, count));
+        saCache = new(BuildForMultipleYears(BuildSaHolidays, startYear, count));
+        ntCache = new(BuildForMultipleYears(BuildNtHolidays, startYear, count));
+        tasCache = new(BuildForMultipleYears(BuildTasHolidays, startYear, count));
+        vicCache = new(BuildForMultipleYears(BuildVicHolidays, startYear, count));
+        qldCache = new(BuildForMultipleYears(BuildQldHolidays, startYear, count));
+    }
+
+    static IEnumerable<KeyValuePair<int, Dictionary<Date, string>>> BuildForMultipleYears(Func<int, IEnumerable<(Date date, string name)>> action, int startYear, int count)
+    {
+        var lastYear = startYear + count - 1;
+        for (var year = startYear; year <= lastYear; year++)
+        {
+            yield return new(year, action(year).ToDictionary(_ => _.date, _ => _.name));
+        }
+    }
 
     public static IOrderedEnumerable<(Date date, State state, string name)> ForYears(int startYear, int yearCount = 1)
     {
@@ -23,18 +55,12 @@ public static partial class Holidays
 
     public static IOrderedEnumerable<(Date date, string name)> ForYears(State state, int startYear, int yearCount = 1)
     {
-        var action = GetStateAction(state);
+        var action = DeriveGetHolidaysAction(state);
         List<(Date date, string name)> list = [];
         for (var year = startYear; year <= startYear + yearCount -1; year++)
         {
             foreach (var (key, value) in action(year))
             {
-#if DEBUG
-                if (list.Any(_ => _.date == key && _.name == value))
-                {
-                    throw new InvalidOperationException($"Duplicate: {key} {value}");
-                }
-#endif
                 list.Add((key, value));
             }
         }
@@ -42,62 +68,24 @@ public static partial class Holidays
         return list.OrderBy(_ => _.date);
     }
 
-    static Func<int, IReadOnlyDictionary<Date, string>> GetStateAction(State state)
-    {
-        Func<int, IReadOnlyDictionary<Date,string>> action;
-        switch (state)
+    static Func<int, IReadOnlyDictionary<Date, string>> DeriveGetHolidaysAction(State state) =>
+        state switch
         {
-            case State.ACT:
-                action = GetActHolidays;
-                break;
-            case State.NSW:
-                action = GetNswHolidays;
-                break;
-            case State.NT:
-                action = GetNtHolidays;
-                break;
-            case State.QLD:
-                action = GetQldHolidays;
-                break;
-            case State.SA:
-                action = GetSaHolidays;
-                break;
-            case State.TAS:
-                action = GetTasHolidays;
-                break;
-            case State.VIC:
-                action = GetVicHolidays;
-                break;
-            case State.WA:
-                action = GetWaHolidays;
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(state), state, null);
-        }
-
-        return action;
-    }
-
-    static IEnumerable<Date> GetAllDatesForYear(int year)
-    {
-        var startDate = new Date(year, 1, 1);
-        var endDate = new Date(year, 12, 31);
-
-        for (var date = startDate; date <= endDate; date = date.AddDays(1))
-        {
-            yield return date;
-        }
-    }
+            State.ACT => GetActHolidays,
+            State.NSW => GetNswHolidays,
+            State.NT => GetNtHolidays,
+            State.QLD => GetQldHolidays,
+            State.SA => GetSaHolidays,
+            State.TAS => GetTasHolidays,
+            State.VIC => GetVicHolidays,
+            State.WA => GetWaHolidays,
+            _ => throw new ArgumentOutOfRangeException(nameof(state), state, null)
+        };
 
     internal static bool IsWeekday(this Date date) =>
         date.DayOfWeek is
             not DayOfWeek.Saturday and
             not DayOfWeek.Sunday;
-
-    internal static bool IsWeekEnd(this Date date) =>
-        date.DayOfWeek is
-            DayOfWeek.Saturday or
-            DayOfWeek.Sunday;
 
     public static bool IsHoliday(this Date date, State state) => IsHoliday(date, state, out _);
 

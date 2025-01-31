@@ -2,7 +2,7 @@ namespace AustralianHolidays;
 
 public static partial class Holidays
 {
-    static ConcurrentDictionary<int, Dictionary<Date, string>> ntHolidays = new();
+    static ConcurrentDictionary<int, Dictionary<Date, string>> ntCache;
 
     /// <summary>
     ///  Determines if the date is a public holiday in the Northern Territory.
@@ -10,7 +10,8 @@ public static partial class Holidays
     /// </summary>
     /// <param name="date">The date to check.</param>
     public static bool IsNtHoliday(this Date date) =>
-        IsNtHoliday(date, out _);
+        GetNtHolidays(date.Year)
+            .ContainsKey(date);
 
     /// <summary>
     ///  Determines if the date is a public holiday in the Northern Territory.
@@ -18,18 +19,15 @@ public static partial class Holidays
     /// </summary>
     /// <param name="date">The date to check.</param>
     /// <param name="name">The name of the holiday.</param>
-    public static bool IsNtHoliday(this Date date, [NotNullWhen(true)] out string? name)
-    {
-        var holidays = GetNtHolidays(date.Year);
-
-        return holidays.TryGetValue(date, out name);
-    }
+    public static bool IsNtHoliday(this Date date, [NotNullWhen(true)] out string? name) =>
+        GetNtHolidays(date.Year)
+            .TryGetValue(date, out name);
 
     /// <summary>
     ///  Gets all public holidays for the Northern Territory for the specified year.
     /// </summary>
     public static IReadOnlyDictionary<Date, string> GetNtHolidays(int year) =>
-        ntHolidays.GetOrAdd(
+        ntCache.GetOrAdd(
             year,
             year => BuildNtHolidays(year).ToDictionary(_ => _.date, _ => _.name));
 

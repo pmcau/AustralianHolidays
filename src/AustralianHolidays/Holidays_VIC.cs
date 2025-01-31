@@ -2,7 +2,7 @@ namespace AustralianHolidays;
 
 public static partial class Holidays
 {
-    static ConcurrentDictionary<int, Dictionary<Date, string>> vicHolidays = new();
+    static ConcurrentDictionary<int, Dictionary<Date, string>> vicCache;
 
     /// <summary>
     ///  Determines if the date is a public holiday in Victoria.
@@ -10,7 +10,8 @@ public static partial class Holidays
     /// </summary>
     /// <param name="date">The date to check.</param>
     public static bool IsVicHoliday(this Date date) =>
-        IsVicHoliday(date, out _);
+        GetVicHolidays(date.Year)
+            .ContainsKey(date);
 
     /// <summary>
     ///  Determines if the date is a public holiday in Victoria.
@@ -18,18 +19,15 @@ public static partial class Holidays
     /// </summary>
     /// <param name="date">The date to check.</param>
     /// <param name="name">The name of the holiday.</param>
-    public static bool IsVicHoliday(this Date date, [NotNullWhen(true)] out string? name)
-    {
-        var holidays = GetVicHolidays(date.Year);
-
-        return holidays.TryGetValue(date, out name);
-    }
+    public static bool IsVicHoliday(this Date date, [NotNullWhen(true)] out string? name) =>
+        GetVicHolidays(date.Year)
+            .TryGetValue(date, out name);
 
     /// <summary>
     /// Gets all public holidays for Victoria for the specified year.
     /// </summary>
     public static IReadOnlyDictionary<Date, string> GetVicHolidays(int year) =>
-        vicHolidays.GetOrAdd(
+        vicCache.GetOrAdd(
             year,
             year => BuildVicHolidays(year).ToDictionary(_ => _.date, _ => _.name));
 

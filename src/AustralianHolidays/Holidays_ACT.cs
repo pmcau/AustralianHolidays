@@ -2,7 +2,7 @@ namespace AustralianHolidays;
 
 public static partial class Holidays
 {
-    static ConcurrentDictionary<int, Dictionary<Date, string>> actHolidays = new();
+    static ConcurrentDictionary<int, Dictionary<Date, string>> actCache;
 
     /// <summary>
     ///  Determines if the date is a public holiday in the Australian Capital Territory.
@@ -10,7 +10,8 @@ public static partial class Holidays
     /// </summary>
     /// <param name="date">The date to check.</param>
     public static bool IsActHoliday(this Date date) =>
-        IsActHoliday(date, out _);
+        GetActHolidays(date.Year)
+            .ContainsKey(date);
 
     /// <summary>
     ///  Determines if the date is a public holiday in the Australian Capital Territory.
@@ -18,18 +19,15 @@ public static partial class Holidays
     /// </summary>
     /// <param name="date">The date to check.</param>
     /// <param name="name">The name of the holiday.</param>
-    public static bool IsActHoliday(this Date date, [NotNullWhen(true)] out string? name)
-    {
-        var holidays = GetActHolidays(date.Year);
-
-        return holidays.TryGetValue(date, out name);
-    }
+    public static bool IsActHoliday(this Date date, [NotNullWhen(true)] out string? name) =>
+        GetActHolidays(date.Year)
+            .TryGetValue(date, out name);
 
     /// <summary>
     /// Gets all public holidays for the Australian Capital Territory for the specified year.
     /// </summary>
     public static IReadOnlyDictionary<Date, string> GetActHolidays(int year) =>
-        actHolidays.GetOrAdd(
+        actCache.GetOrAdd(
             year,
             year => BuildActHolidays(year).ToDictionary(_ => _.date, _ => _.name));
 

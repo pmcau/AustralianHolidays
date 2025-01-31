@@ -2,7 +2,7 @@ namespace AustralianHolidays;
 
 public static partial class Holidays
 {
-    static ConcurrentDictionary<int, Dictionary<Date, string>> saHolidays = new();
+    static ConcurrentDictionary<int, Dictionary<Date, string>> saCache;
 
     /// <summary>
     ///  Determines if the date is a public holiday in South Australia.
@@ -10,7 +10,8 @@ public static partial class Holidays
     /// </summary>
     /// <param name="date">The date to check.</param>
     public static bool IsSaHoliday(this Date date) =>
-        IsSaHoliday(date, out _);
+        GetSaHolidays(date.Year)
+            .ContainsKey(date);
 
     /// <summary>
     ///  Determines if the date is a public holiday in South Australia.
@@ -18,18 +19,15 @@ public static partial class Holidays
     /// </summary>
     /// <param name="date">The date to check.</param>
     /// <param name="name">The name of the holiday.</param>
-    public static bool IsSaHoliday(this Date date, [NotNullWhen(true)] out string? name)
-    {
-        var holidays = GetSaHolidays(date.Year);
-
-        return holidays.TryGetValue(date, out name);
-    }
+    public static bool IsSaHoliday(this Date date, [NotNullWhen(true)] out string? name) =>
+        GetSaHolidays(date.Year)
+            .TryGetValue(date, out name);
 
     /// <summary>
     ///  Gets all public holidays for South Australia for the specified year.
     /// </summary>
     public static IReadOnlyDictionary<Date, string> GetSaHolidays(int year) =>
-        saHolidays.GetOrAdd(
+        saCache.GetOrAdd(
             year,
             year => BuildSaHolidays(year).ToDictionary(_ => _.date, _ => _.name));
 
