@@ -5,7 +5,6 @@
 | Australia Day<br>(additional)     | `Mon 27 Jan` |              |              |              |              | 
 | Eight Hours Day                   | `Mon 10 Mar` | `Mon 09 Mar` | `Mon 08 Mar` | `Mon 13 Mar` | `Mon 12 Mar` | 
 | Good Friday                       | `Fri 18 Apr` | `Fri 03 Apr` | `Fri 26 Mar` | `Fri 14 Apr` | `Fri 30 Mar` | 
-| Easter Saturday                   | `Sat 19 Apr` | `Sat 04 Apr` | `Sat 27 Mar` | `Sat 15 Apr` | `Sat 31 Mar` | 
 | Easter Sunday                     | `Sun 20 Apr` | `Sun 05 Apr` | `Sun 28 Mar` | `Sun 16 Apr` | `Sun 01 Apr` | 
 | Easter Monday                     | `Mon 21 Apr` | `Mon 06 Apr` | `Mon 29 Mar` | `Mon 17 Apr` | `Mon 02 Apr` | 
 | Easter Tuesday<br>(Government employees only) | `Tue 22 Apr` | `Tue 07 Apr` | `Tue 30 Mar` | `Tue 18 Apr` | `Tue 03 Apr` | 

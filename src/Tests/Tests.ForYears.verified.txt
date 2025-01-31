@@ -171,11 +171,6 @@
   },
   {
     Item1: 2024-03-30,
-    Item2: TAS,
-    Item3: Easter Saturday
-  },
-  {
-    Item1: 2024-03-30,
     Item2: VIC,
     Item3: Easter Saturday
   },

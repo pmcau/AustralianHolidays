@@ -54,9 +54,8 @@ public static partial class Holidays
 
         yield return (Extensions.GetSecondMonday(Month.March, year), "Eight Hours Day");
 
-        var (easterFriday, easterSaturday, easterSunday, easterMonday) = EasterCalculator.ForYear(year);
+        var (easterFriday, _, easterSunday, easterMonday) = EasterCalculator.ForYear(year);
         yield return (easterFriday, "Good Friday");
-        yield return (easterSaturday, "Easter Saturday");
         yield return (easterSunday, "Easter Sunday");
         yield return (easterMonday, "Easter Monday");
 
