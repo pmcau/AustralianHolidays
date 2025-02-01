@@ -74,7 +74,7 @@ public static partial class Holidays
         {
             if (proclamationDay.IsWeekday())
             {
-                yield return (proclamationDay, "Proclamation Day and Boxing Day");
+                yield return (proclamationDay, "Proclamation and Boxing Day");
             }
             else
             {

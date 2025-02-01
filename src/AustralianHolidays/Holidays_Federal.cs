@@ -2,36 +2,35 @@ namespace AustralianHolidays;
 
 public static partial class Holidays
 {
-    static ConcurrentDictionary<int, Dictionary<Date, string>> actCache;
+    static ConcurrentDictionary<int, Dictionary<Date, string>> cache;
 
     /// <summary>
-    ///  Determines if the date is a public holiday in the Australian Capital Territory.
-    ///  Reference: https://www.cmtedd.act.gov.au/communication/holidays
+    ///  Determines if the date is a public holiday in Australian for all states.
     /// </summary>
     /// <param name="date">The date to check.</param>
-    public static bool IsActHoliday(this Date date) =>
-        GetActHolidays(date.Year)
+    public static bool IsHoliday(this Date date) =>
+        GetHolidays(date.Year)
             .ContainsKey(date);
 
     /// <summary>
-    ///  Determines if the date is a public holiday in the Australian Capital Territory.
-    ///  Reference: https://www.cmtedd.act.gov.au/communication/holidays
+    ///  Determines if the date is a public holiday in Australian for all states.
     /// </summary>
     /// <param name="date">The date to check.</param>
     /// <param name="name">The name of the holiday.</param>
-    public static bool IsActHoliday(this Date date, [NotNullWhen(true)] out string? name) =>
-        GetActHolidays(date.Year)
+    public static bool IsHoliday(this Date date, [NotNullWhen(true)] out string? name) =>
+        GetHolidays(date.Year)
             .TryGetValue(date, out name);
 
     /// <summary>
-    /// Gets all public holidays for the Australian Capital Territory for the specified year.
+    /// Gets all public holidays that exist in all states.
     /// </summary>
-    public static IReadOnlyDictionary<Date, string> GetActHolidays(int year) =>
+    public static IReadOnlyDictionary<Date, string> GetHolidays(int year) =>
         actCache.GetOrAdd(
             year,
-            year => BuildActHolidays(year).ToDictionary(_ => _.date, _ => _.name));
+            year => BuildHolidays(year)
+                .ToDictionary(_ => _.date, _ => _.name));
 
-    static IEnumerable<(Date date, string name)> BuildActHolidays(int year)
+    static IEnumerable<(Date date, string name)> BuildHolidays(int year)
     {
         yield return (new(year, January, 1), "New Year's Day");
 
@@ -52,18 +51,6 @@ public static partial class Holidays
             }
         }
 
-        yield return (Extensions.GetSecondMonday(March, year), "Canberra Day");
-
-        Date GetReconciliationDay()
-        {
-            var startDate = new Date(year, May, 27);
-            var dayOfWeek = (int)startDate.DayOfWeek;
-            var daysUntilMonday = (8 - dayOfWeek) % 7;
-            return startDate.AddDays(daysUntilMonday);
-        }
-
-        yield return (GetReconciliationDay(), "Reconciliation Day");
-
         var anzacDate = AnzacDayCalculator.GetAnzacDay(year);
 
         if (anzacDate.DayOfWeek == DayOfWeek.Saturday)
@@ -80,10 +67,6 @@ public static partial class Holidays
         yield return (easterSaturday, "Easter Saturday");
         yield return (easterSunday, "Easter Sunday");
         yield return (easterMonday, "Easter Monday");
-
-        yield return MonarchBirthdayCalculator.GetMonarchBirthday(year);
-
-        yield return (Extensions.GetFirstMonday(October, year), "Labour Day");
 
         foreach (var date in ChristmasCalculator.Get(year))
         {

@@ -477,7 +477,7 @@
   {
     Item1: 2024-12-26,
     Item2: SA,
-    Item3: Proclamation Day and Boxing Day
+    Item3: Proclamation and Boxing Day
   },
   {
     Item1: 2024-12-26,

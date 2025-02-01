@@ -10,6 +10,7 @@ public static partial class Holidays
         PopulateCache(DateTime.Now.Year - 1, 12);
     }
 
+    [MemberNotNull(nameof(cache))]
     [MemberNotNull(nameof(actCache))]
     [MemberNotNull(nameof(waCache))]
     [MemberNotNull(nameof(nswCache))]
@@ -20,6 +21,7 @@ public static partial class Holidays
     [MemberNotNull(nameof(qldCache))]
     public static void PopulateCache(int startYear, int count)
     {
+        cache = new(BuildForMultipleYears(BuildHolidays, startYear, count));
         actCache = new(BuildForMultipleYears(BuildActHolidays, startYear, count));
         waCache = new(BuildForMultipleYears(BuildWaHolidays, startYear, count));
         nswCache = new(BuildForMultipleYears(BuildNswHolidays, startYear, count));
@@ -60,6 +62,20 @@ public static partial class Holidays
         for (var year = startYear; year <= startYear + yearCount -1; year++)
         {
             foreach (var (key, value) in action(year))
+            {
+                list.Add((key, value));
+            }
+        }
+
+        return list.OrderBy(_ => _.date);
+    }
+
+    public static IOrderedEnumerable<(Date date, string name)> ForYearsFederal(int startYear, int yearCount = 1)
+    {
+        List<(Date date, string name)> list = [];
+        for (var year = startYear; year <= startYear + yearCount -1; year++)
+        {
+            foreach (var (key, value) in GetHolidays(year))
             {
                 list.Add((key, value));
             }
@@ -121,4 +137,6 @@ public static partial class Holidays
 
         return oneJanuary;
     }
+
+    static Date GetAustraliaDay(int year) => new(year, January, 26);
 }

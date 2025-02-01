@@ -11,7 +11,7 @@
     Labour Day            Oct 07 Mon
     Christmas Eve (partial day) Dec 24 Tue
     Christmas Day         Dec 25 Wed
-    Proclamation Day and Boxing Day Dec 26 Thu
+    Proclamation and Boxing Day Dec 26 Thu
     New Year's Eve (partial day) Dec 31 Tue
 2025
     New Year's Day        Jan 01 Wed
@@ -26,7 +26,7 @@
     Labour Day            Oct 06 Mon
     Christmas Eve (partial day) Dec 24 Wed
     Christmas Day         Dec 25 Thu
-    Proclamation Day and Boxing Day Dec 26 Fri
+    Proclamation and Boxing Day Dec 26 Fri
     New Year's Eve (partial day) Dec 31 Wed
 2026
     New Year's Day        Jan 01 Thu
@@ -73,7 +73,7 @@
     Labour Day            Oct 02 Mon
     Christmas Eve (partial day) Dec 24 Sun
     Christmas Day         Dec 25 Mon
-    Proclamation Day and Boxing Day Dec 26 Tue
+    Proclamation and Boxing Day Dec 26 Tue
     New Year's Eve (partial day) Dec 31 Sun
 2029
     New Year's Day        Jan 01 Mon
@@ -88,5 +88,5 @@
     Labour Day            Oct 01 Mon
     Christmas Eve (partial day) Dec 24 Mon
     Christmas Day         Dec 25 Tue
-    Proclamation Day and Boxing Day Dec 26 Wed
+    Proclamation and Boxing Day Dec 26 Wed
     New Year's Eve (partial day) Dec 31 Mon

@@ -10,7 +10,7 @@
 2024 Oct 07 Mon Labour Day
 2024 Dec 24 Tue Christmas Eve (partial day)
 2024 Dec 25 Wed Christmas Day
-2024 Dec 26 Thu Proclamation Day and Boxing Day
+2024 Dec 26 Thu Proclamation and Boxing Day
 2024 Dec 31 Tue New Year's Eve (partial day)
 2025 Jan 01 Wed New Year's Day
 2025 Jan 27 Mon Australia Day (additional)
@@ -24,7 +24,7 @@
 2025 Oct 06 Mon Labour Day
 2025 Dec 24 Wed Christmas Eve (partial day)
 2025 Dec 25 Thu Christmas Day
-2025 Dec 26 Fri Proclamation Day and Boxing Day
+2025 Dec 26 Fri Proclamation and Boxing Day
 2025 Dec 31 Wed New Year's Eve (partial day)
 2026 Jan 01 Thu New Year's Day
 2026 Jan 26 Mon Australia Day
@@ -68,7 +68,7 @@
 2028 Oct 02 Mon Labour Day
 2028 Dec 24 Sun Christmas Eve (partial day)
 2028 Dec 25 Mon Christmas Day
-2028 Dec 26 Tue Proclamation Day and Boxing Day
+2028 Dec 26 Tue Proclamation and Boxing Day
 2028 Dec 31 Sun New Year's Eve (partial day)
 2029 Jan 01 Mon New Year's Day
 2029 Jan 26 Fri Australia Day
@@ -82,7 +82,7 @@
 2029 Oct 01 Mon Labour Day
 2029 Dec 24 Mon Christmas Eve (partial day)
 2029 Dec 25 Tue Christmas Day
-2029 Dec 26 Wed Proclamation Day and Boxing Day
+2029 Dec 26 Wed Proclamation and Boxing Day
 2029 Dec 31 Mon New Year's Eve (partial day)
 2030 Jan 01 Tue New Year's Day
 2030 Jan 28 Mon Australia Day (additional)
@@ -96,7 +96,7 @@
 2030 Oct 07 Mon Labour Day
 2030 Dec 24 Tue Christmas Eve (partial day)
 2030 Dec 25 Wed Christmas Day
-2030 Dec 26 Thu Proclamation Day and Boxing Day
+2030 Dec 26 Thu Proclamation and Boxing Day
 2030 Dec 31 Tue New Year's Eve (partial day)
 2031 Jan 01 Wed New Year's Day
 2031 Jan 27 Mon Australia Day (additional)
@@ -110,7 +110,7 @@
 2031 Oct 06 Mon Labour Day
 2031 Dec 24 Wed Christmas Eve (partial day)
 2031 Dec 25 Thu Christmas Day
-2031 Dec 26 Fri Proclamation Day and Boxing Day
+2031 Dec 26 Fri Proclamation and Boxing Day
 2031 Dec 31 Wed New Year's Eve (partial day)
 2032 Jan 01 Thu New Year's Day
 2032 Jan 26 Mon Australia Day
@@ -139,7 +139,7 @@
 2033 Oct 03 Mon Labour Day
 2033 Dec 24 Sat Christmas Eve (partial day)
 2033 Dec 25 Sun Christmas Day
-2033 Dec 26 Mon Proclamation Day and Boxing Day
+2033 Dec 26 Mon Proclamation and Boxing Day
 2033 Dec 31 Sat New Year's Eve (partial day)
 2034 Jan 01 Sun New Year's Day
 2034 Jan 26 Thu Australia Day
@@ -153,7 +153,7 @@
 2034 Oct 02 Mon Labour Day
 2034 Dec 24 Sun Christmas Eve (partial day)
 2034 Dec 25 Mon Christmas Day
-2034 Dec 26 Tue Proclamation Day and Boxing Day
+2034 Dec 26 Tue Proclamation and Boxing Day
 2034 Dec 31 Sun New Year's Eve (partial day)
 2035 Jan 01 Mon New Year's Day
 2035 Jan 26 Fri Australia Day
@@ -167,5 +167,5 @@
 2035 Oct 01 Mon Labour Day
 2035 Dec 24 Mon Christmas Eve (partial day)
 2035 Dec 25 Tue Christmas Day
-2035 Dec 26 Wed Proclamation Day and Boxing Day
+2035 Dec 26 Wed Proclamation and Boxing Day
 2035 Dec 31 Mon New Year's Eve (partial day)

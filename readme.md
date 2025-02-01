@@ -25,7 +25,7 @@ var date = new Date(2024, 12, 25);
 
 IsTrue(date.IsHoliday(State.NSW));
 ```
-<sup><a href='/src/Tests/Tests.cs#L145-L151' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsHoliday' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L185-L191' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsHoliday' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -40,7 +40,7 @@ IsTrue(date.IsHoliday(State.NSW, out var name));
 
 AreEqual("Christmas Day", name);
 ```
-<sup><a href='/src/Tests/Tests.cs#L182-L190' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsHolidayNamed' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L222-L230' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsHolidayNamed' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -53,7 +53,7 @@ var date = new Date(2024, 12, 25);
 
 IsTrue(date.IsNswHoliday());
 ```
-<sup><a href='/src/Tests/Tests.cs#L170-L176' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsHolidayForState' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L210-L216' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsHolidayForState' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -67,7 +67,7 @@ var date = new Date(2024, 12, 25);
 IsTrue(date.IsNswHoliday(out var name));
 AreEqual("Christmas Day", name);
 ```
-<sup><a href='/src/Tests/Tests.cs#L157-L164' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsHolidayForStateNamed' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L197-L204' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsHolidayForStateNamed' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -82,7 +82,7 @@ foreach (var (date, state, name) in holidays)
     Console.WriteLine($"date: {date}, state: {state}, name: {name}");
 }
 ```
-<sup><a href='/src/Tests/Tests.cs#L78-L86' title='Snippet source file'>snippet source</a> | <a href='#snippet-ForYears' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L104-L112' title='Snippet source file'>snippet source</a> | <a href='#snippet-ForYears' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -97,7 +97,7 @@ foreach (var (date, name) in holidays)
     Console.WriteLine($"date: {date}, name: {name}");
 }
 ```
-<sup><a href='/src/Tests/Tests.cs#L92-L100' title='Snippet source file'>snippet source</a> | <a href='#snippet-ForYearsState' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L118-L126' title='Snippet source file'>snippet source</a> | <a href='#snippet-ForYearsState' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -106,13 +106,27 @@ foreach (var (date, name) in holidays)
 <!-- snippet: GetHolidays -->
 <a id='snippet-GetHolidays'></a>
 ```cs
+var holidays = Holidays.GetHolidays(2025);
+foreach (var (date, name) in holidays)
+{
+    Console.WriteLine($"date: {date}, name: {name}");
+}
+```
+<sup><a href='/src/Tests/Tests.cs#L132-L140' title='Snippet source file'>snippet source</a> | <a href='#snippet-GetHolidays' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+### GetHolidaysForState
+
+<!-- snippet: GetHolidaysForState -->
+<a id='snippet-GetHolidaysForState'></a>
+```cs
 var holidays = Holidays.GetNswHolidays(2025);
 foreach (var (date, name) in holidays)
 {
     Console.WriteLine($"date: {date}, name: {name}");
 }
 ```
-<sup><a href='/src/Tests/Tests.cs#L106-L114' title='Snippet source file'>snippet source</a> | <a href='#snippet-GetHolidays' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L146-L154' title='Snippet source file'>snippet source</a> | <a href='#snippet-GetHolidaysForState' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -129,7 +143,7 @@ var result = date.IsFederalGovernmentShutdown();
 
 IsTrue(result);
 ```
-<sup><a href='/src/Tests/Tests.cs#L196-L203' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsFederalGovernmentShutdown' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L236-L243' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsFederalGovernmentShutdown' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -143,17 +157,47 @@ var (start, end) = Holidays.GetFederalGovernmentShutdown(yearStart: 2024);
 AreEqual(new Date(2024, 12, 25), start);
 AreEqual(new Date(2025, 1, 1), end);
 ```
-<sup><a href='/src/Tests/Tests.cs#L132-L139' title='Snippet source file'>snippet source</a> | <a href='#snippet-GetFederalGovernmentShutdown' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L172-L179' title='Snippet source file'>snippet source</a> | <a href='#snippet-GetFederalGovernmentShutdown' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
 ## Sample output
 
 
+### Federal
+
+Common holidays for all states
+
+<!-- snippet: Tests.WriteByYearsFederal.verified.txt -->
+<a id='snippet-Tests.WriteByYearsFederal.verified.txt'></a>
+```txt
+|                                   | 2025         | 2026         | 2027         | 2028         | 2029         |
+|-----------------------------------|--------------|--------------|--------------|--------------|--------------|
+| New Year's Day                    | `Wed 01 Jan` | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | 
+| Australia Day                     |              | `Mon 26 Jan` | `Tue 26 Jan` | `Wed 26 Jan` | `Fri 26 Jan` | 
+| Australia Day<br>(additional)     | `Mon 27 Jan` |              |              |              |              | 
+| Canberra Day                      | `Mon 10 Mar` | `Mon 09 Mar` | `Mon 08 Mar` | `Mon 13 Mar` | `Mon 12 Mar` | 
+| Good Friday                       | `Fri 18 Apr` | `Fri 03 Apr` | `Fri 26 Mar` | `Fri 14 Apr` | `Fri 30 Mar` | 
+| Easter Saturday                   | `Sat 19 Apr` | `Sat 04 Apr` | `Sat 27 Mar` | `Sat 15 Apr` | `Sat 31 Mar` | 
+| Easter Sunday                     | `Sun 20 Apr` | `Sun 05 Apr` | `Sun 28 Mar` | `Sun 16 Apr` | `Sun 01 Apr` | 
+| Easter Monday                     | `Mon 21 Apr` | `Mon 06 Apr` | `Mon 29 Mar` | `Mon 17 Apr` | `Mon 02 Apr` | 
+| Anzac Day                         | `Fri 25 Apr` |              | `Sun 25 Apr` | `Tue 25 Apr` | `Wed 25 Apr` | 
+| Anzac Day<br>(additional)         |              | `Mon 27 Apr` |              |              |              | 
+| Reconciliation Day                | `Mon 02 Jun` | `Mon 01 Jun` | `Mon 31 May` | `Mon 29 May` | `Mon 28 May` | 
+| King's Birthday                   | `Mon 09 Jun` | `Mon 08 Jun` | `Mon 14 Jun` | `Mon 12 Jun` | `Mon 11 Jun` | 
+| Labour Day                        | `Mon 06 Oct` | `Mon 05 Oct` | `Mon 04 Oct` | `Mon 02 Oct` | `Mon 01 Oct` | 
+| Christmas Day                     | `Thu 25 Dec` | `Fri 25 Dec` | `Sat 25 Dec` | `Mon 25 Dec` | `Tue 25 Dec` | 
+| Boxing Day                        | `Fri 26 Dec` | `Sat 26 Dec` | `Sun 26 Dec` | `Tue 26 Dec` | `Wed 26 Dec` | 
+| Christmas<br>(additional)         |              | `Mon 28 Dec` | `Mon 27 Dec`<br>`Tue 28 Dec` | `Wed 27 Dec`<br>`Thu 28 Dec` | `Thu 27 Dec`<br>`Fri 28 Dec` |
+```
+<sup><a href='/src/Tests/Tests.WriteByYearsFederal.verified.txt#L1-L18' title='Snippet source file'>snippet source</a> | <a href='#snippet-Tests.WriteByYearsFederal.verified.txt' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
 ### Australian Capital Territory ([Reference](https://www.cmtedd.act.gov.au/communication/holidays))
 
 <!-- include: Tests.WriteByYears_state=ACT.verified.txt -->
-|                                   | 2025         | 2026         | 2027         | 2028         | 2029 |
+|                                   | 2025         | 2026         | 2027         | 2028         | 2029         |
 |-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Wed 01 Jan` | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | 
 | Australia Day                     |              | `Mon 26 Jan` | `Tue 26 Jan` | `Wed 26 Jan` | `Fri 26 Jan` | 
@@ -177,7 +221,7 @@ AreEqual(new Date(2025, 1, 1), end);
 ### New South Wales ([Reference](https://www.nsw.gov.au/about-nsw/public-holidays))
 
 <!-- include: Tests.WriteByYears_state=NSW.verified.txt -->
-|                                   | 2025         | 2026         | 2027         | 2028         | 2029 |
+|                                   | 2025         | 2026         | 2027         | 2028         | 2029         |
 |-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Wed 01 Jan` | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | 
 | New Year's Day<br>(additional)    |              |              |              | `Mon 03 Jan` |              | 
@@ -200,7 +244,7 @@ AreEqual(new Date(2025, 1, 1), end);
 ### Northern Territory ([Reference](https://nt.gov.au/nt-public-holidays))
 
 <!-- include: Tests.WriteByYears_state=NT.verified.txt -->
-|                                   | 2025         | 2026         | 2027         | 2028         | 2029 |
+|                                   | 2025         | 2026         | 2027         | 2028         | 2029         |
 |-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Wed 01 Jan` | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | 
 | Australia Day                     |              | `Mon 26 Jan` | `Tue 26 Jan` | `Wed 26 Jan` | `Fri 26 Jan` | 
@@ -224,7 +268,7 @@ AreEqual(new Date(2025, 1, 1), end);
 ### Queensland ([Reference](https://www.qld.gov.au/recreation/travel/holidays/public))
 
 <!-- include: Tests.WriteByYears_state=QLD.verified.txt -->
-|                                   | 2025         | 2026         | 2027         | 2028         | 2029 |
+|                                   | 2025         | 2026         | 2027         | 2028         | 2029         |
 |-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Wed 01 Jan` | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | 
 | Australia Day                     |              | `Mon 26 Jan` | `Tue 26 Jan` | `Wed 26 Jan` | `Fri 26 Jan` | 
@@ -246,7 +290,7 @@ AreEqual(new Date(2025, 1, 1), end);
 ### South Australia ([Reference](https://www.safework.sa.gov.au/resources/public-holidays))
 
 <!-- include: Tests.WriteByYears_state=SA.verified.txt -->
-|                                   | 2025         | 2026         | 2027         | 2028         | 2029 |
+|                                   | 2025         | 2026         | 2027         | 2028         | 2029         |
 |-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Wed 01 Jan` | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | 
 | Australia Day                     |              | `Mon 26 Jan` | `Tue 26 Jan` | `Wed 26 Jan` | `Fri 26 Jan` | 
@@ -261,7 +305,7 @@ AreEqual(new Date(2025, 1, 1), end);
 | Labour Day                        | `Mon 06 Oct` | `Mon 05 Oct` | `Mon 04 Oct` | `Mon 02 Oct` | `Mon 01 Oct` | 
 | Christmas Eve<br>(partial day)    | `Wed 24 Dec` | `Thu 24 Dec` | `Fri 24 Dec` | `Sun 24 Dec` | `Mon 24 Dec` | 
 | Christmas Day                     | `Thu 25 Dec` | `Fri 25 Dec` | `Sat 25 Dec` | `Mon 25 Dec` | `Tue 25 Dec` | 
-| Proclamation Day and Boxing Day   | `Fri 26 Dec` |              |              | `Tue 26 Dec` | `Wed 26 Dec` | 
+| Proclamation and Boxing Day       | `Fri 26 Dec` |              |              | `Tue 26 Dec` | `Wed 26 Dec` | 
 | Proclamation Day                  |              | `Sat 26 Dec` | `Sun 26 Dec` |              |              | 
 | Proclamation Day<br>(additional)  |              | `Mon 28 Dec` | `Mon 27 Dec` |              |              | 
 | New Year's Eve<br>(partial day)   | `Wed 31 Dec` | `Thu 31 Dec` | `Fri 31 Dec` | `Sun 31 Dec` | `Mon 31 Dec` | 
@@ -271,7 +315,7 @@ AreEqual(new Date(2025, 1, 1), end);
 ### Tasmania ([Reference](https://worksafe.tas.gov.au/topics/laws-and-compliance/public-holidays))
 
 <!-- include: Tests.WriteByYears_state=TAS.verified.txt -->
-|                                   | 2025         | 2026         | 2027         | 2028         | 2029 |
+|                                   | 2025         | 2026         | 2027         | 2028         | 2029         |
 |-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Wed 01 Jan` | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | 
 | Australia Day                     |              | `Mon 26 Jan` | `Tue 26 Jan` | `Wed 26 Jan` | `Fri 26 Jan` | 
@@ -292,7 +336,7 @@ AreEqual(new Date(2025, 1, 1), end);
 ### Victorian ([Reference](https://business.vic.gov.au/business-information/public-holidays/victorian-public-holidays-2025))
 
 <!-- include: Tests.WriteByYears_state=VIC.verified.txt -->
-|                                   | 2025         | 2026         | 2027         | 2028         | 2029 |
+|                                   | 2025         | 2026         | 2027         | 2028         | 2029         |
 |-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Wed 01 Jan` | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | 
 | Australia Day                     |              | `Mon 26 Jan` | `Tue 26 Jan` | `Wed 26 Jan` | `Fri 26 Jan` | 
@@ -315,7 +359,7 @@ AreEqual(new Date(2025, 1, 1), end);
 ### Western Australia ([Reference](https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia))
 
 <!-- include: Tests.WriteByYears_state=WA.verified.txt -->
-|                                   | 2025         | 2026         | 2027         | 2028         | 2029 |
+|                                   | 2025         | 2026         | 2027         | 2028         | 2029         |
 |-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Wed 01 Jan` | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | 
 | Australia Day                     |              | `Mon 26 Jan` | `Tue 26 Jan` | `Wed 26 Jan` | `Fri 26 Jan` | 

@@ -19,20 +19,34 @@ public class Tests
         return Verify(builder);
     }
 
+    [Test]
+    public Task WriteByYearsFederal()
+    {
+        var years = BuildYears(out var start);
+
+        var forYears = Holidays.ForYearsFederal(start, 5);
+
+        var builder = WriteYears(years, forYears);
+
+        return Verify(builder);
+    }
+
     [TestCaseSource(nameof(GetStates))]
     public Task WriteByYears(State state)
     {
-        List<int> years = [];
-        var start = DateTime.Now.Year;
-        for (var year = start; year <= start + 4; year++)
-        {
-            years.Add(year);
-        }
+        var years = BuildYears(out var start);
 
         var forYears = Holidays.ForYears(state, start, 5);
 
+        var builder = WriteYears(years, forYears);
+
+        return Verify(builder);
+    }
+
+    static StringBuilder WriteYears(List<int> years, IOrderedEnumerable<(Date date, string name)> forYears)
+    {
         var builder = new StringBuilder();
-        builder.AppendLine($"|                                   | {string.Join("         | ", years)} |");
+        builder.AppendLine($"|                                   | {string.Join("         | ", years)}         |");
         builder.Append('|');
         builder.Append("-----------------------------------|");
         for (var index = 1; index < years.Count + 1; index++)
@@ -69,7 +83,19 @@ public class Tests
             builder.AppendLine();
         }
 
-        return Verify(builder);
+        return builder;
+    }
+
+    private static List<int> BuildYears(out int start)
+    {
+        List<int> years = [];
+        start = DateTime.Now.Year;
+        for (var year = start; year <= start + 4; year++)
+        {
+            years.Add(year);
+        }
+
+        return years;
     }
 
     [Test]
@@ -104,6 +130,20 @@ public class Tests
     public void GetHolidays()
     {
         #region GetHolidays
+
+        var holidays = Holidays.GetHolidays(2025);
+        foreach (var (date, name) in holidays)
+        {
+            Console.WriteLine($"date: {date}, name: {name}");
+        }
+
+        #endregion
+    }
+
+    [Test]
+    public void GetHolidaysForState()
+    {
+        #region GetHolidaysForState
 
         var holidays = Holidays.GetNswHolidays(2025);
         foreach (var (date, name) in holidays)
