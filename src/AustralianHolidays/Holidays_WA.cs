@@ -2,7 +2,7 @@ namespace AustralianHolidays;
 
 public static partial class Holidays
 {
-    static ConcurrentDictionary<int, Dictionary<Date, string>> waCache;
+    static ConcurrentDictionary<int, FrozenDictionary<Date, string>> waCache;
 
     /// <summary>
     ///  Determines if the date is a public holiday in Western Australia.
@@ -27,7 +27,9 @@ public static partial class Holidays
     public static IReadOnlyDictionary<Date, string> GetWaHolidays(int year) =>
         waCache.GetOrAdd(
             year,
-            year => BuildWaHolidays(year).ToDictionary(_ => _.date, _ => _.name));
+            year =>
+                BuildWaHolidays(year)
+                    .ToFrozenDictionary(_ => _.date, _ => _.name));
 
     static IEnumerable<(Date date, string name)> BuildWaHolidays(int year)
     {

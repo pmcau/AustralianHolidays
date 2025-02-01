@@ -32,12 +32,15 @@ public static partial class Holidays
         qldCache = new(BuildForMultipleYears(BuildQldHolidays, startYear, count));
     }
 
-    static IEnumerable<KeyValuePair<int, Dictionary<Date, string>>> BuildForMultipleYears(Func<int, IEnumerable<(Date date, string name)>> action, int startYear, int count)
+    static IEnumerable<KeyValuePair<int, FrozenDictionary<Date, string>>> BuildForMultipleYears(Func<int, IEnumerable<(Date date, string name)>> action, int startYear, int count)
     {
         var lastYear = startYear + count - 1;
         for (var year = startYear; year <= lastYear; year++)
         {
-            yield return new(year, action(year).ToDictionary(_ => _.date, _ => _.name));
+            yield return new(
+                year,
+                action(year)
+                    .ToFrozenDictionary(_ => _.date, _ => _.name));
         }
     }
 
@@ -59,7 +62,7 @@ public static partial class Holidays
     {
         var action = DeriveGetHolidaysAction(state);
         List<(Date date, string name)> list = [];
-        for (var year = startYear; year <= startYear + yearCount -1; year++)
+        for (var year = startYear; year <= startYear + yearCount - 1; year++)
         {
             foreach (var (key, value) in action(year))
             {
@@ -73,7 +76,7 @@ public static partial class Holidays
     public static IOrderedEnumerable<(Date date, string name)> ForYearsFederal(int startYear, int yearCount = 1)
     {
         List<(Date date, string name)> list = [];
-        for (var year = startYear; year <= startYear + yearCount -1; year++)
+        for (var year = startYear; year <= startYear + yearCount - 1; year++)
         {
             foreach (var (key, value) in GetHolidays(year))
             {

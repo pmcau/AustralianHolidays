@@ -2,7 +2,7 @@ namespace AustralianHolidays;
 
 public static partial class Holidays
 {
-    static ConcurrentDictionary<int, Dictionary<Date, string>> vicCache;
+    static ConcurrentDictionary<int, FrozenDictionary<Date, string>> vicCache;
 
     /// <summary>
     ///  Determines if the date is a public holiday in Victoria.
@@ -29,7 +29,9 @@ public static partial class Holidays
     public static IReadOnlyDictionary<Date, string> GetVicHolidays(int year) =>
         vicCache.GetOrAdd(
             year,
-            year => BuildVicHolidays(year).ToDictionary(_ => _.date, _ => _.name));
+            year =>
+                BuildVicHolidays(year)
+                    .ToFrozenDictionary(_ => _.date, _ => _.name));
 
     static IEnumerable<(Date date, string name)> BuildVicHolidays(int year)
     {
