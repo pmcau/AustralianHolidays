@@ -44,7 +44,7 @@ AreEqual("Christmas Day", name);
 <!-- endSnippet -->
 
 
-### IsHolidayForState
+### Is state holiday
 
 <!-- snippet: IsHolidayForState -->
 <a id='snippet-IsHolidayForState'></a>
