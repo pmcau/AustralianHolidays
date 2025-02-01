@@ -25,7 +25,7 @@ public static partial class Holidays
     /// Gets all public holidays that exist in all states.
     /// </summary>
     public static IReadOnlyDictionary<Date, string> GetHolidays(int year) =>
-        actCache.GetOrAdd(
+        cache.GetOrAdd(
             year,
             year => BuildHolidays(year)
                 .ToDictionary(_ => _.date, _ => _.name));
