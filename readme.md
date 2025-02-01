@@ -103,6 +103,8 @@ foreach (var (date, name) in holidays)
 
 ### GetHolidays
 
+Gets federal holidays that are common for all states.
+
 <!-- snippet: GetHolidays -->
 <a id='snippet-GetHolidays'></a>
 ```cs
@@ -114,6 +116,7 @@ foreach (var (date, name) in holidays)
 ```
 <sup><a href='/src/Tests/Tests.cs#L132-L140' title='Snippet source file'>snippet source</a> | <a href='#snippet-GetHolidays' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
+
 
 ### GetHolidaysForState
 
