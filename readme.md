@@ -168,9 +168,7 @@ AreEqual(new Date(2025, 1, 1), end);
 
 Common holidays for all states
 
-<!-- snippet: Tests.WriteByYearsFederal.verified.txt -->
-<a id='snippet-Tests.WriteByYearsFederal.verified.txt'></a>
-```txt
+<!-- include: Tests.WriteByYearsFederal.verified.txt -->
 |                                   | 2025         | 2026         | 2027         | 2028         | 2029         |
 |-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Wed 01 Jan` | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | 
@@ -188,10 +186,8 @@ Common holidays for all states
 | Labour Day                        | `Mon 06 Oct` | `Mon 05 Oct` | `Mon 04 Oct` | `Mon 02 Oct` | `Mon 01 Oct` | 
 | Christmas Day                     | `Thu 25 Dec` | `Fri 25 Dec` | `Sat 25 Dec` | `Mon 25 Dec` | `Tue 25 Dec` | 
 | Boxing Day                        | `Fri 26 Dec` | `Sat 26 Dec` | `Sun 26 Dec` | `Tue 26 Dec` | `Wed 26 Dec` | 
-| Christmas<br>(additional)         |              | `Mon 28 Dec` | `Mon 27 Dec`<br>`Tue 28 Dec` | `Wed 27 Dec`<br>`Thu 28 Dec` | `Thu 27 Dec`<br>`Fri 28 Dec` |
-```
-<sup><a href='/src/Tests/Tests.WriteByYearsFederal.verified.txt#L1-L18' title='Snippet source file'>snippet source</a> | <a href='#snippet-Tests.WriteByYearsFederal.verified.txt' title='Start of snippet'>anchor</a></sup>
-<!-- endSnippet -->
+| Christmas<br>(additional)         |              | `Mon 28 Dec` | `Mon 27 Dec`<br>`Tue 28 Dec` | `Wed 27 Dec`<br>`Thu 28 Dec` | `Thu 27 Dec`<br>`Fri 28 Dec` | 
+<!-- endInclude -->
 
 
 ### Australian Capital Territory ([Reference](https://www.cmtedd.act.gov.au/communication/holidays))
