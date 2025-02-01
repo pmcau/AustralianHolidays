@@ -33,7 +33,7 @@ public static partial class Holidays
 
     static IEnumerable<(Date date, string name)> BuildActHolidays(int year)
     {
-        yield return (new(year, (int) January, 1), "New Year's Day");
+        yield return (new(year, January, 1), "New Year's Day");
 
         var australiaDay = GetAustraliaDay(year);
         if (australiaDay.IsWeekday())
@@ -44,11 +44,11 @@ public static partial class Holidays
         {
             if (australiaDay.DayOfWeek == DayOfWeek.Saturday)
             {
-                yield return (new(year, (int) January, 28), "Australia Day (additional)");
+                yield return (new(year, January, 28), "Australia Day (additional)");
             }
             else if (australiaDay.DayOfWeek == DayOfWeek.Sunday)
             {
-                yield return (new(year, (int) January, 27), "Australia Day (additional)");
+                yield return (new(year, January, 27), "Australia Day (additional)");
             }
         }
 
@@ -56,7 +56,7 @@ public static partial class Holidays
 
         Date GetReconciliationDay()
         {
-            var startDate = new Date(year, (int) May, 27);
+            var startDate = new Date(year, May, 27);
             var dayOfWeek = (int)startDate.DayOfWeek;
             var daysUntilMonday = (8 - dayOfWeek) % 7;
             return startDate.AddDays(daysUntilMonday);
@@ -68,7 +68,7 @@ public static partial class Holidays
 
         if (anzacDate.DayOfWeek == DayOfWeek.Saturday)
         {
-            yield return (new(year, (int) April, 27), "Anzac Day (additional)");
+            yield return (new(year, April, 27), "Anzac Day (additional)");
         }
         else
         {
@@ -91,5 +91,5 @@ public static partial class Holidays
         }
     }
 
-    private static Date GetAustraliaDay(int year) => new(year, (int) January, 26);
+    private static Date GetAustraliaDay(int year) => new(year, January, 26);
 }

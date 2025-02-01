@@ -1,15 +1,15 @@
-﻿enum Month
+﻿static class Month
 {
-    January = 1,
-    February = 2,
-    March = 3,
-    April = 4,
-    May = 5,
-    June = 6,
-    July = 7,
-    August = 8,
-    September = 9,
-    October = 10,
-    November = 11,
-    December = 12
+    public const int January = 1;
+    public const int February = 2;
+    public const int March = 3;
+    public const int April = 4;
+    public const int May = 5;
+    public const int June = 6;
+    public const int July = 7;
+    public const int August = 8;
+    public const int September = 9;
+    public const int October = 10;
+    public const int November = 11;
+    public const int December = 12;
 }

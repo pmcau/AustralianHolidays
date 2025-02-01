@@ -33,17 +33,17 @@ public static partial class Holidays
 
     static IEnumerable<(Date date, string name)> BuildNswHolidays(int year)
     {
-        var newYears = new Date(year, (int) January, 1);
+        var newYears = new Date(year, January, 1);
         yield return (newYears, "New Year's Day");
 
         if (newYears.DayOfWeek == DayOfWeek.Saturday)
         {
-            yield return (new(year, (int) January, 3), "New Year's Day (additional)");
+            yield return (new(year, January, 3), "New Year's Day (additional)");
         }
 
         if (newYears.DayOfWeek == DayOfWeek.Sunday)
         {
-            yield return (new(year, (int) January, 2), "New Year's Day (additional)");
+            yield return (new(year, January, 2), "New Year's Day (additional)");
         }
 
         var australiaDay = GetAustraliaDay(year);
@@ -55,11 +55,11 @@ public static partial class Holidays
         {
             if (australiaDay.DayOfWeek == DayOfWeek.Saturday)
             {
-                yield return (new(year, (int) January, 28), "Australia Day (additional)");
+                yield return (new(year, January, 28), "Australia Day (additional)");
             }
             else if (australiaDay.DayOfWeek == DayOfWeek.Sunday)
             {
-                yield return (new(year, (int) January, 27), "Australia Day (additional)");
+                yield return (new(year, January, 27), "Australia Day (additional)");
             }
         }
 

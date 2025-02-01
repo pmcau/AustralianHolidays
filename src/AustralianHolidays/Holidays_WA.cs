@@ -31,7 +31,7 @@ public static partial class Holidays
 
     static IEnumerable<(Date date, string name)> BuildWaHolidays(int year)
     {
-        yield return (new(year, (int) January, 1), "New Year's Day");
+        yield return (new(year, January, 1), "New Year's Day");
 
         var australiaDay = GetAustraliaDay(year);
         if (australiaDay.IsWeekday())
@@ -42,11 +42,11 @@ public static partial class Holidays
         {
             if (australiaDay.DayOfWeek == DayOfWeek.Saturday)
             {
-                yield return (new(year, (int) January, 28), "Australia Day (additional)");
+                yield return (new(year, January, 28), "Australia Day (additional)");
             }
             else if (australiaDay.DayOfWeek == DayOfWeek.Sunday)
             {
-                yield return (new(year, (int) January, 27), "Australia Day (additional)");
+                yield return (new(year, January, 27), "Australia Day (additional)");
             }
         }
 
@@ -62,12 +62,12 @@ public static partial class Holidays
         yield return (anzacDate, "Anzac Day");
         if (anzacDate.DayOfWeek == DayOfWeek.Saturday)
         {
-            yield return (new(year, (int) April, 27), "Anzac Day (additional)");
+            yield return (new(year, April, 27), "Anzac Day (additional)");
         }
 
         if (anzacDate.DayOfWeek == DayOfWeek.Sunday)
         {
-            yield return (new(year, (int) April, 26), "Anzac Day (additional)");
+            yield return (new(year, April, 26), "Anzac Day (additional)");
         }
 
         yield return (Extensions.GetFirstMonday(June, year), "Western Australia Day");
