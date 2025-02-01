@@ -118,7 +118,7 @@ foreach (var (date, name) in holidays)
 <!-- endSnippet -->
 
 
-### GetHolidaysForState
+### GetHolidays for state
 
 <!-- snippet: GetHolidaysForState -->
 <a id='snippet-GetHolidaysForState'></a>
