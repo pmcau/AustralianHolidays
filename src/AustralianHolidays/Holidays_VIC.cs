@@ -33,7 +33,7 @@ public static partial class Holidays
 
     static IEnumerable<(Date date, string name)> BuildVicHolidays(int year)
     {
-        yield return (new(year, (int) Month.January, 1), "New Year's Day");
+        yield return (new(year, (int) January, 1), "New Year's Day");
 
         var australiaDay = GetAustraliaDay(year);
         if (australiaDay.IsWeekday())
@@ -44,15 +44,15 @@ public static partial class Holidays
         {
             if (australiaDay.DayOfWeek == DayOfWeek.Saturday)
             {
-                yield return (new(year, (int) Month.January, 28), "Australia Day (additional)");
+                yield return (new(year, (int) January, 28), "Australia Day (additional)");
             }
             else if (australiaDay.DayOfWeek == DayOfWeek.Sunday)
             {
-                yield return (new(year, (int) Month.January, 27), "Australia Day (additional)");
+                yield return (new(year, (int) January, 27), "Australia Day (additional)");
             }
         }
 
-        yield return (Extensions.GetSecondMonday(Month.March, year), "Labour Day");
+        yield return (Extensions.GetSecondMonday(March, year), "Labour Day");
 
         var (easterFriday, easterSaturday, easterSunday, easterMonday) = EasterCalculator.ForYear(year);
         yield return (easterFriday, "Good Friday");
@@ -64,8 +64,8 @@ public static partial class Holidays
 
         yield return MonarchBirthdayCalculator.GetMonarchBirthday(year);
 
-        yield return (Extensions.GetLastFriday(Month.September, year), "Friday before AFL Grand Final (Subject to AFL schedule)");
-        yield return (Extensions.GetFirstTuesday(Month.November, year), "Melbourne Cup Day");
+        yield return (Extensions.GetLastFriday(September, year), "Friday before AFL Grand Final (Subject to AFL schedule)");
+        yield return (Extensions.GetFirstTuesday(November, year), "Melbourne Cup Day");
 
         foreach (var date in ChristmasCalculator.Get(year))
         {

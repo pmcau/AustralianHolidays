@@ -2,7 +2,7 @@
 {
     public static (Date, string) GetMonarchBirthday(int year)
     {
-        var date = Extensions.GetSecondMonday(Month.June, year);
+        var date = Extensions.GetSecondMonday(June, year);
         if (year <= 2022)
         {
             return (date, "Queen's Birthday");
@@ -13,7 +13,7 @@
 
     public static (Date, string) GetMonarchBirthdayQld(int year)
     {
-        var date = Extensions.GetFirstMonday(Month.October, year);
+        var date = Extensions.GetFirstMonday(October, year);
         if (year <= 2022)
         {
             return (date, "Queen's Birthday");

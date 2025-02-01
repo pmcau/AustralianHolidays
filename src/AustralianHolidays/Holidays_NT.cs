@@ -33,7 +33,7 @@ public static partial class Holidays
 
     static IEnumerable<(Date date, string name)> BuildNtHolidays(int year)
     {
-        yield return (new(year, (int) Month.January, 1), "New Year's Day");
+        yield return (new(year, (int) January, 1), "New Year's Day");
 
         var australiaDay = GetAustraliaDay(year);
         if (australiaDay.IsWeekday())
@@ -44,15 +44,15 @@ public static partial class Holidays
         {
             if (australiaDay.DayOfWeek == DayOfWeek.Saturday)
             {
-                yield return (new(year, (int) Month.January, 28), "Australia Day (additional)");
+                yield return (new(year, (int) January, 28), "Australia Day (additional)");
             }
             else if (australiaDay.DayOfWeek == DayOfWeek.Sunday)
             {
-                yield return (new(year, (int) Month.January, 27), "Australia Day (additional)");
+                yield return (new(year, (int) January, 27), "Australia Day (additional)");
             }
         }
 
-        yield return (Extensions.GetFirstMonday(Month.May, year), "May Day");
+        yield return (Extensions.GetFirstMonday(May, year), "May Day");
 
         var (easterFriday, easterSaturday, easterSunday, easterMonday) = EasterCalculator.ForYear(year);
         yield return (easterFriday, "Good Friday");
@@ -64,7 +64,7 @@ public static partial class Holidays
 
         yield return MonarchBirthdayCalculator.GetMonarchBirthday(year);
 
-        yield return (Extensions.GetFirstMonday(Month.August, year), "Picnic Day");
+        yield return (Extensions.GetFirstMonday(August, year), "Picnic Day");
 
         yield return (ChristmasCalculator.ChristmasEve(year), "Christmas Eve (partial day)");
 
@@ -73,6 +73,6 @@ public static partial class Holidays
             yield return date;
         }
 
-        yield return (new(year, (int) Month.December, 31), "New Year's Eve (partial day)");
+        yield return (new(year, (int) December, 31), "New Year's Eve (partial day)");
     }
 }

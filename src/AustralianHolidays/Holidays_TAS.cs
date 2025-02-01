@@ -33,7 +33,7 @@ public static partial class Holidays
 
     static IEnumerable<(Date date, string name)> BuildTasHolidays(int year)
     {
-        yield return (new(year, (int) Month.January, 1), "New Year's Day");
+        yield return (new(year, (int) January, 1), "New Year's Day");
 
         var australiaDay = GetAustraliaDay(year);
         if (australiaDay.IsWeekday())
@@ -44,15 +44,15 @@ public static partial class Holidays
         {
             if (australiaDay.DayOfWeek == DayOfWeek.Saturday)
             {
-                yield return (new(year, (int) Month.January, 28), "Australia Day (additional)");
+                yield return (new(year, (int) January, 28), "Australia Day (additional)");
             }
             else if (australiaDay.DayOfWeek == DayOfWeek.Sunday)
             {
-                yield return (new(year, (int) Month.January, 27), "Australia Day (additional)");
+                yield return (new(year, (int) January, 27), "Australia Day (additional)");
             }
         }
 
-        yield return (Extensions.GetSecondMonday(Month.March, year), "Eight Hours Day");
+        yield return (Extensions.GetSecondMonday(March, year), "Eight Hours Day");
 
         var (easterFriday, _, easterSunday, easterMonday) = EasterCalculator.ForYear(year);
         yield return (easterFriday, "Good Friday");

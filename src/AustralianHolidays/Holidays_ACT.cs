@@ -33,7 +33,7 @@ public static partial class Holidays
 
     static IEnumerable<(Date date, string name)> BuildActHolidays(int year)
     {
-        yield return (new(year, (int) Month.January, 1), "New Year's Day");
+        yield return (new(year, (int) January, 1), "New Year's Day");
 
         var australiaDay = GetAustraliaDay(year);
         if (australiaDay.IsWeekday())
@@ -44,19 +44,19 @@ public static partial class Holidays
         {
             if (australiaDay.DayOfWeek == DayOfWeek.Saturday)
             {
-                yield return (new(year, (int) Month.January, 28), "Australia Day (additional)");
+                yield return (new(year, (int) January, 28), "Australia Day (additional)");
             }
             else if (australiaDay.DayOfWeek == DayOfWeek.Sunday)
             {
-                yield return (new(year, (int) Month.January, 27), "Australia Day (additional)");
+                yield return (new(year, (int) January, 27), "Australia Day (additional)");
             }
         }
 
-        yield return (Extensions.GetSecondMonday(Month.March, year), "Canberra Day");
+        yield return (Extensions.GetSecondMonday(March, year), "Canberra Day");
 
         Date GetReconciliationDay()
         {
-            var startDate = new Date(year, (int) Month.May, 27);
+            var startDate = new Date(year, (int) May, 27);
             var dayOfWeek = (int)startDate.DayOfWeek;
             var daysUntilMonday = (8 - dayOfWeek) % 7;
             return startDate.AddDays(daysUntilMonday);
@@ -68,7 +68,7 @@ public static partial class Holidays
 
         if (anzacDate.DayOfWeek == DayOfWeek.Saturday)
         {
-            yield return (new(year, (int) Month.April, 27), "Anzac Day (additional)");
+            yield return (new(year, (int) April, 27), "Anzac Day (additional)");
         }
         else
         {
@@ -83,7 +83,7 @@ public static partial class Holidays
 
         yield return MonarchBirthdayCalculator.GetMonarchBirthday(year);
 
-        yield return (Extensions.GetFirstMonday(Month.October, year), "Labour Day");
+        yield return (Extensions.GetFirstMonday(October, year), "Labour Day");
 
         foreach (var date in ChristmasCalculator.Get(year))
         {
@@ -91,5 +91,5 @@ public static partial class Holidays
         }
     }
 
-    private static Date GetAustraliaDay(int year) => new(year, (int) Month.January, 26);
+    private static Date GetAustraliaDay(int year) => new(year, (int) January, 26);
 }

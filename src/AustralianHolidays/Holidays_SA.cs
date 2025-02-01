@@ -33,7 +33,7 @@ public static partial class Holidays
 
     static IEnumerable<(Date date, string name)> BuildSaHolidays(int year)
     {
-        yield return (new(year, (int) Month.January, 1), "New Year's Day");
+        yield return (new(year, (int) January, 1), "New Year's Day");
 
         var australiaDay = GetAustraliaDay(year);
         if (australiaDay.IsWeekday())
@@ -44,15 +44,15 @@ public static partial class Holidays
         {
             if (australiaDay.DayOfWeek == DayOfWeek.Saturday)
             {
-                yield return (new(year, (int) Month.January, 28), "Australia Day (additional)");
+                yield return (new(year, (int) January, 28), "Australia Day (additional)");
             }
             else if (australiaDay.DayOfWeek == DayOfWeek.Sunday)
             {
-                yield return (new(year, (int) Month.January, 27), "Australia Day (additional)");
+                yield return (new(year, (int) January, 27), "Australia Day (additional)");
             }
         }
 
-        yield return (Extensions.GetSecondMonday(Month.March, year), "Adelaide Cup Day");
+        yield return (Extensions.GetSecondMonday(March, year), "Adelaide Cup Day");
 
         var (easterFriday, easterSaturday, easterSunday, easterMonday) = EasterCalculator.ForYear(year);
         yield return (easterFriday, "Good Friday");
@@ -64,12 +64,12 @@ public static partial class Holidays
 
         yield return MonarchBirthdayCalculator.GetMonarchBirthday(year);
 
-        yield return (Extensions.GetFirstMonday(Month.October, year), "Labour Day");
+        yield return (Extensions.GetFirstMonday(October, year), "Labour Day");
 
         yield return (ChristmasCalculator.ChristmasEve(year), "Christmas Eve (partial day)");
         yield return (ChristmasCalculator.ChristmasDay(year), "Christmas Day");
 
-        var proclamationDay = new Date(year, (int) Month.December, 26);
+        var proclamationDay = new Date(year, (int) December, 26);
         if (proclamationDay.IsWeekday())
         {
             if (proclamationDay.IsWeekday())
@@ -92,6 +92,6 @@ public static partial class Holidays
             yield return (proclamationDay.AddDays(1), "Proclamation Day (additional)");
         }
 
-        yield return (new(year, (int) Month.December, 31), "New Year's Eve (partial day)");
+        yield return (new(year, (int) December, 31), "New Year's Eve (partial day)");
     }
 }
