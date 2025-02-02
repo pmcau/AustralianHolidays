@@ -2,7 +2,7 @@ namespace AustralianHolidays;
 
 public static partial class Holidays
 {
-    public static string ExportToMarkdown(int startYear, int yearCount = 5)
+    public static string ExportToMarkdown(int? startYear = null, int yearCount = 5)
     {
         var years = BuildYears(startYear);
 

@@ -20,17 +20,20 @@ public class Tests
     }
 
     [Test]
-    public Task WriteByYearsFederal()
+    public Task ExportToMarkdown()
     {
-        var year = DateTime.Now.Year;
-        var md = Holidays.ExportToMarkdown(year);
+        #region ExportToMarkdown
+        var md = Holidays.ExportToMarkdown();
+        #endregion
         return Verify(md);
     }
 
     [TestCaseSource(nameof(GetStates))]
-    public Task WriteByYears(State state)
+    public Task ExportToMarkdown(State state)
     {
-        var md = Holidays.ExportToMarkdown(state, DateTime.Now.Year);
+        #region ExportToMarkdownState
+        var md = Holidays.ExportToMarkdown(state);
+        #endregion
         return Verify(md);
     }
 

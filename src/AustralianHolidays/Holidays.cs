@@ -84,10 +84,11 @@ public static partial class Holidays
         return year.Value;
     }
 
-    public static IOrderedEnumerable<(Date date, string name)> ForYearsFederal(int startYear, int yearCount = 1)
+    public static IOrderedEnumerable<(Date date, string name)> ForYearsFederal(int? startYear = null, int yearCount = 1)
     {
+        var start = OrCurrentYear(startYear);
         List<(Date date, string name)> list = [];
-        for (var year = startYear; year <= startYear + yearCount - 1; year++)
+        for (var year = start; year <= start + yearCount - 1; year++)
         {
             foreach (var (key, value) in GetHolidays(year))
             {
@@ -117,7 +118,8 @@ public static partial class Holidays
             not DayOfWeek.Saturday and
             not DayOfWeek.Sunday;
 
-    public static bool IsHoliday(this Date date, State state) => IsHoliday(date, state, out _);
+    public static bool IsHoliday(this Date date, State state) =>
+        IsHoliday(date, state, out _);
 
     public static bool IsHoliday(this Date date, State state, [NotNullWhen(true)] out string? name) =>
         state switch
