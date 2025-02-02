@@ -2,20 +2,20 @@ namespace AustralianHolidays;
 
 public static partial class Holidays
 {
-    public static string ExportToMarkdown(int year, int yearCount = 5)
+    public static string ExportToMarkdown(int startYear, int yearCount = 5)
     {
-        var years = BuildYears(year);
+        var years = BuildYears(startYear);
 
-        var forYears = ForYearsFederal(year, yearCount);
+        var forYears = ForYearsFederal(startYear, yearCount);
 
         return ToMarkdown(years, forYears);
     }
 
-    public static string ExportToMarkdown(State state, int start, int yearCount = 5)
+    public static string ExportToMarkdown(State state, int? startYear = null, int yearCount = 5)
     {
-        var years = BuildYears(start);
+        var years = BuildYears(startYear);
 
-        var forYears = ForYears(state, start, yearCount);
+        var forYears = ForYears(state, startYear, yearCount);
 
         return ToMarkdown(years, forYears);
     }

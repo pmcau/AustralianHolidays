@@ -58,11 +58,12 @@ public static partial class Holidays
         return list.OrderBy(_ => _.date);
     }
 
-    public static IOrderedEnumerable<(Date date, string name)> ForYears(State state, int startYear, int yearCount = 1)
+    public static IOrderedEnumerable<(Date date, string name)> ForYears(State state, int? startYear = null, int yearCount = 1)
     {
+        var start = OrCurrentYear(startYear);
         var action = DeriveGetHolidaysAction(state);
         List<(Date date, string name)> list = [];
-        for (var year = startYear; year <= startYear + yearCount - 1; year++)
+        for (var year = start; year <= start + yearCount - 1; year++)
         {
             foreach (var (key, value) in action(year))
             {
@@ -71,6 +72,16 @@ public static partial class Holidays
         }
 
         return list.OrderBy(_ => _.date);
+    }
+
+    static int OrCurrentYear(int? year)
+    {
+        if (year == null)
+        {
+            return DateTime.Now.Year;
+        }
+
+        return year.Value;
     }
 
     public static IOrderedEnumerable<(Date date, string name)> ForYearsFederal(int startYear, int yearCount = 1)
@@ -143,8 +154,9 @@ public static partial class Holidays
 
     static Date GetAustraliaDay(int year) => new(year, January, 26);
 
-    internal static List<int> BuildYears(int start)
+    internal static List<int> BuildYears(int? startYear)
     {
+        var start = OrCurrentYear(startYear);
         List<int> years = [];
         for (var year = start; year <= start + 4; year++)
         {
