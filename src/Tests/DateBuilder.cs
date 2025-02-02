@@ -1,6 +1,6 @@
-public class DateBuilder
+public static class DateBuilder
 {
-    public static  IEnumerable<Date> Range()
+    public static IEnumerable<Date> Range()
     {
         for (var year = 2024; year <= 2035; year++)
         {
@@ -9,57 +9,9 @@ public class DateBuilder
 
             for (var date = start; date <= end; date = date.AddDays(1))
             {
-
                 yield return date;
             }
         }
-    }
-
-    public static List<(Date date, string name)> Build()
-    {
-        var items = new List<(Date date, string name)>();
-
-        for (var year = 2024; year <= 2044; year++)
-        {
-            var australiaDay = new Date(year, 1, 26);
-            items.Add((australiaDay.AddDays(-1), "Australia Day - 1"));
-            items.Add((australiaDay, "Australia Day"));
-            items.Add((australiaDay.AddDays(1), "Australia Day + 1"));
-            items.Add((australiaDay.AddDays(2), "Australia Day + 2"));
-
-            var anzacDay = new Date(year, 4, 25);
-            items.Add((anzacDay.AddDays(-1), "Anzac Day - 1"));
-            items.Add((anzacDay, "Anzac Day"));
-            items.Add((anzacDay.AddDays(1), "Anzac Day + 1"));
-            items.Add((anzacDay.AddDays(2), "Anzac Day + 2"));
-
-            var xmas = new Date(year, 12, 25);
-            items.Add((xmas.AddDays(-1), "Xmas - 1"));
-            items.Add((xmas, "Xmas"));
-
-            var boxingDay = new Date(year, 12, 26);
-            items.Add((boxingDay, "Boxing Day"));
-            items.Add((boxingDay.AddDays(1), "Boxing Day + 1"));
-            items.Add((boxingDay.AddDays(2), "Boxing Day + 2"));
-
-            var newYears = new Date(year, 1, 1);
-            items.Add((newYears.AddDays(-1), "New Years - 1"));
-            items.Add((newYears, "New Years"));
-            items.Add((newYears.AddDays(1), "New Years + 1"));
-            items.Add((newYears.AddDays(2), "New Years + 2"));
-        }
-
-        foreach (var easterFriday in EasterFridays)
-        {
-            items.Add((easterFriday.AddDays(-1), "Before Easter"));
-            items.Add((easterFriday, "Good Friday"));
-            items.Add((easterFriday.AddDays(1), "Easter Saturday"));
-            items.Add((easterFriday.AddDays(2), "Easter Sunday"));
-            items.Add((easterFriday.AddDays(3), "Easter Monday"));
-            items.Add((easterFriday.AddDays(4), "After Easter"));
-        }
-
-        return items.OrderBy(_ => _.date).ToList();
     }
 
     public static List<Date> EasterFridays =
