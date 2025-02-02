@@ -155,7 +155,7 @@ IsTrue(result);
 <!-- snippet: GetFederalGovernmentShutdown -->
 <a id='snippet-GetFederalGovernmentShutdown'></a>
 ```cs
-var (start, end) = Holidays.GetFederalGovernmentShutdown(yearStart: 2024);
+var (start, end) = Holidays.GetFederalGovernmentShutdown(startYear: 2024);
 
 AreEqual(new Date(2024, 12, 25), start);
 AreEqual(new Date(2025, 1, 1), end);

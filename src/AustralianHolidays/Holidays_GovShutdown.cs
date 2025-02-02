@@ -12,11 +12,11 @@ public static partial class Holidays
                date <= newYearsHoliday;
     }
 
-    public static (Date start, Date end) GetFederalGovernmentShutdown(int yearStart)
+    public static (Date start, Date end) GetFederalGovernmentShutdown(int startYear)
     {
-        var christmas = new Date(yearStart, 12, 25);
+        var christmas = new Date(startYear, 12, 25);
 
-        var newYearsHoliday = GetNewYearsHoliday(yearStart + 1);
+        var newYearsHoliday = GetNewYearsHoliday(startYear + 1);
 
         return (christmas, newYearsHoliday);
     }
