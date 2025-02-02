@@ -22,80 +22,16 @@ public class Tests
     [Test]
     public Task WriteByYearsFederal()
     {
-        var years = BuildYears(out var start);
-
-        var forYears = Holidays.ForYearsFederal(start, 5);
-
-        var builder = WriteYears(years, forYears);
-
-        return Verify(builder);
+        var year = DateTime.Now.Year;
+        var md = Holidays.ExportToMarkdown(year);
+        return Verify(md);
     }
 
     [TestCaseSource(nameof(GetStates))]
     public Task WriteByYears(State state)
     {
-        var years = BuildYears(out var start);
-
-        var forYears = Holidays.ForYears(state, start, 5);
-
-        var builder = WriteYears(years, forYears);
-
-        return Verify(builder);
-    }
-
-    static StringBuilder WriteYears(List<int> years, IOrderedEnumerable<(Date date, string name)> forYears)
-    {
-        var builder = new StringBuilder();
-        builder.AppendLine($"|                                   | {string.Join("         | ", years)}         |");
-        builder.Append('|');
-        builder.Append("-----------------------------------|");
-        for (var index = 1; index < years.Count + 1; index++)
-        {
-            builder.Append("--------------|");
-        }
-
-        builder.AppendLine();
-
-        var items = forYears.GroupBy(_ => _.name)
-            .OrderBy(_ => _.First().date.Month)
-            .ThenBy(_ => _.First().date.Day);
-
-        foreach (var item in items)
-        {
-            builder.Append("| " + item.Key.Replace(" (", "<br>(").PadRight(33) + " | ");
-            foreach (var year in years)
-            {
-                var dates = item.Select(_ => _.date)
-                    .Where(_ => _.Year == year)
-                    .ToList();
-                if (dates.Count == 0)
-                {
-                    builder.Append("            ");
-                }
-                else
-                {
-                    builder.Append(string.Join("<br>", dates.Select(_ => _.ToString("`ddd dd MMM`", CultureInfo.InvariantCulture))));
-                }
-
-                builder.Append(" | ");
-            }
-
-            builder.AppendLine();
-        }
-
-        return builder;
-    }
-
-    private static List<int> BuildYears(out int start)
-    {
-        List<int> years = [];
-        start = DateTime.Now.Year;
-        for (var year = start; year <= start + 4; year++)
-        {
-            years.Add(year);
-        }
-
-        return years;
+        var md = Holidays.ExportToMarkdown(state, DateTime.Now.Year);
+        return Verify(md);
     }
 
     [Test]

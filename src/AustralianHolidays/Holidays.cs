@@ -142,4 +142,15 @@ public static partial class Holidays
     }
 
     static Date GetAustraliaDay(int year) => new(year, January, 26);
+
+    internal static List<int> BuildYears(int start)
+    {
+        List<int> years = [];
+        for (var year = start; year <= start + 4; year++)
+        {
+            years.Add(year);
+        }
+
+        return years;
+    }
 }
