@@ -44,7 +44,7 @@ public static partial class Holidays
         }
     }
 
-    public static IOrderedEnumerable<(Date date, State state, string name)> ForYears(int startYear, int yearCount = 1)
+    public static IOrderedEnumerable<(Date date, State state, string name)> ForYears(int? startYear = null, int yearCount = 1)
     {
         List<(Date date, State state, string name)> list = [];
         foreach (var state in states)
