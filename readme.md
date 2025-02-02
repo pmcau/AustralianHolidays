@@ -5,6 +5,19 @@
 
 **See [Milestones](../../milestones?state=closed) for release notes.**
 
+**The holiday dates provided are based on best efforts to ensure accuracy. However, we do not guarantee that the dates are correct or up-to-date. Users should verify the holiday dates with official sources before relying on them for any critical purposes. The authors and contributors of this project are not responsible for any inaccuracies or any consequences arising from the use of this information.**
+
+## Official sources
+
+ * [Australian Capital Territory](https://www.cmtedd.act.gov.au/communication/holidays)
+ * [New South Wales](https://www.nsw.gov.au/about-nsw/public-holidays)
+ * [Northern Territory](https://nt.gov.au/nt-public-holidays)
+ * [Queensland](https://www.qld.gov.au/recreation/travel/holidays/public)
+ * [South Australia](https://www.safework.sa.gov.au/resources/public-holidays)
+ * [Tasmania](https://worksafe.tas.gov.au/topics/laws-and-compliance/public-holidays)
+ * [Victoria](https://business.vic.gov.au/business-information/public-holidays/victorian-public-holidays-2025)
+ * [Western Australia](https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia)
+
 
 ## NuGet package
 
