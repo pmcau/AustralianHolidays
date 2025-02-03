@@ -3,9 +3,11 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/8gp77m7yl3n956qa?svg=true)](https://ci.appveyor.com/project/SimonCropp/australianholidays)
 [![NuGet Status](https://img.shields.io/nuget/v/AustralianHolidays.svg?label=AustralianHolidays)](https://www.nuget.org/packages/AustralianHolidays/)
 
+.net library retrieving public holiday dates in Australia.
+
 **See [Milestones](../../milestones?state=closed) for release notes.**
 
-**The holiday dates provided are based on best efforts to ensure accuracy. However, we do not guarantee that the dates are correct or up-to-date. Users should verify the holiday dates with official sources before relying on them for any critical purposes. The authors and contributors of this project are not responsible for any inaccuracies or any consequences arising from the use of this information.**
+**The holiday dates provided are based on best efforts to ensure accuracy. However, dates are not guarantee to be correct or up-to-date. Consumers should verify the holiday dates with official sources before relying on them for any critical purposes. The authors and contributors of this project are not responsible for any inaccuracies or any consequences arising from the use of this information.**
 
 ## Official sources
 
