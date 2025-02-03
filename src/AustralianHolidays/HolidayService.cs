@@ -26,14 +26,14 @@ public class HolidayService
     public virtual IReadOnlyDictionary<Date, string> GetActHolidays(int year) =>
         Holidays.GetActHolidays(year);
 
-    public virtual bool IsHoliday(Date date) =>
-        date.IsHoliday();
+    public virtual bool IsNationalHoliday(Date date) =>
+        date.IsNationalHoliday();
 
-    public virtual bool IsHoliday(Date date, [NotNullWhen(true)] out string? name) =>
-        date.IsHoliday(out name);
+    public virtual bool IsNationalHoliday(Date date, [NotNullWhen(true)] out string? name) =>
+        date.IsNationalHoliday(out name);
 
-    public virtual IReadOnlyDictionary<Date, string> GetHolidays(int year) =>
-        Holidays.GetHolidays(year);
+    public virtual IReadOnlyDictionary<Date, string> NationalForYears(int year) =>
+        Holidays.NationalForYears(year);
 
     public virtual bool IsFederalGovernmentShutdown(Date date) =>
         date.IsFederalGovernmentShutdown();

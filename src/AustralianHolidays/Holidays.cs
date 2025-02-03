@@ -44,6 +44,12 @@ public static partial class Holidays
         }
     }
 
+    /// <summary>
+    /// Retrieves public holidays for all states over a specified range of years.
+    /// </summary>
+    /// <param name="startYear">The starting year for the range. If not provided, the current year is used.</param>
+    /// <param name="yearCount">The number of years to include in the range. Defaults to 1 year.</param>
+    /// <returns>An ordered enumerable of tuples containing the date, state, and name of each public holiday.</returns>
     public static IOrderedEnumerable<(Date date, State state, string name)> ForYears(int? startYear = null, int yearCount = 1)
     {
         List<(Date date, State state, string name)> list = [];
@@ -58,6 +64,13 @@ public static partial class Holidays
         return list.OrderBy(_ => _.date);
     }
 
+    /// <summary>
+    /// Retrieves public holidays for a specified state over a given range of years.
+    /// </summary>
+    /// <param name="state">The state for which to retrieve public holidays.</param>
+    /// <param name="startYear">The starting year for the range. If not provided, the current year is used.</param>
+    /// <param name="yearCount">The number of years to include in the range. Defaults to 1 year.</param>
+    /// <returns>An ordered enumerable of tuples containing the date and name of each public holiday in the specified state.</returns>
     public static IOrderedEnumerable<(Date date, string name)> ForYears(State state, int? startYear = null, int yearCount = 1)
     {
         var start = OrCurrentYear(startYear);
@@ -90,7 +103,7 @@ public static partial class Holidays
         List<(Date date, string name)> list = [];
         for (var year = start; year <= start + yearCount - 1; year++)
         {
-            foreach (var (key, value) in GetHolidays(year))
+            foreach (var (key, value) in NationalForYears(year))
             {
                 list.Add((key, value));
             }
@@ -118,9 +131,15 @@ public static partial class Holidays
             not DayOfWeek.Saturday and
             not DayOfWeek.Sunday;
 
+    /// <summary>
+    /// Determines if a given date is a public holiday in a specified state.
+    /// </summary>
     public static bool IsHoliday(this Date date, State state) =>
         IsHoliday(date, state, out _);
 
+    /// <summary>
+    /// Determines if a specific date is a recognized public holiday in a particular state and retrieving the name of the holiday if it is.
+    /// </summary>
     public static bool IsHoliday(this Date date, State state, [NotNullWhen(true)] out string? name) =>
         state switch
         {

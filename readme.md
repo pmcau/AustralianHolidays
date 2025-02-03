@@ -33,6 +33,8 @@ The main entry point is `AustralianHolidays.Holidays`
 
 ### IsHoliday
 
+Determines if a given date is a public holiday in a specified Australian state.
+
 <!-- snippet: IsHoliday -->
 <a id='snippet-IsHoliday'></a>
 ```cs
@@ -45,6 +47,8 @@ IsTrue(date.IsHoliday(State.NSW));
 
 
 #### With name
+
+Determines if a specific date is a recognized public holiday in a specified state and retrieving the name of the holiday if it is.
 
 <!-- snippet: IsHolidayNamed -->
 <a id='snippet-IsHolidayNamed'></a>
@@ -59,7 +63,9 @@ AreEqual("Christmas Day", name);
 <!-- endSnippet -->
 
 
-### Is state holiday
+### Is`state`holiday
+
+The same as [IsHoliday](#isholiday) but a convenience wrapper named method is provided for each state.
 
 <!-- snippet: IsHolidayForState -->
 <a id='snippet-IsHolidayForState'></a>
@@ -73,6 +79,8 @@ IsTrue(date.IsNswHoliday());
 
 
 #### With name
+
+The same as [IsHoliday with name](#is-state-holiday) but a convenience wrapper named method is provided for each state.
 
 <!-- snippet: IsHolidayForStateNamed -->
 <a id='snippet-IsHolidayForStateNamed'></a>
@@ -88,6 +96,8 @@ AreEqual("Christmas Day", name);
 
 ### ForYears
 
+Retrieves public holidays for all states over a specified range of years.
+
 <!-- snippet: ForYears -->
 <a id='snippet-ForYears'></a>
 ```cs
@@ -102,6 +112,8 @@ foreach (var (date, state, name) in holidays)
 
 
 #### For single state
+
+Retrieves public holidays for a specified state over a given range of years.
 
 <!-- snippet: ForYearsState -->
 <a id='snippet-ForYearsState'></a>

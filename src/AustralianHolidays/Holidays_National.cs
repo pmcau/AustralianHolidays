@@ -8,8 +8,8 @@ public static partial class Holidays
     ///  Determines if the date is a public holiday in Australian for all states.
     /// </summary>
     /// <param name="date">The date to check.</param>
-    public static bool IsHoliday(this Date date) =>
-        GetHolidays(date.Year)
+    public static bool IsNationalHoliday(this Date date) =>
+        NationalForYears(date.Year)
             .ContainsKey(date);
 
     /// <summary>
@@ -17,14 +17,14 @@ public static partial class Holidays
     /// </summary>
     /// <param name="date">The date to check.</param>
     /// <param name="name">The name of the holiday.</param>
-    public static bool IsHoliday(this Date date, [NotNullWhen(true)] out string? name) =>
-        GetHolidays(date.Year)
+    public static bool IsNationalHoliday(this Date date, [NotNullWhen(true)] out string? name) =>
+        NationalForYears(date.Year)
             .TryGetValue(date, out name);
 
     /// <summary>
     /// Gets all public holidays that exist in all states.
     /// </summary>
-    public static IReadOnlyDictionary<Date, string> GetHolidays(int year) =>
+    public static IReadOnlyDictionary<Date, string> NationalForYears(int year) =>
         cache.GetOrAdd(
             year,
             year =>
