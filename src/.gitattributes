@@ -5,7 +5,7 @@
 *.verified.sql text eol=lf working-tree-encoding=UTF-8
 *.verified.txt text eol=lf working-tree-encoding=UTF-8
 *.verified.md text eol=lf working-tree-encoding=UTF-8
-*.verified.ics text eol=lf working-tree-encoding=UTF-8
+*.verified.ics text eol=crlf working-tree-encoding=UTF-8
 *.verified.xml text eol=lf working-tree-encoding=UTF-8
 *.verified.json text eol=lf working-tree-encoding=UTF-8
 

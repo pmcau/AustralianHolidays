@@ -1,11 +1,6 @@
-﻿using EmptyFiles;
-
-public static class ModuleInitializer
+﻿public static class ModuleInitializer
 {
+    //FileExtensions.RemoveTextExtension("ics");
     [ModuleInitializer]
-    public static void Init()
-    {
-        //FileExtensions.RemoveTextExtension("ics");
-        VerifierSettings.InitializePlugins();
-    }
+    public static void Init() => VerifierSettings.InitializePlugins();
 }

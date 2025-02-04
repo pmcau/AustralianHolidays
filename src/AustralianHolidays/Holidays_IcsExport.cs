@@ -42,22 +42,17 @@ public static partial class Holidays
 
     static async Task ToIcs(TextWriter writer, IOrderedEnumerable<(Date date, string name)> forYears)
     {
-        await writer.WriteLineAsync(
-            """
-            BEGIN:VCALENDAR
-            VERSION:2.0
-            """);
+        await writer.WriteLineAsync("BEGIN:VCALENDAR");
+        await writer.WriteLineAsync("VERSION:2.0");
+        //await writer.WriteLineAsync("PRODID:-//Your Organization//NONSGML v1.0//EN");
 
-        foreach (var (date, name) in forYears)
+        foreach (var item in forYears)
         {
-            await writer.WriteLineAsync(
-                $"""
-                 BEGIN:VEVENT
-                 SUMMARY:{name}
-                 DTSTART;VALUE=DATE:{date:yyyyMMdd}
-                 DTEND;VALUE=DATE:{date.AddDays(1):yyyyMMdd}
-                 END:VEVENT
-                 """);
+            await writer.WriteLineAsync("BEGIN:VEVENT");
+            await writer.WriteLineAsync($"SUMMARY:{item.name}");
+            await writer.WriteLineAsync($"DTSTART;VALUE=DATE:{item.date:yyyyMMdd}");
+            await writer.WriteLineAsync($"DTEND;VALUE=DATE:{item.date.AddDays(1):yyyyMMdd}");
+            await writer.WriteLineAsync("END:VEVENT");
         }
 
         await writer.WriteLineAsync("END:VCALENDAR");
