@@ -17,7 +17,7 @@ public static partial class Holidays
     {
         var forYears = NationalForYears(startYear, yearCount);
 
-        return ToIcs(writer, forYears);
+        return ToIcs(writer, null, forYears);
     }
 
     public static async Task<string> ExportToIcs(State state, int? startYear = null, int yearCount = 5)
@@ -35,10 +35,10 @@ public static partial class Holidays
     {
         var forYears = ForYears(state, startYear, yearCount);
 
-        return ToIcs(writer, forYears);
+        return ToIcs(writer, state, forYears);
     }
 
-    static async Task ToIcs(TextWriter writer, IOrderedEnumerable<(Date date, string name)> forYears)
+    static async Task ToIcs(TextWriter writer, State? state, IOrderedEnumerable<(Date date, string name)> forYears)
     {
         writer.NewLine = "\r\n";
         await writer.WriteLineAsync("BEGIN:VCALENDAR");
@@ -48,6 +48,7 @@ public static partial class Holidays
         {
             await writer.WriteLineAsync("BEGIN:VEVENT");
             await writer.WriteLineAsync($"SUMMARY:{item.name}");
+            await writer.WriteLineAsync($"UID:{item.name}_{state}@AustralianHolidays");
             await writer.WriteLineAsync($"DTSTART;VALUE=DATE:{item.date:yyyyMMdd}");
             await writer.WriteLineAsync($"DTEND;VALUE=DATE:{item.date.AddDays(1):yyyyMMdd}");
             await writer.WriteLineAsync("END:VEVENT");
