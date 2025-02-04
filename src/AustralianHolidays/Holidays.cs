@@ -97,7 +97,7 @@ public static partial class Holidays
         return year.Value;
     }
 
-    public static IOrderedEnumerable<(Date date, string name)> ForYearsFederal(int? startYear = null, int yearCount = 1)
+    public static IOrderedEnumerable<(Date date, string name)> NationalForYears(int? startYear = null, int yearCount = 1)
     {
         var start = OrCurrentYear(startYear);
         List<(Date date, string name)> list = [];

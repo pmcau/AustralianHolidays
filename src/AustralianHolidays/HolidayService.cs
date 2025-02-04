@@ -8,8 +8,8 @@ public class HolidayService
     public virtual IOrderedEnumerable<(Date date, string name)> ForYears(State state, int? startYear = null, int yearCount = 1) =>
         Holidays.ForYears(state, startYear, yearCount);
 
-    public virtual IOrderedEnumerable<(Date date, string name)> ForYearsFederal(int? startYear = null, int yearCount = 1) =>
-        Holidays.ForYearsFederal(startYear, yearCount);
+    public virtual IOrderedEnumerable<(Date date, string name)> NationalForYears(int? startYear = null, int yearCount = 1) =>
+        Holidays.NationalForYears(startYear, yearCount);
 
     public virtual bool IsHoliday(Date date, State state) =>
         date.IsHoliday(state);

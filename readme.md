@@ -128,14 +128,14 @@ foreach (var (date, name) in holidays)
 <!-- endSnippet -->
 
 
-### GetHolidays
+### NationalForYears
 
 Gets federal holidays that are common for all states.
 
 <!-- snippet: GetHolidays -->
 <a id='snippet-GetHolidays'></a>
 ```cs
-var holidays = Holidays.GetHolidays(2025);
+var holidays = Holidays.NationalForYears(2025);
 foreach (var (date, name) in holidays)
 {
     Console.WriteLine($"date: {date}, name: {name}");
