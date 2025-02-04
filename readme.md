@@ -199,7 +199,7 @@ AreEqual(new Date(2025, 1, 1), end);
 <!-- snippet: ExportToMarkdown -->
 <a id='snippet-ExportToMarkdown'></a>
 ```cs
-var md = Holidays.ExportToMarkdown();
+var md = await Holidays.ExportToMarkdown();
 ```
 <sup><a href='/src/Tests/Tests.cs#L25-L27' title='Snippet source file'>snippet source</a> | <a href='#snippet-ExportToMarkdown' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
@@ -229,7 +229,7 @@ Common holidays for all states
 <!-- snippet: ExportToMarkdownState -->
 <a id='snippet-ExportToMarkdownState'></a>
 ```cs
-var md = Holidays.ExportToMarkdown(state);
+var md = await Holidays.ExportToMarkdown(state);
 ```
 <sup><a href='/src/Tests/Tests.cs#L34-L36' title='Snippet source file'>snippet source</a> | <a href='#snippet-ExportToMarkdownState' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->

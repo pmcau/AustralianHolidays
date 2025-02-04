@@ -20,21 +20,21 @@ public class Tests
     }
 
     [Test]
-    public Task ExportToMarkdown()
+    public async Task ExportToMarkdown()
     {
         #region ExportToMarkdown
-        var md = Holidays.ExportToMarkdown();
+        var md = await Holidays.ExportToMarkdown();
         #endregion
-        return Verify(md);
+        await Verify(md);
     }
 
     [TestCaseSource(nameof(GetStates))]
-    public Task ExportToMarkdown(State state)
+    public async Task ExportToMarkdown(State state)
     {
         #region ExportToMarkdownState
-        var md = Holidays.ExportToMarkdown(state);
+        var md = await Holidays.ExportToMarkdown(state);
         #endregion
-        return Verify(md);
+        await Verify(md);
     }
 
     [Test]

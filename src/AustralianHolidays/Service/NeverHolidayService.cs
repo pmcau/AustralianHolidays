@@ -38,9 +38,13 @@ public class NeverHolidayService() :
 
     public override (Date start, Date end) GetFederalGovernmentShutdown(int startYear) => (Date.MinValue, Date.MinValue);
 
-    public override string ExportToMarkdown(int? startYear = null, int yearCount = 5) => string.Empty;
+    public override Task<string> ExportToMarkdown(int? startYear = null, int yearCount = 5) => Task.FromResult(string.Empty);
 
-    public override string ExportToMarkdown(State state, int? startYear = null, int yearCount = 5) => string.Empty;
+    public override Task ExportToMarkdown(TextWriter writer, int? startYear = null, int yearCount = 5) => Task.FromResult(string.Empty);
+
+    public override Task ExportToMarkdown(TextWriter writer, State state, int? startYear = null, int yearCount = 5) => Task.CompletedTask;
+
+    public override Task<string> ExportToMarkdown(State state, int? startYear = null, int yearCount = 5) => Task.FromResult(string.Empty);
 
     public override bool IsNswHoliday(Date date) => false;
 

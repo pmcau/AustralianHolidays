@@ -68,9 +68,13 @@ public class AlwaysHolidayService(TimeProvider? timeProvider = null) :
 
     public override (Date start, Date end) GetFederalGovernmentShutdown(int startYear) => (Date.MinValue, Date.MaxValue);
 
-    public override string ExportToMarkdown(int? startYear = null, int yearCount = 5) => "Holidays";
+    public override Task ExportToMarkdown(TextWriter writer, int? startYear = null, int yearCount = 5) =>  writer.WriteLineAsync("Holidays");
 
-    public override string ExportToMarkdown(State state, int? startYear = null, int yearCount = 5) => "Holidays";
+    public override Task<string> ExportToMarkdown(State state, int? startYear = null, int yearCount = 5) => Task.FromResult("Holidays");
+
+    public override Task ExportToMarkdown(TextWriter writer, State state, int? startYear = null, int yearCount = 5) => writer.WriteLineAsync("Holidays");
+
+    public override Task<string> ExportToMarkdown(int? startYear = null, int yearCount = 5) => Task.FromResult("Holidays");
 
     public override bool IsNswHoliday(Date date) => true;
 

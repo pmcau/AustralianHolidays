@@ -55,7 +55,7 @@ public static partial class Holidays
 
         yield return (Extensions.GetSecondMonday(March, year), "Canberra Day");
 
-        Date GetReconciliationDay()
+        static Date GetReconciliationDay(int year)
         {
             var startDate = new Date(year, May, 27);
             var dayOfWeek = (int)startDate.DayOfWeek;
@@ -63,7 +63,7 @@ public static partial class Holidays
             return startDate.AddDays(daysUntilMonday);
         }
 
-        yield return (GetReconciliationDay(), "Reconciliation Day");
+        yield return (GetReconciliationDay(year), "Reconciliation Day");
 
         var anzacDate = AnzacDayCalculator.GetAnzacDay(year);
 

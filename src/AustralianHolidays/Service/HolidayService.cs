@@ -30,9 +30,13 @@ public class HolidayService(TimeProvider timeProvider)
 
     public virtual (Date start, Date end) GetFederalGovernmentShutdown(int startYear) => Holidays.GetFederalGovernmentShutdown(startYear);
 
-    public virtual string ExportToMarkdown(int? startYear = null, int yearCount = 5) => Holidays.ExportToMarkdown(startYear, yearCount);
+    public virtual Task<string> ExportToMarkdown(int? startYear = null, int yearCount = 5) => Holidays.ExportToMarkdown(startYear, yearCount);
 
-    public virtual string ExportToMarkdown(State state, int? startYear = null, int yearCount = 5) => Holidays.ExportToMarkdown(state, startYear, yearCount);
+    public virtual Task ExportToMarkdown(TextWriter writer, int? startYear = null, int yearCount = 5) => Holidays.ExportToMarkdown(writer, startYear, yearCount);
+
+    public virtual Task<string> ExportToMarkdown(State state, int? startYear = null, int yearCount = 5) => Holidays.ExportToMarkdown(state, startYear, yearCount);
+
+    public virtual Task ExportToMarkdown(TextWriter writer, State state, int? startYear = null, int yearCount = 5) => Holidays.ExportToMarkdown(writer, state, startYear, yearCount);
 
     public virtual bool IsNswHoliday(Date date) => date.IsNswHoliday();
 
