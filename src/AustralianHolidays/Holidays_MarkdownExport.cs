@@ -42,7 +42,7 @@ public static partial class Holidays
         return ToMarkdown(writer, years, forYears);
     }
 
-    internal static async Task ToMarkdown(TextWriter writer, List<int> years, IOrderedEnumerable<(Date date, string name)> forYears)
+    static async Task ToMarkdown(TextWriter writer, List<int> years, IOrderedEnumerable<(Date date, string name)> forYears)
     {
         await writer.WriteLineAsync($"|                                   | {string.Join("         | ", years)}         |");
         await writer.WriteAsync('|');

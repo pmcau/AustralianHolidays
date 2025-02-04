@@ -23,18 +23,48 @@ public class Tests
     public async Task ExportToMarkdown()
     {
         #region ExportToMarkdown
+
         var md = await Holidays.ExportToMarkdown();
+
         #endregion
-        await Verify(md);
+
+        await Verify(md, "md");
     }
 
     [TestCaseSource(nameof(GetStates))]
     public async Task ExportToMarkdown(State state)
     {
         #region ExportToMarkdownState
+
         var md = await Holidays.ExportToMarkdown(state);
+
         #endregion
-        await Verify(md);
+
+        await Verify(md, "md");
+    }
+
+    [Test]
+    public async Task ExportToIcs()
+    {
+        #region ExportToIcs
+
+        var ics = await Holidays.ExportToIcs();
+
+        #endregion
+
+        await Verify(ics, "ics");
+    }
+
+    [TestCaseSource(nameof(GetStates))]
+    public async Task ExportToIcs(State state)
+    {
+        #region ExportToIcsState
+
+        var ics = await Holidays.ExportToIcs(state);
+
+        #endregion
+
+        await Verify(ics, "ics");
     }
 
     [Test]

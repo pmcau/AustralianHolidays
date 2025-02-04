@@ -42,7 +42,7 @@ var date = new Date(2024, 12, 25);
 
 IsTrue(date.IsHoliday(State.NSW));
 ```
-<sup><a href='/src/Tests/Tests.cs#L124-L130' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsHoliday' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L154-L160' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsHoliday' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -59,7 +59,7 @@ IsTrue(date.IsHoliday(State.NSW, out var name));
 
 AreEqual("Christmas Day", name);
 ```
-<sup><a href='/src/Tests/Tests.cs#L161-L169' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsHolidayNamed' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L191-L199' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsHolidayNamed' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -74,7 +74,7 @@ var date = new Date(2024, 12, 25);
 
 IsTrue(date.IsNswHoliday());
 ```
-<sup><a href='/src/Tests/Tests.cs#L149-L155' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsHolidayForState' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L179-L185' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsHolidayForState' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -90,7 +90,7 @@ var date = new Date(2024, 12, 25);
 IsTrue(date.IsNswHoliday(out var name));
 AreEqual("Christmas Day", name);
 ```
-<sup><a href='/src/Tests/Tests.cs#L136-L143' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsHolidayForStateNamed' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L166-L173' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsHolidayForStateNamed' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -107,7 +107,7 @@ foreach (var (date, state, name) in holidays)
     Console.WriteLine($"date: {date}, state: {state}, name: {name}");
 }
 ```
-<sup><a href='/src/Tests/Tests.cs#L43-L51' title='Snippet source file'>snippet source</a> | <a href='#snippet-ForYears' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L73-L81' title='Snippet source file'>snippet source</a> | <a href='#snippet-ForYears' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -124,7 +124,7 @@ foreach (var (date, name) in holidays)
     Console.WriteLine($"date: {date}, name: {name}");
 }
 ```
-<sup><a href='/src/Tests/Tests.cs#L57-L65' title='Snippet source file'>snippet source</a> | <a href='#snippet-ForYearsState' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L87-L95' title='Snippet source file'>snippet source</a> | <a href='#snippet-ForYearsState' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -141,7 +141,7 @@ foreach (var (date, name) in holidays)
     Console.WriteLine($"date: {date}, name: {name}");
 }
 ```
-<sup><a href='/src/Tests/Tests.cs#L71-L79' title='Snippet source file'>snippet source</a> | <a href='#snippet-ForNational' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L101-L109' title='Snippet source file'>snippet source</a> | <a href='#snippet-ForNational' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -156,7 +156,7 @@ foreach (var (date, name) in holidays)
     Console.WriteLine($"date: {date}, name: {name}");
 }
 ```
-<sup><a href='/src/Tests/Tests.cs#L85-L93' title='Snippet source file'>snippet source</a> | <a href='#snippet-ForState' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L115-L123' title='Snippet source file'>snippet source</a> | <a href='#snippet-ForState' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -173,7 +173,7 @@ var result = date.IsFederalGovernmentShutdown();
 
 IsTrue(result);
 ```
-<sup><a href='/src/Tests/Tests.cs#L175-L182' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsFederalGovernmentShutdown' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L205-L212' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsFederalGovernmentShutdown' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -187,7 +187,7 @@ var (start, end) = Holidays.GetFederalGovernmentShutdown(startYear: 2024);
 AreEqual(new Date(2024, 12, 25), start);
 AreEqual(new Date(2025, 1, 1), end);
 ```
-<sup><a href='/src/Tests/Tests.cs#L111-L118' title='Snippet source file'>snippet source</a> | <a href='#snippet-GetFederalGovernmentShutdown' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L141-L148' title='Snippet source file'>snippet source</a> | <a href='#snippet-GetFederalGovernmentShutdown' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -201,12 +201,12 @@ AreEqual(new Date(2025, 1, 1), end);
 ```cs
 var md = await Holidays.ExportToMarkdown();
 ```
-<sup><a href='/src/Tests/Tests.cs#L25-L27' title='Snippet source file'>snippet source</a> | <a href='#snippet-ExportToMarkdown' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L25-L29' title='Snippet source file'>snippet source</a> | <a href='#snippet-ExportToMarkdown' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Common holidays for all states
 
-<!-- include: Tests.ExportToMarkdown.verified.txt -->
+<!-- include: Tests.ExportToMarkdown.verified.md -->
 |                                   | 2025         | 2026         | 2027         | 2028         | 2029         |
 |-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Wed 01 Jan` | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | 
@@ -231,13 +231,13 @@ Common holidays for all states
 ```cs
 var md = await Holidays.ExportToMarkdown(state);
 ```
-<sup><a href='/src/Tests/Tests.cs#L34-L36' title='Snippet source file'>snippet source</a> | <a href='#snippet-ExportToMarkdownState' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L37-L41' title='Snippet source file'>snippet source</a> | <a href='#snippet-ExportToMarkdownState' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
 #### Australian Capital Territory ([Reference](https://www.cmtedd.act.gov.au/communication/holidays))
 
-<!-- include: Tests.ExportToMarkdown_state=ACT.verified.txt -->
+<!-- include: Tests.ExportToMarkdown_state=ACT.verified.md -->
 |                                   | 2025         | 2026         | 2027         | 2028         | 2029         |
 |-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Wed 01 Jan` | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | 
@@ -261,7 +261,7 @@ var md = await Holidays.ExportToMarkdown(state);
 
 #### New South Wales ([Reference](https://www.nsw.gov.au/about-nsw/public-holidays))
 
-<!-- include: Tests.ExportToMarkdown_state=NSW.verified.txt -->
+<!-- include: Tests.ExportToMarkdown_state=NSW.verified.md -->
 |                                   | 2025         | 2026         | 2027         | 2028         | 2029         |
 |-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Wed 01 Jan` | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | 
@@ -284,7 +284,7 @@ var md = await Holidays.ExportToMarkdown(state);
 
 #### Northern Territory ([Reference](https://nt.gov.au/nt-public-holidays))
 
-<!-- include: Tests.ExportToMarkdown_state=NT.verified.txt -->
+<!-- include: Tests.ExportToMarkdown_state=NT.verified.md -->
 |                                   | 2025         | 2026         | 2027         | 2028         | 2029         |
 |-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Wed 01 Jan` | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | 
@@ -308,7 +308,7 @@ var md = await Holidays.ExportToMarkdown(state);
 
 #### Queensland ([Reference](https://www.qld.gov.au/recreation/travel/holidays/public))
 
-<!-- include: Tests.ExportToMarkdown_state=QLD.verified.txt -->
+<!-- include: Tests.ExportToMarkdown_state=QLD.verified.md -->
 |                                   | 2025         | 2026         | 2027         | 2028         | 2029         |
 |-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Wed 01 Jan` | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | 
@@ -330,7 +330,7 @@ var md = await Holidays.ExportToMarkdown(state);
 
 #### South Australia ([Reference](https://www.safework.sa.gov.au/resources/public-holidays))
 
-<!-- include: Tests.ExportToMarkdown_state=SA.verified.txt -->
+<!-- include: Tests.ExportToMarkdown_state=SA.verified.md -->
 |                                   | 2025         | 2026         | 2027         | 2028         | 2029         |
 |-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Wed 01 Jan` | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | 
@@ -355,7 +355,7 @@ var md = await Holidays.ExportToMarkdown(state);
 
 #### Tasmania ([Reference](https://worksafe.tas.gov.au/topics/laws-and-compliance/public-holidays))
 
-<!-- include: Tests.ExportToMarkdown_state=TAS.verified.txt -->
+<!-- include: Tests.ExportToMarkdown_state=TAS.verified.md -->
 |                                   | 2025         | 2026         | 2027         | 2028         | 2029         |
 |-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Wed 01 Jan` | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | 
@@ -376,7 +376,7 @@ var md = await Holidays.ExportToMarkdown(state);
 
 #### Victorian ([Reference](https://business.vic.gov.au/business-information/public-holidays/victorian-public-holidays-2025))
 
-<!-- include: Tests.ExportToMarkdown_state=VIC.verified.txt -->
+<!-- include: Tests.ExportToMarkdown_state=VIC.verified.md -->
 |                                   | 2025         | 2026         | 2027         | 2028         | 2029         |
 |-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Wed 01 Jan` | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | 
@@ -399,7 +399,7 @@ var md = await Holidays.ExportToMarkdown(state);
 
 #### Western Australia ([Reference](https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia))
 
-<!-- include: Tests.ExportToMarkdown_state=WA.verified.txt -->
+<!-- include: Tests.ExportToMarkdown_state=WA.verified.md -->
 |                                   | 2025         | 2026         | 2027         | 2028         | 2029         |
 |-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Wed 01 Jan` | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | 
