@@ -7,6 +7,7 @@ public static partial class Holidays
         var builder = new StringBuilder();
         await using (var writer = new StringWriter(builder))
         {
+            writer.NewLine = "\r\n";
             await ExportToIcs(writer, startYear, yearCount);
         }
 
@@ -25,6 +26,7 @@ public static partial class Holidays
         var builder = new StringBuilder();
         await using (var writer = new StringWriter(builder))
         {
+            writer.NewLine = "\r\n";
             await ExportToIcs(writer, state, startYear, yearCount);
         }
 
