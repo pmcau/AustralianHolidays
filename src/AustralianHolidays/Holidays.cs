@@ -44,6 +44,12 @@ public static partial class Holidays
         }
     }
 
+    /// <summary>
+    /// Retrieves public holidays for all states over a specified range of years.
+    /// </summary>
+    /// <param name="startYear">The starting year for the range. If not provided, the current year is used.</param>
+    /// <param name="yearCount">The number of years to include in the range. Defaults to 1 year.</param>
+    /// <returns>An ordered enumerable of tuples containing the date, state, and name of each public holiday.</returns>
     public static IOrderedEnumerable<(Date date, State state, string name)> ForYears(int? startYear = null, int yearCount = 1)
     {
         List<(Date date, State state, string name)> list = [];
@@ -58,6 +64,13 @@ public static partial class Holidays
         return list.OrderBy(_ => _.date);
     }
 
+    /// <summary>
+    /// Retrieves public holidays for a specified state over a given range of years.
+    /// </summary>
+    /// <param name="state">The state for which to retrieve public holidays.</param>
+    /// <param name="startYear">The starting year for the range. If not provided, the current year is used.</param>
+    /// <param name="yearCount">The number of years to include in the range. Defaults to 1 year.</param>
+    /// <returns>An ordered enumerable of tuples containing the date and name of each public holiday in the specified state.</returns>
     public static IOrderedEnumerable<(Date date, string name)> ForYears(State state, int? startYear = null, int yearCount = 1)
     {
         var start = OrCurrentYear(startYear);
@@ -74,23 +87,16 @@ public static partial class Holidays
         return list.OrderBy(_ => _.date);
     }
 
-    static int OrCurrentYear(int? year)
-    {
-        if (year == null)
-        {
-            return DateTime.Now.Year;
-        }
+    static int OrCurrentYear(int? year) =>
+        year ?? DateTime.Now.Year;
 
-        return year.Value;
-    }
-
-    public static IOrderedEnumerable<(Date date, string name)> ForYearsFederal(int? startYear = null, int yearCount = 1)
+    public static IOrderedEnumerable<(Date date, string name)> NationalForYears(int? startYear = null, int yearCount = 1)
     {
         var start = OrCurrentYear(startYear);
         List<(Date date, string name)> list = [];
         for (var year = start; year <= start + yearCount - 1; year++)
         {
-            foreach (var (key, value) in GetHolidays(year))
+            foreach (var (key, value) in ForNational(year))
             {
                 list.Add((key, value));
             }
@@ -102,14 +108,14 @@ public static partial class Holidays
     static Func<int, IReadOnlyDictionary<Date, string>> DeriveGetHolidaysAction(State state) =>
         state switch
         {
-            State.ACT => GetActHolidays,
-            State.NSW => GetNswHolidays,
-            State.NT => GetNtHolidays,
-            State.QLD => GetQldHolidays,
-            State.SA => GetSaHolidays,
-            State.TAS => GetTasHolidays,
-            State.VIC => GetVicHolidays,
-            State.WA => GetWaHolidays,
+            ACT => ForAct,
+            NSW => ForNsw,
+            NT => ForNt,
+            QLD => ForQld,
+            SA => ForSa,
+            TAS => ForTas,
+            VIC => ForVic,
+            WA => ForWa,
             _ => throw new ArgumentOutOfRangeException(nameof(state), state, null)
         };
 
@@ -118,20 +124,26 @@ public static partial class Holidays
             not DayOfWeek.Saturday and
             not DayOfWeek.Sunday;
 
+    /// <summary>
+    /// Determines if a given date is a public holiday in a specified state.
+    /// </summary>
     public static bool IsHoliday(this Date date, State state) =>
         IsHoliday(date, state, out _);
 
+    /// <summary>
+    /// Determines if a specific date is a recognized public holiday in a particular state and retrieving the name of the holiday if it is.
+    /// </summary>
     public static bool IsHoliday(this Date date, State state, [NotNullWhen(true)] out string? name) =>
         state switch
         {
-            State.NSW => IsNswHoliday(date, out name),
-            State.VIC => IsVicHoliday(date, out name),
-            State.QLD => IsQldHoliday(date, out name),
-            State.ACT => IsActHoliday(date, out name),
-            State.NT => IsNtHoliday(date, out name),
-            State.SA => IsSaHoliday(date, out name),
-            State.TAS => IsTasHoliday(date, out name),
-            State.WA => IsWaHoliday(date, out name),
+            NSW => IsNswHoliday(date, out name),
+            VIC => IsVicHoliday(date, out name),
+            QLD => IsQldHoliday(date, out name),
+            ACT => IsActHoliday(date, out name),
+            NT => IsNtHoliday(date, out name),
+            SA => IsSaHoliday(date, out name),
+            TAS => IsTasHoliday(date, out name),
+            WA => IsWaHoliday(date, out name),
             _ => throw new ArgumentOutOfRangeException(nameof(state), state, null)
         };
 

@@ -66,11 +66,11 @@ public class Tests
     }
 
     [Test]
-    public void GetHolidays()
+    public void ForNational()
     {
-        #region GetHolidays
+        #region ForNational
 
-        var holidays = Holidays.GetHolidays(2025);
+        var holidays = Holidays.ForNational(2025);
         foreach (var (date, name) in holidays)
         {
             Console.WriteLine($"date: {date}, name: {name}");
@@ -80,11 +80,11 @@ public class Tests
     }
 
     [Test]
-    public void GetHolidaysForState()
+    public void ForState()
     {
-        #region GetHolidaysForState
+        #region ForState
 
-        var holidays = Holidays.GetNswHolidays(2025);
+        var holidays = Holidays.ForNsw(2025);
         foreach (var (date, name) in holidays)
         {
             Console.WriteLine($"date: {date}, name: {name}");

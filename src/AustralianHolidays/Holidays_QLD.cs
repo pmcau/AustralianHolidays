@@ -10,7 +10,7 @@ public static partial class Holidays
     /// </summary>
     /// <param name="date">The date to check.</param>
     public static bool IsQldHoliday(this Date date) =>
-        GetQldHolidays(date.Year)
+        ForQld(date.Year)
             .ContainsKey(date);
 
     /// <summary>
@@ -20,13 +20,13 @@ public static partial class Holidays
     /// <param name="date">The date to check.</param>
     /// <param name="name">The name of the holiday.</param>
     public static bool IsQldHoliday(this Date date, [NotNullWhen(true)] out string? name) =>
-        GetQldHolidays(date.Year)
+        ForQld(date.Year)
             .TryGetValue(date, out name);
 
     /// <summary>
     ///  Gets all public holidays for Queensland for the specified year.
     /// </summary>
-    public static IReadOnlyDictionary<Date, string> GetQldHolidays(int year) =>
+    public static IReadOnlyDictionary<Date, string> ForQld(int year) =>
         qldCache.GetOrAdd(
             year,
             year =>

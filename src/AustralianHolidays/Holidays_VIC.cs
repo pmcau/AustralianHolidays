@@ -10,7 +10,7 @@ public static partial class Holidays
     /// </summary>
     /// <param name="date">The date to check.</param>
     public static bool IsVicHoliday(this Date date) =>
-        GetVicHolidays(date.Year)
+        ForVic(date.Year)
             .ContainsKey(date);
 
     /// <summary>
@@ -20,13 +20,13 @@ public static partial class Holidays
     /// <param name="date">The date to check.</param>
     /// <param name="name">The name of the holiday.</param>
     public static bool IsVicHoliday(this Date date, [NotNullWhen(true)] out string? name) =>
-        GetVicHolidays(date.Year)
+        ForVic(date.Year)
             .TryGetValue(date, out name);
 
     /// <summary>
     /// Gets all public holidays for Victoria for the specified year.
     /// </summary>
-    public static IReadOnlyDictionary<Date, string> GetVicHolidays(int year) =>
+    public static IReadOnlyDictionary<Date, string> ForVic(int year) =>
         vicCache.GetOrAdd(
             year,
             year =>
