@@ -7,7 +7,6 @@ public static partial class Holidays
         var builder = new StringBuilder();
         await using (var writer = new StringWriter(builder))
         {
-            writer.NewLine = "\r\n";
             await ExportToIcs(writer, startYear, yearCount);
         }
 
@@ -26,7 +25,6 @@ public static partial class Holidays
         var builder = new StringBuilder();
         await using (var writer = new StringWriter(builder))
         {
-            writer.NewLine = "\r\n";
             await ExportToIcs(writer, state, startYear, yearCount);
         }
 
@@ -42,9 +40,9 @@ public static partial class Holidays
 
     static async Task ToIcs(TextWriter writer, IOrderedEnumerable<(Date date, string name)> forYears)
     {
+        writer.NewLine = "\r\n";
         await writer.WriteLineAsync("BEGIN:VCALENDAR");
         await writer.WriteLineAsync("VERSION:2.0");
-        //await writer.WriteLineAsync("PRODID:-//Your Organization//NONSGML v1.0//EN");
 
         foreach (var item in forYears)
         {
