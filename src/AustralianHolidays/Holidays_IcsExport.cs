@@ -15,8 +15,6 @@ public static partial class Holidays
 
     public static Task ExportToIcs(TextWriter writer, int? startYear = null, int yearCount = 5)
     {
-        var years = BuildYears(startYear);
-
         var forYears = NationalForYears(startYear, yearCount);
 
         return ToIcs(writer, forYears);
@@ -35,8 +33,6 @@ public static partial class Holidays
 
     public static Task ExportToIcs(TextWriter writer, State state, int? startYear = null, int yearCount = 5)
     {
-        var years = BuildYears(startYear);
-
         var forYears = ForYears(state, startYear, yearCount);
 
         return ToIcs(writer, forYears);
