@@ -10,7 +10,7 @@ public static partial class Holidays
     /// </summary>
     /// <param name="date">The date to check.</param>
     public static bool IsWaHoliday(this Date date) =>
-        GetWaHolidays(date.Year)
+        ForWa(date.Year)
             .ContainsKey(date);
 
     /// <summary>
@@ -18,13 +18,13 @@ public static partial class Holidays
     ///  Reference: https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia
     /// </summary>
     public static bool IsWaHoliday(this Date date, [NotNullWhen(true)] out string? name) =>
-        GetWaHolidays(date.Year)
+        ForWa(date.Year)
             .TryGetValue(date, out name);
 
     /// <summary>
     /// Gets all public holidays for Western Australia for the specified year.
     /// </summary>
-    public static IReadOnlyDictionary<Date, string> GetWaHolidays(int year) =>
+    public static IReadOnlyDictionary<Date, string> ForWa(int year) =>
         waCache.GetOrAdd(
             year,
             year =>

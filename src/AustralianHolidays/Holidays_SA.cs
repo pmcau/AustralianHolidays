@@ -10,7 +10,7 @@ public static partial class Holidays
     /// </summary>
     /// <param name="date">The date to check.</param>
     public static bool IsSaHoliday(this Date date) =>
-        GetSaHolidays(date.Year)
+        ForSa(date.Year)
             .ContainsKey(date);
 
     /// <summary>
@@ -20,13 +20,13 @@ public static partial class Holidays
     /// <param name="date">The date to check.</param>
     /// <param name="name">The name of the holiday.</param>
     public static bool IsSaHoliday(this Date date, [NotNullWhen(true)] out string? name) =>
-        GetSaHolidays(date.Year)
+        ForSa(date.Year)
             .TryGetValue(date, out name);
 
     /// <summary>
     ///  Gets all public holidays for South Australia for the specified year.
     /// </summary>
-    public static IReadOnlyDictionary<Date, string> GetSaHolidays(int year) =>
+    public static IReadOnlyDictionary<Date, string> ForSa(int year) =>
         saCache.GetOrAdd(
             year,
             year =>

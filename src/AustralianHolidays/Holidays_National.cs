@@ -9,7 +9,7 @@ public static partial class Holidays
     /// </summary>
     /// <param name="date">The date to check.</param>
     public static bool IsNationalHoliday(this Date date) =>
-        NationalForYears(date.Year)
+        ForNational(date.Year)
             .ContainsKey(date);
 
     /// <summary>
@@ -18,13 +18,13 @@ public static partial class Holidays
     /// <param name="date">The date to check.</param>
     /// <param name="name">The name of the holiday.</param>
     public static bool IsNationalHoliday(this Date date, [NotNullWhen(true)] out string? name) =>
-        NationalForYears(date.Year)
+        ForNational(date.Year)
             .TryGetValue(date, out name);
 
     /// <summary>
     /// Gets all public holidays that exist in all states.
     /// </summary>
-    public static IReadOnlyDictionary<Date, string> NationalForYears(int year) =>
+    public static IReadOnlyDictionary<Date, string> ForNational(int year) =>
         cache.GetOrAdd(
             year,
             year =>

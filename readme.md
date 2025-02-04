@@ -132,31 +132,31 @@ foreach (var (date, name) in holidays)
 
 Gets federal holidays that are common for all states.
 
-<!-- snippet: GetHolidays -->
-<a id='snippet-GetHolidays'></a>
+<!-- snippet: ForNational -->
+<a id='snippet-ForNational'></a>
 ```cs
-var holidays = Holidays.NationalForYears(2025);
+var holidays = Holidays.ForNational(2025);
 foreach (var (date, name) in holidays)
 {
     Console.WriteLine($"date: {date}, name: {name}");
 }
 ```
-<sup><a href='/src/Tests/Tests.cs#L71-L79' title='Snippet source file'>snippet source</a> | <a href='#snippet-GetHolidays' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L71-L79' title='Snippet source file'>snippet source</a> | <a href='#snippet-ForNational' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
-### GetHolidays for state
+### Holidays For State
 
-<!-- snippet: GetHolidaysForState -->
-<a id='snippet-GetHolidaysForState'></a>
+<!-- snippet: ForState -->
+<a id='snippet-ForState'></a>
 ```cs
-var holidays = Holidays.GetNswHolidays(2025);
+var holidays = Holidays.ForNsw(2025);
 foreach (var (date, name) in holidays)
 {
     Console.WriteLine($"date: {date}, name: {name}");
 }
 ```
-<sup><a href='/src/Tests/Tests.cs#L85-L93' title='Snippet source file'>snippet source</a> | <a href='#snippet-GetHolidaysForState' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L85-L93' title='Snippet source file'>snippet source</a> | <a href='#snippet-ForState' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -418,6 +418,116 @@ var md = Holidays.ExportToMarkdown(state);
 | Boxing Day                        | `Fri 26 Dec` | `Sat 26 Dec` | `Sun 26 Dec` | `Tue 26 Dec` | `Wed 26 Dec` | 
 | Christmas<br>(additional)         |              | `Mon 28 Dec` | `Mon 27 Dec`<br>`Tue 28 Dec` | `Wed 27 Dec`<br>`Thu 28 Dec` | `Thu 27 Dec`<br>`Fri 28 Dec` | 
 <!-- endInclude -->
+
+
+## Dependency Injection API
+
+The above APIs are all static. This means they are not Dependency Injection or test friendly.
+
+`HolidayService` is an instance based wrapper for the above APIs that can be used in Dependency Injection and is test friendly.
+
+All members are virtual so it can be mocked.
+
+
+### Usage 
+
+<!-- snippet: HolidayServiceUsage -->
+<a id='snippet-HolidayServiceUsage'></a>
+```cs
+[Test]
+public void Usage()
+{
+    var holidayService = new HolidayService(TimeProvider.System);
+    var holidays = holidayService.ForYears(startYear: 2025, yearCount: 2);
+    foreach (var (date, state, name) in holidays)
+    {
+        Console.WriteLine($"date: {date}, state: {state}, name: {name}");
+    }
+}
+```
+<sup><a href='/src/Tests/HolidayServiceTests.cs#L6-L19' title='Snippet source file'>snippet source</a> | <a href='#snippet-HolidayServiceUsage' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
+### Dependency Injection Usage
+
+<!-- snippet: DependencyInjectionUsage -->
+<a id='snippet-DependencyInjectionUsage'></a>
+```cs
+[Test]
+public void DependencyInjectionUsage()
+{
+    var services = new ServiceCollection();
+    services.AddSingleton<HolidayService>();
+    services.AddSingleton(TimeProvider.System);
+    services.AddTransient<ClassUsingHolidays>();
+
+    using var provider = services.BuildServiceProvider();
+    var service = provider.GetRequiredService<ClassUsingHolidays>();
+    service.WriteHolidays();
+}
+
+public class ClassUsingHolidays(HolidayService holidayService)
+{
+    public void WriteHolidays()
+    {
+        var holidays = holidayService.ForYears(startYear: 2025, yearCount: 2);
+        foreach (var (date, state, name) in holidays)
+        {
+            Console.WriteLine($"date: {date}, state: {state}, name: {name}");
+        }
+    }
+}
+```
+<sup><a href='/src/Tests/HolidayServiceTests.cs#L21-L48' title='Snippet source file'>snippet source</a> | <a href='#snippet-DependencyInjectionUsage' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
+### Testing
+
+
+#### AlwaysHolidayService
+
+`AlwaysHolidayService` treats every day as a holiday
+
+<!-- snippet: AlwaysHolidayServiceUsage -->
+<a id='snippet-AlwaysHolidayServiceUsage'></a>
+```cs
+[Test]
+public void AlwaysHolidayServiceUsage()
+{
+    var service = new AlwaysHolidayService();
+    var result = service.ForYears(2023, 1).ToList();
+
+    AreEqual(8 * 365, result.Count); // 8 states * 365 days
+    IsTrue(result.All(item => item.name == "Holiday"));
+}
+```
+<sup><a href='/src/Tests/AlwaysHolidayServiceTests.cs#L4-L16' title='Snippet source file'>snippet source</a> | <a href='#snippet-AlwaysHolidayServiceUsage' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
+#### NeverHolidayService
+
+`NeverHolidayService` treats every day as not a holiday
+
+<!-- snippet: NeverHolidayServiceUsage -->
+<a id='snippet-NeverHolidayServiceUsage'></a>
+```cs
+[Test]
+public void NeverHolidayServiceUsage()
+{
+    var service = new NeverHolidayService();
+    var result = service.ForYears(2023, 1).ToList();
+
+    IsEmpty(result);
+
+    var date = new Date(2020, 1, 2);
+    IsFalse(service.IsNswHoliday(date));
+}
+```
+<sup><a href='/src/Tests/NeverHolidayServiceTests.cs#L4-L18' title='Snippet source file'>snippet source</a> | <a href='#snippet-NeverHolidayServiceUsage' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
 
 
 ## Icon

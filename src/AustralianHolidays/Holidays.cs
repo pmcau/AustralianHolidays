@@ -87,15 +87,8 @@ public static partial class Holidays
         return list.OrderBy(_ => _.date);
     }
 
-    static int OrCurrentYear(int? year)
-    {
-        if (year == null)
-        {
-            return DateTime.Now.Year;
-        }
-
-        return year.Value;
-    }
+    static int OrCurrentYear(int? year) =>
+        year ?? DateTime.Now.Year;
 
     public static IOrderedEnumerable<(Date date, string name)> NationalForYears(int? startYear = null, int yearCount = 1)
     {
@@ -103,7 +96,7 @@ public static partial class Holidays
         List<(Date date, string name)> list = [];
         for (var year = start; year <= start + yearCount - 1; year++)
         {
-            foreach (var (key, value) in NationalForYears(year))
+            foreach (var (key, value) in ForNational(year))
             {
                 list.Add((key, value));
             }
@@ -115,14 +108,14 @@ public static partial class Holidays
     static Func<int, IReadOnlyDictionary<Date, string>> DeriveGetHolidaysAction(State state) =>
         state switch
         {
-            State.ACT => GetActHolidays,
-            State.NSW => GetNswHolidays,
-            State.NT => GetNtHolidays,
-            State.QLD => GetQldHolidays,
-            State.SA => GetSaHolidays,
-            State.TAS => GetTasHolidays,
-            State.VIC => GetVicHolidays,
-            State.WA => GetWaHolidays,
+            ACT => ForAct,
+            NSW => ForNsw,
+            NT => ForNt,
+            QLD => ForQld,
+            SA => ForSa,
+            TAS => ForTas,
+            VIC => ForVic,
+            WA => ForWa,
             _ => throw new ArgumentOutOfRangeException(nameof(state), state, null)
         };
 
@@ -143,14 +136,14 @@ public static partial class Holidays
     public static bool IsHoliday(this Date date, State state, [NotNullWhen(true)] out string? name) =>
         state switch
         {
-            State.NSW => IsNswHoliday(date, out name),
-            State.VIC => IsVicHoliday(date, out name),
-            State.QLD => IsQldHoliday(date, out name),
-            State.ACT => IsActHoliday(date, out name),
-            State.NT => IsNtHoliday(date, out name),
-            State.SA => IsSaHoliday(date, out name),
-            State.TAS => IsTasHoliday(date, out name),
-            State.WA => IsWaHoliday(date, out name),
+            NSW => IsNswHoliday(date, out name),
+            VIC => IsVicHoliday(date, out name),
+            QLD => IsQldHoliday(date, out name),
+            ACT => IsActHoliday(date, out name),
+            NT => IsNtHoliday(date, out name),
+            SA => IsSaHoliday(date, out name),
+            TAS => IsTasHoliday(date, out name),
+            WA => IsWaHoliday(date, out name),
             _ => throw new ArgumentOutOfRangeException(nameof(state), state, null)
         };
 

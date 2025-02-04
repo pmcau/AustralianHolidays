@@ -10,7 +10,7 @@ public static partial class Holidays
     /// </summary>
     /// <param name="date">The date to check.</param>
     public static bool IsActHoliday(this Date date) =>
-        GetActHolidays(date.Year)
+        ForAct(date.Year)
             .ContainsKey(date);
 
     /// <summary>
@@ -20,13 +20,13 @@ public static partial class Holidays
     /// <param name="date">The date to check.</param>
     /// <param name="name">The name of the holiday.</param>
     public static bool IsActHoliday(this Date date, [NotNullWhen(true)] out string? name) =>
-        GetActHolidays(date.Year)
+        ForAct(date.Year)
             .TryGetValue(date, out name);
 
     /// <summary>
     /// Gets all public holidays for the Australian Capital Territory for the specified year.
     /// </summary>
-    public static IReadOnlyDictionary<Date, string> GetActHolidays(int year) =>
+    public static IReadOnlyDictionary<Date, string> ForAct(int year) =>
         actCache.GetOrAdd(
             year,
             year => BuildActHolidays(year)

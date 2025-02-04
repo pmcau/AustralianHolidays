@@ -10,7 +10,7 @@ public static partial class Holidays
     /// </summary>
     /// <param name="date">The date to check.</param>
     public static bool IsNtHoliday(this Date date) =>
-        GetNtHolidays(date.Year)
+        ForNt(date.Year)
             .ContainsKey(date);
 
     /// <summary>
@@ -20,13 +20,13 @@ public static partial class Holidays
     /// <param name="date">The date to check.</param>
     /// <param name="name">The name of the holiday.</param>
     public static bool IsNtHoliday(this Date date, [NotNullWhen(true)] out string? name) =>
-        GetNtHolidays(date.Year)
+        ForNt(date.Year)
             .TryGetValue(date, out name);
 
     /// <summary>
     ///  Gets all public holidays for the Northern Territory for the specified year.
     /// </summary>
-    public static IReadOnlyDictionary<Date, string> GetNtHolidays(int year) =>
+    public static IReadOnlyDictionary<Date, string> ForNt(int year) =>
         ntCache.GetOrAdd(
             year,
             year =>

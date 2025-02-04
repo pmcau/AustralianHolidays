@@ -10,7 +10,7 @@ public static partial class Holidays
     /// </summary>
     /// <param name="date">The date to check.</param>
     public static bool IsNswHoliday(this Date date) =>
-        GetNswHolidays(date.Year)
+        ForNsw(date.Year)
             .ContainsKey(date);
 
     /// <summary>
@@ -20,13 +20,13 @@ public static partial class Holidays
     /// <param name="date">The date to check.</param>
     /// <param name="name">The name of the holiday.</param>
     public static bool IsNswHoliday(this Date date, [NotNullWhen(true)] out string? name) =>
-        GetNswHolidays(date.Year)
+        ForNsw(date.Year)
             .TryGetValue(date, out name);
 
     /// <summary>
     ///  Gets all public holidays for New South Wales for the specified year.
     /// </summary>
-    public static IReadOnlyDictionary<Date, string> GetNswHolidays(int year) =>
+    public static IReadOnlyDictionary<Date, string> ForNsw(int year) =>
         nswCache.GetOrAdd(
             year,
             year =>
