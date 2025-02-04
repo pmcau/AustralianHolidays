@@ -3,19 +3,11 @@
 public class AlwaysHolidayService(TimeProvider? timeProvider = null) :
     HolidayService(timeProvider?? TimeProvider.System)
 {
-    public override IOrderedEnumerable<(Date date, State state, string name)> ForYears(int? startYear = null, int yearCount = 1)
-    {
-        var list = new List<(Date date, State state, string name)>();
-        foreach (var date in GetDates(startYear, yearCount))
-        {
-            foreach (var state in Enum.GetValues<State>())
-            {
-                list.Add((date, state, "Holiday"));
-            }
-        }
-
-        return list.OrderBy(_ => _.date);
-    }
+    public override IOrderedEnumerable<(Date date, State state, string name)> ForYears(int? startYear = null, int yearCount = 1) =>
+        GetDates(startYear, yearCount)
+            .SelectMany(date => Enum.GetValues<State>()
+                .Select(state => (date, state, "Holiday")))
+            .OrderBy(_ => _.date);
 
     IEnumerable<Date> GetDates(int? startYear, int yearCount)
     {
