@@ -74,14 +74,7 @@ public static partial class Holidays
         var proclamationDay = new Date(year, December, 26);
         if (proclamationDay.IsWeekday())
         {
-            if (proclamationDay.IsWeekday())
-            {
-                yield return (proclamationDay, "Proclamation and Boxing Day");
-            }
-            else
-            {
-                yield return (proclamationDay, "Proclamation Day");
-            }
+            yield return (proclamationDay, "Proclamation and Boxing Day");
         }
         else if (proclamationDay.DayOfWeek == DayOfWeek.Saturday)
         {
