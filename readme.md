@@ -420,6 +420,29 @@ var md = await Holidays.ExportToMarkdown(state);
 <!-- endInclude -->
 
 
+## ExportToIcs
+
+Export holidays to ICS (iCalendar) format for importing into calendar applications.
+
+
+### National
+
+<!-- snippet: ExportToIcs -->
+```cs
+var ics = await Holidays.ExportToIcs();
+```
+<!-- endSnippet -->
+
+
+### State
+
+<!-- snippet: ExportToIcsState -->
+```cs
+var ics = await Holidays.ExportToIcs(state);
+```
+<!-- endSnippet -->
+
+
 ## Dependency Injection API
 
 The above APIs are all static. This means they are not Dependency Injection or test friendly.
