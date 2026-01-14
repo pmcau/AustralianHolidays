@@ -43,12 +43,14 @@ public static partial class Holidays
         writer.NewLine = "\r\n";
         await writer.WriteLineAsync("BEGIN:VCALENDAR");
         await writer.WriteLineAsync("VERSION:2.0");
+        await writer.WriteLineAsync("PRODID:-//AustralianHolidays//EN");
 
         foreach (var item in forYears)
         {
             await writer.WriteLineAsync("BEGIN:VEVENT");
             await writer.WriteLineAsync($"SUMMARY:{item.name}");
-            await writer.WriteLineAsync($"UID:{item.name}_{state}@AustralianHolidays");
+            await writer.WriteLineAsync($"UID:{item.date:yyyyMMdd}_{item.name}_{state}@AustralianHolidays");
+            await writer.WriteLineAsync($"DTSTAMP:{DateTime.UtcNow:yyyyMMddTHHmmssZ}");
             await writer.WriteLineAsync($"DTSTART;VALUE=DATE:{item.date:yyyyMMdd}");
             await writer.WriteLineAsync($"DTEND;VALUE=DATE:{item.date.AddDays(1):yyyyMMdd}");
             await writer.WriteLineAsync("END:VEVENT");

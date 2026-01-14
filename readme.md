@@ -428,18 +428,22 @@ Export holidays to ICS (iCalendar) format for importing into calendar applicatio
 ### National
 
 <!-- snippet: ExportToIcs -->
+<a id='snippet-ExportToIcs'></a>
 ```cs
 var ics = await Holidays.ExportToIcs();
 ```
+<sup><a href='/src/Tests/Tests.cs#L49-L53' title='Snippet source file'>snippet source</a> | <a href='#snippet-ExportToIcs' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
 ### State
 
 <!-- snippet: ExportToIcsState -->
+<a id='snippet-ExportToIcsState'></a>
 ```cs
 var ics = await Holidays.ExportToIcs(state);
 ```
+<sup><a href='/src/Tests/Tests.cs#L61-L65' title='Snippet source file'>snippet source</a> | <a href='#snippet-ExportToIcsState' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
