@@ -495,41 +495,6 @@
     Item3: Boxing Day
   },
   {
-    Item1: 2024-12-27,
-    Item2: ACT,
-    Item3: Christmas (additional)
-  },
-  {
-    Item1: 2024-12-27,
-    Item2: NSW,
-    Item3: Christmas (additional)
-  },
-  {
-    Item1: 2024-12-27,
-    Item2: NT,
-    Item3: Christmas (additional)
-  },
-  {
-    Item1: 2024-12-27,
-    Item2: QLD,
-    Item3: Christmas (additional)
-  },
-  {
-    Item1: 2024-12-27,
-    Item2: TAS,
-    Item3: Christmas (additional)
-  },
-  {
-    Item1: 2024-12-27,
-    Item2: VIC,
-    Item3: Christmas (additional)
-  },
-  {
-    Item1: 2024-12-27,
-    Item2: WA,
-    Item3: Christmas (additional)
-  },
-  {
     Item1: 2024-12-31,
     Item2: NT,
     Item3: New Year's Eve (partial day)
