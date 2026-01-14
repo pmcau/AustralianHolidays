@@ -1,18 +1,4 @@
-﻿2024
-    New Year's Day        Jan 01 Mon
-    Australia Day         Jan 26 Fri
-    Good Friday           Mar 29 Fri
-    Easter Saturday       Mar 30 Sat
-    Easter Sunday         Mar 31 Sun
-    Easter Monday         Apr 01 Mon
-    Anzac Day             Apr 25 Thu
-    King's Birthday       Jun 10 Mon
-    Bank Holiday          Aug 05 Mon
-    Labour Day            Oct 07 Mon
-    Christmas Day         Dec 25 Wed
-    Boxing Day            Dec 26 Thu
-    Christmas (additional) Dec 27 Fri
-2025
+﻿2025
     New Year's Day        Jan 01 Wed
     Australia Day (additional) Jan 27 Mon
     Good Friday           Apr 18 Fri
@@ -85,3 +71,17 @@
     Boxing Day            Dec 26 Wed
     Christmas (additional) Dec 27 Thu
     Christmas (additional) Dec 28 Fri
+2030
+    New Year's Day        Jan 01 Tue
+    Australia Day (additional) Jan 28 Mon
+    Good Friday           Apr 19 Fri
+    Easter Saturday       Apr 20 Sat
+    Easter Sunday         Apr 21 Sun
+    Easter Monday         Apr 22 Mon
+    Anzac Day             Apr 25 Thu
+    King's Birthday       Jun 10 Mon
+    Bank Holiday          Aug 05 Mon
+    Labour Day            Oct 07 Mon
+    Christmas Day         Dec 25 Wed
+    Boxing Day            Dec 26 Thu
+    Christmas (additional) Dec 27 Fri

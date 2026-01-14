@@ -1,19 +1,4 @@
-﻿2024
-    New Year's Day        Jan 01 Mon
-    Australia Day         Jan 26 Fri
-    Adelaide Cup Day      Mar 11 Mon
-    Good Friday           Mar 29 Fri
-    Easter Saturday       Mar 30 Sat
-    Easter Sunday         Mar 31 Sun
-    Easter Monday         Apr 01 Mon
-    Anzac Day             Apr 25 Thu
-    King's Birthday       Jun 10 Mon
-    Labour Day            Oct 07 Mon
-    Christmas Eve (partial day) Dec 24 Tue
-    Christmas Day         Dec 25 Wed
-    Proclamation and Boxing Day Dec 26 Thu
-    New Year's Eve (partial day) Dec 31 Tue
-2025
+﻿2025
     New Year's Day        Jan 01 Wed
     Australia Day (additional) Jan 27 Mon
     Adelaide Cup Day      Mar 10 Mon
@@ -90,3 +75,18 @@
     Christmas Day         Dec 25 Tue
     Proclamation and Boxing Day Dec 26 Wed
     New Year's Eve (partial day) Dec 31 Mon
+2030
+    New Year's Day        Jan 01 Tue
+    Australia Day (additional) Jan 28 Mon
+    Adelaide Cup Day      Mar 11 Mon
+    Good Friday           Apr 19 Fri
+    Easter Saturday       Apr 20 Sat
+    Easter Sunday         Apr 21 Sun
+    Easter Monday         Apr 22 Mon
+    Anzac Day             Apr 25 Thu
+    King's Birthday       Jun 10 Mon
+    Labour Day            Oct 07 Mon
+    Christmas Eve (partial day) Dec 24 Tue
+    Christmas Day         Dec 25 Wed
+    Proclamation and Boxing Day Dec 26 Thu
+    New Year's Eve (partial day) Dec 31 Tue
