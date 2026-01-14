@@ -13,20 +13,33 @@ public static class ChristmasCalculator
 
     public static IEnumerable<(Date date, string name)> Get(int year)
     {
-        yield return (ChristmasDay(year), "Christmas Day");
+        var christmasDay = ChristmasDay(year);
         var boxingDay = BoxingDay(year);
+
+        yield return (christmasDay, "Christmas Day");
         yield return (boxingDay, "Boxing Day");
 
-        var boxingDayPlus1 = boxingDay.AddDays(1);
-        if (boxingDayPlus1.IsWeekday())
-        {
-            yield return (boxingDayPlus1, "Christmas (additional)");
-        }
+        // Only add substitute days when Christmas or Boxing Day fall on a weekend
+        var christmasOnWeekend = !christmasDay.IsWeekday();
+        var boxingDayOnWeekend = !boxingDay.IsWeekday();
 
-        var boxingDayPlus2 = boxingDay.AddDays(2);
-        if (boxingDayPlus2.IsWeekday())
+        if (christmasOnWeekend || boxingDayOnWeekend)
         {
-            yield return (boxingDayPlus2, "Christmas (additional)");
+            // Find the next weekday after Boxing Day for the first substitute
+            var nextWeekday = boxingDay.AddDays(1);
+            while (!nextWeekday.IsWeekday())
+            {
+                nextWeekday = nextWeekday.AddDays(1);
+            }
+            yield return (nextWeekday, "Christmas (additional)");
+
+            // If BOTH Christmas and Boxing Day are on weekend, we need a second substitute
+            // (i.e., Christmas on Saturday and Boxing Day on Sunday)
+            if (christmasOnWeekend && boxingDayOnWeekend)
+            {
+                var secondWeekday = nextWeekday.AddDays(1);
+                yield return (secondWeekday, "Christmas (additional)");
+            }
         }
     }
 }

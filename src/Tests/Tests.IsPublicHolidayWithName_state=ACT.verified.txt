@@ -11,7 +11,6 @@
 2024 Oct 07 Mon Labour Day
 2024 Dec 25 Wed Christmas Day
 2024 Dec 26 Thu Boxing Day
-2024 Dec 27 Fri Christmas (additional)
 2025 Jan 01 Wed New Year's Day
 2025 Jan 27 Mon Australia Day (additional)
 2025 Mar 10 Mon Canberra Day
@@ -67,8 +66,6 @@
 2028 Oct 02 Mon Labour Day
 2028 Dec 25 Mon Christmas Day
 2028 Dec 26 Tue Boxing Day
-2028 Dec 27 Wed Christmas (additional)
-2028 Dec 28 Thu Christmas (additional)
 2029 Jan 01 Mon New Year's Day
 2029 Jan 26 Fri Australia Day
 2029 Mar 12 Mon Canberra Day
@@ -82,8 +79,6 @@
 2029 Oct 01 Mon Labour Day
 2029 Dec 25 Tue Christmas Day
 2029 Dec 26 Wed Boxing Day
-2029 Dec 27 Thu Christmas (additional)
-2029 Dec 28 Fri Christmas (additional)
 2030 Jan 01 Tue New Year's Day
 2030 Jan 28 Mon Australia Day (additional)
 2030 Mar 11 Mon Canberra Day
@@ -97,7 +92,6 @@
 2030 Oct 07 Mon Labour Day
 2030 Dec 25 Wed Christmas Day
 2030 Dec 26 Thu Boxing Day
-2030 Dec 27 Fri Christmas (additional)
 2031 Jan 01 Wed New Year's Day
 2031 Jan 27 Mon Australia Day (additional)
 2031 Mar 10 Mon Canberra Day
@@ -140,7 +134,6 @@
 2033 Dec 25 Sun Christmas Day
 2033 Dec 26 Mon Boxing Day
 2033 Dec 27 Tue Christmas (additional)
-2033 Dec 28 Wed Christmas (additional)
 2034 Jan 01 Sun New Year's Day
 2034 Jan 26 Thu Australia Day
 2034 Mar 13 Mon Canberra Day
@@ -154,8 +147,6 @@
 2034 Oct 02 Mon Labour Day
 2034 Dec 25 Mon Christmas Day
 2034 Dec 26 Tue Boxing Day
-2034 Dec 27 Wed Christmas (additional)
-2034 Dec 28 Thu Christmas (additional)
 2035 Jan 01 Mon New Year's Day
 2035 Jan 26 Fri Australia Day
 2035 Mar 12 Mon Canberra Day
@@ -169,5 +160,3 @@
 2035 Oct 01 Mon Labour Day
 2035 Dec 25 Tue Christmas Day
 2035 Dec 26 Wed Boxing Day
-2035 Dec 27 Thu Christmas (additional)
-2035 Dec 28 Fri Christmas (additional)

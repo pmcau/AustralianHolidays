@@ -55,8 +55,6 @@
     King's Birthday       Sep 25 Mon
     Christmas Day         Dec 25 Mon
     Boxing Day            Dec 26 Tue
-    Christmas (additional) Dec 27 Wed
-    Christmas (additional) Dec 28 Thu
 2029
     New Year's Day        Jan 01 Mon
     Australia Day         Jan 26 Fri
@@ -70,8 +68,6 @@
     King's Birthday       Sep 24 Mon
     Christmas Day         Dec 25 Tue
     Boxing Day            Dec 26 Wed
-    Christmas (additional) Dec 27 Thu
-    Christmas (additional) Dec 28 Fri
 2030
     New Year's Day        Jan 01 Tue
     Australia Day (additional) Jan 28 Mon
@@ -85,4 +81,3 @@
     King's Birthday       Sep 23 Mon
     Christmas Day         Dec 25 Wed
     Boxing Day            Dec 26 Thu
-    Christmas (additional) Dec 27 Fri

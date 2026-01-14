@@ -60,8 +60,6 @@
     Christmas Eve (partial day) Dec 24 Sun
     Christmas Day         Dec 25 Mon
     Boxing Day            Dec 26 Tue
-    Christmas (additional) Dec 27 Wed
-    Christmas (additional) Dec 28 Thu
     New Year's Eve (partial day) Dec 31 Sun
 2029
     New Year's Day        Jan 01 Mon
@@ -77,8 +75,6 @@
     Christmas Eve (partial day) Dec 24 Mon
     Christmas Day         Dec 25 Tue
     Boxing Day            Dec 26 Wed
-    Christmas (additional) Dec 27 Thu
-    Christmas (additional) Dec 28 Fri
     New Year's Eve (partial day) Dec 31 Mon
 2030
     New Year's Day        Jan 01 Tue
@@ -94,5 +90,4 @@
     Christmas Eve (partial day) Dec 24 Tue
     Christmas Day         Dec 25 Wed
     Boxing Day            Dec 26 Thu
-    Christmas (additional) Dec 27 Fri
     New Year's Eve (partial day) Dec 31 Tue

@@ -15,4 +15,4 @@
 | Labour Day                        | `Mon 05 Oct` | `Mon 04 Oct` | `Mon 02 Oct` | `Mon 01 Oct` | `Mon 07 Oct` | 
 | Christmas Day                     | `Fri 25 Dec` | `Sat 25 Dec` | `Mon 25 Dec` | `Tue 25 Dec` | `Wed 25 Dec` | 
 | Boxing Day                        | `Sat 26 Dec` | `Sun 26 Dec` | `Tue 26 Dec` | `Wed 26 Dec` | `Thu 26 Dec` | 
-| Christmas<br>(additional)         | `Mon 28 Dec` | `Mon 27 Dec`<br>`Tue 28 Dec` | `Wed 27 Dec`<br>`Thu 28 Dec` | `Thu 27 Dec`<br>`Fri 28 Dec` | `Fri 27 Dec` | 
+| Christmas<br>(additional)         | `Mon 28 Dec` | `Mon 27 Dec`<br>`Tue 28 Dec` |              |              |              | 

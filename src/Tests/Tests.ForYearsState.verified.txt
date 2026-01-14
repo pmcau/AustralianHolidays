@@ -52,10 +52,6 @@
     Item2: Boxing Day
   },
   {
-    Item1: 2024-12-27,
-    Item2: Christmas (additional)
-  },
-  {
     Item1: 2024-12-31,
     Item2: New Year's Eve (partial day)
   }
