@@ -53,7 +53,6 @@ ANZAC Day is observed on April 25 each year. However, when April 25 falls on a w
 
 - When ANZAC Day falls on Sunday (Apr 25) → Monday (Apr 26) is a public holiday
 - No substitute when ANZAC Day falls on Saturday
-- **Reference**: [NT Public Holidays](https://nt.gov.au/nt-public-holidays)
 
 
 #### States Without Substitution
