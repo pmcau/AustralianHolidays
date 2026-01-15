@@ -257,7 +257,8 @@ public class Tests
     static string WriteForState(HolidayCheck isHoliday)
     {
         var builder = new StringBuilder();
-        for (var year = DateTime.Now.Year - 1; year <= DateTime.Now.Year + 4; year++)
+        var now = DateTime.Now;
+        for (var year = now.Year - 1; year <= DateTime.Now.Year + 4; year++)
         {
             var start = new Date(year, 1, 1);
             var end = new Date(year, 12, 31);
@@ -267,7 +268,7 @@ public class Tests
             {
                 if (isHoliday(date, out var name))
                 {
-                    builder.AppendLine($"    {name.PadRight(21)} {date.ToString("MMM dd ddd", CultureInfo.InvariantCulture)}");
+                    builder.AppendLine($"    {date.ToString("MMM dd ddd", CultureInfo.InvariantCulture)} - {name}");
                 }
             }
         }
