@@ -60,7 +60,12 @@ public static partial class Holidays
         yield return (easterSunday, "Easter Sunday");
         yield return (easterMonday, "Easter Monday");
 
-        yield return (AnzacDayCalculator.GetAnzacDay(year), "Anzac Day");
+        var anzacDate = AnzacDayCalculator.GetAnzacDay(year);
+        yield return (anzacDate, "Anzac Day");
+        if (anzacDate.DayOfWeek == DayOfWeek.Sunday)
+        {
+            yield return (new(year, April, 26), "Anzac Day (additional)");
+        }
 
         yield return (Extensions.GetFirstMonday(May, year), "Labour Day");
 

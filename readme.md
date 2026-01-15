@@ -21,6 +21,66 @@
  * [Western Australia](https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia)
 
 
+## ANZAC Day Weekend Substitution Rules
+
+ANZAC Day is observed on April 25 each year. However, when April 25 falls on a weekend (Saturday or Sunday), some Australian states and territories provide an additional public holiday on the following Monday. The rules vary significantly by jurisdiction.
+
+
+### Rules by State/Territory
+
+
+#### States with Weekend Substitution
+
+**Western Australia** - Both Saturday and Sunday
+
+- When ANZAC Day falls on Saturday (Apr 25) → Monday (Apr 27) is a public holiday
+- When ANZAC Day falls on Sunday (Apr 25) → Monday (Apr 26) is a public holiday
+- **Established**: 1972 via Public and Bank Holidays Act 1972
+
+**Queensland** - Sunday only
+
+- When ANZAC Day falls on Sunday (Apr 25) → Monday (Apr 26) is observed as the public holiday
+- No substitute when ANZAC Day falls on Saturday
+- **Established**: Holidays Act 1983
+
+**Australian Capital Territory** - Both Saturday and Sunday
+
+- When ANZAC Day falls on Saturday (Apr 25) → Monday (Apr 27) is a public holiday
+- When ANZAC Day falls on Sunday (Apr 25) → Monday (Apr 26) is a public holiday
+- **Established**: Approximately 2020, confirmed for 2026
+
+**Northern Territory** - Sunday only
+
+- When ANZAC Day falls on Sunday (Apr 25) → Monday (Apr 26) is a public holiday
+- No substitute when ANZAC Day falls on Saturday
+- **Reference**: [NT Public Holidays](https://nt.gov.au/nt-public-holidays)
+
+
+#### States Without Substitution
+
+ANZAC Day is always observed on April 25, regardless of the day of the week
+
+ * New South Wales
+ * Victoria
+ * Tasmania
+ * South Australia
+
+
+### Historical Weekend Occurrences
+
+ANZAC Day has fallen on weekends in these years:
+
+- **2004**: Sunday - QLD, NT, WA provided Monday substitute
+- **2009**: Saturday - WA only provided Monday substitute
+- **2010**: Sunday - QLD, NT, WA provided Monday substitute
+- **2015**: Saturday - WA only provided Monday substitute
+- **2020**: Saturday - ACT, WA provided Monday substitute
+- **2021**: Sunday - ACT, QLD, NT, WA provided Monday substitute
+- **2026**: Saturday (upcoming) - ACT, WA will provide Monday substitute
+- **2027**: Sunday (upcoming) - ACT, QLD, NT, WA will provide Monday substitute
+- **2032**: Sunday (future) - ACT, QLD, NT, WA will provide Monday substitute
+
+
 ## NuGet package
 
  * https://nuget.org/packages/AustralianHolidays/
@@ -248,8 +308,8 @@ var md = await Holidays.ExportToMarkdown(state);
 | Easter Saturday                   | `Sat 04 Apr` | `Sat 27 Mar` | `Sat 15 Apr` | `Sat 31 Mar` | `Sat 20 Apr` | 
 | Easter Sunday                     | `Sun 05 Apr` | `Sun 28 Mar` | `Sun 16 Apr` | `Sun 01 Apr` | `Sun 21 Apr` | 
 | Easter Monday                     | `Mon 06 Apr` | `Mon 29 Mar` | `Mon 17 Apr` | `Mon 02 Apr` | `Mon 22 Apr` | 
-| Anzac Day                         |              | `Sun 25 Apr` | `Tue 25 Apr` | `Wed 25 Apr` | `Thu 25 Apr` | 
-| Anzac Day<br>(additional)         | `Mon 27 Apr` |              |              |              |              | 
+| Anzac Day                         | `Sat 25 Apr` | `Sun 25 Apr` | `Tue 25 Apr` | `Wed 25 Apr` | `Thu 25 Apr` | 
+| Anzac Day<br>(additional)         | `Mon 27 Apr` | `Mon 26 Apr` |              |              |              | 
 | Reconciliation Day                | `Mon 01 Jun` | `Mon 31 May` | `Mon 29 May` | `Mon 28 May` | `Mon 27 May` | 
 | King's Birthday                   | `Mon 08 Jun` | `Mon 14 Jun` | `Mon 12 Jun` | `Mon 11 Jun` | `Mon 10 Jun` | 
 | Labour Day                        | `Mon 05 Oct` | `Mon 04 Oct` | `Mon 02 Oct` | `Mon 01 Oct` | `Mon 07 Oct` | 
@@ -295,6 +355,7 @@ var md = await Holidays.ExportToMarkdown(state);
 | Easter Sunday                     | `Sun 05 Apr` | `Sun 28 Mar` | `Sun 16 Apr` | `Sun 01 Apr` | `Sun 21 Apr` | 
 | Easter Monday                     | `Mon 06 Apr` | `Mon 29 Mar` | `Mon 17 Apr` | `Mon 02 Apr` | `Mon 22 Apr` | 
 | Anzac Day                         | `Sat 25 Apr` | `Sun 25 Apr` | `Tue 25 Apr` | `Wed 25 Apr` | `Thu 25 Apr` | 
+| Anzac Day<br>(additional)         |              | `Mon 26 Apr` |              |              |              | 
 | May Day                           | `Mon 04 May` | `Mon 03 May` | `Mon 01 May` | `Mon 07 May` | `Mon 06 May` | 
 | King's Birthday                   | `Mon 08 Jun` | `Mon 14 Jun` | `Mon 12 Jun` | `Mon 11 Jun` | `Mon 10 Jun` | 
 | Picnic Day                        | `Mon 03 Aug` | `Mon 02 Aug` | `Mon 07 Aug` | `Mon 06 Aug` | `Mon 05 Aug` | 
@@ -319,6 +380,7 @@ var md = await Holidays.ExportToMarkdown(state);
 | Easter Sunday                     | `Sun 05 Apr` | `Sun 28 Mar` | `Sun 16 Apr` | `Sun 01 Apr` | `Sun 21 Apr` | 
 | Easter Monday                     | `Mon 06 Apr` | `Mon 29 Mar` | `Mon 17 Apr` | `Mon 02 Apr` | `Mon 22 Apr` | 
 | Anzac Day                         | `Sat 25 Apr` | `Sun 25 Apr` | `Tue 25 Apr` | `Wed 25 Apr` | `Thu 25 Apr` | 
+| Anzac Day<br>(additional)         |              | `Mon 26 Apr` |              |              |              | 
 | Labour Day                        | `Mon 04 May` | `Mon 03 May` | `Mon 01 May` | `Mon 07 May` | `Mon 06 May` | 
 | King's Birthday                   | `Mon 05 Oct` | `Mon 04 Oct` | `Mon 02 Oct` | `Mon 01 Oct` | `Mon 07 Oct` | 
 | Christmas Eve<br>(partial day)    | `Thu 24 Dec` | `Fri 24 Dec` | `Sun 24 Dec` | `Mon 24 Dec` | `Tue 24 Dec` | 

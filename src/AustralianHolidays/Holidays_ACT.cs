@@ -66,14 +66,15 @@ public static partial class Holidays
         yield return (GetReconciliationDay(year), "Reconciliation Day");
 
         var anzacDate = AnzacDayCalculator.GetAnzacDay(year);
-
+        yield return (anzacDate, "Anzac Day");
         if (anzacDate.DayOfWeek == DayOfWeek.Saturday)
         {
             yield return (new(year, April, 27), "Anzac Day (additional)");
         }
-        else
+
+        if (anzacDate.DayOfWeek == DayOfWeek.Sunday)
         {
-            yield return (anzacDate, "Anzac Day");
+            yield return (new(year, April, 26), "Anzac Day (additional)");
         }
 
         var (easterFriday, easterSaturday, easterSunday, easterMonday) = EasterCalculator.ForYear(year);
