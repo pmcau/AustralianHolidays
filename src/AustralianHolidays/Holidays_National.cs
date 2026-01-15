@@ -53,14 +53,10 @@ public static partial class Holidays
         }
 
         var anzacDate = AnzacDayCalculator.GetAnzacDay(year);
-
+        yield return (anzacDate, "Anzac Day");
         if (anzacDate.DayOfWeek == DayOfWeek.Saturday)
         {
             yield return (new(year, April, 27), "Anzac Day (additional)");
-        }
-        else
-        {
-            yield return (anzacDate, "Anzac Day");
         }
 
         var (easterFriday, easterSaturday, easterSunday, easterMonday) = EasterCalculator.ForYear(year);

@@ -7,7 +7,7 @@
 | Easter Saturday                   | `Sat 04 Apr` | `Sat 27 Mar` | `Sat 15 Apr` | `Sat 31 Mar` | `Sat 20 Apr` | 
 | Easter Sunday                     | `Sun 05 Apr` | `Sun 28 Mar` | `Sun 16 Apr` | `Sun 01 Apr` | `Sun 21 Apr` | 
 | Easter Monday                     | `Mon 06 Apr` | `Mon 29 Mar` | `Mon 17 Apr` | `Mon 02 Apr` | `Mon 22 Apr` | 
-| Anzac Day                         |              | `Sun 25 Apr` | `Tue 25 Apr` | `Wed 25 Apr` | `Thu 25 Apr` | 
+| Anzac Day                         | `Sat 25 Apr` | `Sun 25 Apr` | `Tue 25 Apr` | `Wed 25 Apr` | `Thu 25 Apr` | 
 | Anzac Day<br>(additional)         | `Mon 27 Apr` |              |              |              |              | 
 | Christmas Day                     | `Fri 25 Dec` | `Sat 25 Dec` | `Mon 25 Dec` | `Tue 25 Dec` | `Wed 25 Dec` | 
 | Boxing Day                        | `Sat 26 Dec` | `Sun 26 Dec` | `Tue 26 Dec` | `Wed 26 Dec` | `Thu 26 Dec` | 
