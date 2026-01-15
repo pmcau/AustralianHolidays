@@ -1,0 +1,20 @@
+﻿2008 (March Easter)
+   friday: 2008 Mar 21 Fri
+   saturday: 2008 Mar 22 Sat
+   sunday: 2008 Mar 23 Sun
+   monday: 2008 Mar 24 Mon
+2016 (March Easter)
+   friday: 2016 Mar 25 Fri
+   saturday: 2016 Mar 26 Sat
+   sunday: 2016 Mar 27 Sun
+   monday: 2016 Mar 28 Mon
+2024 (March Easter)
+   friday: 2024 Mar 29 Fri
+   saturday: 2024 Mar 30 Sat
+   sunday: 2024 Mar 31 Sun
+   monday: 2024 Apr 01 Mon
+2035 (March Easter)
+   friday: 2035 Mar 23 Fri
+   saturday: 2035 Mar 24 Sat
+   sunday: 2035 Mar 25 Sun
+   monday: 2035 Mar 26 Mon
