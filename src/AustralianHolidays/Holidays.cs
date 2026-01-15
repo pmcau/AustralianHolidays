@@ -128,7 +128,7 @@ public static partial class Holidays
     /// Determines if a given date is a public holiday in a specified state.
     /// </summary>
     public static bool IsHoliday(this Date date, State state) =>
-        IsHoliday(date, state, out _);
+        date.IsHoliday(state, out _);
 
     /// <summary>
     /// Determines if a specific date is a recognized public holiday in a particular state and retrieving the name of the holiday if it is.
@@ -136,14 +136,14 @@ public static partial class Holidays
     public static bool IsHoliday(this Date date, State state, [NotNullWhen(true)] out string? name) =>
         state switch
         {
-            NSW => IsNswHoliday(date, out name),
-            VIC => IsVicHoliday(date, out name),
-            QLD => IsQldHoliday(date, out name),
-            ACT => IsActHoliday(date, out name),
-            NT => IsNtHoliday(date, out name),
-            SA => IsSaHoliday(date, out name),
-            TAS => IsTasHoliday(date, out name),
-            WA => IsWaHoliday(date, out name),
+            NSW => date.IsNswHoliday(out name),
+            VIC => date.IsVicHoliday(out name),
+            QLD => date.IsQldHoliday(out name),
+            ACT => date.IsActHoliday(out name),
+            NT => date.IsNtHoliday(out name),
+            SA => date.IsSaHoliday(out name),
+            TAS => date.IsTasHoliday(out name),
+            WA => date.IsWaHoliday(out name),
             _ => throw new ArgumentOutOfRangeException(nameof(state), state, null)
         };
 
