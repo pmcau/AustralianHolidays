@@ -55,7 +55,7 @@ public class ExportMenuTests : BunitTestContext
             .Add(p => p.StartYear, 2025)
             .Add(p => p.YearCount, 2));
 
-        var label = cut.Find(".export-label");
+        var label = cut.Find(".export-menu label");
         That(label.TextContent, Is.EqualTo("Export:"));
     }
 }
