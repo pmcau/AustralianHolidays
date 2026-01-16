@@ -68,6 +68,104 @@ public class Tests
     }
 
     [Test]
+    public async Task ExportToJson()
+    {
+        #region ExportToJson
+
+        var json = await Holidays.ExportToJson();
+
+        #endregion
+
+        await Verify(json, "json");
+    }
+
+    [TestCaseSource(nameof(GetStates))]
+    public async Task ExportToJson(State state)
+    {
+        #region ExportToJsonState
+
+        var json = await Holidays.ExportToJson(state);
+
+        #endregion
+
+        await Verify(json, "json");
+    }
+
+    [Test]
+    public async Task ExportToXml()
+    {
+        #region ExportToXml
+
+        var xml = await Holidays.ExportToXml();
+
+        #endregion
+
+        await Verify(xml, "xml");
+    }
+
+    [TestCaseSource(nameof(GetStates))]
+    public async Task ExportToXml(State state)
+    {
+        #region ExportToXmlState
+
+        var xml = await Holidays.ExportToXml(state);
+
+        #endregion
+
+        await Verify(xml, "xml");
+    }
+
+    [Test]
+    public async Task ExportToCsv()
+    {
+        #region ExportToCsv
+
+        var csv = await Holidays.ExportToCsv();
+
+        #endregion
+
+        await Verify(csv, "csv");
+    }
+
+    [TestCaseSource(nameof(GetStates))]
+    public async Task ExportToCsv(State state)
+    {
+        #region ExportToCsvState
+
+        var csv = await Holidays.ExportToCsv(state);
+
+        #endregion
+
+        await Verify(csv, "csv");
+    }
+
+    [Test]
+    public async Task ExportToExcel()
+    {
+        #region ExportToExcel
+
+        var bytes = await Holidays.ExportToExcel();
+
+        #endregion
+
+        var stream = new MemoryStream(bytes);
+        await Verify(stream, "xlsx");
+    }
+
+    [TestCaseSource(nameof(GetStates))]
+    public async Task ExportToExcel(State state)
+    {
+        #region ExportToExcelState
+
+        var bytes = await Holidays.ExportToExcel(state);
+
+        #endregion
+
+        var stream = new MemoryStream(bytes);
+        await Verify(stream, "xlsx");
+    }
+
+    [Test]
     public void ForYearsSnippet()
     {
         #region ForYears

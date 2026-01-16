@@ -176,7 +176,7 @@ var date = new Date(2024, 12, 25);
 
 IsTrue(date.IsHoliday(State.NSW));
 ```
-<sup><a href='/src/Tests/Tests.cs#L154-L160' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsHoliday' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L252-L258' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsHoliday' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -193,7 +193,7 @@ IsTrue(date.IsHoliday(State.NSW, out var name));
 
 AreEqual("Christmas Day", name);
 ```
-<sup><a href='/src/Tests/Tests.cs#L191-L199' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsHolidayNamed' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L289-L297' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsHolidayNamed' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -208,7 +208,7 @@ var date = new Date(2024, 12, 25);
 
 IsTrue(date.IsNswHoliday());
 ```
-<sup><a href='/src/Tests/Tests.cs#L179-L185' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsHolidayForState' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L277-L283' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsHolidayForState' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -224,7 +224,7 @@ var date = new Date(2024, 12, 25);
 IsTrue(date.IsNswHoliday(out var name));
 AreEqual("Christmas Day", name);
 ```
-<sup><a href='/src/Tests/Tests.cs#L166-L173' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsHolidayForStateNamed' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L264-L271' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsHolidayForStateNamed' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -241,7 +241,7 @@ foreach (var (date, state, name) in holidays)
     Console.WriteLine($"date: {date}, state: {state}, name: {name}");
 }
 ```
-<sup><a href='/src/Tests/Tests.cs#L73-L81' title='Snippet source file'>snippet source</a> | <a href='#snippet-ForYears' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L171-L179' title='Snippet source file'>snippet source</a> | <a href='#snippet-ForYears' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -258,7 +258,7 @@ foreach (var (date, name) in holidays)
     Console.WriteLine($"date: {date}, name: {name}");
 }
 ```
-<sup><a href='/src/Tests/Tests.cs#L87-L95' title='Snippet source file'>snippet source</a> | <a href='#snippet-ForYearsState' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L185-L193' title='Snippet source file'>snippet source</a> | <a href='#snippet-ForYearsState' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -275,7 +275,7 @@ foreach (var (date, name) in holidays)
     Console.WriteLine($"date: {date}, name: {name}");
 }
 ```
-<sup><a href='/src/Tests/Tests.cs#L101-L109' title='Snippet source file'>snippet source</a> | <a href='#snippet-ForNational' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L199-L207' title='Snippet source file'>snippet source</a> | <a href='#snippet-ForNational' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -290,7 +290,7 @@ foreach (var (date, name) in holidays)
     Console.WriteLine($"date: {date}, name: {name}");
 }
 ```
-<sup><a href='/src/Tests/Tests.cs#L115-L123' title='Snippet source file'>snippet source</a> | <a href='#snippet-ForState' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L213-L221' title='Snippet source file'>snippet source</a> | <a href='#snippet-ForState' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -307,7 +307,7 @@ var result = date.IsFederalGovernmentShutdown();
 
 IsTrue(result);
 ```
-<sup><a href='/src/Tests/Tests.cs#L205-L212' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsFederalGovernmentShutdown' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L303-L310' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsFederalGovernmentShutdown' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -321,7 +321,7 @@ var (start, end) = Holidays.GetFederalGovernmentShutdown(startYear: 2024);
 AreEqual(new Date(2024, 12, 25), start);
 AreEqual(new Date(2025, 1, 1), end);
 ```
-<sup><a href='/src/Tests/Tests.cs#L141-L148' title='Snippet source file'>snippet source</a> | <a href='#snippet-GetFederalGovernmentShutdown' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/Tests.cs#L239-L246' title='Snippet source file'>snippet source</a> | <a href='#snippet-GetFederalGovernmentShutdown' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -580,6 +580,114 @@ var ics = await Holidays.ExportToIcs();
 var ics = await Holidays.ExportToIcs(state);
 ```
 <sup><a href='/src/Tests/Tests.cs#L61-L65' title='Snippet source file'>snippet source</a> | <a href='#snippet-ExportToIcsState' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
+## ExportToJson
+
+Export holidays to JSON format.
+
+
+### National
+
+<!-- snippet: ExportToJson -->
+<a id='snippet-ExportToJson'></a>
+```cs
+var json = await Holidays.ExportToJson();
+```
+<sup><a href='/src/Tests/Tests.cs#L73-L77' title='Snippet source file'>snippet source</a> | <a href='#snippet-ExportToJson' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
+### State
+
+<!-- snippet: ExportToJsonState -->
+<a id='snippet-ExportToJsonState'></a>
+```cs
+var json = await Holidays.ExportToJson(state);
+```
+<sup><a href='/src/Tests/Tests.cs#L85-L89' title='Snippet source file'>snippet source</a> | <a href='#snippet-ExportToJsonState' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
+## ExportToXml
+
+Export holidays to XML format.
+
+
+### National
+
+<!-- snippet: ExportToXml -->
+<a id='snippet-ExportToXml'></a>
+```cs
+var xml = await Holidays.ExportToXml();
+```
+<sup><a href='/src/Tests/Tests.cs#L97-L101' title='Snippet source file'>snippet source</a> | <a href='#snippet-ExportToXml' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
+### State
+
+<!-- snippet: ExportToXmlState -->
+<a id='snippet-ExportToXmlState'></a>
+```cs
+var xml = await Holidays.ExportToXml(state);
+```
+<sup><a href='/src/Tests/Tests.cs#L109-L113' title='Snippet source file'>snippet source</a> | <a href='#snippet-ExportToXmlState' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
+## ExportToCsv
+
+Export holidays to CSV format.
+
+
+### National
+
+<!-- snippet: ExportToCsv -->
+<a id='snippet-ExportToCsv'></a>
+```cs
+var csv = await Holidays.ExportToCsv();
+```
+<sup><a href='/src/Tests/Tests.cs#L121-L125' title='Snippet source file'>snippet source</a> | <a href='#snippet-ExportToCsv' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
+### State
+
+<!-- snippet: ExportToCsvState -->
+<a id='snippet-ExportToCsvState'></a>
+```cs
+var csv = await Holidays.ExportToCsv(state);
+```
+<sup><a href='/src/Tests/Tests.cs#L133-L137' title='Snippet source file'>snippet source</a> | <a href='#snippet-ExportToCsvState' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
+## ExportToExcel
+
+Export holidays to Excel format (.xlsx).
+
+
+### National
+
+<!-- snippet: ExportToExcel -->
+<a id='snippet-ExportToExcel'></a>
+```cs
+var bytes = await Holidays.ExportToExcel();
+```
+<sup><a href='/src/Tests/Tests.cs#L145-L149' title='Snippet source file'>snippet source</a> | <a href='#snippet-ExportToExcel' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
+### State
+
+<!-- snippet: ExportToExcelState -->
+<a id='snippet-ExportToExcelState'></a>
+```cs
+var bytes = await Holidays.ExportToExcel(state);
+```
+<sup><a href='/src/Tests/Tests.cs#L158-L162' title='Snippet source file'>snippet source</a> | <a href='#snippet-ExportToExcelState' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
