@@ -6,8 +6,6 @@ using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.Playwright;
 
-namespace AustralianHolidays.Web.Tests;
-
 [TestFixture]
 public class SnapshotTests
 {
@@ -32,7 +30,8 @@ public class SnapshotTests
         Directory.CreateDirectory(publishPath);
 
         // Publish the Blazor app
-        var publishProcess = System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+        var publishProcess = Process.Start(
+            new ProcessStartInfo
         {
             FileName = "dotnet",
             Arguments = $"publish \"{projectPath}\" -o \"{publishPath}\" -c Release",
