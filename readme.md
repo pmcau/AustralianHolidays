@@ -9,6 +9,12 @@
 
 **The holiday dates provided are based on best efforts to ensure accuracy. However, dates are not guarantee to be correct or up-to-date. Consumers should verify the holiday dates with official sources before relying on them for any critical purposes. The authors and contributors of this project are not responsible for any inaccuracies or any consequences arising from the use of this information.**
 
+
+## NuGet package
+
+ * https://nuget.org/packages/AustralianHolidays/
+
+
 ## Official sources
 
  * [Australian Capital Territory](https://www.cmtedd.act.gov.au/communication/holidays)
@@ -152,11 +158,6 @@ ANZAC Day is always observed on April 25, regardless of the day of the week. No 
 - **2022**: Christmas Sunday, Boxing Day Monday - One additional day (Tue 27)
 - **2026**: Christmas Friday, Boxing Day Saturday - One additional day (Mon 28)
 - **2027**: Christmas Saturday, Boxing Day Sunday - Two additional days (Mon 27, Tue 28)
-
-
-## NuGet package
-
- * https://nuget.org/packages/AustralianHolidays/
 
 
 ## Usage
