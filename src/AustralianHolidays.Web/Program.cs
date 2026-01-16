@@ -13,7 +13,6 @@ builder.Services
     {
         BaseAddress = new(builder.HostEnvironment.BaseAddress)
     });
-builder.Services.AddScoped<GeolocationService>();
 builder.Services.AddScoped<StatePreferenceService>();
 builder.Services.AddScoped<HolidayFilterService>();
 builder.Services.AddScoped<FileDownloadService>();

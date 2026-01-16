@@ -1,4 +1,6 @@
-﻿<div class="controls"><div class="state-selector"><label>States:</label>
+﻿
+
+<div class="controls"><div class="state-selector"><label>States:</label>
     <div class="state-buttons"><button class="state-btn selected" blazor:onclick="1">All</button><button class="state-btn selected" blazor:onclick="2">ACT</button><button class="state-btn selected" blazor:onclick="3">NSW</button><button class="state-btn selected" blazor:onclick="4">NT</button><button class="state-btn selected" blazor:onclick="5">QLD</button><button class="state-btn selected" blazor:onclick="6">SA</button><button class="state-btn selected" blazor:onclick="7">TAS</button><button class="state-btn selected" blazor:onclick="8">VIC</button><button class="state-btn selected" blazor:onclick="9">WA</button></div></div></div>
 <div class="controls"><div class="export-menu"><span class="export-label">Export:</span>
     <button class="export-btn" blazor:onclick="10">JSON</button>

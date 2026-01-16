@@ -9,16 +9,16 @@
 
     bool AllSelected => SelectedStates.Count == AllStates.Length;
 
-    async Task ToggleAll()
+    Task ToggleAll()
     {
         var newSelection = AllSelected
             ? new HashSet<State>()
             : new HashSet<State>(AllStates);
 
-        await SelectedStatesChanged.InvokeAsync(newSelection);
+        return SelectedStatesChanged.InvokeAsync(newSelection);
     }
 
-    async Task ToggleState(State state)
+    Task ToggleState(State state)
     {
         var newSelection = new HashSet<State>(SelectedStates);
 
@@ -31,7 +31,7 @@
             newSelection.Add(state);
         }
 
-        await SelectedStatesChanged.InvokeAsync(newSelection);
+        return SelectedStatesChanged.InvokeAsync(newSelection);
     }
 }
 

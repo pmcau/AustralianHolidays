@@ -5,7 +5,6 @@ namespace AustralianHolidays.Web.Services;
 public class StatePreferenceService(IJSRuntime jsRuntime)
 {
     const string StateKey = "selectedState";
-    const string PromptedKey = "locationPrompted";
 
     public async Task<State?> GetSavedStateAsync()
     {
@@ -29,13 +28,4 @@ public class StatePreferenceService(IJSRuntime jsRuntime)
             await jsRuntime.InvokeVoidAsync("statePreference.remove", StateKey);
         }
     }
-
-    public async Task<bool> HasBeenPromptedAsync()
-    {
-        var value = await jsRuntime.InvokeAsync<string?>("statePreference.get", PromptedKey);
-        return value == "true";
-    }
-
-    public async Task SetPromptedAsync() =>
-        await jsRuntime.InvokeVoidAsync("statePreference.set", PromptedKey, "true");
 }

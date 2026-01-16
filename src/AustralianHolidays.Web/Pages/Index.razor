@@ -3,11 +3,6 @@
 
 <PageTitle>Australian Holidays</PageTitle>
 
-@if (showLocationPrompt)
-{
-    <LocationPrompt OnStateDetected="OnStateDetected" OnDismissed="OnLocationDismissed" />
-}
-
 <div class="controls">
     <StateSelector SelectedStates="selectedStates" SelectedStatesChanged="OnStatesChanged" />
 </div>
@@ -22,9 +17,8 @@
 @code {
     HashSet<State> selectedStates = new(Enum.GetValues<State>());
     IReadOnlyList<HolidayViewModel>? holidays;
-    bool showLocationPrompt;
-    DateOnly startDate;
-    DateOnly endDate;
+    Date startDate;
+    Date endDate;
     int startYear;
     int yearCount;
 
@@ -38,11 +32,6 @@
         if (savedState.HasValue)
         {
             selectedStates = [savedState.Value];
-        }
-        else
-        {
-            var hasBeenPrompted = await StatePreferenceService.HasBeenPromptedAsync();
-            showLocationPrompt = !hasBeenPrompted;
         }
 
         LoadHolidays();
@@ -62,22 +51,6 @@
         }
 
         LoadHolidays();
-    }
-
-    void OnStateDetected(State? state)
-    {
-        if (state.HasValue)
-        {
-            selectedStates = [state.Value];
-        }
-
-        showLocationPrompt = false;
-        LoadHolidays();
-    }
-
-    void OnLocationDismissed()
-    {
-        showLocationPrompt = false;
     }
 
     void LoadHolidays()

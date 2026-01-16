@@ -16,7 +16,6 @@ public class IndexTests : BunitTestContext
     public Task LayoutStructure()
     {
         JSInterop.Setup<string?>("statePreference.get", "selectedState").SetResult(null);
-        JSInterop.Setup<string?>("statePreference.get", "locationPrompted").SetResult("true");
 
         var cut = Render<AustralianHolidays.Web.Pages.Index>();
 

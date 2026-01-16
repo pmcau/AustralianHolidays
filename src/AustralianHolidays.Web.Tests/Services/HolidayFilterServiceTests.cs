@@ -15,7 +15,7 @@ public class HolidayFilterServiceTests
     }
 
     [Test]
-    public void GetHolidays_WithEmptyStates_ReturnsHolidaysForAllStates()
+    public void GetHolidays_WithEmptyStates_ReturnsEmptyList()
     {
         var startDate = new Date(2025, 1, 1);
         var endDate = new Date(2025, 12, 31);
@@ -23,10 +23,7 @@ public class HolidayFilterServiceTests
 
         var holidays = HolidayFilterService.GetHolidays(states, startDate, endDate);
 
-        That(holidays, Is.Not.Empty);
-
-        var returnedStates = holidays.SelectMany(h => h.States).Distinct().ToList();
-        That(returnedStates.Count, Is.GreaterThan(1));
+        That(holidays, Is.Empty);
     }
 
     [Test]

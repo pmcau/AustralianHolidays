@@ -4,6 +4,11 @@ public class HolidayFilterService
 {
     public static IReadOnlyList<HolidayViewModel> GetHolidays(IReadOnlySet<State> states, Date startDate, Date endDate)
     {
+        if (states.Count == 0)
+        {
+            return [];
+        }
+
         var startYear = startDate.Year;
         var endYear = endDate.Year;
         var yearCount = endYear - startYear + 1;
@@ -12,7 +17,7 @@ public class HolidayFilterService
 
         foreach (var (date, holidayState, name) in Holidays.ForYears(startYear, yearCount))
         {
-            if (date >= startDate && date <= endDate && (states.Count == 0 || states.Contains(holidayState)))
+            if (date >= startDate && date <= endDate && states.Contains(holidayState))
             {
                 holidays.Add((date, holidayState, name));
             }

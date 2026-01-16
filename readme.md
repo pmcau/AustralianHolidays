@@ -13,7 +13,8 @@
  * https://nuget.org/packages/AustralianHolidays/
 
 
-<!-- include: holiday-logic. path: /holiday-logic.include.md -->
+## Disclaimer<!-- include: holiday-logic. path: /holiday-logic.include.md -->
+
 **The holiday dates provided are based on best efforts to ensure accuracy. However, dates are not guarantee to be correct or up-to-date. Consumers should verify the holiday dates with official sources before relying on them for any critical purposes. The authors and contributors of this project are not responsible for any inaccuracies or any consequences arising from the use of this information.**
 
 
@@ -60,16 +61,6 @@ When public holidays fall on weekends, Australian states and territories have di
 - **Important**: This is **substitution**, not additional - the actual January 26 date is NOT a public holiday when it falls on a weekend, only the Monday substitute counts
 - This is consistent across all Australian states and territories
 
-**References:**
-- NSW: "there will be no public holiday on that day and instead the following Monday is to be the public holiday" - [NSW Public Holidays](https://www.nsw.gov.au/about-nsw/public-holidays)
-- WA: "the first Monday following 26 January is the public holiday" - [WA Public Holidays](https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia)
-- QLD: "it shall be observed the following Monday" - [QLD Public Holidays](https://www.qld.gov.au/recreation/travel/holidays/public)
-
-**Historical Weekend Occurrences**:
-
-- **2025**: Sunday - Jan 27 (Mon) was the observed holiday
-- **2030**: Saturday (upcoming) - Jan 28 (Mon) will be the observed holiday
-
 
 ### ANZAC Day (April 25)
 
@@ -85,37 +76,33 @@ ANZAC Day is observed on April 25 each year. When April 25 falls on a weekend (S
 - When ANZAC Day falls on Saturday (Apr 25) → Monday (Apr 27) is "Anzac Day (additional)"
 - When ANZAC Day falls on Sunday (Apr 25) → Monday (Apr 26) is "Anzac Day (additional)"
 - **Established**: 1972 via Public and Bank Holidays Act 1972
-- **Reference**: [WA Public Holidays](https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia)
 
 **Queensland** - Sunday only
 
 - When ANZAC Day falls on Sunday (Apr 25) → Monday (Apr 26) is "Anzac Day (additional)"
 - No substitute when ANZAC Day falls on Saturday
 - **Established**: Holidays Act 1983
-- **Reference**: [QLD Public Holidays](https://www.qld.gov.au/recreation/travel/holidays/public)
 
 **Australian Capital Territory** - Both Saturday and Sunday
 
 - When ANZAC Day falls on Saturday (Apr 25) → Monday (Apr 27) is "Anzac Day (additional)"
 - When ANZAC Day falls on Sunday (Apr 25) → Monday (Apr 26) is "Anzac Day (additional)"
 - **Established**: Approximately 2020, confirmed for 2026
-- **Reference**: [ACT Public Holidays](https://www.cmtedd.act.gov.au/communication/holidays)
 
 **Northern Territory** - Sunday only
 
 - When ANZAC Day falls on Sunday (Apr 25) → Monday (Apr 26) is "Anzac Day (additional)"
 - No substitute when ANZAC Day falls on Saturday
-- **Reference**: [NT Public Holidays](https://nt.gov.au/nt-public-holidays)
 
 
 #### States Without Additional Day
 
 ANZAC Day is always observed on April 25, regardless of the day of the week. No additional Monday holiday is provided when April 25 falls on a weekend.
 
- * New South Wales - [Reference](https://www.nsw.gov.au/about-nsw/public-holidays)
- * Victoria - [Reference](https://business.vic.gov.au/business-information/public-holidays/victorian-public-holidays-2025)
- * Tasmania - [Reference](https://worksafe.tas.gov.au/topics/laws-and-compliance/public-holidays)
- * South Australia - [Reference](https://www.safework.sa.gov.au/resources/public-holidays)
+ * New South Wales
+ * Victoria
+ * Tasmania
+ * South Australia
 
 
 **Historical Weekend Occurrences**:
@@ -151,15 +138,7 @@ ANZAC Day is always observed on April 25, regardless of the day of the week. No 
   - If Dec 26 is a weekday → "Proclamation and Boxing Day"
   - If Dec 26 is Saturday → "Proclamation Day" + Monday Dec 28 "Proclamation Day (additional)"
   - If Dec 26 is Sunday → "Proclamation Day" + Monday Dec 27 "Proclamation Day (additional)"
-- Note: Only one additional day even when Christmas is also on weekend
-- **Reference**: [SA Public Holidays](https://www.safework.sa.gov.au/resources/public-holidays)
-
-**Historical Weekend Occurrences**:
-
-- **2021**: Christmas Saturday, Boxing Day Sunday - Two additional days (Mon 27, Tue 28)
-- **2022**: Christmas Sunday, Boxing Day Monday - One additional day (Tue 27)
-- **2026**: Christmas Friday, Boxing Day Saturday - One additional day (Mon 28)
-- **2027**: Christmas Saturday, Boxing Day Sunday - Two additional days (Mon 27, Tue 28)<!-- endInclude -->
+- Note: Only one additional day even when Christmas is also on weekend<!-- endInclude -->
 
 
 ## Usage
