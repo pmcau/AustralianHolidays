@@ -1,5 +1,9 @@
 ﻿public static class ModuleInitializer
 {
     [ModuleInitializer]
-    public static void Init() => VerifierSettings.InitializePlugins();
+    public static void Init()
+    {
+        VerifyDiffPlex.Initialize(OutputType.Compact);
+        VerifierSettings.InitializePlugins();
+    }
 }

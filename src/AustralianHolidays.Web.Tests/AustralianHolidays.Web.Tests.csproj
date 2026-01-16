@@ -11,6 +11,7 @@
     <PackageReference Include="NUnit3TestAdapter" />
     <PackageReference Include="ProjectDefaults" PrivateAssets="all" />
     <PackageReference Include="Verify.Bunit" />
+    <PackageReference Include="Verify.DiffPlex" />
     <PackageReference Include="Verify.NUnit" />
   </ItemGroup>
 
