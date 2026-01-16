@@ -10,8 +10,4 @@
     <ProjectReference Include="..\AustralianHolidays\AustralianHolidays.csproj" />
   </ItemGroup>
 
-  <Target Name="ConvertHolidayLogicToHtml" BeforeTargets="BeforeBuild;BeforePublish">
-    <Exec Command="dotnet run --project &quot;$(SolutionDir)\MarkdownConverter\MarkdownConverter.csproj&quot; -- &quot;$(MSBuildProjectDirectory)\..\..\holiday-logic.include.md&quot; &quot;$(MSBuildProjectDirectory)\wwwroot\holiday-logic.html&quot; &quot;$(MSBuildProjectDirectory)\wwwroot\holiday-logic-collapsible.html&quot; &quot;## Public Holiday Substitution Rules&quot;" />
-  </Target>
-
 </Project>
