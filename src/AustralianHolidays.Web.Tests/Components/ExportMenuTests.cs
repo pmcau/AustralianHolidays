@@ -1,5 +1,3 @@
-using AustralianHolidays.Web.Tests;
-
 [TestFixture]
 public class ExportMenuTests : BunitTestContext
 {

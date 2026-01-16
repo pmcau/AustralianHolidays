@@ -496,7 +496,7 @@ var md = await Holidays.ExportToMarkdown(state);
 | Easter Monday                     | `Mon 06 Apr` | `Mon 29 Mar` | `Mon 17 Apr` | `Mon 02 Apr` | `Mon 22 Apr` | 
 | Anzac Day                         | `Sat 25 Apr` | `Sun 25 Apr` | `Tue 25 Apr` | `Wed 25 Apr` | `Thu 25 Apr` | 
 | King's Birthday                   | `Mon 08 Jun` | `Mon 14 Jun` | `Mon 12 Jun` | `Mon 11 Jun` | `Mon 10 Jun` | 
-| Friday before AFL Grand Final<br>(Subject to AFL schedule) | `Fri 25 Sep` | `Fri 24 Sep` | `Fri 29 Sep` | `Fri 28 Sep` | `Fri 27 Sep` | 
+| Friday before AFL Final<br>(Subject to AFL schedule) | `Fri 25 Sep` | `Fri 24 Sep` | `Fri 29 Sep` | `Fri 28 Sep` | `Fri 27 Sep` | 
 | Melbourne Cup Day                 | `Tue 03 Nov` | `Tue 02 Nov` | `Tue 07 Nov` | `Tue 06 Nov` | `Tue 05 Nov` | 
 | Christmas Day                     | `Fri 25 Dec` | `Sat 25 Dec` | `Mon 25 Dec` | `Tue 25 Dec` | `Wed 25 Dec` | 
 | Boxing Day                        | `Sat 26 Dec` | `Sun 26 Dec` | `Tue 26 Dec` | `Wed 26 Dec` | `Thu 26 Dec` | 

@@ -1,5 +1,3 @@
-using System.Xml;
-
 namespace AustralianHolidays;
 
 public static partial class Holidays

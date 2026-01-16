@@ -18,7 +18,7 @@
   <Holiday Date="2026-06-08" State="NSW" Name="King's Birthday" />
   <Holiday Date="2026-06-08" State="VIC" Name="King's Birthday" />
   <Holiday Date="2026-08-03" State="NSW" Name="Bank Holiday" />
-  <Holiday Date="2026-09-25" State="VIC" Name="Friday before AFL Grand Final (Subject to AFL schedule)" />
+  <Holiday Date="2026-09-25" State="VIC" Name="Friday before AFL Final (Subject to AFL schedule)" />
   <Holiday Date="2026-10-05" State="NSW" Name="Labour Day" />
   <Holiday Date="2026-11-03" State="VIC" Name="Melbourne Cup Day" />
   <Holiday Date="2026-12-25" State="NSW" Name="Christmas Day" />
@@ -45,7 +45,7 @@
   <Holiday Date="2027-06-14" State="NSW" Name="King's Birthday" />
   <Holiday Date="2027-06-14" State="VIC" Name="King's Birthday" />
   <Holiday Date="2027-08-02" State="NSW" Name="Bank Holiday" />
-  <Holiday Date="2027-09-24" State="VIC" Name="Friday before AFL Grand Final (Subject to AFL schedule)" />
+  <Holiday Date="2027-09-24" State="VIC" Name="Friday before AFL Final (Subject to AFL schedule)" />
   <Holiday Date="2027-10-04" State="NSW" Name="Labour Day" />
   <Holiday Date="2027-11-02" State="VIC" Name="Melbourne Cup Day" />
   <Holiday Date="2027-12-25" State="NSW" Name="Christmas Day" />
@@ -75,7 +75,7 @@
   <Holiday Date="2028-06-12" State="NSW" Name="King's Birthday" />
   <Holiday Date="2028-06-12" State="VIC" Name="King's Birthday" />
   <Holiday Date="2028-08-07" State="NSW" Name="Bank Holiday" />
-  <Holiday Date="2028-09-29" State="VIC" Name="Friday before AFL Grand Final (Subject to AFL schedule)" />
+  <Holiday Date="2028-09-29" State="VIC" Name="Friday before AFL Final (Subject to AFL schedule)" />
   <Holiday Date="2028-10-02" State="NSW" Name="Labour Day" />
   <Holiday Date="2028-11-07" State="VIC" Name="Melbourne Cup Day" />
   <Holiday Date="2028-12-25" State="NSW" Name="Christmas Day" />
@@ -100,7 +100,7 @@
   <Holiday Date="2029-06-11" State="NSW" Name="King's Birthday" />
   <Holiday Date="2029-06-11" State="VIC" Name="King's Birthday" />
   <Holiday Date="2029-08-06" State="NSW" Name="Bank Holiday" />
-  <Holiday Date="2029-09-28" State="VIC" Name="Friday before AFL Grand Final (Subject to AFL schedule)" />
+  <Holiday Date="2029-09-28" State="VIC" Name="Friday before AFL Final (Subject to AFL schedule)" />
   <Holiday Date="2029-10-01" State="NSW" Name="Labour Day" />
   <Holiday Date="2029-11-06" State="VIC" Name="Melbourne Cup Day" />
   <Holiday Date="2029-12-25" State="NSW" Name="Christmas Day" />
@@ -125,7 +125,7 @@
   <Holiday Date="2030-06-10" State="NSW" Name="King's Birthday" />
   <Holiday Date="2030-06-10" State="VIC" Name="King's Birthday" />
   <Holiday Date="2030-08-05" State="NSW" Name="Bank Holiday" />
-  <Holiday Date="2030-09-27" State="VIC" Name="Friday before AFL Grand Final (Subject to AFL schedule)" />
+  <Holiday Date="2030-09-27" State="VIC" Name="Friday before AFL Final (Subject to AFL schedule)" />
   <Holiday Date="2030-10-07" State="NSW" Name="Labour Day" />
   <Holiday Date="2030-11-05" State="VIC" Name="Melbourne Cup Day" />
   <Holiday Date="2030-12-25" State="NSW" Name="Christmas Day" />
