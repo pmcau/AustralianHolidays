@@ -372,7 +372,7 @@
   {
     Item1: 2024-09-27,
     Item2: VIC,
-    Item3: Friday before AFL Grand Final (Subject to AFL schedule)
+    Item3: Friday before AFL Grand Final
   },
   {
     Item1: 2024-10-07,

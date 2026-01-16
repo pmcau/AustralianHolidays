@@ -33,6 +33,35 @@ public static partial class Holidays
                 BuildVicHolidays(year)
                     .ToFrozenDictionary(_ => _.date, _ => _.name));
 
+    static (Date date, string name) GetAflGrandFinalFriday(int year)
+    {
+        // Actual historical dates for AFL Grand Final Friday holiday
+        // Source: https://publicholidays.com.au/afl-grand-final-holiday/
+        var historicalDates = new Dictionary<int, (int month, int day)>
+        {
+            { 2015, (10, 2) },   // Grand Final: Oct 3, 2015 (first Saturday in October)
+            { 2016, (9, 30) },   // Grand Final: Oct 1, 2016
+            { 2017, (9, 29) },   // Grand Final: Sep 30, 2017
+            { 2018, (9, 28) },   // Grand Final: Sep 29, 2018
+            { 2019, (9, 27) },   // Grand Final: Sep 28, 2019
+            { 2020, (10, 23) },  // Grand Final: Oct 24, 2020 (COVID - played in Brisbane)
+            { 2021, (9, 24) },   // Grand Final: Sep 25, 2021 (COVID - played in Perth)
+            { 2022, (9, 23) },   // Grand Final: Sep 24, 2022
+            { 2023, (9, 29) },   // Grand Final: Sep 30, 2023
+            { 2024, (9, 27) }    // Grand Final: Sep 28, 2024
+        };
+
+        if (historicalDates.TryGetValue(year, out var dateInfo))
+        {
+            // Use actual historical date (no disclaimer needed)
+            return (new(year, dateInfo.month, dateInfo.day), "Friday before AFL Grand Final");
+        }
+
+        // For future years, use heuristic (last Friday of September) with disclaimer
+        var lastFridayOfSeptember = Extensions.GetLastFriday(September, year);
+        return (lastFridayOfSeptember, "Friday before AFL Grand Final (Subject to AFL schedule)");
+    }
+
     static IEnumerable<(Date date, string name)> BuildVicHolidays(int year)
     {
         yield return (new(year, January, 1), "New Year's Day");
@@ -66,7 +95,9 @@ public static partial class Holidays
 
         yield return MonarchBirthdayCalculator.GetMonarchBirthday(year);
 
-        yield return (Extensions.GetLastFriday(September, year), "Friday before AFL Grand Final (Subject to AFL schedule)");
+        // AFL Grand Final Friday - use actual historical dates where known
+        var (aflFriday, aflName) = GetAflGrandFinalFriday(year);
+        yield return (aflFriday, aflName);
         yield return (Extensions.GetFirstTuesday(November, year), "Melbourne Cup Day");
 
         foreach (var date in ChristmasCalculator.Get(year))
