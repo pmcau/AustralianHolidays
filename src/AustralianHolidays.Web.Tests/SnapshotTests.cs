@@ -1,9 +1,10 @@
+using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.Extensions.Logging;
 using Microsoft.Playwright;
 
 [TestFixture]
@@ -19,42 +20,37 @@ public class SnapshotTests
     {
         _port = GetAvailablePort();
 
-        // Use published output which has complete Blazor WASM package
         var projectPath = Path.GetFullPath(
             Path.Combine(
                 AppContext.BaseDirectory,
                 "..", "..", "..", "..",
                 "AustralianHolidays.Web"));
 
-        var publishPath = Path.Combine(Path.GetTempPath(), "BlazorSnapshotTest", Guid.NewGuid().ToString());
+        var publishPath = Path.Combine(Path.GetTempPath(), "BlazorSnapshotTest");
         Directory.CreateDirectory(publishPath);
 
         // Publish the Blazor app
         var publishProcess = Process.Start(
             new ProcessStartInfo
-        {
-            FileName = "dotnet",
-            Arguments = $"publish \"{projectPath}\" -o \"{publishPath}\" -c Release",
-            UseShellExecute = false,
-            RedirectStandardOutput = true,
-            RedirectStandardError = true
-        });
+            {
+                FileName = "dotnet",
+                Arguments = $"publish \"{projectPath}\" -o \"{publishPath}\"",
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+                RedirectStandardError = true
+            });
         await publishProcess!.WaitForExitAsync();
 
         var wwwrootPath = Path.Combine(publishPath, "wwwroot");
 
         var builder = WebApplication.CreateBuilder();
         builder.WebHost.UseUrls($"http://localhost:{_port}");
+        builder.Logging.ClearProviders();
 
         _app = builder.Build();
 
-        // Configure MIME types for Blazor WASM
         var contentTypeProvider = new FileExtensionContentTypeProvider();
-        contentTypeProvider.Mappings[".dll"] = "application/octet-stream";
         contentTypeProvider.Mappings[".wasm"] = "application/wasm";
-        contentTypeProvider.Mappings[".dat"] = "application/octet-stream";
-        contentTypeProvider.Mappings[".blat"] = "application/octet-stream";
-        contentTypeProvider.Mappings[".webcil"] = "application/octet-stream";
 
         var fileProvider = new PhysicalFileProvider(wwwrootPath);
 
@@ -66,11 +62,7 @@ public class SnapshotTests
             ServeUnknownFileTypes = true
         });
 
-        // Handle SPA fallback for Blazor routing
-        _app.MapFallbackToFile("index.html", new StaticFileOptions
-        {
-            FileProvider = fileProvider
-        });
+        _app.MapFallbackToFile("index.html", new StaticFileOptions { FileProvider = fileProvider });
 
         await _app.StartAsync();
 
