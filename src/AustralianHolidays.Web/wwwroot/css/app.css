@@ -333,3 +333,62 @@ footer a:hover {
         padding: 0.5rem;
     }
 }
+
+.holiday-logic-info {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    line-height: 1.6;
+}
+
+.holiday-logic-info h2 {
+    color: var(--primary-color);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.holiday-logic-info h2:first-child {
+    margin-top: 0;
+}
+
+.holiday-logic-info h3 {
+    color: var(--primary-color);
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.holiday-logic-info h4 {
+    color: var(--text-color);
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.holiday-logic-info p {
+    margin-bottom: 1rem;
+}
+
+.holiday-logic-info ul {
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+}
+
+.holiday-logic-info li {
+    margin-bottom: 0.5rem;
+}
+
+.holiday-logic-info a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.holiday-logic-info a:hover {
+    text-decoration: underline;
+}
+
+.holiday-logic-info strong {
+    color: var(--primary-color);
+}

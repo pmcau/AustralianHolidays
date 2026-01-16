@@ -16,6 +16,8 @@
 
 <HolidayList Holidays="holidays" ShowStateColumn="@(!selectedState.HasValue)" />
 
+<HolidayLogicInfo />
+
 @code {
     State? selectedState;
     IReadOnlyList<HolidayViewModel>? holidays;

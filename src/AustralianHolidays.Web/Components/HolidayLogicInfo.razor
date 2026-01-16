@@ -1,0 +1,25 @@
+@inject HttpClient Http
+
+@if (!string.IsNullOrEmpty(htmlContent))
+{
+    <div class="holiday-logic-info">
+        @((MarkupString)htmlContent)
+    </div>
+}
+
+@code {
+    string? htmlContent;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var markdown = await Http.GetStringAsync("holiday-logic.md");
+            htmlContent = Markdig.Markdown.ToHtml(markdown);
+        }
+        catch
+        {
+            htmlContent = null;
+        }
+    }
+}
