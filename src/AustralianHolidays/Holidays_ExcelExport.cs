@@ -229,6 +229,7 @@ public static partial class Holidays
             {
                 // Inject holiday data into sheet XML
                 await using var entryStream = outputEntry.Open();
+                // ReSharper disable once PossibleMultipleEnumeration
                 await WriteSheetXmlMultiState(entryStream, forYears);
             }
             else
