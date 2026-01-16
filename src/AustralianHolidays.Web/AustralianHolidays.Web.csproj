@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Markdig.Signed" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" />
+    <PackageReference Include="ProjectDefaults" PrivateAssets="all" />
+    <ProjectReference Include="..\AustralianHolidays\AustralianHolidays.csproj" />
+  </ItemGroup>
+
+  <Target Name="CopyHolidayLogicMarkdown" BeforeTargets="BeforeBuild;BeforePublish">
+    <Copy SourceFiles="$(MSBuildProjectDirectory)\..\..\holiday-logic.include.md" DestinationFiles="$(MSBuildProjectDirectory)\wwwroot\holiday-logic.md" SkipUnchangedFiles="true" />
+  </Target>
+
+</Project>

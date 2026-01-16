@@ -465,4 +465,118 @@ public class Tests
 
     public static IEnumerable<State> GetStates() =>
         Enum.GetValues<State>();
+
+    static readonly State[] multipleStates = [State.NSW, State.VIC];
+
+    [Test]
+    public async Task ExportToJsonMultiState()
+    {
+        var json = await Holidays.ExportToJson(multipleStates);
+        await Verify(json, "json");
+    }
+
+    [Test]
+    public async Task ExportToJsonMultiStatePath()
+    {
+        using var path = new TempFile();
+        await Holidays.ExportToJson(path, multipleStates);
+        var json = await File.ReadAllTextAsync(path);
+        await Verify(json, "json");
+    }
+
+    [Test]
+    public async Task ExportToCsvMultiState()
+    {
+        var csv = await Holidays.ExportToCsv(multipleStates);
+        await Verify(csv, "csv");
+    }
+
+    [Test]
+    public async Task ExportToCsvMultiStatePath()
+    {
+        using var path = new TempFile();
+        await Holidays.ExportToCsv(path, multipleStates);
+        var csv = await File.ReadAllTextAsync(path);
+        await Verify(csv, "csv");
+    }
+
+    [Test]
+    public async Task ExportToXmlMultiState()
+    {
+        var xml = await Holidays.ExportToXml(multipleStates);
+        await Verify(xml, "xml");
+    }
+
+    [Test]
+    public async Task ExportToXmlMultiStatePath()
+    {
+        using var path = new TempFile();
+        await Holidays.ExportToXml(path, multipleStates);
+        var xml = await File.ReadAllTextAsync(path);
+        await Verify(xml, "xml");
+    }
+
+    [Test]
+    public async Task ExportToMarkdownMultiState()
+    {
+        var md = await Holidays.ExportToMarkdown(multipleStates);
+        await Verify(md, "md");
+    }
+
+    [Test]
+    public async Task ExportToIcsMultiState()
+    {
+        var ics = await Holidays.ExportToIcs(multipleStates);
+        await Verify(ics, "ics");
+    }
+
+    [Test]
+    public async Task ExportToExcelMultiState()
+    {
+        var bytes = await Holidays.ExportToExcel(multipleStates);
+        var stream = new MemoryStream(bytes);
+        await Verify(stream, "xlsx");
+    }
+
+    [Test]
+    public async Task ExportToExcelMultiStatePath()
+    {
+        using var path = new TempFile();
+        await Holidays.ExportToExcel(path, multipleStates);
+        var bytes = await File.ReadAllBytesAsync(path);
+        var stream = new MemoryStream(bytes);
+        await Verify(stream, "xlsx");
+    }
+
+    [Test]
+    public async Task ExportToJsonAllStates()
+    {
+        var allStates = Enum.GetValues<State>();
+        var json = await Holidays.ExportToJson(allStates);
+        await Verify(json, "json");
+    }
+
+    [Test]
+    public async Task ExportToCsvAllStates()
+    {
+        var allStates = Enum.GetValues<State>();
+        var csv = await Holidays.ExportToCsv(allStates);
+        await Verify(csv, "csv");
+    }
+
+    [Test]
+    public async Task ExportToJsonEmptyStates()
+    {
+        var emptyStates = Array.Empty<State>();
+        var json = await Holidays.ExportToJson(emptyStates);
+        await Verify(json, "json");
+    }
+
+    [Test]
+    public async Task ExportToCsvEmptyStates()
+    {
+        var emptyStates = Array.Empty<State>();
+        var csv = await Holidays.ExportToCsv(emptyStates);
+        await Verify(csv, "csv");
+    }
 }

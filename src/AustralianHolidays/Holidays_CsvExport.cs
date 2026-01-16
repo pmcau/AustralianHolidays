@@ -87,6 +87,52 @@ public static partial class Holidays
         await ExportToCsv(writer, state, startYear, yearCount);
     }
 
+    /// <summary>
+    /// Exports public holidays for multiple states to CSV format.
+    /// </summary>
+    /// <param name="states">The Australian states to export holidays for.</param>
+    /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
+    /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    /// <returns>A string containing the CSV-formatted holiday data with Date, State, and Name columns.</returns>
+    public static async Task<string> ExportToCsv(IEnumerable<State> states, int? startYear = null, int yearCount = 5)
+    {
+        var builder = new StringBuilder();
+        await using (var writer = new StringWriter(builder))
+        {
+            await ExportToCsv(writer, states, startYear, yearCount);
+        }
+
+        return builder.ToString();
+    }
+
+    /// <summary>
+    /// Exports public holidays for multiple states to CSV format, writing to a TextWriter.
+    /// </summary>
+    /// <param name="writer">The TextWriter to write the CSV output to.</param>
+    /// <param name="states">The Australian states to export holidays for.</param>
+    /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
+    /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    public static Task ExportToCsv(TextWriter writer, IEnumerable<State> states, int? startYear = null, int yearCount = 5)
+    {
+        var stateSet = states as IReadOnlySet<State> ?? states.ToHashSet();
+        var forYears = ForYears(startYear, yearCount)
+            .Where(h => stateSet.Count == 0 || stateSet.Contains(h.state));
+        return ToCsvMultiState(writer, forYears);
+    }
+
+    /// <summary>
+    /// Exports public holidays for multiple states to a CSV file.
+    /// </summary>
+    /// <param name="path">The file path where the CSV data will be written.</param>
+    /// <param name="states">The Australian states to export holidays for.</param>
+    /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
+    /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    public static async Task ExportToCsv(string path, IEnumerable<State> states, int? startYear = null, int yearCount = 5)
+    {
+        await using var writer = File.CreateText(path);
+        await ExportToCsv(writer, states, startYear, yearCount);
+    }
+
     static async Task ToCsv(TextWriter writer, IOrderedEnumerable<(Date date, string name)> forYears)
     {
         await writer.WriteLineAsync("Date,Name");
@@ -96,6 +142,18 @@ public static partial class Holidays
                 ? $"\"{name.Replace("\"", "\"\"")}\""
                 : name;
             await writer.WriteLineAsync($"{date.ToString("yyyy-MM-dd")},{escapedName}");
+        }
+    }
+
+    static async Task ToCsvMultiState(TextWriter writer, IEnumerable<(Date date, State state, string name)> forYears)
+    {
+        await writer.WriteLineAsync("Date,State,Name");
+        foreach (var (date, state, name) in forYears)
+        {
+            var escapedName = name.Contains(',') || name.Contains('"')
+                ? $"\"{name.Replace("\"", "\"\"")}\""
+                : name;
+            await writer.WriteLineAsync($"{date.ToString("yyyy-MM-dd")},{state},{escapedName}");
         }
     }
 }

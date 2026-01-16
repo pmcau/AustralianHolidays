@@ -10,6 +10,8 @@
     <File Path="global.json" />
     <File Path="mdsnippets.json" />
   </Folder>
+  <Project Path="AustralianHolidays.Web.Tests/AustralianHolidays.Web.Tests.csproj" />
+  <Project Path="AustralianHolidays.Web/AustralianHolidays.Web.csproj" />
   <Project Path="AustralianHolidays/AustralianHolidays.csproj" />
   <Project Path="Tests/Tests.csproj" />
 </Solution>

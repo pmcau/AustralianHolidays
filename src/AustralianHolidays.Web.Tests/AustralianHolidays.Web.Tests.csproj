@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="bunit" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="NUnit" />
+    <PackageReference Include="NUnit3TestAdapter" />
+    <PackageReference Include="ProjectDefaults" PrivateAssets="all" />
+    <PackageReference Include="Verify.Bunit" />
+    <PackageReference Include="Verify.DiffPlex" />
+    <PackageReference Include="Verify.NUnit" />
+    <ProjectReference Include="..\AustralianHolidays.Web\AustralianHolidays.Web.csproj" />
+    <Using Include="NUnit.Framework" />
+    <Using Include="NUnit.Framework.Legacy.ClassicAssert" Static="True" />
+    <Using Include="NUnit.Framework.Assert" Static="True" />
+    <Using Include="Bunit" />
+  </ItemGroup>
+
+</Project>

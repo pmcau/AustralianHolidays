@@ -89,6 +89,52 @@ public static partial class Holidays
         await ExportToXml(writer, state, startYear, yearCount);
     }
 
+    /// <summary>
+    /// Exports public holidays for multiple states to XML format.
+    /// </summary>
+    /// <param name="states">The Australian states to export holidays for.</param>
+    /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
+    /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    /// <returns>A string containing the XML-formatted holiday data with state information per holiday.</returns>
+    public static async Task<string> ExportToXml(IEnumerable<State> states, int? startYear = null, int yearCount = 5)
+    {
+        var builder = new StringBuilder();
+        await using (var writer = new StringWriter(builder))
+        {
+            await ExportToXml(writer, states, startYear, yearCount);
+        }
+
+        return builder.ToString();
+    }
+
+    /// <summary>
+    /// Exports public holidays for multiple states to XML format, writing to a TextWriter.
+    /// </summary>
+    /// <param name="writer">The TextWriter to write the XML output to.</param>
+    /// <param name="states">The Australian states to export holidays for.</param>
+    /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
+    /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    public static Task ExportToXml(TextWriter writer, IEnumerable<State> states, int? startYear = null, int yearCount = 5)
+    {
+        var stateSet = states as IReadOnlySet<State> ?? states.ToHashSet();
+        var forYears = ForYears(startYear, yearCount)
+            .Where(h => stateSet.Count == 0 || stateSet.Contains(h.state));
+        return ToXmlMultiState(writer, forYears);
+    }
+
+    /// <summary>
+    /// Exports public holidays for multiple states to an XML file.
+    /// </summary>
+    /// <param name="path">The file path where the XML data will be written.</param>
+    /// <param name="states">The Australian states to export holidays for.</param>
+    /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
+    /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    public static async Task ExportToXml(string path, IEnumerable<State> states, int? startYear = null, int yearCount = 5)
+    {
+        await using var writer = File.CreateText(path);
+        await ExportToXml(writer, states, startYear, yearCount);
+    }
+
     static async Task ToXml(TextWriter writer, State? state, IOrderedEnumerable<(Date date, string name)> forYears)
     {
         var settings = new XmlWriterSettings {Async = true, Indent = true};
@@ -102,6 +148,27 @@ public static partial class Holidays
         {
             await xmlWriter.WriteStartElementAsync(null, "Holiday", null);
             await xmlWriter.WriteAttributeStringAsync(null, "Date", null, date.ToString("yyyy-MM-dd"));
+            await xmlWriter.WriteAttributeStringAsync(null, "Name", null, name);
+            await xmlWriter.WriteEndElementAsync();
+        }
+
+        await xmlWriter.WriteEndElementAsync();
+        await xmlWriter.WriteEndDocumentAsync();
+    }
+
+    static async Task ToXmlMultiState(TextWriter writer, IEnumerable<(Date date, State state, string name)> forYears)
+    {
+        var settings = new XmlWriterSettings { Async = true, Indent = true };
+        await using var xmlWriter = XmlWriter.Create(writer, settings);
+
+        await xmlWriter.WriteStartDocumentAsync();
+        await xmlWriter.WriteStartElementAsync(null, "Holidays", null);
+
+        foreach (var (date, state, name) in forYears)
+        {
+            await xmlWriter.WriteStartElementAsync(null, "Holiday", null);
+            await xmlWriter.WriteAttributeStringAsync(null, "Date", null, date.ToString("yyyy-MM-dd"));
+            await xmlWriter.WriteAttributeStringAsync(null, "State", null, state.ToString());
             await xmlWriter.WriteAttributeStringAsync(null, "Name", null, name);
             await xmlWriter.WriteEndElementAsync();
         }

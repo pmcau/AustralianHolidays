@@ -1,0 +1,60 @@
+@page "/"
+@inject StatePreferenceService StatePreferenceService
+
+<PageTitle>Australian Holidays</PageTitle>
+
+<div class="controls">
+    <StateSelector SelectedStates="selectedStates" SelectedStatesChanged="OnStatesChanged" />
+</div>
+<div class="controls">
+    <ExportMenu SelectedStates="selectedStates" StartYear="startYear" YearCount="yearCount" />
+</div>
+
+<HolidayList Holidays="holidays" ShowStateColumn="@(selectedStates.Count != 1)" />
+
+<HolidayLogicInfo />
+
+@code {
+    HashSet<State> selectedStates = [.. Enum.GetValues<State>()];
+    IReadOnlyList<HolidayViewModel>? holidays;
+    Date startDate;
+    Date endDate;
+    int startYear;
+    int yearCount;
+
+    protected override async Task OnInitializedAsync()
+    {
+        (startDate, endDate) = HolidayFilterService.GetDefaultDateRange();
+        (startYear, yearCount) = HolidayFilterService.GetExportYearRange(startDate, endDate);
+
+        var savedState = await StatePreferenceService.GetSavedStateAsync();
+
+        if (savedState.HasValue)
+        {
+            selectedStates = [savedState.Value];
+        }
+
+        LoadHolidays();
+    }
+
+    async Task OnStatesChanged(IReadOnlySet<State> states)
+    {
+        selectedStates = new HashSet<State>(states);
+
+        if (states.Count == 1)
+        {
+            await StatePreferenceService.SaveStateAsync(states.First());
+        }
+        else
+        {
+            await StatePreferenceService.SaveStateAsync(null);
+        }
+
+        LoadHolidays();
+    }
+
+    void LoadHolidays()
+    {
+        holidays = HolidayFilterService.GetHolidays(selectedStates, startDate, endDate);
+    }
+}

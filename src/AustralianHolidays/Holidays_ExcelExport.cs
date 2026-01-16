@@ -1,6 +1,3 @@
-using System.IO.Compression;
-using System.Security;
-
 namespace AustralianHolidays;
 
 public static partial class Holidays
@@ -82,6 +79,48 @@ public static partial class Holidays
         await ExportToExcel(stream, state, startYear, yearCount);
     }
 
+    /// <summary>
+    /// Exports public holidays for multiple states to Excel (XLSX) format.
+    /// </summary>
+    /// <param name="states">The Australian states to export holidays for.</param>
+    /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
+    /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    /// <returns>A byte array containing the Excel file data with Date, State, and Name columns.</returns>
+    public static async Task<byte[]> ExportToExcel(IEnumerable<State> states, int? startYear = null, int yearCount = 5)
+    {
+        var stream = new MemoryStream();
+        await ExportToExcel(stream, states, startYear, yearCount);
+        return stream.ToArray();
+    }
+
+    /// <summary>
+    /// Exports public holidays for multiple states to Excel (XLSX) format, writing to a Stream.
+    /// </summary>
+    /// <param name="stream">The Stream to write the Excel file data to.</param>
+    /// <param name="states">The Australian states to export holidays for.</param>
+    /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
+    /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    public static Task ExportToExcel(Stream stream, IEnumerable<State> states, int? startYear = null, int yearCount = 5)
+    {
+        var stateSet = states as IReadOnlySet<State> ?? states.ToHashSet();
+        var forYears = ForYears(startYear, yearCount)
+            .Where(h => stateSet.Count == 0 || stateSet.Contains(h.state));
+        return ToExcelMultiState(stream, forYears);
+    }
+
+    /// <summary>
+    /// Exports public holidays for multiple states to an Excel (XLSX) file.
+    /// </summary>
+    /// <param name="path">The file path where the Excel file will be written.</param>
+    /// <param name="states">The Australian states to export holidays for.</param>
+    /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
+    /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    public static async Task ExportToExcel(string path, IEnumerable<State> states, int? startYear = null, int yearCount = 5)
+    {
+        await using var stream = File.Create(path);
+        await ExportToExcel(stream, states, startYear, yearCount);
+    }
+
     static async Task ToExcel(Stream stream, IOrderedEnumerable<(Date date, string name)> forYears)
     {
         // Load embedded template
@@ -157,6 +196,95 @@ public static partial class Holidays
             // Name cell (as inline string)
             var escapedName = SecurityElement.Escape(name);
             await writer.WriteAsync($"<c r=\"B{rowNum}\" t=\"inlineStr\"><is><t>{escapedName}</t></is></c>");
+
+            await writer.WriteAsync("</row>");
+            rowNum++;
+        }
+
+        await writer.WriteAsync("</sheetData>");
+        await writer.WriteAsync("</worksheet>");
+    }
+
+    static async Task ToExcelMultiState(Stream stream, IEnumerable<(Date date, State state, string name)> forYears)
+    {
+        // Load embedded template
+        var assembly = typeof(Holidays).Assembly;
+        await using var templateStream = assembly.GetManifestResourceStream("AustralianHolidays.Resources.HolidayTemplate.xlsx");
+
+        if (templateStream == null)
+        {
+            throw new InvalidOperationException("Could not load embedded Excel template resource.");
+        }
+
+        // Create a temporary memory stream for the template
+        using var tempStream = new MemoryStream();
+        await templateStream.CopyToAsync(tempStream);
+        tempStream.Position = 0;
+
+        using var archive = new ZipArchive(tempStream, ZipArchiveMode.Read);
+        using var outputArchive = new ZipArchive(stream, ZipArchiveMode.Create, true);
+
+        // Copy all files from template to output
+        foreach (var entry in archive.Entries)
+        {
+            var outputEntry = outputArchive.CreateEntry(entry.FullName);
+
+            if (entry.FullName == "xl/worksheets/sheet1.xml")
+            {
+                // Inject holiday data into sheet XML
+                await using var entryStream = outputEntry.Open();
+                await WriteSheetXmlMultiState(entryStream, forYears);
+            }
+            else
+            {
+                // Copy other files as-is
+                await using var entryStream = entry.Open();
+                await using var outputStream = outputEntry.Open();
+                await entryStream.CopyToAsync(outputStream);
+            }
+        }
+    }
+
+    static async Task WriteSheetXmlMultiState(Stream stream, IEnumerable<(Date date, State state, string name)> forYears)
+    {
+        await using var writer = new StreamWriter(stream);
+
+        // Write Office Open XML structure for worksheet
+        await writer.WriteAsync("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>");
+        await writer.WriteAsync("<worksheet xmlns=\"http://schemas.openxmlformats.org/spreadsheetml/2006/main\">");
+
+        // Column widths: Date column ~100px (14 char units), State column ~50px (8 char units), Name column ~500px (70 char units)
+        await writer.WriteAsync("<cols>");
+        await writer.WriteAsync("<col min=\"1\" max=\"1\" width=\"14\" customWidth=\"1\"/>");
+        await writer.WriteAsync("<col min=\"2\" max=\"2\" width=\"8\" customWidth=\"1\"/>");
+        await writer.WriteAsync("<col min=\"3\" max=\"3\" width=\"70\" customWidth=\"1\"/>");
+        await writer.WriteAsync("</cols>");
+
+        await writer.WriteAsync("<sheetData>");
+
+        // Header row
+        await writer.WriteAsync("<row r=\"1\">");
+        await writer.WriteAsync("<c r=\"A1\" s=\"1\" t=\"inlineStr\"><is><t>Date</t></is></c>");
+        await writer.WriteAsync("<c r=\"B1\" s=\"1\" t=\"inlineStr\"><is><t>State</t></is></c>");
+        await writer.WriteAsync("<c r=\"C1\" s=\"1\" t=\"inlineStr\"><is><t>Name</t></is></c>");
+        await writer.WriteAsync("</row>");
+
+        // Data rows
+        var rowNum = 2;
+        foreach (var (date, state, name) in forYears)
+        {
+            await writer.WriteAsync($"<row r=\"{rowNum}\">");
+
+            // Date cell (as inline string with yyyy-MM-dd format)
+            var dateString = date.ToString("yyyy-MM-dd");
+            await writer.WriteAsync($"<c r=\"A{rowNum}\" t=\"inlineStr\"><is><t>{dateString}</t></is></c>");
+
+            // State cell (as inline string)
+            await writer.WriteAsync($"<c r=\"B{rowNum}\" t=\"inlineStr\"><is><t>{state}</t></is></c>");
+
+            // Name cell (as inline string)
+            var escapedName = SecurityElement.Escape(name);
+            await writer.WriteAsync($"<c r=\"C{rowNum}\" t=\"inlineStr\"><is><t>{escapedName}</t></is></c>");
 
             await writer.WriteAsync("</row>");
             rowNum++;

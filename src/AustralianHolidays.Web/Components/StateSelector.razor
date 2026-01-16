@@ -1,0 +1,47 @@
+@code {
+    [Parameter]
+    public IReadOnlySet<State> SelectedStates { get; set; } = new HashSet<State>();
+
+    [Parameter]
+    public EventCallback<IReadOnlySet<State>> SelectedStatesChanged { get; set; }
+
+    static readonly State[] AllStates = Enum.GetValues<State>();
+
+    bool AllSelected => SelectedStates.Count == AllStates.Length;
+
+    Task ToggleAll()
+    {
+        var newSelection = AllSelected
+            ? new HashSet<State>()
+            : new HashSet<State>(AllStates);
+
+        return SelectedStatesChanged.InvokeAsync(newSelection);
+    }
+
+    Task ToggleState(State state)
+    {
+        var newSelection = new HashSet<State>(SelectedStates);
+
+        if (newSelection.Contains(state))
+        {
+            newSelection.Remove(state);
+        }
+        else
+        {
+            newSelection.Add(state);
+        }
+
+        return SelectedStatesChanged.InvokeAsync(newSelection);
+    }
+}
+
+<div class="state-selector">
+    <label>States:</label>
+    <div class="state-buttons">
+        <button class="state-btn @(AllSelected ? "selected" : "")" @onclick="ToggleAll">All</button>
+        @foreach (var state in AllStates)
+        {
+            <button class="state-btn @(SelectedStates.Contains(state) ? "selected" : "")" @onclick="() => ToggleState(state)">@state</button>
+        }
+    </div>
+</div>
