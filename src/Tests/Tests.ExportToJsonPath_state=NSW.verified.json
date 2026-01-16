@@ -1,5 +1,5 @@
 ﻿{
-  "state": "ACT",
+  "state": "NSW",
   "holidays": [
     {
       "date": "2026-01-01",
@@ -8,10 +8,6 @@
     {
       "date": "2026-01-26",
       "name": "Australia Day"
-    },
-    {
-      "date": "2026-03-09",
-      "name": "Canberra Day"
     },
     {
       "date": "2026-04-03",
@@ -34,16 +30,12 @@
       "name": "Anzac Day"
     },
     {
-      "date": "2026-04-27",
-      "name": "Anzac Day (additional)"
-    },
-    {
-      "date": "2026-06-01",
-      "name": "Reconciliation Day"
-    },
-    {
       "date": "2026-06-08",
       "name": "King\u0027s Birthday"
+    },
+    {
+      "date": "2026-08-03",
+      "name": "Bank Holiday"
     },
     {
       "date": "2026-10-05",
@@ -70,10 +62,6 @@
       "name": "Australia Day"
     },
     {
-      "date": "2027-03-08",
-      "name": "Canberra Day"
-    },
-    {
       "date": "2027-03-26",
       "name": "Good Friday"
     },
@@ -94,16 +82,12 @@
       "name": "Anzac Day"
     },
     {
-      "date": "2027-04-26",
-      "name": "Anzac Day (additional)"
-    },
-    {
-      "date": "2027-05-31",
-      "name": "Reconciliation Day"
-    },
-    {
       "date": "2027-06-14",
       "name": "King\u0027s Birthday"
+    },
+    {
+      "date": "2027-08-02",
+      "name": "Bank Holiday"
     },
     {
       "date": "2027-10-04",
@@ -130,12 +114,12 @@
       "name": "New Year\u0027s Day"
     },
     {
-      "date": "2028-01-26",
-      "name": "Australia Day"
+      "date": "2028-01-03",
+      "name": "New Year\u0027s Day (additional)"
     },
     {
-      "date": "2028-03-13",
-      "name": "Canberra Day"
+      "date": "2028-01-26",
+      "name": "Australia Day"
     },
     {
       "date": "2028-04-14",
@@ -158,12 +142,12 @@
       "name": "Anzac Day"
     },
     {
-      "date": "2028-05-29",
-      "name": "Reconciliation Day"
-    },
-    {
       "date": "2028-06-12",
       "name": "King\u0027s Birthday"
+    },
+    {
+      "date": "2028-08-07",
+      "name": "Bank Holiday"
     },
     {
       "date": "2028-10-02",
@@ -186,10 +170,6 @@
       "name": "Australia Day"
     },
     {
-      "date": "2029-03-12",
-      "name": "Canberra Day"
-    },
-    {
       "date": "2029-03-30",
       "name": "Good Friday"
     },
@@ -210,12 +190,12 @@
       "name": "Anzac Day"
     },
     {
-      "date": "2029-05-28",
-      "name": "Reconciliation Day"
-    },
-    {
       "date": "2029-06-11",
       "name": "King\u0027s Birthday"
+    },
+    {
+      "date": "2029-08-06",
+      "name": "Bank Holiday"
     },
     {
       "date": "2029-10-01",
@@ -234,16 +214,8 @@
       "name": "New Year\u0027s Day"
     },
     {
-      "date": "2030-01-26",
-      "name": "Australia Day (not holiday)"
-    },
-    {
       "date": "2030-01-28",
       "name": "Australia Day (observed)"
-    },
-    {
-      "date": "2030-03-11",
-      "name": "Canberra Day"
     },
     {
       "date": "2030-04-19",
@@ -266,12 +238,12 @@
       "name": "Anzac Day"
     },
     {
-      "date": "2030-05-27",
-      "name": "Reconciliation Day"
-    },
-    {
       "date": "2030-06-10",
       "name": "King\u0027s Birthday"
+    },
+    {
+      "date": "2030-08-05",
+      "name": "Bank Holiday"
     },
     {
       "date": "2030-10-07",

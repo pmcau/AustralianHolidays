@@ -166,6 +166,136 @@ public class Tests
     }
 
     [Test]
+    public async Task ExportToJsonPath()
+    {
+        var path = Path.GetTempFileName();
+        try
+        {
+            await Holidays.ExportToJson(path);
+            var json = await File.ReadAllTextAsync(path);
+            await Verify(json, "json");
+        }
+        finally
+        {
+            File.Delete(path);
+        }
+    }
+
+    [TestCaseSource(nameof(GetStates))]
+    public async Task ExportToJsonPath(State state)
+    {
+        var path = Path.GetTempFileName();
+        try
+        {
+            await Holidays.ExportToJson(path, state);
+            var json = await File.ReadAllTextAsync(path);
+            await Verify(json, "json");
+        }
+        finally
+        {
+            File.Delete(path);
+        }
+    }
+
+    [Test]
+    public async Task ExportToXmlPath()
+    {
+        var path = Path.GetTempFileName();
+        try
+        {
+            await Holidays.ExportToXml(path);
+            var xml = await File.ReadAllTextAsync(path);
+            await Verify(xml, "xml");
+        }
+        finally
+        {
+            File.Delete(path);
+        }
+    }
+
+    [TestCaseSource(nameof(GetStates))]
+    public async Task ExportToXmlPath(State state)
+    {
+        var path = Path.GetTempFileName();
+        try
+        {
+            await Holidays.ExportToXml(path, state);
+            var xml = await File.ReadAllTextAsync(path);
+            await Verify(xml, "xml");
+        }
+        finally
+        {
+            File.Delete(path);
+        }
+    }
+
+    [Test]
+    public async Task ExportToCsvPath()
+    {
+        var path = Path.GetTempFileName();
+        try
+        {
+            await Holidays.ExportToCsv(path);
+            var csv = await File.ReadAllTextAsync(path);
+            await Verify(csv, "csv");
+        }
+        finally
+        {
+            File.Delete(path);
+        }
+    }
+
+    [TestCaseSource(nameof(GetStates))]
+    public async Task ExportToCsvPath(State state)
+    {
+        var path = Path.GetTempFileName();
+        try
+        {
+            await Holidays.ExportToCsv(path, state);
+            var csv = await File.ReadAllTextAsync(path);
+            await Verify(csv, "csv");
+        }
+        finally
+        {
+            File.Delete(path);
+        }
+    }
+
+    [Test]
+    public async Task ExportToExcelPath()
+    {
+        var path = Path.GetTempFileName();
+        try
+        {
+            await Holidays.ExportToExcel(path);
+            var bytes = await File.ReadAllBytesAsync(path);
+            var stream = new MemoryStream(bytes);
+            await Verify(stream, "xlsx");
+        }
+        finally
+        {
+            File.Delete(path);
+        }
+    }
+
+    [TestCaseSource(nameof(GetStates))]
+    public async Task ExportToExcelPath(State state)
+    {
+        var path = Path.GetTempFileName();
+        try
+        {
+            await Holidays.ExportToExcel(path, state);
+            var bytes = await File.ReadAllBytesAsync(path);
+            var stream = new MemoryStream(bytes);
+            await Verify(stream, "xlsx");
+        }
+        finally
+        {
+            File.Delete(path);
+        }
+    }
+
+    [Test]
     public void ForYearsSnippet()
     {
         #region ForYears

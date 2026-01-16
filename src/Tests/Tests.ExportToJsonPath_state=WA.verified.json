@@ -1,5 +1,5 @@
 ﻿{
-  "state": "ACT",
+  "state": "WA",
   "holidays": [
     {
       "date": "2026-01-01",
@@ -10,8 +10,8 @@
       "name": "Australia Day"
     },
     {
-      "date": "2026-03-09",
-      "name": "Canberra Day"
+      "date": "2026-03-02",
+      "name": "Labour Day"
     },
     {
       "date": "2026-04-03",
@@ -39,15 +39,11 @@
     },
     {
       "date": "2026-06-01",
-      "name": "Reconciliation Day"
+      "name": "Western Australia Day"
     },
     {
-      "date": "2026-06-08",
+      "date": "2026-09-28",
       "name": "King\u0027s Birthday"
-    },
-    {
-      "date": "2026-10-05",
-      "name": "Labour Day"
     },
     {
       "date": "2026-12-25",
@@ -70,8 +66,8 @@
       "name": "Australia Day"
     },
     {
-      "date": "2027-03-08",
-      "name": "Canberra Day"
+      "date": "2027-03-01",
+      "name": "Labour Day"
     },
     {
       "date": "2027-03-26",
@@ -98,16 +94,12 @@
       "name": "Anzac Day (additional)"
     },
     {
-      "date": "2027-05-31",
-      "name": "Reconciliation Day"
+      "date": "2027-06-07",
+      "name": "Western Australia Day"
     },
     {
-      "date": "2027-06-14",
+      "date": "2027-09-27",
       "name": "King\u0027s Birthday"
-    },
-    {
-      "date": "2027-10-04",
-      "name": "Labour Day"
     },
     {
       "date": "2027-12-25",
@@ -134,8 +126,8 @@
       "name": "Australia Day"
     },
     {
-      "date": "2028-03-13",
-      "name": "Canberra Day"
+      "date": "2028-03-06",
+      "name": "Labour Day"
     },
     {
       "date": "2028-04-14",
@@ -158,16 +150,12 @@
       "name": "Anzac Day"
     },
     {
-      "date": "2028-05-29",
-      "name": "Reconciliation Day"
+      "date": "2028-06-05",
+      "name": "Western Australia Day"
     },
     {
-      "date": "2028-06-12",
+      "date": "2028-09-25",
       "name": "King\u0027s Birthday"
-    },
-    {
-      "date": "2028-10-02",
-      "name": "Labour Day"
     },
     {
       "date": "2028-12-25",
@@ -186,8 +174,8 @@
       "name": "Australia Day"
     },
     {
-      "date": "2029-03-12",
-      "name": "Canberra Day"
+      "date": "2029-03-05",
+      "name": "Labour Day"
     },
     {
       "date": "2029-03-30",
@@ -210,16 +198,12 @@
       "name": "Anzac Day"
     },
     {
-      "date": "2029-05-28",
-      "name": "Reconciliation Day"
+      "date": "2029-06-04",
+      "name": "Western Australia Day"
     },
     {
-      "date": "2029-06-11",
+      "date": "2029-09-24",
       "name": "King\u0027s Birthday"
-    },
-    {
-      "date": "2029-10-01",
-      "name": "Labour Day"
     },
     {
       "date": "2029-12-25",
@@ -234,16 +218,12 @@
       "name": "New Year\u0027s Day"
     },
     {
-      "date": "2030-01-26",
-      "name": "Australia Day (not holiday)"
-    },
-    {
       "date": "2030-01-28",
       "name": "Australia Day (observed)"
     },
     {
-      "date": "2030-03-11",
-      "name": "Canberra Day"
+      "date": "2030-03-04",
+      "name": "Labour Day"
     },
     {
       "date": "2030-04-19",
@@ -266,16 +246,12 @@
       "name": "Anzac Day"
     },
     {
-      "date": "2030-05-27",
-      "name": "Reconciliation Day"
+      "date": "2030-06-03",
+      "name": "Western Australia Day"
     },
     {
-      "date": "2030-06-10",
+      "date": "2030-09-23",
       "name": "King\u0027s Birthday"
-    },
-    {
-      "date": "2030-10-07",
-      "name": "Labour Day"
     },
     {
       "date": "2030-12-25",

@@ -31,6 +31,18 @@ public static partial class Holidays
         return ToExcel(stream, forYears);
     }
 
+    public static async Task ExportToExcel(string path, int? startYear = null, int yearCount = 5)
+    {
+        await using var stream = File.Create(path);
+        await ExportToExcel(stream, startYear, yearCount);
+    }
+
+    public static async Task ExportToExcel(string path, State state, int? startYear = null, int yearCount = 5)
+    {
+        await using var stream = File.Create(path);
+        await ExportToExcel(stream, state, startYear, yearCount);
+    }
+
     static async Task ToExcel(Stream stream, IOrderedEnumerable<(Date date, string name)> forYears)
     {
         // Load embedded template

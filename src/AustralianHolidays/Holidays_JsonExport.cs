@@ -43,6 +43,18 @@ public static partial class Holidays
         return ToJson(writer, state, forYears);
     }
 
+    public static async Task ExportToJson(string path, int? startYear = null, int yearCount = 5)
+    {
+        await using var writer = File.CreateText(path);
+        await ExportToJson(writer, startYear, yearCount);
+    }
+
+    public static async Task ExportToJson(string path, State state, int? startYear = null, int yearCount = 5)
+    {
+        await using var writer = File.CreateText(path);
+        await ExportToJson(writer, state, startYear, yearCount);
+    }
+
     static Task ToJson(TextWriter writer, State? state, IOrderedEnumerable<(Date date, string name)> forYears)
     {
         var holidays = forYears

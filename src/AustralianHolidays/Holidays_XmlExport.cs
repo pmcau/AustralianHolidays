@@ -38,6 +38,18 @@ public static partial class Holidays
         return ToXml(writer, state, forYears);
     }
 
+    public static async Task ExportToXml(string path, int? startYear = null, int yearCount = 5)
+    {
+        await using var writer = File.CreateText(path);
+        await ExportToXml(writer, startYear, yearCount);
+    }
+
+    public static async Task ExportToXml(string path, State state, int? startYear = null, int yearCount = 5)
+    {
+        await using var writer = File.CreateText(path);
+        await ExportToXml(writer, state, startYear, yearCount);
+    }
+
     static async Task ToXml(TextWriter writer, State? state, IOrderedEnumerable<(Date date, string name)> forYears)
     {
         var settings = new XmlWriterSettings {Async = true, Indent = true};

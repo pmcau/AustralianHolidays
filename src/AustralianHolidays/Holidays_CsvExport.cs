@@ -36,6 +36,18 @@ public static partial class Holidays
         return ToCsv(writer, forYears);
     }
 
+    public static async Task ExportToCsv(string path, int? startYear = null, int yearCount = 5)
+    {
+        await using var writer = File.CreateText(path);
+        await ExportToCsv(writer, startYear, yearCount);
+    }
+
+    public static async Task ExportToCsv(string path, State state, int? startYear = null, int yearCount = 5)
+    {
+        await using var writer = File.CreateText(path);
+        await ExportToCsv(writer, state, startYear, yearCount);
+    }
+
     static async Task ToCsv(TextWriter writer, IOrderedEnumerable<(Date date, string name)> forYears)
     {
         await writer.WriteLineAsync("Date,Name");
@@ -44,7 +56,7 @@ public static partial class Holidays
             var escapedName = name.Contains(',') || name.Contains('"')
                 ? $"\"{name.Replace("\"", "\"\"")}\""
                 : name;
-            await writer.WriteLineAsync($"{date:yyyy-MM-dd},{escapedName}");
+            await writer.WriteLineAsync($"{date.ToString("yyyy-MM-dd")},{escapedName}");
         }
     }
 }

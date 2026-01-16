@@ -1,5 +1,5 @@
 ﻿{
-  "state": "ACT",
+  "state": "NT",
   "holidays": [
     {
       "date": "2026-01-01",
@@ -8,10 +8,6 @@
     {
       "date": "2026-01-26",
       "name": "Australia Day"
-    },
-    {
-      "date": "2026-03-09",
-      "name": "Canberra Day"
     },
     {
       "date": "2026-04-03",
@@ -34,20 +30,20 @@
       "name": "Anzac Day"
     },
     {
-      "date": "2026-04-27",
-      "name": "Anzac Day (additional)"
-    },
-    {
-      "date": "2026-06-01",
-      "name": "Reconciliation Day"
+      "date": "2026-05-04",
+      "name": "May Day"
     },
     {
       "date": "2026-06-08",
       "name": "King\u0027s Birthday"
     },
     {
-      "date": "2026-10-05",
-      "name": "Labour Day"
+      "date": "2026-08-03",
+      "name": "Picnic Day"
+    },
+    {
+      "date": "2026-12-24",
+      "name": "Christmas Eve (partial day)"
     },
     {
       "date": "2026-12-25",
@@ -62,16 +58,16 @@
       "name": "Christmas (additional)"
     },
     {
+      "date": "2026-12-31",
+      "name": "New Year\u0027s Eve (partial day)"
+    },
+    {
       "date": "2027-01-01",
       "name": "New Year\u0027s Day"
     },
     {
       "date": "2027-01-26",
       "name": "Australia Day"
-    },
-    {
-      "date": "2027-03-08",
-      "name": "Canberra Day"
     },
     {
       "date": "2027-03-26",
@@ -98,16 +94,20 @@
       "name": "Anzac Day (additional)"
     },
     {
-      "date": "2027-05-31",
-      "name": "Reconciliation Day"
+      "date": "2027-05-03",
+      "name": "May Day"
     },
     {
       "date": "2027-06-14",
       "name": "King\u0027s Birthday"
     },
     {
-      "date": "2027-10-04",
-      "name": "Labour Day"
+      "date": "2027-08-02",
+      "name": "Picnic Day"
+    },
+    {
+      "date": "2027-12-24",
+      "name": "Christmas Eve (partial day)"
     },
     {
       "date": "2027-12-25",
@@ -126,16 +126,16 @@
       "name": "Christmas (additional)"
     },
     {
+      "date": "2027-12-31",
+      "name": "New Year\u0027s Eve (partial day)"
+    },
+    {
       "date": "2028-01-01",
       "name": "New Year\u0027s Day"
     },
     {
       "date": "2028-01-26",
       "name": "Australia Day"
-    },
-    {
-      "date": "2028-03-13",
-      "name": "Canberra Day"
     },
     {
       "date": "2028-04-14",
@@ -158,16 +158,20 @@
       "name": "Anzac Day"
     },
     {
-      "date": "2028-05-29",
-      "name": "Reconciliation Day"
+      "date": "2028-05-01",
+      "name": "May Day"
     },
     {
       "date": "2028-06-12",
       "name": "King\u0027s Birthday"
     },
     {
-      "date": "2028-10-02",
-      "name": "Labour Day"
+      "date": "2028-08-07",
+      "name": "Picnic Day"
+    },
+    {
+      "date": "2028-12-24",
+      "name": "Christmas Eve (partial day)"
     },
     {
       "date": "2028-12-25",
@@ -178,16 +182,16 @@
       "name": "Boxing Day"
     },
     {
+      "date": "2028-12-31",
+      "name": "New Year\u0027s Eve (partial day)"
+    },
+    {
       "date": "2029-01-01",
       "name": "New Year\u0027s Day"
     },
     {
       "date": "2029-01-26",
       "name": "Australia Day"
-    },
-    {
-      "date": "2029-03-12",
-      "name": "Canberra Day"
     },
     {
       "date": "2029-03-30",
@@ -210,16 +214,20 @@
       "name": "Anzac Day"
     },
     {
-      "date": "2029-05-28",
-      "name": "Reconciliation Day"
+      "date": "2029-05-07",
+      "name": "May Day"
     },
     {
       "date": "2029-06-11",
       "name": "King\u0027s Birthday"
     },
     {
-      "date": "2029-10-01",
-      "name": "Labour Day"
+      "date": "2029-08-06",
+      "name": "Picnic Day"
+    },
+    {
+      "date": "2029-12-24",
+      "name": "Christmas Eve (partial day)"
     },
     {
       "date": "2029-12-25",
@@ -230,20 +238,16 @@
       "name": "Boxing Day"
     },
     {
+      "date": "2029-12-31",
+      "name": "New Year\u0027s Eve (partial day)"
+    },
+    {
       "date": "2030-01-01",
       "name": "New Year\u0027s Day"
     },
     {
-      "date": "2030-01-26",
-      "name": "Australia Day (not holiday)"
-    },
-    {
       "date": "2030-01-28",
       "name": "Australia Day (observed)"
-    },
-    {
-      "date": "2030-03-11",
-      "name": "Canberra Day"
     },
     {
       "date": "2030-04-19",
@@ -266,16 +270,20 @@
       "name": "Anzac Day"
     },
     {
-      "date": "2030-05-27",
-      "name": "Reconciliation Day"
+      "date": "2030-05-06",
+      "name": "May Day"
     },
     {
       "date": "2030-06-10",
       "name": "King\u0027s Birthday"
     },
     {
-      "date": "2030-10-07",
-      "name": "Labour Day"
+      "date": "2030-08-05",
+      "name": "Picnic Day"
+    },
+    {
+      "date": "2030-12-24",
+      "name": "Christmas Eve (partial day)"
     },
     {
       "date": "2030-12-25",
@@ -284,6 +292,10 @@
     {
       "date": "2030-12-26",
       "name": "Boxing Day"
+    },
+    {
+      "date": "2030-12-31",
+      "name": "New Year\u0027s Eve (partial day)"
     }
   ]
 }
