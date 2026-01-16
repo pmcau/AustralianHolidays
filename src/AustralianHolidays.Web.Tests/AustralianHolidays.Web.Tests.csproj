@@ -13,13 +13,7 @@
     <PackageReference Include="Verify.Bunit" />
     <PackageReference Include="Verify.DiffPlex" />
     <PackageReference Include="Verify.NUnit" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\AustralianHolidays.Web\AustralianHolidays.Web.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Using Include="NUnit.Framework" />
     <Using Include="NUnit.Framework.Legacy.ClassicAssert" Static="True" />
     <Using Include="NUnit.Framework.Assert" Static="True" />

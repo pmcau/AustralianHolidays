@@ -30,7 +30,7 @@ else
             @foreach (var holiday in Holidays)
             {
                 <tr class="holiday-row @GetRowClass(holiday.TimeCategory)">
-                    <td class="date-column">@holiday.Date.ToString("d MMM yyyy")</td>
+                    <td class="date-column">@holiday.Date.ToString("d MMM yyyy", System.Globalization.CultureInfo.InvariantCulture)</td>
                     <td class="day-column">@holiday.DayOfWeek</td>
                     <td>@holiday.Name</td>
                     @if (ShowStateColumn)
