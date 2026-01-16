@@ -267,6 +267,10 @@ footer a:hover {
     text-decoration: underline;
 }
 
+.date-mobile {
+    display: none;
+}
+
 @media (max-width: 768px) {
     .controls {
         flex-direction: column;
@@ -286,10 +290,18 @@ footer a:hover {
     .holiday-table td {
         padding: 0.5rem;
     }
-}
 
-.date-mobile {
-    display: none;
+    .date-desktop {
+        display: none;
+    }
+
+    .date-mobile {
+        display: inline;
+    }
+
+    .day-column {
+        display: none;
+    }
 }
 .holiday-logic-info {
     margin-top: 2rem;
