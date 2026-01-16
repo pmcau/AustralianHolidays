@@ -20,12 +20,12 @@
     <PackageVersion Include="Verify.NUnit" Version="31.9.4" />
     <PackageVersion Include="Verify.OpenXml" Version="0.2.0" />
     <PackageVersion Include="AngleSharp" Version="1.4.0" />
-    <PackageVersion Include="bunit" Version="2.0.66" />
+    <PackageVersion Include="bunit" Version="2.5.3" />
     <PackageVersion Include="Verify.Bunit" Version="13.0.0" />
-    <PackageVersion Include="Markdig.Signed" Version="0.40.0" />
-    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly" Version="10.0.1" />
-    <PackageVersion Include="Microsoft.AspNetCore.TestHost" Version="10.0.1" />
-    <PackageVersion Include="Microsoft.Playwright" Version="1.50.0" />
+    <PackageVersion Include="Markdig.Signed" Version="0.44.0" />
+    <PackageVersion Include="Microsoft.AspNetCore.Components.WebAssembly" Version="10.0.2" />
+    <PackageVersion Include="Microsoft.AspNetCore.TestHost" Version="10.0.2" />
+    <PackageVersion Include="Microsoft.Playwright" Version="1.57.0" />
     <PackageVersion Include="Verify.Playwright" Version="3.1.0" />
   </ItemGroup>
 </Project>

@@ -2,82 +2,84 @@
 
 <div class="controls"><div class="state-selector"><label>States:</label>
     <div class="state-buttons"><button class="state-btn selected" blazor:onclick="1">All</button><button class="state-btn selected" blazor:onclick="2">ACT</button><button class="state-btn selected" blazor:onclick="3">NSW</button><button class="state-btn selected" blazor:onclick="4">NT</button><button class="state-btn selected" blazor:onclick="5">QLD</button><button class="state-btn selected" blazor:onclick="6">SA</button><button class="state-btn selected" blazor:onclick="7">TAS</button><button class="state-btn selected" blazor:onclick="8">VIC</button><button class="state-btn selected" blazor:onclick="9">WA</button></div></div></div>
-<div class="controls"><div class="export-menu"><span class="export-label">Export:</span>
-    <button class="export-btn" blazor:onclick="10">JSON</button>
-    <button class="export-btn" blazor:onclick="11">CSV</button>
-    <button class="export-btn" blazor:onclick="12">XML</button>
-    <button class="export-btn" blazor:onclick="13">Markdown</button>
-    <button class="export-btn" blazor:onclick="14">ICS</button>
-    <button class="export-btn" blazor:onclick="15">Excel</button></div></div>
+<div class="controls"><div class="year-selector"><label>Period:</label>
+    <div class="state-buttons"><button class="state-btn selected" blazor:onclick="10">12 Months</button><button class="state-btn " blazor:onclick="11">2025</button><button class="state-btn " blazor:onclick="12">2026</button><button class="state-btn " blazor:onclick="13">2027</button><button class="state-btn " blazor:onclick="14">2028</button></div></div></div>
+<div class="controls"><div class="export-menu"><label>Export:</label>
+    <div class="state-buttons"><button class="export-btn" blazor:onclick="15">JSON</button>
+        <button class="export-btn" blazor:onclick="16">CSV</button>
+        <button class="export-btn" blazor:onclick="17">XML</button>
+        <button class="export-btn" blazor:onclick="18">Markdown</button>
+        <button class="export-btn" blazor:onclick="19">ICS</button>
+        <button class="export-btn" blazor:onclick="20">Excel</button></div></div></div>
 
 <table class="holiday-table"><thead><tr><th class="date-column">Date</th>
                 <th class="day-column">Day</th>
                 <th>Holiday</th><th>State</th></tr></thead>
-        <tbody><tr class="holiday-row future"><td class="date-column">26 Jan 2026</td>
+        <tbody><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">26 Jan 2026</span><span class="date-mobile">Mon 26 Jan 2026</span></td>
                     <td class="day-column">Monday</td>
-                    <td>Australia Day</td><td><span class="state-badge">ACT</span><span class="state-badge">NSW</span><span class="state-badge">NT</span><span class="state-badge">QLD</span><span class="state-badge">SA</span><span class="state-badge">TAS</span><span class="state-badge">VIC</span><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column">2 Mar 2026</td>
+                    <td>Australia Day</td><td><span class="state-badge">National</span></td></tr><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">2 Mar 2026</span><span class="date-mobile">Mon 2 Mar 2026</span></td>
                     <td class="day-column">Monday</td>
-                    <td>Labour Day</td><td><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column">9 Mar 2026</td>
+                    <td>Labour Day</td><td><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">9 Mar 2026</span><span class="date-mobile">Mon 9 Mar 2026</span></td>
                     <td class="day-column">Monday</td>
-                    <td>Adelaide Cup Day</td><td><span class="state-badge">SA</span></td></tr><tr class="holiday-row future"><td class="date-column">9 Mar 2026</td>
+                    <td>Adelaide Cup Day</td><td><span class="state-badge">SA</span></td></tr><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">9 Mar 2026</span><span class="date-mobile">Mon 9 Mar 2026</span></td>
                     <td class="day-column">Monday</td>
-                    <td>Canberra Day</td><td><span class="state-badge">ACT</span></td></tr><tr class="holiday-row future"><td class="date-column">9 Mar 2026</td>
+                    <td>Canberra Day</td><td><span class="state-badge">ACT</span></td></tr><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">9 Mar 2026</span><span class="date-mobile">Mon 9 Mar 2026</span></td>
                     <td class="day-column">Monday</td>
-                    <td>Eight Hours Day</td><td><span class="state-badge">TAS</span></td></tr><tr class="holiday-row future"><td class="date-column">9 Mar 2026</td>
+                    <td>Eight Hours Day</td><td><span class="state-badge">TAS</span></td></tr><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">9 Mar 2026</span><span class="date-mobile">Mon 9 Mar 2026</span></td>
                     <td class="day-column">Monday</td>
-                    <td>Labour Day</td><td><span class="state-badge">VIC</span></td></tr><tr class="holiday-row future"><td class="date-column">3 Apr 2026</td>
+                    <td>Labour Day</td><td><span class="state-badge">VIC</span></td></tr><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">3 Apr 2026</span><span class="date-mobile">Fri 3 Apr 2026</span></td>
                     <td class="day-column">Friday</td>
-                    <td>Good Friday</td><td><span class="state-badge">ACT</span><span class="state-badge">NSW</span><span class="state-badge">NT</span><span class="state-badge">QLD</span><span class="state-badge">SA</span><span class="state-badge">TAS</span><span class="state-badge">VIC</span><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column">4 Apr 2026</td>
+                    <td>Good Friday</td><td><span class="state-badge">National</span></td></tr><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">4 Apr 2026</span><span class="date-mobile">Sat 4 Apr 2026</span></td>
                     <td class="day-column">Saturday</td>
-                    <td>Easter Saturday</td><td><span class="state-badge">ACT</span><span class="state-badge">NSW</span><span class="state-badge">NT</span><span class="state-badge">QLD</span><span class="state-badge">SA</span><span class="state-badge">VIC</span><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column">5 Apr 2026</td>
+                    <td>Easter Saturday</td><td><span class="state-badge">ACT</span><span class="state-badge">NSW</span><span class="state-badge">NT</span><span class="state-badge">QLD</span><span class="state-badge">SA</span><span class="state-badge">VIC</span><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">5 Apr 2026</span><span class="date-mobile">Sun 5 Apr 2026</span></td>
                     <td class="day-column">Sunday</td>
-                    <td>Easter Sunday</td><td><span class="state-badge">ACT</span><span class="state-badge">NSW</span><span class="state-badge">NT</span><span class="state-badge">QLD</span><span class="state-badge">SA</span><span class="state-badge">TAS</span><span class="state-badge">VIC</span><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column">6 Apr 2026</td>
+                    <td>Easter Sunday</td><td><span class="state-badge">National</span></td></tr><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">6 Apr 2026</span><span class="date-mobile">Mon 6 Apr 2026</span></td>
                     <td class="day-column">Monday</td>
-                    <td>Easter Monday</td><td><span class="state-badge">ACT</span><span class="state-badge">NSW</span><span class="state-badge">NT</span><span class="state-badge">QLD</span><span class="state-badge">SA</span><span class="state-badge">TAS</span><span class="state-badge">VIC</span><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column">7 Apr 2026</td>
+                    <td>Easter Monday</td><td><span class="state-badge">National</span></td></tr><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">7 Apr 2026</span><span class="date-mobile">Tue 7 Apr 2026</span></td>
                     <td class="day-column">Tuesday</td>
-                    <td>Easter Tuesday (Government employees only)</td><td><span class="state-badge">TAS</span></td></tr><tr class="holiday-row future"><td class="date-column">25 Apr 2026</td>
+                    <td>Easter Tuesday (Government employees only)</td><td><span class="state-badge">TAS</span></td></tr><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">25 Apr 2026</span><span class="date-mobile">Sat 25 Apr 2026</span></td>
                     <td class="day-column">Saturday</td>
-                    <td>Anzac Day</td><td><span class="state-badge">ACT</span><span class="state-badge">NSW</span><span class="state-badge">NT</span><span class="state-badge">QLD</span><span class="state-badge">SA</span><span class="state-badge">TAS</span><span class="state-badge">VIC</span><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column">27 Apr 2026</td>
+                    <td>Anzac Day</td><td><span class="state-badge">National</span></td></tr><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">27 Apr 2026</span><span class="date-mobile">Mon 27 Apr 2026</span></td>
                     <td class="day-column">Monday</td>
-                    <td>Anzac Day (additional)</td><td><span class="state-badge">ACT</span><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column">4 May 2026</td>
+                    <td>Anzac Day (additional)</td><td><span class="state-badge">ACT</span><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">4 May 2026</span><span class="date-mobile">Mon 4 May 2026</span></td>
                     <td class="day-column">Monday</td>
-                    <td>Labour Day</td><td><span class="state-badge">QLD</span></td></tr><tr class="holiday-row future"><td class="date-column">4 May 2026</td>
+                    <td>Labour Day</td><td><span class="state-badge">QLD</span></td></tr><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">4 May 2026</span><span class="date-mobile">Mon 4 May 2026</span></td>
                     <td class="day-column">Monday</td>
-                    <td>May Day</td><td><span class="state-badge">NT</span></td></tr><tr class="holiday-row future"><td class="date-column">1 Jun 2026</td>
+                    <td>May Day</td><td><span class="state-badge">NT</span></td></tr><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">1 Jun 2026</span><span class="date-mobile">Mon 1 Jun 2026</span></td>
                     <td class="day-column">Monday</td>
-                    <td>Reconciliation Day</td><td><span class="state-badge">ACT</span></td></tr><tr class="holiday-row future"><td class="date-column">1 Jun 2026</td>
+                    <td>Reconciliation Day</td><td><span class="state-badge">ACT</span></td></tr><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">1 Jun 2026</span><span class="date-mobile">Mon 1 Jun 2026</span></td>
                     <td class="day-column">Monday</td>
-                    <td>Western Australia Day</td><td><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column">8 Jun 2026</td>
+                    <td>Western Australia Day</td><td><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">8 Jun 2026</span><span class="date-mobile">Mon 8 Jun 2026</span></td>
                     <td class="day-column">Monday</td>
-                    <td>King's Birthday</td><td><span class="state-badge">ACT</span><span class="state-badge">NSW</span><span class="state-badge">NT</span><span class="state-badge">SA</span><span class="state-badge">TAS</span><span class="state-badge">VIC</span></td></tr><tr class="holiday-row future"><td class="date-column">3 Aug 2026</td>
+                    <td>King's Birthday</td><td><span class="state-badge">ACT</span><span class="state-badge">NSW</span><span class="state-badge">NT</span><span class="state-badge">SA</span><span class="state-badge">TAS</span><span class="state-badge">VIC</span></td></tr><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">3 Aug 2026</span><span class="date-mobile">Mon 3 Aug 2026</span></td>
                     <td class="day-column">Monday</td>
-                    <td>Bank Holiday</td><td><span class="state-badge">NSW</span></td></tr><tr class="holiday-row future"><td class="date-column">3 Aug 2026</td>
+                    <td>Bank Holiday</td><td><span class="state-badge">NSW</span></td></tr><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">3 Aug 2026</span><span class="date-mobile">Mon 3 Aug 2026</span></td>
                     <td class="day-column">Monday</td>
-                    <td>Picnic Day</td><td><span class="state-badge">NT</span></td></tr><tr class="holiday-row future"><td class="date-column">25 Sep 2026</td>
+                    <td>Picnic Day</td><td><span class="state-badge">NT</span></td></tr><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">25 Sep 2026</span><span class="date-mobile">Fri 25 Sep 2026</span></td>
                     <td class="day-column">Friday</td>
-                    <td>Friday before AFL Grand Final (Subject to AFL schedule)</td><td><span class="state-badge">VIC</span></td></tr><tr class="holiday-row future"><td class="date-column">28 Sep 2026</td>
+                    <td>Friday before AFL Final (Subject to AFL schedule)</td><td><span class="state-badge">VIC</span></td></tr><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">28 Sep 2026</span><span class="date-mobile">Mon 28 Sep 2026</span></td>
                     <td class="day-column">Monday</td>
-                    <td>King's Birthday</td><td><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column">5 Oct 2026</td>
+                    <td>King's Birthday</td><td><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">5 Oct 2026</span><span class="date-mobile">Mon 5 Oct 2026</span></td>
                     <td class="day-column">Monday</td>
-                    <td>King's Birthday</td><td><span class="state-badge">QLD</span></td></tr><tr class="holiday-row future"><td class="date-column">5 Oct 2026</td>
+                    <td>King's Birthday</td><td><span class="state-badge">QLD</span></td></tr><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">5 Oct 2026</span><span class="date-mobile">Mon 5 Oct 2026</span></td>
                     <td class="day-column">Monday</td>
-                    <td>Labour Day</td><td><span class="state-badge">ACT</span><span class="state-badge">NSW</span><span class="state-badge">SA</span></td></tr><tr class="holiday-row future"><td class="date-column">3 Nov 2026</td>
+                    <td>Labour Day</td><td><span class="state-badge">ACT</span><span class="state-badge">NSW</span><span class="state-badge">SA</span></td></tr><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">3 Nov 2026</span><span class="date-mobile">Tue 3 Nov 2026</span></td>
                     <td class="day-column">Tuesday</td>
-                    <td>Melbourne Cup Day</td><td><span class="state-badge">VIC</span></td></tr><tr class="holiday-row future"><td class="date-column">24 Dec 2026</td>
+                    <td>Melbourne Cup Day</td><td><span class="state-badge">VIC</span></td></tr><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">24 Dec 2026</span><span class="date-mobile">Thu 24 Dec 2026</span></td>
                     <td class="day-column">Thursday</td>
-                    <td>Christmas Eve (partial day)</td><td><span class="state-badge">NT</span><span class="state-badge">QLD</span><span class="state-badge">SA</span></td></tr><tr class="holiday-row future"><td class="date-column">25 Dec 2026</td>
+                    <td>Christmas Eve (partial day)</td><td><span class="state-badge">NT</span><span class="state-badge">QLD</span><span class="state-badge">SA</span></td></tr><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">25 Dec 2026</span><span class="date-mobile">Fri 25 Dec 2026</span></td>
                     <td class="day-column">Friday</td>
-                    <td>Christmas Day</td><td><span class="state-badge">ACT</span><span class="state-badge">NSW</span><span class="state-badge">NT</span><span class="state-badge">QLD</span><span class="state-badge">SA</span><span class="state-badge">TAS</span><span class="state-badge">VIC</span><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column">26 Dec 2026</td>
+                    <td>Christmas Day</td><td><span class="state-badge">National</span></td></tr><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">26 Dec 2026</span><span class="date-mobile">Sat 26 Dec 2026</span></td>
                     <td class="day-column">Saturday</td>
-                    <td>Boxing Day</td><td><span class="state-badge">ACT</span><span class="state-badge">NSW</span><span class="state-badge">NT</span><span class="state-badge">QLD</span><span class="state-badge">TAS</span><span class="state-badge">VIC</span><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column">26 Dec 2026</td>
+                    <td>Boxing Day</td><td><span class="state-badge">ACT</span><span class="state-badge">NSW</span><span class="state-badge">NT</span><span class="state-badge">QLD</span><span class="state-badge">TAS</span><span class="state-badge">VIC</span><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">26 Dec 2026</span><span class="date-mobile">Sat 26 Dec 2026</span></td>
                     <td class="day-column">Saturday</td>
-                    <td>Proclamation Day</td><td><span class="state-badge">SA</span></td></tr><tr class="holiday-row future"><td class="date-column">28 Dec 2026</td>
+                    <td>Proclamation Day</td><td><span class="state-badge">SA</span></td></tr><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">28 Dec 2026</span><span class="date-mobile">Mon 28 Dec 2026</span></td>
                     <td class="day-column">Monday</td>
-                    <td>Christmas (additional)</td><td><span class="state-badge">ACT</span><span class="state-badge">NSW</span><span class="state-badge">NT</span><span class="state-badge">QLD</span><span class="state-badge">TAS</span><span class="state-badge">VIC</span><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column">28 Dec 2026</td>
+                    <td>Christmas (additional)</td><td><span class="state-badge">ACT</span><span class="state-badge">NSW</span><span class="state-badge">NT</span><span class="state-badge">QLD</span><span class="state-badge">TAS</span><span class="state-badge">VIC</span><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">28 Dec 2026</span><span class="date-mobile">Mon 28 Dec 2026</span></td>
                     <td class="day-column">Monday</td>
-                    <td>Proclamation Day (additional)</td><td><span class="state-badge">SA</span></td></tr><tr class="holiday-row future"><td class="date-column">31 Dec 2026</td>
+                    <td>Proclamation Day (additional)</td><td><span class="state-badge">SA</span></td></tr><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">31 Dec 2026</span><span class="date-mobile">Thu 31 Dec 2026</span></td>
                     <td class="day-column">Thursday</td>
-                    <td>New Year's Eve (partial day)</td><td><span class="state-badge">NT</span><span class="state-badge">SA</span></td></tr><tr class="holiday-row future"><td class="date-column">1 Jan 2027</td>
+                    <td>New Year's Eve (partial day)</td><td><span class="state-badge">NT</span><span class="state-badge">SA</span></td></tr><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">1 Jan 2027</span><span class="date-mobile">Fri 1 Jan 2027</span></td>
                     <td class="day-column">Friday</td>
-                    <td>New Year's Day</td><td><span class="state-badge">ACT</span><span class="state-badge">NSW</span><span class="state-badge">NT</span><span class="state-badge">QLD</span><span class="state-badge">SA</span><span class="state-badge">TAS</span><span class="state-badge">VIC</span><span class="state-badge">WA</span></td></tr></tbody></table>
+                    <td>New Year's Day</td><td><span class="state-badge">National</span></td></tr></tbody></table>
 

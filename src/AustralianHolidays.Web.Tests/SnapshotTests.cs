@@ -1,105 +1,117 @@
-using System.Net;
-using System.Net.Sockets;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.StaticFiles;
-using Microsoft.Extensions.FileProviders;
-using Microsoft.Playwright;
-
 [TestFixture]
 public class SnapshotTests
 {
-    static WebApplication? _app;
-    static int _port;
-    static IPlaywright? _playwright;
-    static IBrowser? _browser;
+    static WebApplication? app;
+    static int port;
+    static IPlaywright? playwright;
+    static IBrowser? browser;
 
     [OneTimeSetUp]
     public async Task OneTimeSetUp()
     {
-        _port = GetAvailablePort();
+        port = GetAvailablePort();
 
-        // Use published output which has complete Blazor WASM package
         var projectPath = Path.GetFullPath(
             Path.Combine(
                 AppContext.BaseDirectory,
                 "..", "..", "..", "..",
                 "AustralianHolidays.Web"));
 
-        var publishPath = Path.Combine(Path.GetTempPath(), "BlazorSnapshotTest", Guid.NewGuid().ToString());
+        var publishPath = Path.Combine(Path.GetTempPath(), "BlazorSnapshotTest");
         Directory.CreateDirectory(publishPath);
 
         // Publish the Blazor app
         var publishProcess = Process.Start(
             new ProcessStartInfo
-        {
-            FileName = "dotnet",
-            Arguments = $"publish \"{projectPath}\" -o \"{publishPath}\" -c Release",
-            UseShellExecute = false,
-            RedirectStandardOutput = true,
-            RedirectStandardError = true
-        });
+            {
+                FileName = "dotnet",
+                Arguments = $"publish \"{projectPath}\" -o \"{publishPath}\"",
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+                RedirectStandardError = true
+            });
         await publishProcess!.WaitForExitAsync();
 
         var wwwrootPath = Path.Combine(publishPath, "wwwroot");
 
         var builder = WebApplication.CreateBuilder();
-        builder.WebHost.UseUrls($"http://localhost:{_port}");
+        builder.WebHost.UseUrls($"http://localhost:{port}");
+        builder.Logging.ClearProviders();
 
-        _app = builder.Build();
+        app = builder.Build();
 
-        // Configure MIME types for Blazor WASM
-        var contentTypeProvider = new FileExtensionContentTypeProvider();
-        contentTypeProvider.Mappings[".dll"] = "application/octet-stream";
-        contentTypeProvider.Mappings[".wasm"] = "application/wasm";
-        contentTypeProvider.Mappings[".dat"] = "application/octet-stream";
-        contentTypeProvider.Mappings[".blat"] = "application/octet-stream";
-        contentTypeProvider.Mappings[".webcil"] = "application/octet-stream";
+        var contentTypeProvider = new FileExtensionContentTypeProvider
+        {
+            Mappings =
+            {
+                [".wasm"] = "application/wasm"
+            }
+        };
 
         var fileProvider = new PhysicalFileProvider(wwwrootPath);
 
-        _app.UseDefaultFiles(new DefaultFilesOptions { FileProvider = fileProvider });
-        _app.UseStaticFiles(new StaticFileOptions
-        {
-            FileProvider = fileProvider,
-            ContentTypeProvider = contentTypeProvider,
-            ServeUnknownFileTypes = true
-        });
+        app.UseDefaultFiles(
+            new DefaultFilesOptions
+            {
+                FileProvider = fileProvider
+            });
+        app.UseStaticFiles(
+            new StaticFileOptions
+            {
+                FileProvider = fileProvider,
+                ContentTypeProvider = contentTypeProvider,
+                ServeUnknownFileTypes = true
+            });
 
-        // Handle SPA fallback for Blazor routing
-        _app.MapFallbackToFile("index.html", new StaticFileOptions
-        {
-            FileProvider = fileProvider
-        });
+        app.MapFallbackToFile(
+            "index.html",
+            new StaticFileOptions
+            {
+                FileProvider = fileProvider
+            });
 
-        await _app.StartAsync();
+        await app.StartAsync();
 
-        _playwright = await Playwright.CreateAsync();
-        _browser = await _playwright.Chromium.LaunchAsync();
+        playwright = await Playwright.CreateAsync();
+        browser = await playwright.Chromium.LaunchAsync();
     }
 
     [OneTimeTearDown]
     public async Task OneTimeTearDown()
     {
-        if (_browser != null)
+        if (browser != null)
         {
-            await _browser.CloseAsync();
+            await browser.CloseAsync();
         }
 
-        _playwright?.Dispose();
+        playwright?.Dispose();
 
-        if (_app != null)
+        if (app != null)
         {
-            await _app.StopAsync();
-            await _app.DisposeAsync();
+            await app.StopAsync();
+            await app.DisposeAsync();
         }
     }
 
     [Test]
     public async Task HomePage()
     {
-        var page = await _browser!.NewPageAsync();
-        await page.GotoAsync($"http://localhost:{_port}/");
+        var page = await browser!.NewPageAsync();
+        await page.GotoAsync($"http://localhost:{port}/");
+
+        // Wait for Blazor to fully render
+        await page.WaitForSelectorAsync(".holiday-table");
+
+        await Verify(page);
+    }
+
+    [Test]
+    public async Task HomePageMobile()
+    {
+        var page = await browser!.NewPageAsync();
+        await page.SetViewportSizeAsync(375, 667); // iPhone SE size
+
+        await page.GotoAsync($"http://localhost:{port}/");
 
         // Wait for Blazor to fully render
         await page.WaitForSelectorAsync(".holiday-table");
@@ -109,10 +121,8 @@ public class SnapshotTests
 
     static int GetAvailablePort()
     {
-        var listener = new TcpListener(IPAddress.Loopback, 0);
+        using var listener = new TcpListener(IPAddress.Loopback, 0);
         listener.Start();
-        var port = ((IPEndPoint)listener.LocalEndpoint).Port;
-        listener.Stop();
-        return port;
+        return ((IPEndPoint) listener.LocalEndpoint).Port;
     }
 }

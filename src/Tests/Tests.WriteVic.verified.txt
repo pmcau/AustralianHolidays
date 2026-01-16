@@ -8,7 +8,7 @@
     Apr 21 Mon - Easter Monday
     Apr 25 Fri - Anzac Day
     Jun 09 Mon - King's Birthday
-    Sep 26 Fri - Friday before AFL Grand Final (Subject to AFL schedule)
+    Sep 26 Fri - Friday before AFL Final (Subject to AFL schedule)
     Nov 04 Tue - Melbourne Cup Day
     Dec 25 Thu - Christmas Day
     Dec 26 Fri - Boxing Day
@@ -22,7 +22,7 @@
     Apr 06 Mon - Easter Monday
     Apr 25 Sat - Anzac Day
     Jun 08 Mon - King's Birthday
-    Sep 25 Fri - Friday before AFL Grand Final (Subject to AFL schedule)
+    Sep 25 Fri - Friday before AFL Final (Subject to AFL schedule)
     Nov 03 Tue - Melbourne Cup Day
     Dec 25 Fri - Christmas Day
     Dec 26 Sat - Boxing Day
@@ -37,7 +37,7 @@
     Mar 29 Mon - Easter Monday
     Apr 25 Sun - Anzac Day
     Jun 14 Mon - King's Birthday
-    Sep 24 Fri - Friday before AFL Grand Final (Subject to AFL schedule)
+    Sep 24 Fri - Friday before AFL Final (Subject to AFL schedule)
     Nov 02 Tue - Melbourne Cup Day
     Dec 25 Sat - Christmas Day
     Dec 26 Sun - Boxing Day
@@ -53,7 +53,7 @@
     Apr 17 Mon - Easter Monday
     Apr 25 Tue - Anzac Day
     Jun 12 Mon - King's Birthday
-    Sep 29 Fri - Friday before AFL Grand Final (Subject to AFL schedule)
+    Sep 29 Fri - Friday before AFL Final (Subject to AFL schedule)
     Nov 07 Tue - Melbourne Cup Day
     Dec 25 Mon - Christmas Day
     Dec 26 Tue - Boxing Day
@@ -67,7 +67,7 @@
     Apr 02 Mon - Easter Monday
     Apr 25 Wed - Anzac Day
     Jun 11 Mon - King's Birthday
-    Sep 28 Fri - Friday before AFL Grand Final (Subject to AFL schedule)
+    Sep 28 Fri - Friday before AFL Final (Subject to AFL schedule)
     Nov 06 Tue - Melbourne Cup Day
     Dec 25 Tue - Christmas Day
     Dec 26 Wed - Boxing Day
@@ -81,7 +81,7 @@
     Apr 22 Mon - Easter Monday
     Apr 25 Thu - Anzac Day
     Jun 10 Mon - King's Birthday
-    Sep 27 Fri - Friday before AFL Grand Final (Subject to AFL schedule)
+    Sep 27 Fri - Friday before AFL Final (Subject to AFL schedule)
     Nov 05 Tue - Melbourne Cup Day
     Dec 25 Wed - Christmas Day
     Dec 26 Thu - Boxing Day

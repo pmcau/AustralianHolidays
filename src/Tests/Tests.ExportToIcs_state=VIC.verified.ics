@@ -55,8 +55,8 @@ DTSTART;VALUE=DATE:20260608
 DTEND;VALUE=DATE:20260609
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Friday before AFL Grand Final (Subject to AFL schedule)
-UID:Friday before AFL Grand Final (Subject to AFL schedule)_VIC@AustralianHolidays
+SUMMARY:Friday before AFL Final (Subject to AFL schedule)
+UID:Friday before AFL Final (Subject to AFL schedule)_VIC@AustralianHolidays
 DTSTART;VALUE=DATE:20260925
 DTEND;VALUE=DATE:20260926
 END:VEVENT
@@ -139,8 +139,8 @@ DTSTART;VALUE=DATE:20270614
 DTEND;VALUE=DATE:20270615
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Friday before AFL Grand Final (Subject to AFL schedule)
-UID:Friday before AFL Grand Final (Subject to AFL schedule)_VIC@AustralianHolidays
+SUMMARY:Friday before AFL Final (Subject to AFL schedule)
+UID:Friday before AFL Final (Subject to AFL schedule)_VIC@AustralianHolidays
 DTSTART;VALUE=DATE:20270924
 DTEND;VALUE=DATE:20270925
 END:VEVENT
@@ -229,8 +229,8 @@ DTSTART;VALUE=DATE:20280612
 DTEND;VALUE=DATE:20280613
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Friday before AFL Grand Final (Subject to AFL schedule)
-UID:Friday before AFL Grand Final (Subject to AFL schedule)_VIC@AustralianHolidays
+SUMMARY:Friday before AFL Final (Subject to AFL schedule)
+UID:Friday before AFL Final (Subject to AFL schedule)_VIC@AustralianHolidays
 DTSTART;VALUE=DATE:20280929
 DTEND;VALUE=DATE:20280930
 END:VEVENT
@@ -307,8 +307,8 @@ DTSTART;VALUE=DATE:20290611
 DTEND;VALUE=DATE:20290612
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Friday before AFL Grand Final (Subject to AFL schedule)
-UID:Friday before AFL Grand Final (Subject to AFL schedule)_VIC@AustralianHolidays
+SUMMARY:Friday before AFL Final (Subject to AFL schedule)
+UID:Friday before AFL Final (Subject to AFL schedule)_VIC@AustralianHolidays
 DTSTART;VALUE=DATE:20290928
 DTEND;VALUE=DATE:20290929
 END:VEVENT
@@ -385,8 +385,8 @@ DTSTART;VALUE=DATE:20300610
 DTEND;VALUE=DATE:20300611
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Friday before AFL Grand Final (Subject to AFL schedule)
-UID:Friday before AFL Grand Final (Subject to AFL schedule)_VIC@AustralianHolidays
+SUMMARY:Friday before AFL Final (Subject to AFL schedule)
+UID:Friday before AFL Final (Subject to AFL schedule)_VIC@AustralianHolidays
 DTSTART;VALUE=DATE:20300927
 DTEND;VALUE=DATE:20300928
 END:VEVENT

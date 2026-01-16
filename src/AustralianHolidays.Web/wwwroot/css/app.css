@@ -96,14 +96,18 @@ header p {
     align-items: center;
 }
 
-.state-selector {
+.state-selector,
+.year-selector,
+.export-menu {
     display: flex;
     align-items: center;
     gap: 0.75rem;
     flex-wrap: wrap;
 }
 
-.state-selector label {
+.state-selector label,
+.year-selector label,
+.export-menu label {
     font-weight: 500;
 }
 
@@ -137,17 +141,6 @@ header p {
 
 .state-btn.selected:hover {
     background: #003d7a;
-}
-
-.export-menu {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    align-items: center;
-}
-
-.export-label {
-    font-weight: 500;
 }
 
 .export-btn {
@@ -220,8 +213,9 @@ header p {
     color: var(--future-color);
 }
 
-.date-column {
+.holiday-table .date-column {
     white-space: nowrap;
+    text-align: right;
 }
 
 .day-column {
@@ -267,15 +261,18 @@ footer a:hover {
     text-decoration: underline;
 }
 
+.date-mobile {
+    display: none;
+}
+
 @media (max-width: 768px) {
+    header p {
+        display: none;
+    }
+
     .controls {
         flex-direction: column;
         align-items: stretch;
-    }
-
-    .export-menu {
-        margin-left: 0;
-        justify-content: center;
     }
 
     .holiday-table {
@@ -286,8 +283,19 @@ footer a:hover {
     .holiday-table td {
         padding: 0.5rem;
     }
-}
 
+    .date-desktop {
+        display: none;
+    }
+
+    .date-mobile {
+        display: inline;
+    }
+
+    .day-column {
+        display: none;
+    }
+}
 .holiday-logic-info {
     margin-top: 2rem;
     padding: 1.5rem;
@@ -295,6 +303,30 @@ footer a:hover {
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     line-height: 1.6;
+}
+
+.collapse-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    width: calc(100% + 3rem);
+    padding: 0.75rem 1.5rem;
+    margin: 1.5rem -1.5rem 0 -1.5rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+}
+
+.collapse-btn:hover {
+    background: #003d7a;
+}
+
+.holiday-logic-content {
+    margin-top: 1rem;
 }
 
 .holiday-logic-info h2 {

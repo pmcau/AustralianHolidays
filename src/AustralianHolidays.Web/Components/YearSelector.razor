@@ -1,0 +1,63 @@
+@code {
+    [Parameter]
+    public bool Is12MonthsMode { get; set; } = true;
+
+    [Parameter]
+    public EventCallback<bool> Is12MonthsModeChanged { get; set; }
+
+    [Parameter]
+    public IReadOnlySet<int> SelectedYears { get; set; } = new HashSet<int>();
+
+    [Parameter]
+    public EventCallback<IReadOnlySet<int>> SelectedYearsChanged { get; set; }
+
+    static readonly int[] AvailableYears = [2025, 2026, 2027, 2028];
+
+    async Task Select12Months()
+    {
+        if (!Is12MonthsMode)
+        {
+            await Is12MonthsModeChanged.InvokeAsync(true);
+            await SelectedYearsChanged.InvokeAsync(new HashSet<int>());
+        }
+    }
+
+    async Task ToggleYear(int year)
+    {
+        var newSelection = new HashSet<int>(SelectedYears);
+
+        if (newSelection.Contains(year))
+        {
+            newSelection.Remove(year);
+            if (newSelection.Count == 0)
+            {
+                // If no years selected, switch back to 12 months mode
+                await Is12MonthsModeChanged.InvokeAsync(true);
+                await SelectedYearsChanged.InvokeAsync(newSelection);
+                return;
+            }
+        }
+        else
+        {
+            newSelection.Add(year);
+        }
+
+        if (Is12MonthsMode)
+        {
+            await Is12MonthsModeChanged.InvokeAsync(false);
+        }
+
+        await SelectedYearsChanged.InvokeAsync(newSelection);
+    }
+}
+
+<div class="year-selector">
+    <label>Period:</label>
+    <div class="state-buttons">
+        <button class="state-btn @(Is12MonthsMode ? "selected" : "")" @onclick="Select12Months">12 Months</button>
+        @foreach (var year in AvailableYears)
+        {
+            <button class="state-btn @(SelectedYears.Contains(year) ? "selected" : "")" @onclick="() => ToggleYear(year)">@year</button>
+        }
+    </div>
+</div>

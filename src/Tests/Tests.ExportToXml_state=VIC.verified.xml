@@ -9,7 +9,7 @@
   <Holiday Date="2026-04-06" Name="Easter Monday" />
   <Holiday Date="2026-04-25" Name="Anzac Day" />
   <Holiday Date="2026-06-08" Name="King's Birthday" />
-  <Holiday Date="2026-09-25" Name="Friday before AFL Grand Final (Subject to AFL schedule)" />
+  <Holiday Date="2026-09-25" Name="Friday before AFL Final (Subject to AFL schedule)" />
   <Holiday Date="2026-11-03" Name="Melbourne Cup Day" />
   <Holiday Date="2026-12-25" Name="Christmas Day" />
   <Holiday Date="2026-12-26" Name="Boxing Day" />
@@ -23,7 +23,7 @@
   <Holiday Date="2027-03-29" Name="Easter Monday" />
   <Holiday Date="2027-04-25" Name="Anzac Day" />
   <Holiday Date="2027-06-14" Name="King's Birthday" />
-  <Holiday Date="2027-09-24" Name="Friday before AFL Grand Final (Subject to AFL schedule)" />
+  <Holiday Date="2027-09-24" Name="Friday before AFL Final (Subject to AFL schedule)" />
   <Holiday Date="2027-11-02" Name="Melbourne Cup Day" />
   <Holiday Date="2027-12-25" Name="Christmas Day" />
   <Holiday Date="2027-12-26" Name="Boxing Day" />
@@ -38,7 +38,7 @@
   <Holiday Date="2028-04-17" Name="Easter Monday" />
   <Holiday Date="2028-04-25" Name="Anzac Day" />
   <Holiday Date="2028-06-12" Name="King's Birthday" />
-  <Holiday Date="2028-09-29" Name="Friday before AFL Grand Final (Subject to AFL schedule)" />
+  <Holiday Date="2028-09-29" Name="Friday before AFL Final (Subject to AFL schedule)" />
   <Holiday Date="2028-11-07" Name="Melbourne Cup Day" />
   <Holiday Date="2028-12-25" Name="Christmas Day" />
   <Holiday Date="2028-12-26" Name="Boxing Day" />
@@ -51,7 +51,7 @@
   <Holiday Date="2029-04-02" Name="Easter Monday" />
   <Holiday Date="2029-04-25" Name="Anzac Day" />
   <Holiday Date="2029-06-11" Name="King's Birthday" />
-  <Holiday Date="2029-09-28" Name="Friday before AFL Grand Final (Subject to AFL schedule)" />
+  <Holiday Date="2029-09-28" Name="Friday before AFL Final (Subject to AFL schedule)" />
   <Holiday Date="2029-11-06" Name="Melbourne Cup Day" />
   <Holiday Date="2029-12-25" Name="Christmas Day" />
   <Holiday Date="2029-12-26" Name="Boxing Day" />
@@ -64,7 +64,7 @@
   <Holiday Date="2030-04-22" Name="Easter Monday" />
   <Holiday Date="2030-04-25" Name="Anzac Day" />
   <Holiday Date="2030-06-10" Name="King's Birthday" />
-  <Holiday Date="2030-09-27" Name="Friday before AFL Grand Final (Subject to AFL schedule)" />
+  <Holiday Date="2030-09-27" Name="Friday before AFL Final (Subject to AFL schedule)" />
   <Holiday Date="2030-11-05" Name="Melbourne Cup Day" />
   <Holiday Date="2030-12-25" Name="Christmas Day" />
   <Holiday Date="2030-12-26" Name="Boxing Day" />

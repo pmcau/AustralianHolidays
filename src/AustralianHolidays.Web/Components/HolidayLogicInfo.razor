@@ -1,25 +1,40 @@
 @inject HttpClient Http
 
-@if (!string.IsNullOrEmpty(htmlContent))
+@if (!string.IsNullOrEmpty(alwaysVisibleHtml))
 {
     <div class="holiday-logic-info">
-        @((MarkupString)htmlContent)
+        @((MarkupString)alwaysVisibleHtml)
+
+        <button class="collapse-btn" @onclick="Toggle">
+            @(isExpanded ? "▼" : "▶") Public Holiday Substitution Rules
+        </button>
+        @if (isExpanded && collapsibleHtml is not null)
+        {
+            <div class="holiday-logic-content">
+                @((MarkupString)collapsibleHtml)
+            </div>
+        }
     </div>
 }
 
 @code {
-    string? htmlContent;
+    string? alwaysVisibleHtml;
+    string? collapsibleHtml;
+    bool isExpanded;
 
     protected override async Task OnInitializedAsync()
     {
         try
         {
-            var markdown = await Http.GetStringAsync("holiday-logic.md");
-            htmlContent = Markdig.Markdown.ToHtml(markdown);
+            alwaysVisibleHtml = await Http.GetStringAsync("holiday-logic.html");
+            collapsibleHtml = await Http.GetStringAsync("holiday-logic-collapsible.html");
         }
         catch
         {
-            htmlContent = null;
+            alwaysVisibleHtml = null;
+            collapsibleHtml = null;
         }
     }
+
+    void Toggle() => isExpanded = !isExpanded;
 }
