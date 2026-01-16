@@ -1,6 +1,13 @@
-﻿global using AustralianHolidays;
+﻿global using System.Net;
+global using System.Net.Sockets;
+global using AustralianHolidays;
 global using AustralianHolidays.Web.Components;
 global using AustralianHolidays.Web.Services;
+global using Microsoft.AspNetCore.Builder;
 global using Microsoft.AspNetCore.Hosting;
+global using Microsoft.AspNetCore.StaticFiles;
 global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.FileProviders;
+global using Microsoft.Extensions.Logging;
+global using Microsoft.Playwright;
 global using VerifyTests.DiffPlex;

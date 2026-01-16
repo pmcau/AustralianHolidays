@@ -1,24 +1,15 @@
-using System.Diagnostics;
-using System.Net;
-using System.Net.Sockets;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.StaticFiles;
-using Microsoft.Extensions.FileProviders;
-using Microsoft.Extensions.Logging;
-using Microsoft.Playwright;
-
 [TestFixture]
 public class SnapshotTests
 {
-    static WebApplication? _app;
-    static int _port;
-    static IPlaywright? _playwright;
-    static IBrowser? _browser;
+    static WebApplication? app;
+    static int port;
+    static IPlaywright? playwright;
+    static IBrowser? browser;
 
     [OneTimeSetUp]
     public async Task OneTimeSetUp()
     {
-        _port = GetAvailablePort();
+        port = GetAvailablePort();
 
         var projectPath = Path.GetFullPath(
             Path.Combine(
@@ -44,54 +35,69 @@ public class SnapshotTests
         var wwwrootPath = Path.Combine(publishPath, "wwwroot");
 
         var builder = WebApplication.CreateBuilder();
-        builder.WebHost.UseUrls($"http://localhost:{_port}");
+        builder.WebHost.UseUrls($"http://localhost:{port}");
         builder.Logging.ClearProviders();
 
-        _app = builder.Build();
+        app = builder.Build();
 
-        var contentTypeProvider = new FileExtensionContentTypeProvider();
-        contentTypeProvider.Mappings[".wasm"] = "application/wasm";
+        var contentTypeProvider = new FileExtensionContentTypeProvider
+        {
+            Mappings =
+            {
+                [".wasm"] = "application/wasm"
+            }
+        };
 
         var fileProvider = new PhysicalFileProvider(wwwrootPath);
 
-        _app.UseDefaultFiles(new DefaultFilesOptions { FileProvider = fileProvider });
-        _app.UseStaticFiles(new StaticFileOptions
-        {
-            FileProvider = fileProvider,
-            ContentTypeProvider = contentTypeProvider,
-            ServeUnknownFileTypes = true
-        });
+        app.UseDefaultFiles(
+            new DefaultFilesOptions
+            {
+                FileProvider = fileProvider
+            });
+        app.UseStaticFiles(
+            new StaticFileOptions
+            {
+                FileProvider = fileProvider,
+                ContentTypeProvider = contentTypeProvider,
+                ServeUnknownFileTypes = true
+            });
 
-        _app.MapFallbackToFile("index.html", new StaticFileOptions { FileProvider = fileProvider });
+        app.MapFallbackToFile(
+            "index.html",
+            new StaticFileOptions
+            {
+                FileProvider = fileProvider
+            });
 
-        await _app.StartAsync();
+        await app.StartAsync();
 
-        _playwright = await Playwright.CreateAsync();
-        _browser = await _playwright.Chromium.LaunchAsync();
+        playwright = await Playwright.CreateAsync();
+        browser = await playwright.Chromium.LaunchAsync();
     }
 
     [OneTimeTearDown]
     public async Task OneTimeTearDown()
     {
-        if (_browser != null)
+        if (browser != null)
         {
-            await _browser.CloseAsync();
+            await browser.CloseAsync();
         }
 
-        _playwright?.Dispose();
+        playwright?.Dispose();
 
-        if (_app != null)
+        if (app != null)
         {
-            await _app.StopAsync();
-            await _app.DisposeAsync();
+            await app.StopAsync();
+            await app.DisposeAsync();
         }
     }
 
     [Test]
     public async Task HomePage()
     {
-        var page = await _browser!.NewPageAsync();
-        await page.GotoAsync($"http://localhost:{_port}/");
+        var page = await browser!.NewPageAsync();
+        await page.GotoAsync($"http://localhost:{port}/");
 
         // Wait for Blazor to fully render
         await page.WaitForSelectorAsync(".holiday-table");
@@ -103,7 +109,7 @@ public class SnapshotTests
     {
         var listener = new TcpListener(IPAddress.Loopback, 0);
         listener.Start();
-        var port = ((IPEndPoint)listener.LocalEndpoint).Port;
+        var port = ((IPEndPoint) listener.LocalEndpoint).Port;
         listener.Stop();
         return port;
     }
