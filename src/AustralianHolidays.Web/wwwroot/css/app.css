@@ -213,8 +213,9 @@ header p {
     color: var(--future-color);
 }
 
-.date-column {
+.holiday-table .date-column {
     white-space: nowrap;
+    text-align: right;
 }
 
 .day-column {
@@ -265,6 +266,10 @@ footer a:hover {
 }
 
 @media (max-width: 768px) {
+    header p {
+        display: none;
+    }
+
     .controls {
         flex-direction: column;
         align-items: stretch;
