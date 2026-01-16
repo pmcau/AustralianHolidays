@@ -2,7 +2,7 @@ namespace AustralianHolidays.Web.Services;
 
 public class HolidayFilterService
 {
-    public static IReadOnlyList<HolidayViewModel> GetHolidays(State? state, DateOnly startDate, DateOnly endDate)
+    public static IReadOnlyList<HolidayViewModel> GetHolidays(IReadOnlySet<State> states, Date startDate, Date endDate)
     {
         var startYear = startDate.Year;
         var endYear = endDate.Year;
@@ -10,26 +10,11 @@ public class HolidayFilterService
 
         var holidays = new List<HolidayViewModel>();
 
-        if (state.HasValue)
+        foreach (var (date, holidayState, name) in Holidays.ForYears(startYear, yearCount))
         {
-            // Get holidays for a specific state
-            foreach (var (date, name) in Holidays.ForYears(state.Value, startYear, yearCount))
+            if (date >= startDate && date <= endDate && (states.Count == 0 || states.Contains(holidayState)))
             {
-                if (date >= startDate && date <= endDate)
-                {
-                    holidays.Add(new HolidayViewModel(date, name, state.Value));
-                }
-            }
-        }
-        else
-        {
-            // Get holidays for all states
-            foreach (var (date, holidayState, name) in Holidays.ForYears(startYear, yearCount))
-            {
-                if (date >= startDate && date <= endDate)
-                {
-                    holidays.Add(new HolidayViewModel(date, name, holidayState));
-                }
+                holidays.Add(new(date, name, holidayState));
             }
         }
 
@@ -39,19 +24,19 @@ public class HolidayFilterService
             .ToList();
     }
 
-    public static (DateOnly Start, DateOnly End) GetDefaultDateRange()
+    public static (Date Start, Date End) GetDefaultDateRange()
     {
-        var today = DateOnly.FromDateTime(DateTime.Today);
+        var today = Date.FromDateTime(DateTime.Today);
         var start = today.AddDays(-7);
         var end = today.AddMonths(12);
         return (start, end);
     }
 
-    public static (int StartYear, int YearCount) GetExportYearRange(DateOnly startDate, DateOnly endDate) =>
+    public static (int StartYear, int YearCount) GetExportYearRange(Date startDate, Date endDate) =>
         (startDate.Year, endDate.Year - startDate.Year + 1);
 }
 
-public record HolidayViewModel(DateOnly Date, string Name, State State)
+public record HolidayViewModel(Date Date, string Name, State State)
 {
     public string DayOfWeek => Date.DayOfWeek.ToString();
 
@@ -59,7 +44,7 @@ public record HolidayViewModel(DateOnly Date, string Name, State State)
     {
         get
         {
-            var today = DateOnly.FromDateTime(DateTime.Today);
+            var today = Date.FromDateTime(DateTime.Today);
             if (Date < today)
             {
                 return HolidayTimeCategory.Past;

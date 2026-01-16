@@ -99,33 +99,55 @@ header p {
 .state-selector {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.75rem;
+    flex-wrap: wrap;
 }
 
 .state-selector label {
     font-weight: 500;
 }
 
-.state-selector select {
+.state-buttons {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.state-btn {
     padding: 0.5rem 1rem;
     border: 1px solid var(--border-color);
     border-radius: 4px;
-    font-size: 1rem;
     background: white;
+    color: var(--text-color);
     cursor: pointer;
-    min-width: 150px;
+    font-size: 0.875rem;
+    transition: all 0.2s;
 }
 
-.state-selector select:focus {
-    outline: none;
+.state-btn:hover {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(0, 40, 85, 0.1);
+    background: #f8f9fa;
+}
+
+.state-btn.selected {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.state-btn.selected:hover {
+    background: #003d7a;
 }
 
 .export-menu {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+    align-items: center;
+}
+
+.export-label {
+    font-weight: 500;
 }
 
 .export-btn {

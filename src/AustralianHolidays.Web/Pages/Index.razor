@@ -1,5 +1,4 @@
 @page "/"
-@inject HolidayFilterService HolidayFilterService
 @inject StatePreferenceService StatePreferenceService
 
 <PageTitle>Australian Holidays</PageTitle>
@@ -10,18 +9,18 @@
 }
 
 <div class="controls">
-    <StateSelector SelectedState="selectedState" SelectedStateChanged="OnStateChanged" />
+    <StateSelector SelectedStates="selectedStates" SelectedStatesChanged="OnStatesChanged" />
 </div>
 <div class="controls">
-    <ExportMenu SelectedState="selectedState" StartYear="startYear" YearCount="yearCount" />
+    <ExportMenu SelectedStates="selectedStates" StartYear="startYear" YearCount="yearCount" />
 </div>
 
-<HolidayList Holidays="holidays" ShowStateColumn="@(!selectedState.HasValue)" />
+<HolidayList Holidays="holidays" ShowStateColumn="@(selectedStates.Count != 1)" />
 
 <HolidayLogicInfo />
 
 @code {
-    State? selectedState;
+    HashSet<State> selectedStates = new(Enum.GetValues<State>());
     IReadOnlyList<HolidayViewModel>? holidays;
     bool showLocationPrompt;
     DateOnly startDate;
@@ -34,12 +33,14 @@
         (startDate, endDate) = HolidayFilterService.GetDefaultDateRange();
         (startYear, yearCount) = HolidayFilterService.GetExportYearRange(startDate, endDate);
 
-        // Try to get saved state preference
-        selectedState = await StatePreferenceService.GetSavedStateAsync();
+        var savedState = await StatePreferenceService.GetSavedStateAsync();
 
-        if (selectedState is null)
+        if (savedState.HasValue)
         {
-            // Check if user has been prompted before
+            selectedStates = [savedState.Value];
+        }
+        else
+        {
             var hasBeenPrompted = await StatePreferenceService.HasBeenPromptedAsync();
             showLocationPrompt = !hasBeenPrompted;
         }
@@ -47,16 +48,29 @@
         LoadHolidays();
     }
 
-    async Task OnStateChanged(State? state)
+    async Task OnStatesChanged(IReadOnlySet<State> states)
     {
-        selectedState = state;
-        await StatePreferenceService.SaveStateAsync(state);
+        selectedStates = new HashSet<State>(states);
+
+        if (states.Count == 1)
+        {
+            await StatePreferenceService.SaveStateAsync(states.First());
+        }
+        else
+        {
+            await StatePreferenceService.SaveStateAsync(null);
+        }
+
         LoadHolidays();
     }
 
     void OnStateDetected(State? state)
     {
-        selectedState = state;
+        if (state.HasValue)
+        {
+            selectedStates = [state.Value];
+        }
+
         showLocationPrompt = false;
         LoadHolidays();
     }
@@ -68,6 +82,6 @@
 
     void LoadHolidays()
     {
-        holidays = HolidayFilterService.GetHolidays(selectedState, startDate, endDate);
+        holidays = HolidayFilterService.GetHolidays(selectedStates, startDate, endDate);
     }
 }

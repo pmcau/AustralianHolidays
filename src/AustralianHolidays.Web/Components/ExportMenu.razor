@@ -2,7 +2,7 @@
 
 @code {
     [Parameter]
-    public State? SelectedState { get; set; }
+    public IReadOnlySet<State> SelectedStates { get; set; } = new HashSet<State>();
 
     [Parameter]
     public int StartYear { get; set; }
@@ -12,12 +12,14 @@
 
     bool isExporting;
 
-    async Task ExportJson() => await Export(() => FileDownloadService.DownloadJsonAsync(SelectedState, StartYear, YearCount));
-    async Task ExportCsv() => await Export(() => FileDownloadService.DownloadCsvAsync(SelectedState, StartYear, YearCount));
-    async Task ExportXml() => await Export(() => FileDownloadService.DownloadXmlAsync(SelectedState, StartYear, YearCount));
-    async Task ExportMarkdown() => await Export(() => FileDownloadService.DownloadMarkdownAsync(SelectedState, StartYear, YearCount));
-    async Task ExportIcs() => await Export(() => FileDownloadService.DownloadIcsAsync(SelectedState, StartYear, YearCount));
-    async Task ExportExcel() => await Export(() => FileDownloadService.DownloadExcelAsync(SelectedState, StartYear, YearCount));
+    State? SingleState => SelectedStates.Count == 1 ? SelectedStates.First() : null;
+
+    async Task ExportJson() => await Export(() => FileDownloadService.DownloadJsonAsync(SingleState, StartYear, YearCount));
+    async Task ExportCsv() => await Export(() => FileDownloadService.DownloadCsvAsync(SingleState, StartYear, YearCount));
+    async Task ExportXml() => await Export(() => FileDownloadService.DownloadXmlAsync(SingleState, StartYear, YearCount));
+    async Task ExportMarkdown() => await Export(() => FileDownloadService.DownloadMarkdownAsync(SingleState, StartYear, YearCount));
+    async Task ExportIcs() => await Export(() => FileDownloadService.DownloadIcsAsync(SingleState, StartYear, YearCount));
+    async Task ExportExcel() => await Export(() => FileDownloadService.DownloadExcelAsync(SingleState, StartYear, YearCount));
 
     async Task Export(Func<Task> exportAction)
     {
@@ -42,6 +44,7 @@
 }
 
 <div class="export-menu">
+    <span class="export-label">Export:</span>
     <button class="export-btn" @onclick="ExportJson" disabled="@isExporting">JSON</button>
     <button class="export-btn" @onclick="ExportCsv" disabled="@isExporting">CSV</button>
     <button class="export-btn" @onclick="ExportXml" disabled="@isExporting">XML</button>

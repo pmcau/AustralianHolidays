@@ -1,6 +1,3 @@
-using System.Runtime.CompilerServices;
-using VerifyTests.Bunit;
-
 static class ModuleInitializer
 {
     [ModuleInitializer]

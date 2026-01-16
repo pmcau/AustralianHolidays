@@ -1,6 +1,4 @@
 using AustralianHolidays.Web.Components;
-using AustralianHolidays.Web.Services;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace AustralianHolidays.Web.Tests.Components;
 
@@ -16,7 +14,7 @@ public class ExportMenuTests : BunitTestContext
         JSInterop.SetupVoid("fileDownload.downloadFile", _ => true);
 
         var cut = Render<ExportMenu>(parameters => parameters
-            .Add(p => p.SelectedState, State.NSW)
+            .Add(p => p.SelectedStates, new HashSet<State> { State.NSW })
             .Add(p => p.StartYear, 2025)
             .Add(p => p.YearCount, 2));
 
@@ -39,7 +37,7 @@ public class ExportMenuTests : BunitTestContext
         JSInterop.SetupVoid("fileDownload.downloadFile", _ => true);
 
         var cut = Render<ExportMenu>(parameters => parameters
-            .Add(p => p.SelectedState, State.NSW)
+            .Add(p => p.SelectedStates, new HashSet<State> { State.NSW })
             .Add(p => p.StartYear, 2025)
             .Add(p => p.YearCount, 2));
 
@@ -49,5 +47,19 @@ public class ExportMenuTests : BunitTestContext
         {
             That(button.HasAttribute("disabled"), Is.False);
         }
+    }
+
+    [Test]
+    public void HasExportLabel()
+    {
+        JSInterop.SetupVoid("fileDownload.downloadFile", _ => true);
+
+        var cut = Render<ExportMenu>(parameters => parameters
+            .Add(p => p.SelectedStates, new HashSet<State>())
+            .Add(p => p.StartYear, 2025)
+            .Add(p => p.YearCount, 2));
+
+        var label = cut.Find(".export-label");
+        That(label.TextContent, Is.EqualTo("Export:"));
     }
 }

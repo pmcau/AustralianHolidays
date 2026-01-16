@@ -1,49 +1,47 @@
 @code {
     [Parameter]
-    public State? SelectedState { get; set; }
+    public IReadOnlySet<State> SelectedStates { get; set; } = new HashSet<State>();
 
     [Parameter]
-    public EventCallback<State?> SelectedStateChanged { get; set; }
+    public EventCallback<IReadOnlySet<State>> SelectedStatesChanged { get; set; }
 
     static readonly State[] AllStates = Enum.GetValues<State>();
 
-    async Task OnStateChanged(ChangeEventArgs e)
+    bool AllSelected => SelectedStates.Count == AllStates.Length;
+
+    async Task ToggleAll()
     {
-        State? newState = null;
-        if (e.Value is string value && !string.IsNullOrEmpty(value))
+        var newSelection = AllSelected
+            ? new HashSet<State>()
+            : new HashSet<State>(AllStates);
+
+        await SelectedStatesChanged.InvokeAsync(newSelection);
+    }
+
+    async Task ToggleState(State state)
+    {
+        var newSelection = new HashSet<State>(SelectedStates);
+
+        if (newSelection.Contains(state))
         {
-            if (Enum.TryParse<State>(value, out var state))
-            {
-                newState = state;
-            }
+            newSelection.Remove(state);
+        }
+        else
+        {
+            newSelection.Add(state);
         }
 
-        await SelectedStateChanged.InvokeAsync(newState);
+        await SelectedStatesChanged.InvokeAsync(newSelection);
     }
 }
 
 <div class="state-selector">
-    <label for="state-select">State:</label>
-    <select id="state-select" @onchange="OnStateChanged">
-        <option value="" selected="@(!SelectedState.HasValue)">All States</option>
+    <label>States:</label>
+    <div class="state-buttons">
+        <button class="state-btn @(AllSelected ? "selected" : "")" @onclick="ToggleAll">All</button>
         @foreach (var state in AllStates)
         {
-            <option value="@state" selected="@(SelectedState == state)">@GetStateName(state)</option>
+            <button class="state-btn @(SelectedStates.Contains(state) ? "selected" : "")" @onclick="() => ToggleState(state)">@state</button>
         }
-    </select>
+    </div>
 </div>
-
-@code {
-    static string GetStateName(State state) => state switch
-    {
-        State.ACT => "ACT - Australian Capital Territory",
-        State.NSW => "NSW - New South Wales",
-        State.NT => "NT - Northern Territory",
-        State.QLD => "QLD - Queensland",
-        State.SA => "SA - South Australia",
-        State.TAS => "TAS - Tasmania",
-        State.VIC => "VIC - Victoria",
-        State.WA => "WA - Western Australia",
-        _ => state.ToString()
-    };
-}

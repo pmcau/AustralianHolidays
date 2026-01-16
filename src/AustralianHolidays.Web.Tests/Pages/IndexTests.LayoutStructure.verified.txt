@@ -1,11 +1,12 @@
-﻿<div class="controls"><div class="state-selector"><label for="state-select">State:</label>
-    <select id="state-select" blazor:onchange="1"><option value selected>All States</option><option value="ACT">ACT - Australian Capital Territory</option><option value="NSW">NSW - New South Wales</option><option value="NT">NT - Northern Territory</option><option value="QLD">QLD - Queensland</option><option value="SA">SA - South Australia</option><option value="TAS">TAS - Tasmania</option><option value="VIC">VIC - Victoria</option><option value="WA">WA - Western Australia</option></select></div></div>
-<div class="controls"><div class="export-menu"><button class="export-btn" blazor:onclick="2">JSON</button>
-    <button class="export-btn" blazor:onclick="3">CSV</button>
-    <button class="export-btn" blazor:onclick="4">XML</button>
-    <button class="export-btn" blazor:onclick="5">Markdown</button>
-    <button class="export-btn" blazor:onclick="6">ICS</button>
-    <button class="export-btn" blazor:onclick="7">Excel</button></div></div>
+﻿<div class="controls"><div class="state-selector"><label>States:</label>
+    <div class="state-buttons"><button class="state-btn selected" blazor:onclick="1">All</button><button class="state-btn selected" blazor:onclick="2">ACT</button><button class="state-btn selected" blazor:onclick="3">NSW</button><button class="state-btn selected" blazor:onclick="4">NT</button><button class="state-btn selected" blazor:onclick="5">QLD</button><button class="state-btn selected" blazor:onclick="6">SA</button><button class="state-btn selected" blazor:onclick="7">TAS</button><button class="state-btn selected" blazor:onclick="8">VIC</button><button class="state-btn selected" blazor:onclick="9">WA</button></div></div></div>
+<div class="controls"><div class="export-menu"><span class="export-label">Export:</span>
+    <button class="export-btn" blazor:onclick="10">JSON</button>
+    <button class="export-btn" blazor:onclick="11">CSV</button>
+    <button class="export-btn" blazor:onclick="12">XML</button>
+    <button class="export-btn" blazor:onclick="13">Markdown</button>
+    <button class="export-btn" blazor:onclick="14">ICS</button>
+    <button class="export-btn" blazor:onclick="15">Excel</button></div></div>
 
 <table class="holiday-table"><thead><tr><th class="date-column">Date</th>
                 <th class="day-column">Day</th>

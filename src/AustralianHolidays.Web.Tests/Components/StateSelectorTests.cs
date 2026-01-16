@@ -1,5 +1,4 @@
 using AustralianHolidays.Web.Components;
-using Microsoft.AspNetCore.Components;
 
 namespace AustralianHolidays.Web.Tests.Components;
 
@@ -7,64 +6,93 @@ namespace AustralianHolidays.Web.Tests.Components;
 public class StateSelectorTests : BunitTestContext
 {
     [Test]
-    public void InitialRender_HasAllStatesOption()
+    public void InitialRender_HasAllButton()
     {
         var cut = Render<StateSelector>(parameters => parameters
-            .Add(p => p.SelectedState, null));
+            .Add(p => p.SelectedStates, new HashSet<State>()));
 
-        var options = cut.FindAll("option");
-
-        // All States + 8 individual states
-        That(options.Count, Is.EqualTo(9));
-
-        var allStatesOption = options.First(o => o.TextContent == "All States");
-        That(allStatesOption, Is.Not.Null);
+        var allButton = cut.Find(".state-btn");
+        That(allButton.TextContent, Is.EqualTo("All"));
     }
 
     [Test]
-    public void InitialRender_HasAllIndividualStates()
+    public void InitialRender_HasAllStateButtons()
     {
         var cut = Render<StateSelector>(parameters => parameters
-            .Add(p => p.SelectedState, null));
+            .Add(p => p.SelectedStates, new HashSet<State>()));
 
-        var options = cut.FindAll("option");
-        var optionTexts = options.Select(o => o.TextContent).ToList();
+        var buttons = cut.FindAll(".state-btn");
 
-        That(optionTexts, Does.Contain("ACT - Australian Capital Territory"));
-        That(optionTexts, Does.Contain("NSW - New South Wales"));
-        That(optionTexts, Does.Contain("NT - Northern Territory"));
-        That(optionTexts, Does.Contain("QLD - Queensland"));
-        That(optionTexts, Does.Contain("SA - South Australia"));
-        That(optionTexts, Does.Contain("TAS - Tasmania"));
-        That(optionTexts, Does.Contain("VIC - Victoria"));
-        That(optionTexts, Does.Contain("WA - Western Australia"));
+        // All button + 8 state buttons
+        That(buttons.Count, Is.EqualTo(9));
+
+        var buttonTexts = buttons.Select(b => b.TextContent).ToList();
+        That(buttonTexts, Does.Contain("All"));
+        That(buttonTexts, Does.Contain("ACT"));
+        That(buttonTexts, Does.Contain("NSW"));
+        That(buttonTexts, Does.Contain("NT"));
+        That(buttonTexts, Does.Contain("QLD"));
+        That(buttonTexts, Does.Contain("SA"));
+        That(buttonTexts, Does.Contain("TAS"));
+        That(buttonTexts, Does.Contain("VIC"));
+        That(buttonTexts, Does.Contain("WA"));
     }
 
     [Test]
-    public async Task SelectState_TriggersCallback()
+    public void SelectedStates_ShowsSelectedClass()
     {
-        State? selectedState = null;
+        var selectedStates = new HashSet<State> { State.NSW, State.VIC };
         var cut = Render<StateSelector>(parameters => parameters
-            .Add(p => p.SelectedState, null)
-            .Add(p => p.SelectedStateChanged, (State? s) => selectedState = s));
+            .Add(p => p.SelectedStates, selectedStates));
 
-        var select = cut.Find("select");
-        await select.ChangeAsync(new ChangeEventArgs { Value = "VIC" });
+        var nswButton = cut.FindAll(".state-btn").First(b => b.TextContent == "NSW");
+        var vicButton = cut.FindAll(".state-btn").First(b => b.TextContent == "VIC");
+        var qldButton = cut.FindAll(".state-btn").First(b => b.TextContent == "QLD");
 
-        That(selectedState, Is.EqualTo(State.VIC));
+        That(nswButton.ClassList, Does.Contain("selected"));
+        That(vicButton.ClassList, Does.Contain("selected"));
+        That(qldButton.ClassList, Does.Not.Contain("selected"));
     }
 
     [Test]
-    public async Task SelectAllStates_TriggersCallbackWithNull()
+    public void AllStatesSelected_AllButtonShowsSelected()
     {
-        State? selectedState = State.NSW;
+        var allStates = new HashSet<State>(Enum.GetValues<State>());
         var cut = Render<StateSelector>(parameters => parameters
-            .Add(p => p.SelectedState, State.NSW)
-            .Add(p => p.SelectedStateChanged, (State? s) => selectedState = s));
+            .Add(p => p.SelectedStates, allStates));
 
-        var select = cut.Find("select");
-        await select.ChangeAsync(new ChangeEventArgs { Value = "" });
+        var allButton = cut.FindAll(".state-btn").First(b => b.TextContent == "All");
 
-        That(selectedState, Is.Null);
+        That(allButton.ClassList, Does.Contain("selected"));
+    }
+
+    [Test]
+    public async Task ClickStateButton_TogglesSelection()
+    {
+        IReadOnlySet<State>? selectedStates = null;
+        var cut = Render<StateSelector>(parameters => parameters
+            .Add(p => p.SelectedStates, new HashSet<State>())
+            .Add(p => p.SelectedStatesChanged, (IReadOnlySet<State> s) => selectedStates = s));
+
+        var nswButton = cut.FindAll(".state-btn").First(b => b.TextContent == "NSW");
+        await nswButton.ClickAsync(new());
+
+        That(selectedStates, Is.Not.Null);
+        That(selectedStates, Does.Contain(State.NSW));
+    }
+
+    [Test]
+    public async Task ClickAllButton_SelectsAllStates()
+    {
+        IReadOnlySet<State>? selectedStates = null;
+        var cut = Render<StateSelector>(parameters => parameters
+            .Add(p => p.SelectedStates, new HashSet<State>())
+            .Add(p => p.SelectedStatesChanged, s => selectedStates = s));
+
+        var allButton = cut.FindAll(".state-btn").First(b => b.TextContent == "All");
+        await allButton.ClickAsync(new());
+
+        That(selectedStates, Is.Not.Null);
+        That(selectedStates!.Count, Is.EqualTo(8));
     }
 }

@@ -1,5 +1,4 @@
 using AustralianHolidays.Web.Components;
-using AustralianHolidays.Web.Services;
 
 namespace AustralianHolidays.Web.Tests.Components;
 
@@ -34,8 +33,8 @@ public class HolidayListTests : BunitTestContext
     {
         var holidays = new List<HolidayViewModel>
         {
-            new(new DateOnly(2025, 1, 1), "New Year's Day", State.NSW),
-            new(new DateOnly(2025, 1, 27), "Australia Day", State.NSW)
+            new(new Date(2025, 1, 1), "New Year's Day", State.NSW),
+            new(new Date(2025, 1, 27), "Australia Day", State.NSW)
         };
 
         var cut = Render<HolidayList>(parameters => parameters
@@ -54,7 +53,7 @@ public class HolidayListTests : BunitTestContext
     {
         var holidays = new List<HolidayViewModel>
         {
-            new(new DateOnly(2025, 1, 1), "New Year's Day", State.NSW)
+            new(new Date(2025, 1, 1), "New Year's Day", State.NSW)
         };
 
         var cut = Render<HolidayList>(parameters => parameters
@@ -73,7 +72,7 @@ public class HolidayListTests : BunitTestContext
     {
         var holidays = new List<HolidayViewModel>
         {
-            new(new DateOnly(2025, 1, 1), "New Year's Day", State.NSW)
+            new(new Date(2025, 1, 1), "New Year's Day", State.NSW)
         };
 
         var cut = Render<HolidayList>(parameters => parameters

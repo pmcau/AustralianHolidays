@@ -1,7 +1,3 @@
-using AustralianHolidays.Web.Pages;
-using AustralianHolidays.Web.Services;
-using Microsoft.Extensions.DependencyInjection;
-
 namespace AustralianHolidays.Web.Tests.Pages;
 
 [TestFixture]
@@ -11,8 +7,9 @@ public class IndexTests : BunitTestContext
     {
         Services.AddScoped<StatePreferenceService>();
         Services.AddScoped<FileDownloadService>();
-        Services.AddScoped(_ => new HttpClient { BaseAddress = new Uri("http://localhost/") });
+        Services.AddScoped(_ => new HttpClient { BaseAddress = new("http://localhost/") });
         JSInterop.SetupVoid("statePreference.get", _ => true);
+        JSInterop.SetupVoid("fileDownload.downloadFile", _ => true);
     }
 
     [Test]
