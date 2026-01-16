@@ -1,0 +1,82 @@
+﻿2025
+    Jan 01 Wed - New Year's Day
+    Jan 27 Mon - Australia Day (observed)
+    Apr 18 Fri - Good Friday
+    Apr 19 Sat - Easter Saturday
+    Apr 20 Sun - Easter Sunday
+    Apr 21 Mon - Easter Monday
+    Apr 25 Fri - Anzac Day
+    May 05 Mon - Labour Day
+    Oct 06 Mon - King's Birthday
+    Dec 24 Wed - Christmas Eve (partial day)
+    Dec 25 Thu - Christmas Day
+    Dec 26 Fri - Boxing Day
+2026
+    Jan 01 Thu - New Year's Day
+    Jan 26 Mon - Australia Day
+    Apr 03 Fri - Good Friday
+    Apr 04 Sat - Easter Saturday
+    Apr 05 Sun - Easter Sunday
+    Apr 06 Mon - Easter Monday
+    Apr 25 Sat - Anzac Day
+    May 04 Mon - Labour Day
+    Oct 05 Mon - King's Birthday
+    Dec 24 Thu - Christmas Eve (partial day)
+    Dec 25 Fri - Christmas Day
+    Dec 26 Sat - Boxing Day
+    Dec 28 Mon - Christmas (additional)
+2027
+    Jan 01 Fri - New Year's Day
+    Jan 26 Tue - Australia Day
+    Mar 26 Fri - Good Friday
+    Mar 27 Sat - Easter Saturday
+    Mar 28 Sun - Easter Sunday
+    Mar 29 Mon - Easter Monday
+    Apr 25 Sun - Anzac Day
+    Apr 26 Mon - Anzac Day (additional)
+    May 03 Mon - Labour Day
+    Oct 04 Mon - King's Birthday
+    Dec 24 Fri - Christmas Eve (partial day)
+    Dec 25 Sat - Christmas Day
+    Dec 26 Sun - Boxing Day
+    Dec 27 Mon - Christmas (additional)
+    Dec 28 Tue - Christmas (additional)
+2028
+    Jan 01 Sat - New Year's Day
+    Jan 26 Wed - Australia Day
+    Apr 14 Fri - Good Friday
+    Apr 15 Sat - Easter Saturday
+    Apr 16 Sun - Easter Sunday
+    Apr 17 Mon - Easter Monday
+    Apr 25 Tue - Anzac Day
+    May 01 Mon - Labour Day
+    Oct 02 Mon - King's Birthday
+    Dec 24 Sun - Christmas Eve (partial day)
+    Dec 25 Mon - Christmas Day
+    Dec 26 Tue - Boxing Day
+2029
+    Jan 01 Mon - New Year's Day
+    Jan 26 Fri - Australia Day
+    Mar 30 Fri - Good Friday
+    Mar 31 Sat - Easter Saturday
+    Apr 01 Sun - Easter Sunday
+    Apr 02 Mon - Easter Monday
+    Apr 25 Wed - Anzac Day
+    May 07 Mon - Labour Day
+    Oct 01 Mon - King's Birthday
+    Dec 24 Mon - Christmas Eve (partial day)
+    Dec 25 Tue - Christmas Day
+    Dec 26 Wed - Boxing Day
+2030
+    Jan 01 Tue - New Year's Day
+    Jan 28 Mon - Australia Day (observed)
+    Apr 19 Fri - Good Friday
+    Apr 20 Sat - Easter Saturday
+    Apr 21 Sun - Easter Sunday
+    Apr 22 Mon - Easter Monday
+    Apr 25 Thu - Anzac Day
+    May 06 Mon - Labour Day
+    Oct 07 Mon - King's Birthday
+    Dec 24 Tue - Christmas Eve (partial day)
+    Dec 25 Wed - Christmas Day
+    Dec 26 Thu - Boxing Day

@@ -1,0 +1,91 @@
+﻿2025
+    Jan 01 Wed - New Year's Day
+    Jan 26 Sun - Australia Day (not holiday)
+    Jan 27 Mon - Australia Day (observed)
+    Mar 10 Mon - Canberra Day
+    Apr 18 Fri - Good Friday
+    Apr 19 Sat - Easter Saturday
+    Apr 20 Sun - Easter Sunday
+    Apr 21 Mon - Easter Monday
+    Apr 25 Fri - Anzac Day
+    Jun 02 Mon - Reconciliation Day
+    Jun 09 Mon - King's Birthday
+    Oct 06 Mon - Labour Day
+    Dec 25 Thu - Christmas Day
+    Dec 26 Fri - Boxing Day
+2026
+    Jan 01 Thu - New Year's Day
+    Jan 26 Mon - Australia Day
+    Mar 09 Mon - Canberra Day
+    Apr 03 Fri - Good Friday
+    Apr 04 Sat - Easter Saturday
+    Apr 05 Sun - Easter Sunday
+    Apr 06 Mon - Easter Monday
+    Apr 25 Sat - Anzac Day
+    Apr 27 Mon - Anzac Day (additional)
+    Jun 01 Mon - Reconciliation Day
+    Jun 08 Mon - King's Birthday
+    Oct 05 Mon - Labour Day
+    Dec 25 Fri - Christmas Day
+    Dec 26 Sat - Boxing Day
+    Dec 28 Mon - Christmas (additional)
+2027
+    Jan 01 Fri - New Year's Day
+    Jan 26 Tue - Australia Day
+    Mar 08 Mon - Canberra Day
+    Mar 26 Fri - Good Friday
+    Mar 27 Sat - Easter Saturday
+    Mar 28 Sun - Easter Sunday
+    Mar 29 Mon - Easter Monday
+    Apr 25 Sun - Anzac Day
+    Apr 26 Mon - Anzac Day (additional)
+    May 31 Mon - Reconciliation Day
+    Jun 14 Mon - King's Birthday
+    Oct 04 Mon - Labour Day
+    Dec 25 Sat - Christmas Day
+    Dec 26 Sun - Boxing Day
+    Dec 27 Mon - Christmas (additional)
+    Dec 28 Tue - Christmas (additional)
+2028
+    Jan 01 Sat - New Year's Day
+    Jan 26 Wed - Australia Day
+    Mar 13 Mon - Canberra Day
+    Apr 14 Fri - Good Friday
+    Apr 15 Sat - Easter Saturday
+    Apr 16 Sun - Easter Sunday
+    Apr 17 Mon - Easter Monday
+    Apr 25 Tue - Anzac Day
+    May 29 Mon - Reconciliation Day
+    Jun 12 Mon - King's Birthday
+    Oct 02 Mon - Labour Day
+    Dec 25 Mon - Christmas Day
+    Dec 26 Tue - Boxing Day
+2029
+    Jan 01 Mon - New Year's Day
+    Jan 26 Fri - Australia Day
+    Mar 12 Mon - Canberra Day
+    Mar 30 Fri - Good Friday
+    Mar 31 Sat - Easter Saturday
+    Apr 01 Sun - Easter Sunday
+    Apr 02 Mon - Easter Monday
+    Apr 25 Wed - Anzac Day
+    May 28 Mon - Reconciliation Day
+    Jun 11 Mon - King's Birthday
+    Oct 01 Mon - Labour Day
+    Dec 25 Tue - Christmas Day
+    Dec 26 Wed - Boxing Day
+2030
+    Jan 01 Tue - New Year's Day
+    Jan 26 Sat - Australia Day (not holiday)
+    Jan 28 Mon - Australia Day (observed)
+    Mar 11 Mon - Canberra Day
+    Apr 19 Fri - Good Friday
+    Apr 20 Sat - Easter Saturday
+    Apr 21 Sun - Easter Sunday
+    Apr 22 Mon - Easter Monday
+    Apr 25 Thu - Anzac Day
+    May 27 Mon - Reconciliation Day
+    Jun 10 Mon - King's Birthday
+    Oct 07 Mon - Labour Day
+    Dec 25 Wed - Christmas Day
+    Dec 26 Thu - Boxing Day

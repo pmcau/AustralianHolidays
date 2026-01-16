@@ -1,0 +1,507 @@
+﻿[
+  {
+    Item1: 2024-01-01,
+    Item2: ACT,
+    Item3: New Year's Day
+  },
+  {
+    Item1: 2024-01-01,
+    Item2: NSW,
+    Item3: New Year's Day
+  },
+  {
+    Item1: 2024-01-01,
+    Item2: NT,
+    Item3: New Year's Day
+  },
+  {
+    Item1: 2024-01-01,
+    Item2: QLD,
+    Item3: New Year's Day
+  },
+  {
+    Item1: 2024-01-01,
+    Item2: SA,
+    Item3: New Year's Day
+  },
+  {
+    Item1: 2024-01-01,
+    Item2: TAS,
+    Item3: New Year's Day
+  },
+  {
+    Item1: 2024-01-01,
+    Item2: VIC,
+    Item3: New Year's Day
+  },
+  {
+    Item1: 2024-01-01,
+    Item2: WA,
+    Item3: New Year's Day
+  },
+  {
+    Item1: 2024-01-26,
+    Item2: ACT,
+    Item3: Australia Day
+  },
+  {
+    Item1: 2024-01-26,
+    Item2: NSW,
+    Item3: Australia Day
+  },
+  {
+    Item1: 2024-01-26,
+    Item2: NT,
+    Item3: Australia Day
+  },
+  {
+    Item1: 2024-01-26,
+    Item2: QLD,
+    Item3: Australia Day
+  },
+  {
+    Item1: 2024-01-26,
+    Item2: SA,
+    Item3: Australia Day
+  },
+  {
+    Item1: 2024-01-26,
+    Item2: TAS,
+    Item3: Australia Day
+  },
+  {
+    Item1: 2024-01-26,
+    Item2: VIC,
+    Item3: Australia Day
+  },
+  {
+    Item1: 2024-01-26,
+    Item2: WA,
+    Item3: Australia Day
+  },
+  {
+    Item1: 2024-03-04,
+    Item2: WA,
+    Item3: Labour Day
+  },
+  {
+    Item1: 2024-03-11,
+    Item2: ACT,
+    Item3: Canberra Day
+  },
+  {
+    Item1: 2024-03-11,
+    Item2: SA,
+    Item3: Adelaide Cup Day
+  },
+  {
+    Item1: 2024-03-11,
+    Item2: TAS,
+    Item3: Eight Hours Day
+  },
+  {
+    Item1: 2024-03-11,
+    Item2: VIC,
+    Item3: Labour Day
+  },
+  {
+    Item1: 2024-03-29,
+    Item2: ACT,
+    Item3: Good Friday
+  },
+  {
+    Item1: 2024-03-29,
+    Item2: NSW,
+    Item3: Good Friday
+  },
+  {
+    Item1: 2024-03-29,
+    Item2: NT,
+    Item3: Good Friday
+  },
+  {
+    Item1: 2024-03-29,
+    Item2: QLD,
+    Item3: Good Friday
+  },
+  {
+    Item1: 2024-03-29,
+    Item2: SA,
+    Item3: Good Friday
+  },
+  {
+    Item1: 2024-03-29,
+    Item2: TAS,
+    Item3: Good Friday
+  },
+  {
+    Item1: 2024-03-29,
+    Item2: VIC,
+    Item3: Good Friday
+  },
+  {
+    Item1: 2024-03-29,
+    Item2: WA,
+    Item3: Good Friday
+  },
+  {
+    Item1: 2024-03-30,
+    Item2: ACT,
+    Item3: Easter Saturday
+  },
+  {
+    Item1: 2024-03-30,
+    Item2: NSW,
+    Item3: Easter Saturday
+  },
+  {
+    Item1: 2024-03-30,
+    Item2: NT,
+    Item3: Easter Saturday
+  },
+  {
+    Item1: 2024-03-30,
+    Item2: QLD,
+    Item3: Easter Saturday
+  },
+  {
+    Item1: 2024-03-30,
+    Item2: SA,
+    Item3: Easter Saturday
+  },
+  {
+    Item1: 2024-03-30,
+    Item2: VIC,
+    Item3: Easter Saturday
+  },
+  {
+    Item1: 2024-03-30,
+    Item2: WA,
+    Item3: Easter Saturday
+  },
+  {
+    Item1: 2024-03-31,
+    Item2: ACT,
+    Item3: Easter Sunday
+  },
+  {
+    Item1: 2024-03-31,
+    Item2: NSW,
+    Item3: Easter Sunday
+  },
+  {
+    Item1: 2024-03-31,
+    Item2: NT,
+    Item3: Easter Sunday
+  },
+  {
+    Item1: 2024-03-31,
+    Item2: QLD,
+    Item3: Easter Sunday
+  },
+  {
+    Item1: 2024-03-31,
+    Item2: SA,
+    Item3: Easter Sunday
+  },
+  {
+    Item1: 2024-03-31,
+    Item2: TAS,
+    Item3: Easter Sunday
+  },
+  {
+    Item1: 2024-03-31,
+    Item2: VIC,
+    Item3: Easter Sunday
+  },
+  {
+    Item1: 2024-03-31,
+    Item2: WA,
+    Item3: Easter Sunday
+  },
+  {
+    Item1: 2024-04-01,
+    Item2: ACT,
+    Item3: Easter Monday
+  },
+  {
+    Item1: 2024-04-01,
+    Item2: NSW,
+    Item3: Easter Monday
+  },
+  {
+    Item1: 2024-04-01,
+    Item2: NT,
+    Item3: Easter Monday
+  },
+  {
+    Item1: 2024-04-01,
+    Item2: QLD,
+    Item3: Easter Monday
+  },
+  {
+    Item1: 2024-04-01,
+    Item2: SA,
+    Item3: Easter Monday
+  },
+  {
+    Item1: 2024-04-01,
+    Item2: TAS,
+    Item3: Easter Monday
+  },
+  {
+    Item1: 2024-04-01,
+    Item2: VIC,
+    Item3: Easter Monday
+  },
+  {
+    Item1: 2024-04-01,
+    Item2: WA,
+    Item3: Easter Monday
+  },
+  {
+    Item1: 2024-04-02,
+    Item2: TAS,
+    Item3: Easter Tuesday (Government employees only)
+  },
+  {
+    Item1: 2024-04-25,
+    Item2: ACT,
+    Item3: Anzac Day
+  },
+  {
+    Item1: 2024-04-25,
+    Item2: NSW,
+    Item3: Anzac Day
+  },
+  {
+    Item1: 2024-04-25,
+    Item2: NT,
+    Item3: Anzac Day
+  },
+  {
+    Item1: 2024-04-25,
+    Item2: QLD,
+    Item3: Anzac Day
+  },
+  {
+    Item1: 2024-04-25,
+    Item2: SA,
+    Item3: Anzac Day
+  },
+  {
+    Item1: 2024-04-25,
+    Item2: TAS,
+    Item3: Anzac Day
+  },
+  {
+    Item1: 2024-04-25,
+    Item2: VIC,
+    Item3: Anzac Day
+  },
+  {
+    Item1: 2024-04-25,
+    Item2: WA,
+    Item3: Anzac Day
+  },
+  {
+    Item1: 2024-05-06,
+    Item2: NT,
+    Item3: May Day
+  },
+  {
+    Item1: 2024-05-06,
+    Item2: QLD,
+    Item3: Labour Day
+  },
+  {
+    Item1: 2024-05-27,
+    Item2: ACT,
+    Item3: Reconciliation Day
+  },
+  {
+    Item1: 2024-06-03,
+    Item2: WA,
+    Item3: Western Australia Day
+  },
+  {
+    Item1: 2024-06-10,
+    Item2: ACT,
+    Item3: King's Birthday
+  },
+  {
+    Item1: 2024-06-10,
+    Item2: NSW,
+    Item3: King's Birthday
+  },
+  {
+    Item1: 2024-06-10,
+    Item2: NT,
+    Item3: King's Birthday
+  },
+  {
+    Item1: 2024-06-10,
+    Item2: SA,
+    Item3: King's Birthday
+  },
+  {
+    Item1: 2024-06-10,
+    Item2: TAS,
+    Item3: King's Birthday
+  },
+  {
+    Item1: 2024-06-10,
+    Item2: VIC,
+    Item3: King's Birthday
+  },
+  {
+    Item1: 2024-08-05,
+    Item2: NSW,
+    Item3: Bank Holiday
+  },
+  {
+    Item1: 2024-08-05,
+    Item2: NT,
+    Item3: Picnic Day
+  },
+  {
+    Item1: 2024-09-23,
+    Item2: WA,
+    Item3: King's Birthday
+  },
+  {
+    Item1: 2024-09-27,
+    Item2: VIC,
+    Item3: Friday before AFL Grand Final
+  },
+  {
+    Item1: 2024-10-07,
+    Item2: ACT,
+    Item3: Labour Day
+  },
+  {
+    Item1: 2024-10-07,
+    Item2: NSW,
+    Item3: Labour Day
+  },
+  {
+    Item1: 2024-10-07,
+    Item2: QLD,
+    Item3: King's Birthday
+  },
+  {
+    Item1: 2024-10-07,
+    Item2: SA,
+    Item3: Labour Day
+  },
+  {
+    Item1: 2024-11-05,
+    Item2: VIC,
+    Item3: Melbourne Cup Day
+  },
+  {
+    Item1: 2024-12-24,
+    Item2: NT,
+    Item3: Christmas Eve (partial day)
+  },
+  {
+    Item1: 2024-12-24,
+    Item2: QLD,
+    Item3: Christmas Eve (partial day)
+  },
+  {
+    Item1: 2024-12-24,
+    Item2: SA,
+    Item3: Christmas Eve (partial day)
+  },
+  {
+    Item1: 2024-12-25,
+    Item2: ACT,
+    Item3: Christmas Day
+  },
+  {
+    Item1: 2024-12-25,
+    Item2: NSW,
+    Item3: Christmas Day
+  },
+  {
+    Item1: 2024-12-25,
+    Item2: NT,
+    Item3: Christmas Day
+  },
+  {
+    Item1: 2024-12-25,
+    Item2: QLD,
+    Item3: Christmas Day
+  },
+  {
+    Item1: 2024-12-25,
+    Item2: SA,
+    Item3: Christmas Day
+  },
+  {
+    Item1: 2024-12-25,
+    Item2: TAS,
+    Item3: Christmas Day
+  },
+  {
+    Item1: 2024-12-25,
+    Item2: VIC,
+    Item3: Christmas Day
+  },
+  {
+    Item1: 2024-12-25,
+    Item2: WA,
+    Item3: Christmas Day
+  },
+  {
+    Item1: 2024-12-26,
+    Item2: ACT,
+    Item3: Boxing Day
+  },
+  {
+    Item1: 2024-12-26,
+    Item2: NSW,
+    Item3: Boxing Day
+  },
+  {
+    Item1: 2024-12-26,
+    Item2: NT,
+    Item3: Boxing Day
+  },
+  {
+    Item1: 2024-12-26,
+    Item2: QLD,
+    Item3: Boxing Day
+  },
+  {
+    Item1: 2024-12-26,
+    Item2: SA,
+    Item3: Proclamation and Boxing Day
+  },
+  {
+    Item1: 2024-12-26,
+    Item2: TAS,
+    Item3: Boxing Day
+  },
+  {
+    Item1: 2024-12-26,
+    Item2: VIC,
+    Item3: Boxing Day
+  },
+  {
+    Item1: 2024-12-26,
+    Item2: WA,
+    Item3: Boxing Day
+  },
+  {
+    Item1: 2024-12-31,
+    Item2: NT,
+    Item3: New Year's Eve (partial day)
+  },
+  {
+    Item1: 2024-12-31,
+    Item2: SA,
+    Item3: New Year's Eve (partial day)
+  }
+]

@@ -1,0 +1,30 @@
+﻿1900
+   friday: 1900 Apr 13 Fri
+   saturday: 1900 Apr 14 Sat
+   sunday: 1900 Apr 15 Sun
+   monday: 1900 Apr 16 Mon
+1950
+   friday: 1950 Apr 07 Fri
+   saturday: 1950 Apr 08 Sat
+   sunday: 1950 Apr 09 Sun
+   monday: 1950 Apr 10 Mon
+2000
+   friday: 2000 Apr 21 Fri
+   saturday: 2000 Apr 22 Sat
+   sunday: 2000 Apr 23 Sun
+   monday: 2000 Apr 24 Mon
+2010
+   friday: 2010 Apr 02 Fri
+   saturday: 2010 Apr 03 Sat
+   sunday: 2010 Apr 04 Sun
+   monday: 2010 Apr 05 Mon
+2050
+   friday: 2050 Apr 08 Fri
+   saturday: 2050 Apr 09 Sat
+   sunday: 2050 Apr 10 Sun
+   monday: 2050 Apr 11 Mon
+2100
+   friday: 2100 Mar 26 Fri
+   saturday: 2100 Mar 27 Sat
+   sunday: 2100 Mar 28 Sun
+   monday: 2100 Mar 29 Mon
