@@ -132,33 +132,20 @@ public static partial class Holidays
             throw new InvalidOperationException("Could not load embedded Excel template resource.");
         }
 
-        // Create a temporary memory stream for the template
-        using var tempStream = new MemoryStream();
-        await templateStream.CopyToAsync(tempStream);
-        tempStream.Position = 0;
+        // Copy template to output stream
+        await templateStream.CopyToAsync(stream);
+        stream.Position = 0;
 
-        using var archive = new ZipArchive(tempStream, ZipArchiveMode.Read);
-        using var outputArchive = new ZipArchive(stream, ZipArchiveMode.Create, true);
+        // Open the output stream for in-place modification
+        using var archive = new ZipArchive(stream, ZipArchiveMode.Update, true);
 
-        // Copy all files from template to output
-        foreach (var entry in archive.Entries)
-        {
-            var outputEntry = outputArchive.CreateEntry(entry.FullName);
+        // Delete existing sheet and replace with our data
+        var sheetEntry = archive.GetEntry("xl/worksheets/sheet1.xml");
+        sheetEntry?.Delete();
 
-            if (entry.FullName == "xl/worksheets/sheet1.xml")
-            {
-                // Inject holiday data into sheet XML
-                await using var entryStream = outputEntry.Open();
-                await WriteSheetXml(entryStream, forYears);
-            }
-            else
-            {
-                // Copy other files as-is
-                await using var entryStream = entry.Open();
-                await using var outputStream = outputEntry.Open();
-                await entryStream.CopyToAsync(outputStream);
-            }
-        }
+        var newSheetEntry = archive.CreateEntry("xl/worksheets/sheet1.xml");
+        await using var entryStream = newSheetEntry.Open();
+        await WriteSheetXml(entryStream, forYears);
     }
 
     static async Task WriteSheetXml(Stream stream, IOrderedEnumerable<(Date date, string name)> forYears)
@@ -216,33 +203,20 @@ public static partial class Holidays
             throw new InvalidOperationException("Could not load embedded Excel template resource.");
         }
 
-        // Create a temporary memory stream for the template
-        using var tempStream = new MemoryStream();
-        await templateStream.CopyToAsync(tempStream);
-        tempStream.Position = 0;
+        // Copy template to output stream
+        await templateStream.CopyToAsync(stream);
+        stream.Position = 0;
 
-        using var archive = new ZipArchive(tempStream, ZipArchiveMode.Read);
-        using var outputArchive = new ZipArchive(stream, ZipArchiveMode.Create, true);
+        // Open the output stream for in-place modification
+        using var archive = new ZipArchive(stream, ZipArchiveMode.Update, true);
 
-        // Copy all files from template to output
-        foreach (var entry in archive.Entries)
-        {
-            var outputEntry = outputArchive.CreateEntry(entry.FullName);
+        // Delete existing sheet and replace with our data
+        var sheetEntry = archive.GetEntry("xl/worksheets/sheet1.xml");
+        sheetEntry?.Delete();
 
-            if (entry.FullName == "xl/worksheets/sheet1.xml")
-            {
-                // Inject holiday data into sheet XML
-                await using var entryStream = outputEntry.Open();
-                await WriteSheetXmlMultiState(entryStream, forYears);
-            }
-            else
-            {
-                // Copy other files as-is
-                await using var entryStream = entry.Open();
-                await using var outputStream = outputEntry.Open();
-                await entryStream.CopyToAsync(outputStream);
-            }
-        }
+        var newSheetEntry = archive.CreateEntry("xl/worksheets/sheet1.xml");
+        await using var entryStream = newSheetEntry.Open();
+        await WriteSheetXmlMultiState(entryStream, forYears);
     }
 
     static async Task WriteSheetXmlMultiState(Stream stream, IEnumerable<(Date date, State state, string name)> forYears)
