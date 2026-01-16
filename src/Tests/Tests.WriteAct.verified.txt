@@ -1,5 +1,6 @@
 ﻿2025
     Jan 01 Wed - New Year's Day
+    Jan 26 Sun - Australia Day (not holiday)
     Jan 27 Mon - Australia Day (observed)
     Mar 10 Mon - Canberra Day
     Apr 18 Fri - Good Friday
@@ -75,6 +76,7 @@
     Dec 26 Wed - Boxing Day
 2030
     Jan 01 Tue - New Year's Day
+    Jan 26 Sat - Australia Day (not holiday)
     Jan 28 Mon - Australia Day (observed)
     Mar 11 Mon - Canberra Day
     Apr 19 Fri - Good Friday
