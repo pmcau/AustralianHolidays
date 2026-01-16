@@ -96,14 +96,16 @@ header p {
     align-items: center;
 }
 
-.state-selector {
+.state-selector,
+.year-selector {
     display: flex;
     align-items: center;
     gap: 0.75rem;
     flex-wrap: wrap;
 }
 
-.state-selector label {
+.state-selector label,
+.year-selector label {
     font-weight: 500;
 }
 

@@ -7,6 +7,10 @@
     <StateSelector SelectedStates="selectedStates" SelectedStatesChanged="OnStatesChanged" />
 </div>
 <div class="controls">
+    <YearSelector Is12MonthsMode="is12MonthsMode" Is12MonthsModeChanged="OnIs12MonthsModeChanged"
+                  SelectedYears="selectedYears" SelectedYearsChanged="OnSelectedYearsChanged" />
+</div>
+<div class="controls">
     <ExportMenu SelectedStates="selectedStates" StartYear="startYear" YearCount="yearCount" />
 </div>
 
@@ -21,11 +25,12 @@
     Date endDate;
     int startYear;
     int yearCount;
+    bool is12MonthsMode = true;
+    HashSet<int> selectedYears = [];
 
     protected override async Task OnInitializedAsync()
     {
-        (startDate, endDate) = HolidayFilterService.GetDefaultDateRange();
-        (startYear, yearCount) = HolidayFilterService.GetExportYearRange(startDate, endDate);
+        UpdateDateRange();
 
         var savedState = await StatePreferenceService.GetSavedStateAsync();
 
@@ -51,6 +56,39 @@
         }
 
         LoadHolidays();
+    }
+
+    Task OnIs12MonthsModeChanged(bool value)
+    {
+        is12MonthsMode = value;
+        UpdateDateRange();
+        LoadHolidays();
+        return Task.CompletedTask;
+    }
+
+    Task OnSelectedYearsChanged(IReadOnlySet<int> years)
+    {
+        selectedYears = new HashSet<int>(years);
+        UpdateDateRange();
+        LoadHolidays();
+        return Task.CompletedTask;
+    }
+
+    void UpdateDateRange()
+    {
+        if (is12MonthsMode)
+        {
+            (startDate, endDate) = HolidayFilterService.GetDefaultDateRange();
+        }
+        else if (selectedYears.Count > 0)
+        {
+            var minYear = selectedYears.Min();
+            var maxYear = selectedYears.Max();
+            startDate = new Date(minYear, 1, 1);
+            endDate = new Date(maxYear, 12, 31);
+        }
+
+        (startYear, yearCount) = HolidayFilterService.GetExportYearRange(startDate, endDate);
     }
 
     void LoadHolidays()
