@@ -78,6 +78,13 @@ public static partial class Holidays
         // Write Office Open XML structure for worksheet
         await writer.WriteAsync("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>");
         await writer.WriteAsync("<worksheet xmlns=\"http://schemas.openxmlformats.org/spreadsheetml/2006/main\">");
+
+        // Column widths: Date column ~100px (14 char units), Name column ~500px (70 char units)
+        await writer.WriteAsync("<cols>");
+        await writer.WriteAsync("<col min=\"1\" max=\"1\" width=\"14\" customWidth=\"1\"/>");
+        await writer.WriteAsync("<col min=\"2\" max=\"2\" width=\"70\" customWidth=\"1\"/>");
+        await writer.WriteAsync("</cols>");
+
         await writer.WriteAsync("<sheetData>");
 
         // Header row
