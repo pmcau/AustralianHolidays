@@ -11,7 +11,7 @@ public class HolidayFilterServiceTests
         var holidays = HolidayFilterService.GetHolidays(states, startDate, endDate);
 
         That(holidays, Is.Not.Empty);
-        That(holidays.All(h => h.States.Contains(State.NSW)), Is.True);
+        That(holidays.All(_ => _.States.Contains(State.NSW)), Is.True);
     }
 
     [Test]
@@ -19,9 +19,7 @@ public class HolidayFilterServiceTests
     {
         var startDate = new Date(2025, 1, 1);
         var endDate = new Date(2025, 12, 31);
-        var states = new HashSet<State>();
-
-        var holidays = HolidayFilterService.GetHolidays(states, startDate, endDate);
+        var holidays = HolidayFilterService.GetHolidays(new HashSet<State>(), startDate, endDate);
 
         That(holidays, Is.Empty);
     }
@@ -31,12 +29,16 @@ public class HolidayFilterServiceTests
     {
         var startDate = new Date(2025, 1, 1);
         var endDate = new Date(2025, 12, 31);
-        var states = new HashSet<State> { State.NSW, State.VIC };
+        var states = new HashSet<State>
+        {
+            State.NSW,
+            State.VIC
+        };
 
         var holidays = HolidayFilterService.GetHolidays(states, startDate, endDate);
 
         That(holidays, Is.Not.Empty);
-        That(holidays.All(h => h.States.All(s => s == State.NSW || s == State.VIC)), Is.True);
+        That(holidays.All(_ => _.States.All(_ => _ is State.NSW or State.VIC)), Is.True);
     }
 
     [Test]
@@ -44,12 +46,16 @@ public class HolidayFilterServiceTests
     {
         var startDate = new Date(2026, 1, 1);
         var endDate = new Date(2026, 1, 31);
-        var states = new HashSet<State> { State.NSW, State.VIC };
+        var states = new HashSet<State>
+        {
+            State.NSW,
+            State.VIC
+        };
 
         var holidays = HolidayFilterService.GetHolidays(states, startDate, endDate);
 
         // Australia Day should be combined into one entry with both states
-        var australiaDay = holidays.FirstOrDefault(h => h.Name == "Australia Day");
+        var australiaDay = holidays.FirstOrDefault(_ => _.Name == "Australia Day");
         That(australiaDay, Is.Not.Null);
         That(australiaDay!.States, Does.Contain(State.NSW));
         That(australiaDay.States, Does.Contain(State.VIC));
@@ -60,7 +66,10 @@ public class HolidayFilterServiceTests
     {
         var startDate = new Date(2025, 1, 1);
         var endDate = new Date(2025, 12, 31);
-        var states = new HashSet<State> { State.VIC };
+        var states = new HashSet<State>
+        {
+            State.VIC
+        };
 
         var holidays = HolidayFilterService.GetHolidays(states, startDate, endDate);
 
@@ -75,7 +84,10 @@ public class HolidayFilterServiceTests
     {
         var startDate = new Date(2025, 6, 1);
         var endDate = new Date(2025, 6, 30);
-        var states = new HashSet<State> { State.QLD };
+        var states = new HashSet<State>
+        {
+            State.QLD
+        };
 
         var holidays = HolidayFilterService.GetHolidays(states, startDate, endDate);
 
