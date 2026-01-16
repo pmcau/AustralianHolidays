@@ -2,6 +2,12 @@ namespace AustralianHolidays;
 
 public static partial class Holidays
 {
+    /// <summary>
+    /// Exports national public holidays to Markdown table format.
+    /// </summary>
+    /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
+    /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    /// <returns>A string containing the Markdown-formatted table of holidays.</returns>
     public static async Task<string> ExportToMarkdown(int? startYear = null, int yearCount = 5)
     {
         var builder = new StringBuilder();
@@ -13,6 +19,12 @@ public static partial class Holidays
         return builder.ToString();
     }
 
+    /// <summary>
+    /// Exports national public holidays to Markdown table format, writing to a TextWriter.
+    /// </summary>
+    /// <param name="writer">The TextWriter to write the Markdown output to.</param>
+    /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
+    /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
     public static Task ExportToMarkdown(TextWriter writer, int? startYear = null, int yearCount = 5)
     {
         var years = BuildYears(startYear);
@@ -22,6 +34,13 @@ public static partial class Holidays
         return ToMarkdown(writer, years, forYears);
     }
 
+    /// <summary>
+    /// Exports public holidays for a specific state to Markdown table format.
+    /// </summary>
+    /// <param name="state">The Australian state to export holidays for.</param>
+    /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
+    /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    /// <returns>A string containing the Markdown-formatted table of holidays.</returns>
     public static async Task<string> ExportToMarkdown(State state, int? startYear = null, int yearCount = 5)
     {
         var builder = new StringBuilder();
@@ -33,6 +52,13 @@ public static partial class Holidays
         return builder.ToString();
     }
 
+    /// <summary>
+    /// Exports public holidays for a specific state to Markdown table format, writing to a TextWriter.
+    /// </summary>
+    /// <param name="writer">The TextWriter to write the Markdown output to.</param>
+    /// <param name="state">The Australian state to export holidays for.</param>
+    /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
+    /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
     public static Task ExportToMarkdown(TextWriter writer, State state, int? startYear = null, int yearCount = 5)
     {
         var years = BuildYears(startYear);
