@@ -4,7 +4,10 @@ namespace AustralianHolidays;
 
 public static partial class Holidays
 {
-    static readonly JsonSerializerOptions jsonOptions = new() {WriteIndented = true};
+    static readonly JsonSerializerOptions jsonOptions = new()
+    {
+        WriteIndented = true
+    };
 
     public static async Task<string> ExportToJson(int? startYear = null, int yearCount = 5)
     {
@@ -40,11 +43,20 @@ public static partial class Holidays
         return ToJson(writer, state, forYears);
     }
 
-    static async Task ToJson(TextWriter writer, State? state, IOrderedEnumerable<(Date date, string name)> forYears)
+    static Task ToJson(TextWriter writer, State? state, IOrderedEnumerable<(Date date, string name)> forYears)
     {
-        var holidays = forYears.Select(h => new {date = h.date.ToString("yyyy-MM-dd"), name = h.name});
-        var result = new {state = state?.ToString() ?? "National", holidays};
+        var holidays = forYears
+            .Select(_ => new
+            {
+                date = _.date.ToString("yyyy-MM-dd"),
+                _.name
+            });
+        var result = new
+        {
+            state = state?.ToString() ?? "National",
+            holidays
+        };
         var json = JsonSerializer.Serialize(result, jsonOptions);
-        await writer.WriteAsync(json);
+        return writer.WriteAsync(json);
     }
 }

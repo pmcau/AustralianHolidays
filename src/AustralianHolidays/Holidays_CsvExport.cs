@@ -16,7 +16,7 @@ public static partial class Holidays
     public static Task ExportToCsv(TextWriter writer, int? startYear = null, int yearCount = 5)
     {
         var forYears = NationalForYears(startYear, yearCount);
-        return ToCsv(writer, null, forYears);
+        return ToCsv(writer, forYears);
     }
 
     public static async Task<string> ExportToCsv(State state, int? startYear = null, int yearCount = 5)
@@ -33,10 +33,10 @@ public static partial class Holidays
     public static Task ExportToCsv(TextWriter writer, State state, int? startYear = null, int yearCount = 5)
     {
         var forYears = ForYears(state, startYear, yearCount);
-        return ToCsv(writer, state, forYears);
+        return ToCsv(writer, forYears);
     }
 
-    static async Task ToCsv(TextWriter writer, State? state, IOrderedEnumerable<(Date date, string name)> forYears)
+    static async Task ToCsv(TextWriter writer, IOrderedEnumerable<(Date date, string name)> forYears)
     {
         await writer.WriteLineAsync("Date,Name");
         foreach (var (date, name) in forYears)

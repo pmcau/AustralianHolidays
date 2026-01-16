@@ -12,10 +12,10 @@ public static partial class Holidays
         return stream.ToArray();
     }
 
-    public static async Task ExportToExcel(Stream stream, int? startYear = null, int yearCount = 5)
+    public static Task ExportToExcel(Stream stream, int? startYear = null, int yearCount = 5)
     {
         var forYears = NationalForYears(startYear, yearCount);
-        await ToExcel(stream, null, forYears);
+        return ToExcel(stream, forYears);
     }
 
     public static async Task<byte[]> ExportToExcel(State state, int? startYear = null, int yearCount = 5)
@@ -25,13 +25,13 @@ public static partial class Holidays
         return stream.ToArray();
     }
 
-    public static async Task ExportToExcel(Stream stream, State state, int? startYear = null, int yearCount = 5)
+    public static Task ExportToExcel(Stream stream, State state, int? startYear = null, int yearCount = 5)
     {
         var forYears = ForYears(state, startYear, yearCount);
-        await ToExcel(stream, state, forYears);
+        return ToExcel(stream, forYears);
     }
 
-    static async Task ToExcel(Stream stream, State? state, IOrderedEnumerable<(Date date, string name)> forYears)
+    static async Task ToExcel(Stream stream, IOrderedEnumerable<(Date date, string name)> forYears)
     {
         // Load embedded template
         var assembly = typeof(Holidays).Assembly;
@@ -92,9 +92,9 @@ public static partial class Holidays
         {
             await writer.WriteAsync($"<row r=\"{rowNum}\">");
 
-            // Date cell (as date value)
+            // Date cell (as date value with date format style)
             var dateValue = new DateTime(date.Year, date.Month, date.Day).ToOADate();
-            await writer.WriteAsync($"<c r=\"A{rowNum}\" t=\"n\"><v>{dateValue}</v></c>");
+            await writer.WriteAsync($"<c r=\"A{rowNum}\" s=\"2\" t=\"n\"><v>{dateValue}</v></c>");
 
             // Name cell (as inline string)
             var escapedName = SecurityElement.Escape(name);
