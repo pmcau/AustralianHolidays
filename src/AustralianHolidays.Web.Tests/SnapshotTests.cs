@@ -105,6 +105,20 @@ public class SnapshotTests
         await Verify(page);
     }
 
+    [Test]
+    public async Task HomePageMobile()
+    {
+        var page = await browser!.NewPageAsync();
+        await page.SetViewportSizeAsync(375, 667); // iPhone SE size
+
+        await page.GotoAsync($"http://localhost:{port}/");
+
+        // Wait for Blazor to fully render
+        await page.WaitForSelectorAsync(".holiday-table");
+
+        await Verify(page);
+    }
+
     static int GetAvailablePort()
     {
         using var listener = new TcpListener(IPAddress.Loopback, 0);
