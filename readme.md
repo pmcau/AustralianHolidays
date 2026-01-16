@@ -28,10 +28,12 @@ When public holidays fall on weekends, Australian states and territories have di
 
 ### New Year's Day (January 1)
 
-**New South Wales** - Full weekend substitution
+**New South Wales** - Additional day when on weekend
 
-- When January 1 falls on Saturday → Monday (Jan 3) is "New Year's Day (additional)"
-- When January 1 falls on Sunday → Monday (Jan 2) is "New Year's Day (additional)"
+- When January 1 falls on a weekday → observed on January 1
+- When January 1 falls on Saturday → **Both** Saturday (Jan 1) **and** Monday (Jan 3) are public holidays
+- When January 1 falls on Sunday → **Both** Sunday (Jan 1) **and** Monday (Jan 2) are public holidays
+- **Important**: This is **additional**, not substitution - both the actual January 1 date AND the Monday are public holidays
 - **Reference**: [NSW Public Holidays](https://www.nsw.gov.au/about-nsw/public-holidays)
 
 **All Other States**
@@ -42,18 +44,23 @@ When public holidays fall on weekends, Australian states and territories have di
 
 ### Australia Day (January 26)
 
-**All States and Territories** - Additional day when on weekend
+**All States and Territories** - Substitution (Monday replaces weekend day)
 
 - When January 26 falls on a weekday → observed on January 26
-- When January 26 falls on Saturday → both Saturday (Jan 26) **and** Monday (Jan 28) are public holidays
-- When January 26 falls on Sunday → both Sunday (Jan 26) **and** Monday (Jan 27) are public holidays
-- The Monday is labeled "Australia Day (additional)"
+- When January 26 falls on Saturday → **Only** Monday (Jan 28) is a public holiday, labeled "Australia Day (observed)"
+- When January 26 falls on Sunday → **Only** Monday (Jan 27) is a public holiday, labeled "Australia Day (observed)"
+- **Important**: This is **substitution**, not additional - the actual January 26 date is NOT a public holiday when it falls on a weekend, only the Monday substitute counts
 - This is consistent across all Australian states and territories
+
+**References:**
+- NSW: "there will be no public holiday on that day and instead the following Monday is to be the public holiday" - [NSW Public Holidays](https://www.nsw.gov.au/about-nsw/public-holidays)
+- WA: "the first Monday following 26 January is the public holiday" - [WA Public Holidays](https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia)
+- QLD: "it shall be observed the following Monday" - [QLD Public Holidays](https://www.qld.gov.au/recreation/travel/holidays/public)
 
 **Historical Weekend Occurrences**:
 
-- **2025**: Sunday - Jan 27 (Mon) was the additional holiday
-- **2030**: Saturday (upcoming) - Jan 28 (Mon) will be the additional holiday
+- **2025**: Sunday - Jan 27 (Mon) was the observed holiday
+- **2030**: Saturday (upcoming) - Jan 28 (Mon) will be the observed holiday
 
 
 ### ANZAC Day (April 25)
@@ -337,7 +344,7 @@ Common holidays for all states
 |-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | `Tue 01 Jan` | 
 | Australia Day                     | `Mon 26 Jan` | `Tue 26 Jan` | `Wed 26 Jan` | `Fri 26 Jan` |              | 
-| Australia Day<br>(additional)     |              |              |              |              | `Mon 28 Jan` | 
+| Australia Day<br>(observed)       |              |              |              |              | `Mon 28 Jan` | 
 | Good Friday                       | `Fri 03 Apr` | `Fri 26 Mar` | `Fri 14 Apr` | `Fri 30 Mar` | `Fri 19 Apr` | 
 | Easter Saturday                   | `Sat 04 Apr` | `Sat 27 Mar` | `Sat 15 Apr` | `Sat 31 Mar` | `Sat 20 Apr` | 
 | Easter Sunday                     | `Sun 05 Apr` | `Sun 28 Mar` | `Sun 16 Apr` | `Sun 01 Apr` | `Sun 21 Apr` | 
@@ -368,7 +375,7 @@ var md = await Holidays.ExportToMarkdown(state);
 |-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | `Tue 01 Jan` | 
 | Australia Day                     | `Mon 26 Jan` | `Tue 26 Jan` | `Wed 26 Jan` | `Fri 26 Jan` |              | 
-| Australia Day<br>(additional)     |              |              |              |              | `Mon 28 Jan` | 
+| Australia Day<br>(observed)       |              |              |              |              | `Mon 28 Jan` | 
 | Canberra Day                      | `Mon 09 Mar` | `Mon 08 Mar` | `Mon 13 Mar` | `Mon 12 Mar` | `Mon 11 Mar` | 
 | Good Friday                       | `Fri 03 Apr` | `Fri 26 Mar` | `Fri 14 Apr` | `Fri 30 Mar` | `Fri 19 Apr` | 
 | Easter Saturday                   | `Sat 04 Apr` | `Sat 27 Mar` | `Sat 15 Apr` | `Sat 31 Mar` | `Sat 20 Apr` | 
@@ -393,7 +400,7 @@ var md = await Holidays.ExportToMarkdown(state);
 | New Year's Day                    | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | `Tue 01 Jan` | 
 | New Year's Day<br>(additional)    |              |              | `Mon 03 Jan` |              |              | 
 | Australia Day                     | `Mon 26 Jan` | `Tue 26 Jan` | `Wed 26 Jan` | `Fri 26 Jan` |              | 
-| Australia Day<br>(additional)     |              |              |              |              | `Mon 28 Jan` | 
+| Australia Day<br>(observed)       |              |              |              |              | `Mon 28 Jan` | 
 | Good Friday                       | `Fri 03 Apr` | `Fri 26 Mar` | `Fri 14 Apr` | `Fri 30 Mar` | `Fri 19 Apr` | 
 | Easter Saturday                   | `Sat 04 Apr` | `Sat 27 Mar` | `Sat 15 Apr` | `Sat 31 Mar` | `Sat 20 Apr` | 
 | Easter Sunday                     | `Sun 05 Apr` | `Sun 28 Mar` | `Sun 16 Apr` | `Sun 01 Apr` | `Sun 21 Apr` | 
@@ -415,7 +422,7 @@ var md = await Holidays.ExportToMarkdown(state);
 |-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | `Tue 01 Jan` | 
 | Australia Day                     | `Mon 26 Jan` | `Tue 26 Jan` | `Wed 26 Jan` | `Fri 26 Jan` |              | 
-| Australia Day<br>(additional)     |              |              |              |              | `Mon 28 Jan` | 
+| Australia Day<br>(observed)       |              |              |              |              | `Mon 28 Jan` | 
 | Good Friday                       | `Fri 03 Apr` | `Fri 26 Mar` | `Fri 14 Apr` | `Fri 30 Mar` | `Fri 19 Apr` | 
 | Easter Saturday                   | `Sat 04 Apr` | `Sat 27 Mar` | `Sat 15 Apr` | `Sat 31 Mar` | `Sat 20 Apr` | 
 | Easter Sunday                     | `Sun 05 Apr` | `Sun 28 Mar` | `Sun 16 Apr` | `Sun 01 Apr` | `Sun 21 Apr` | 
@@ -440,7 +447,7 @@ var md = await Holidays.ExportToMarkdown(state);
 |-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | `Tue 01 Jan` | 
 | Australia Day                     | `Mon 26 Jan` | `Tue 26 Jan` | `Wed 26 Jan` | `Fri 26 Jan` |              | 
-| Australia Day<br>(additional)     |              |              |              |              | `Mon 28 Jan` | 
+| Australia Day<br>(observed)       |              |              |              |              | `Mon 28 Jan` | 
 | Good Friday                       | `Fri 03 Apr` | `Fri 26 Mar` | `Fri 14 Apr` | `Fri 30 Mar` | `Fri 19 Apr` | 
 | Easter Saturday                   | `Sat 04 Apr` | `Sat 27 Mar` | `Sat 15 Apr` | `Sat 31 Mar` | `Sat 20 Apr` | 
 | Easter Sunday                     | `Sun 05 Apr` | `Sun 28 Mar` | `Sun 16 Apr` | `Sun 01 Apr` | `Sun 21 Apr` | 
@@ -463,7 +470,7 @@ var md = await Holidays.ExportToMarkdown(state);
 |-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | `Tue 01 Jan` | 
 | Australia Day                     | `Mon 26 Jan` | `Tue 26 Jan` | `Wed 26 Jan` | `Fri 26 Jan` |              | 
-| Australia Day<br>(additional)     |              |              |              |              | `Mon 28 Jan` | 
+| Australia Day<br>(observed)       |              |              |              |              | `Mon 28 Jan` | 
 | Adelaide Cup Day                  | `Mon 09 Mar` | `Mon 08 Mar` | `Mon 13 Mar` | `Mon 12 Mar` | `Mon 11 Mar` | 
 | Good Friday                       | `Fri 03 Apr` | `Fri 26 Mar` | `Fri 14 Apr` | `Fri 30 Mar` | `Fri 19 Apr` | 
 | Easter Saturday                   | `Sat 04 Apr` | `Sat 27 Mar` | `Sat 15 Apr` | `Sat 31 Mar` | `Sat 20 Apr` | 
@@ -488,7 +495,7 @@ var md = await Holidays.ExportToMarkdown(state);
 |-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | `Tue 01 Jan` | 
 | Australia Day                     | `Mon 26 Jan` | `Tue 26 Jan` | `Wed 26 Jan` | `Fri 26 Jan` |              | 
-| Australia Day<br>(additional)     |              |              |              |              | `Mon 28 Jan` | 
+| Australia Day<br>(observed)       |              |              |              |              | `Mon 28 Jan` | 
 | Eight Hours Day                   | `Mon 09 Mar` | `Mon 08 Mar` | `Mon 13 Mar` | `Mon 12 Mar` | `Mon 11 Mar` | 
 | Good Friday                       | `Fri 03 Apr` | `Fri 26 Mar` | `Fri 14 Apr` | `Fri 30 Mar` | `Fri 19 Apr` | 
 | Easter Sunday                     | `Sun 05 Apr` | `Sun 28 Mar` | `Sun 16 Apr` | `Sun 01 Apr` | `Sun 21 Apr` | 
@@ -509,7 +516,7 @@ var md = await Holidays.ExportToMarkdown(state);
 |-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | `Tue 01 Jan` | 
 | Australia Day                     | `Mon 26 Jan` | `Tue 26 Jan` | `Wed 26 Jan` | `Fri 26 Jan` |              | 
-| Australia Day<br>(additional)     |              |              |              |              | `Mon 28 Jan` | 
+| Australia Day<br>(observed)       |              |              |              |              | `Mon 28 Jan` | 
 | Labour Day                        | `Mon 09 Mar` | `Mon 08 Mar` | `Mon 13 Mar` | `Mon 12 Mar` | `Mon 11 Mar` | 
 | Good Friday                       | `Fri 03 Apr` | `Fri 26 Mar` | `Fri 14 Apr` | `Fri 30 Mar` | `Fri 19 Apr` | 
 | Easter Saturday                   | `Sat 04 Apr` | `Sat 27 Mar` | `Sat 15 Apr` | `Sat 31 Mar` | `Sat 20 Apr` | 
@@ -532,7 +539,7 @@ var md = await Holidays.ExportToMarkdown(state);
 |-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | `Tue 01 Jan` | 
 | Australia Day                     | `Mon 26 Jan` | `Tue 26 Jan` | `Wed 26 Jan` | `Fri 26 Jan` |              | 
-| Australia Day<br>(additional)     |              |              |              |              | `Mon 28 Jan` | 
+| Australia Day<br>(observed)       |              |              |              |              | `Mon 28 Jan` | 
 | Labour Day                        | `Mon 02 Mar` | `Mon 01 Mar` | `Mon 06 Mar` | `Mon 05 Mar` | `Mon 04 Mar` | 
 | Good Friday                       | `Fri 03 Apr` | `Fri 26 Mar` | `Fri 14 Apr` | `Fri 30 Mar` | `Fri 19 Apr` | 
 | Easter Saturday                   | `Sat 04 Apr` | `Sat 27 Mar` | `Sat 15 Apr` | `Sat 31 Mar` | `Sat 20 Apr` | 

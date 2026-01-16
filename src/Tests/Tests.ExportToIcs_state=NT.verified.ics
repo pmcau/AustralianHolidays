@@ -367,8 +367,8 @@ DTSTART;VALUE=DATE:20300101
 DTEND;VALUE=DATE:20300102
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:Australia Day (additional)
-UID:Australia Day (additional)_NT@AustralianHolidays
+SUMMARY:Australia Day (observed)
+UID:Australia Day (observed)_NT@AustralianHolidays
 DTSTART;VALUE=DATE:20300128
 DTEND;VALUE=DATE:20300129
 END:VEVENT

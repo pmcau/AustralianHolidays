@@ -1,6 +1,6 @@
 ﻿2025
     Jan 01 Wed - New Year's Day
-    Jan 27 Mon - Australia Day (additional)
+    Jan 27 Mon - Australia Day (observed)
     Apr 18 Fri - Good Friday
     Apr 19 Sat - Easter Saturday
     Apr 20 Sun - Easter Sunday
@@ -69,7 +69,7 @@
     Dec 26 Wed - Boxing Day
 2030
     Jan 01 Tue - New Year's Day
-    Jan 28 Mon - Australia Day (additional)
+    Jan 28 Mon - Australia Day (observed)
     Apr 19 Fri - Good Friday
     Apr 20 Sat - Easter Saturday
     Apr 21 Sun - Easter Sunday

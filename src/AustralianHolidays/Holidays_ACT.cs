@@ -45,11 +45,11 @@ public static partial class Holidays
         {
             if (australiaDay.DayOfWeek == DayOfWeek.Saturday)
             {
-                yield return (new(year, January, 28), "Australia Day (additional)");
+                yield return (new(year, January, 28), "Australia Day (observed)");
             }
             else if (australiaDay.DayOfWeek == DayOfWeek.Sunday)
             {
-                yield return (new(year, January, 27), "Australia Day (additional)");
+                yield return (new(year, January, 27), "Australia Day (observed)");
             }
         }
 

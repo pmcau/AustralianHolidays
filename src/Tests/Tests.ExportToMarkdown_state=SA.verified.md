@@ -2,7 +2,7 @@
 |-----------------------------------|--------------|--------------|--------------|--------------|--------------|
 | New Year's Day                    | `Thu 01 Jan` | `Fri 01 Jan` | `Sat 01 Jan` | `Mon 01 Jan` | `Tue 01 Jan` | 
 | Australia Day                     | `Mon 26 Jan` | `Tue 26 Jan` | `Wed 26 Jan` | `Fri 26 Jan` |              | 
-| Australia Day<br>(additional)     |              |              |              |              | `Mon 28 Jan` | 
+| Australia Day<br>(observed)       |              |              |              |              | `Mon 28 Jan` | 
 | Adelaide Cup Day                  | `Mon 09 Mar` | `Mon 08 Mar` | `Mon 13 Mar` | `Mon 12 Mar` | `Mon 11 Mar` | 
 | Good Friday                       | `Fri 03 Apr` | `Fri 26 Mar` | `Fri 14 Apr` | `Fri 30 Mar` | `Fri 19 Apr` | 
 | Easter Saturday                   | `Sat 04 Apr` | `Sat 27 Mar` | `Sat 15 Apr` | `Sat 31 Mar` | `Sat 20 Apr` | 

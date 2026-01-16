@@ -11,7 +11,7 @@
 2024 Dec 25 Wed Christmas Day
 2024 Dec 26 Thu Boxing Day
 2025 Jan 01 Wed New Year's Day
-2025 Jan 27 Mon Australia Day (additional)
+2025 Jan 27 Mon Australia Day (observed)
 2025 Apr 18 Fri Good Friday
 2025 Apr 19 Sat Easter Saturday
 2025 Apr 20 Sun Easter Sunday
@@ -75,7 +75,7 @@
 2029 Dec 25 Tue Christmas Day
 2029 Dec 26 Wed Boxing Day
 2030 Jan 01 Tue New Year's Day
-2030 Jan 28 Mon Australia Day (additional)
+2030 Jan 28 Mon Australia Day (observed)
 2030 Apr 19 Fri Good Friday
 2030 Apr 20 Sat Easter Saturday
 2030 Apr 21 Sun Easter Sunday
@@ -87,7 +87,7 @@
 2030 Dec 25 Wed Christmas Day
 2030 Dec 26 Thu Boxing Day
 2031 Jan 01 Wed New Year's Day
-2031 Jan 27 Mon Australia Day (additional)
+2031 Jan 27 Mon Australia Day (observed)
 2031 Apr 11 Fri Good Friday
 2031 Apr 12 Sat Easter Saturday
 2031 Apr 13 Sun Easter Sunday
