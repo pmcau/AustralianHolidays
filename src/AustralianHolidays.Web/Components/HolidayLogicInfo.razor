@@ -26,25 +26,8 @@
     {
         try
         {
-            var markdown = await Http.GetStringAsync("holiday-logic.md");
-
-            // Split at "## Public Holiday Substitution Rules"
-            const string splitMarker = "## Public Holiday Substitution Rules";
-            var splitIndex = markdown.IndexOf(splitMarker);
-
-            if (splitIndex > 0)
-            {
-                var alwaysVisibleMarkdown = markdown[..splitIndex];
-                var collapsibleMarkdown = markdown[(splitIndex + splitMarker.Length)..];
-
-                alwaysVisibleHtml = Markdig.Markdown.ToHtml(alwaysVisibleMarkdown);
-                collapsibleHtml = Markdig.Markdown.ToHtml(collapsibleMarkdown);
-            }
-            else
-            {
-                alwaysVisibleHtml = Markdig.Markdown.ToHtml(markdown);
-                collapsibleHtml = null;
-            }
+            alwaysVisibleHtml = await Http.GetStringAsync("holiday-logic.html");
+            collapsibleHtml = await Http.GetStringAsync("holiday-logic-collapsible.html");
         }
         catch
         {

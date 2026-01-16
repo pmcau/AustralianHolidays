@@ -1,4 +1,4 @@
-﻿<Solution>
+<Solution>
   <Folder Name="/Solution Items/">
     <File Path="../.gitignore" />
     <File Path="../readme.md" />
@@ -11,7 +11,10 @@
     <File Path="mdsnippets.json" />
   </Folder>
   <Project Path="AustralianHolidays.Web.Tests/AustralianHolidays.Web.Tests.csproj" />
-  <Project Path="AustralianHolidays.Web/AustralianHolidays.Web.csproj" />
+  <Project Path="AustralianHolidays.Web/AustralianHolidays.Web.csproj">
+    <BuildDependency Project="MarkdownConverter/MarkdownConverter.csproj" />
+  </Project>
   <Project Path="AustralianHolidays/AustralianHolidays.csproj" />
+  <Project Path="MarkdownConverter/MarkdownConverter.csproj" />
   <Project Path="Tests/Tests.csproj" />
 </Solution>
