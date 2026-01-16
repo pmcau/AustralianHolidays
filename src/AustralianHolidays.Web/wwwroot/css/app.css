@@ -126,7 +126,6 @@ header p {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-left: auto;
 }
 
 .export-btn {
