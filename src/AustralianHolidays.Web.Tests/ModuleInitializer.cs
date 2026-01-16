@@ -4,6 +4,7 @@ static class ModuleInitializer
     public static void Initialize()
     {
         VerifyDiffPlex.Initialize(OutputType.Compact);
+        VerifyPlaywright.Initialize(installPlaywright: true);
         VerifierSettings.InitializePlugins();
     }
 }

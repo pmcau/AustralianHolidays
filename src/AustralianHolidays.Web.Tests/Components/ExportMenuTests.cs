@@ -1,4 +1,4 @@
-namespace AustralianHolidays.Web.Tests.Components;
+using AustralianHolidays.Web.Tests;
 
 [TestFixture]
 public class ExportMenuTests : BunitTestContext

@@ -36,9 +36,16 @@ else
                     @if (ShowStateColumn)
                     {
                         <td>
-                            @foreach (var state in holiday.States)
+                            @if (holiday.States.Count == 8)
                             {
-                                <span class="state-badge">@state</span>
+                                <span class="state-badge">National</span>
+                            }
+                            else
+                            {
+                                @foreach (var state in holiday.States)
+                                {
+                                    <span class="state-badge">@state</span>
+                                }
                             }
                         </td>
                     }
