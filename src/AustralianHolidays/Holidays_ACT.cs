@@ -43,6 +43,7 @@ public static partial class Holidays
         }
         else
         {
+            yield return (australiaDay, "Australia Day (not holiday)");
             if (australiaDay.DayOfWeek == DayOfWeek.Saturday)
             {
                 yield return (new(year, January, 28), "Australia Day (observed)");
