@@ -231,16 +231,12 @@ header p {
 .state-badge {
     display: inline-block;
     padding: 0.25rem 0.5rem;
-    margin-right: 0.25rem;
+    margin: 0.125rem 0.25rem 0.125rem 0;
     background: var(--accent-color);
     color: var(--primary-color);
     border-radius: 4px;
     font-size: 0.75rem;
     font-weight: 600;
-}
-
-.state-badge:last-child {
-    margin-right: 0;
 }
 
 .empty-state {

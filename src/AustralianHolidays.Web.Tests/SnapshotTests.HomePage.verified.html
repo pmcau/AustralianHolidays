@@ -1,0 +1,213 @@
+﻿<!DOCTYPE html><html lang="en" style="--blazor-load-percentage: 100%; --blazor-load-percentage-text: &quot;100%&quot;;"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <base href="/">
+    <link rel="stylesheet" href="css/app.css">
+<!--!--><!--!--><!--!--><title>Australian Holidays</title><!--!--><!--!--><!--!--></head>
+
+<body>
+    <div id="app"><!--!--><!--!--><!--!--><!--!--><!--!--><header><h1 tabindex="-1">Australian Public Holidays</h1>
+    <p>View and export public holidays for all Australian states and territories</p></header>
+
+<div class="container"><!--!--><!--!--><!--!--><!--!-->
+
+<div class="controls"><!--!--><div class="state-selector"><!--!--><label>States:</label>
+    <div class="state-buttons"><button class="state-btn selected">All</button><button class="state-btn selected">ACT</button><button class="state-btn selected">NSW</button><button class="state-btn selected">NT</button><button class="state-btn selected">QLD</button><button class="state-btn selected">SA</button><button class="state-btn selected">TAS</button><button class="state-btn selected">VIC</button><button class="state-btn selected">WA</button></div></div></div><!--!-->
+<div class="controls"><!--!--><div class="export-menu"><!--!--><span class="export-label">Export:</span>
+    <button class="export-btn">JSON</button><!--!-->
+    <button class="export-btn">CSV</button><!--!-->
+    <button class="export-btn">XML</button><!--!-->
+    <button class="export-btn">Markdown</button><!--!-->
+    <button class="export-btn">ICS</button><!--!-->
+    <button class="export-btn">Excel</button></div></div><!--!-->
+
+<!--!--><table class="holiday-table"><thead><tr><!--!--><th class="date-column">Date</th>
+                <!--!--><th class="day-column">Day</th>
+                <!--!--><th>Holiday</th><!--!--><th>State</th></tr></thead><!--!-->
+        <tbody><tr class="holiday-row future"><td class="date-column">26 Jan 2026</td><!--!-->
+                    <td class="day-column">Monday</td><!--!-->
+                    <td>Australia Day</td><td><span class="state-badge">ACT</span><span class="state-badge">NSW</span><span class="state-badge">NT</span><span class="state-badge">QLD</span><span class="state-badge">SA</span><span class="state-badge">TAS</span><span class="state-badge">VIC</span><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column">2 Mar 2026</td><!--!-->
+                    <td class="day-column">Monday</td><!--!-->
+                    <td>Labour Day</td><td><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column">9 Mar 2026</td><!--!-->
+                    <td class="day-column">Monday</td><!--!-->
+                    <td>Adelaide Cup Day</td><td><span class="state-badge">SA</span></td></tr><tr class="holiday-row future"><td class="date-column">9 Mar 2026</td><!--!-->
+                    <td class="day-column">Monday</td><!--!-->
+                    <td>Canberra Day</td><td><span class="state-badge">ACT</span></td></tr><tr class="holiday-row future"><td class="date-column">9 Mar 2026</td><!--!-->
+                    <td class="day-column">Monday</td><!--!-->
+                    <td>Eight Hours Day</td><td><span class="state-badge">TAS</span></td></tr><tr class="holiday-row future"><td class="date-column">9 Mar 2026</td><!--!-->
+                    <td class="day-column">Monday</td><!--!-->
+                    <td>Labour Day</td><td><span class="state-badge">VIC</span></td></tr><tr class="holiday-row future"><td class="date-column">3 Apr 2026</td><!--!-->
+                    <td class="day-column">Friday</td><!--!-->
+                    <td>Good Friday</td><td><span class="state-badge">ACT</span><span class="state-badge">NSW</span><span class="state-badge">NT</span><span class="state-badge">QLD</span><span class="state-badge">SA</span><span class="state-badge">TAS</span><span class="state-badge">VIC</span><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column">4 Apr 2026</td><!--!-->
+                    <td class="day-column">Saturday</td><!--!-->
+                    <td>Easter Saturday</td><td><span class="state-badge">ACT</span><span class="state-badge">NSW</span><span class="state-badge">NT</span><span class="state-badge">QLD</span><span class="state-badge">SA</span><span class="state-badge">VIC</span><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column">5 Apr 2026</td><!--!-->
+                    <td class="day-column">Sunday</td><!--!-->
+                    <td>Easter Sunday</td><td><span class="state-badge">ACT</span><span class="state-badge">NSW</span><span class="state-badge">NT</span><span class="state-badge">QLD</span><span class="state-badge">SA</span><span class="state-badge">TAS</span><span class="state-badge">VIC</span><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column">6 Apr 2026</td><!--!-->
+                    <td class="day-column">Monday</td><!--!-->
+                    <td>Easter Monday</td><td><span class="state-badge">ACT</span><span class="state-badge">NSW</span><span class="state-badge">NT</span><span class="state-badge">QLD</span><span class="state-badge">SA</span><span class="state-badge">TAS</span><span class="state-badge">VIC</span><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column">7 Apr 2026</td><!--!-->
+                    <td class="day-column">Tuesday</td><!--!-->
+                    <td>Easter Tuesday (Government employees only)</td><td><span class="state-badge">TAS</span></td></tr><tr class="holiday-row future"><td class="date-column">25 Apr 2026</td><!--!-->
+                    <td class="day-column">Saturday</td><!--!-->
+                    <td>Anzac Day</td><td><span class="state-badge">ACT</span><span class="state-badge">NSW</span><span class="state-badge">NT</span><span class="state-badge">QLD</span><span class="state-badge">SA</span><span class="state-badge">TAS</span><span class="state-badge">VIC</span><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column">27 Apr 2026</td><!--!-->
+                    <td class="day-column">Monday</td><!--!-->
+                    <td>Anzac Day (additional)</td><td><span class="state-badge">ACT</span><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column">4 May 2026</td><!--!-->
+                    <td class="day-column">Monday</td><!--!-->
+                    <td>Labour Day</td><td><span class="state-badge">QLD</span></td></tr><tr class="holiday-row future"><td class="date-column">4 May 2026</td><!--!-->
+                    <td class="day-column">Monday</td><!--!-->
+                    <td>May Day</td><td><span class="state-badge">NT</span></td></tr><tr class="holiday-row future"><td class="date-column">1 Jun 2026</td><!--!-->
+                    <td class="day-column">Monday</td><!--!-->
+                    <td>Reconciliation Day</td><td><span class="state-badge">ACT</span></td></tr><tr class="holiday-row future"><td class="date-column">1 Jun 2026</td><!--!-->
+                    <td class="day-column">Monday</td><!--!-->
+                    <td>Western Australia Day</td><td><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column">8 Jun 2026</td><!--!-->
+                    <td class="day-column">Monday</td><!--!-->
+                    <td>King's Birthday</td><td><span class="state-badge">ACT</span><span class="state-badge">NSW</span><span class="state-badge">NT</span><span class="state-badge">SA</span><span class="state-badge">TAS</span><span class="state-badge">VIC</span></td></tr><tr class="holiday-row future"><td class="date-column">3 Aug 2026</td><!--!-->
+                    <td class="day-column">Monday</td><!--!-->
+                    <td>Bank Holiday</td><td><span class="state-badge">NSW</span></td></tr><tr class="holiday-row future"><td class="date-column">3 Aug 2026</td><!--!-->
+                    <td class="day-column">Monday</td><!--!-->
+                    <td>Picnic Day</td><td><span class="state-badge">NT</span></td></tr><tr class="holiday-row future"><td class="date-column">25 Sep 2026</td><!--!-->
+                    <td class="day-column">Friday</td><!--!-->
+                    <td>Friday before AFL Grand Final (Subject to AFL schedule)</td><td><span class="state-badge">VIC</span></td></tr><tr class="holiday-row future"><td class="date-column">28 Sep 2026</td><!--!-->
+                    <td class="day-column">Monday</td><!--!-->
+                    <td>King's Birthday</td><td><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column">5 Oct 2026</td><!--!-->
+                    <td class="day-column">Monday</td><!--!-->
+                    <td>King's Birthday</td><td><span class="state-badge">QLD</span></td></tr><tr class="holiday-row future"><td class="date-column">5 Oct 2026</td><!--!-->
+                    <td class="day-column">Monday</td><!--!-->
+                    <td>Labour Day</td><td><span class="state-badge">ACT</span><span class="state-badge">NSW</span><span class="state-badge">SA</span></td></tr><tr class="holiday-row future"><td class="date-column">3 Nov 2026</td><!--!-->
+                    <td class="day-column">Tuesday</td><!--!-->
+                    <td>Melbourne Cup Day</td><td><span class="state-badge">VIC</span></td></tr><tr class="holiday-row future"><td class="date-column">24 Dec 2026</td><!--!-->
+                    <td class="day-column">Thursday</td><!--!-->
+                    <td>Christmas Eve (partial day)</td><td><span class="state-badge">NT</span><span class="state-badge">QLD</span><span class="state-badge">SA</span></td></tr><tr class="holiday-row future"><td class="date-column">25 Dec 2026</td><!--!-->
+                    <td class="day-column">Friday</td><!--!-->
+                    <td>Christmas Day</td><td><span class="state-badge">ACT</span><span class="state-badge">NSW</span><span class="state-badge">NT</span><span class="state-badge">QLD</span><span class="state-badge">SA</span><span class="state-badge">TAS</span><span class="state-badge">VIC</span><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column">26 Dec 2026</td><!--!-->
+                    <td class="day-column">Saturday</td><!--!-->
+                    <td>Boxing Day</td><td><span class="state-badge">ACT</span><span class="state-badge">NSW</span><span class="state-badge">NT</span><span class="state-badge">QLD</span><span class="state-badge">TAS</span><span class="state-badge">VIC</span><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column">26 Dec 2026</td><!--!-->
+                    <td class="day-column">Saturday</td><!--!-->
+                    <td>Proclamation Day</td><td><span class="state-badge">SA</span></td></tr><tr class="holiday-row future"><td class="date-column">28 Dec 2026</td><!--!-->
+                    <td class="day-column">Monday</td><!--!-->
+                    <td>Christmas (additional)</td><td><span class="state-badge">ACT</span><span class="state-badge">NSW</span><span class="state-badge">NT</span><span class="state-badge">QLD</span><span class="state-badge">TAS</span><span class="state-badge">VIC</span><span class="state-badge">WA</span></td></tr><tr class="holiday-row future"><td class="date-column">28 Dec 2026</td><!--!-->
+                    <td class="day-column">Monday</td><!--!-->
+                    <td>Proclamation Day (additional)</td><td><span class="state-badge">SA</span></td></tr><tr class="holiday-row future"><td class="date-column">31 Dec 2026</td><!--!-->
+                    <td class="day-column">Thursday</td><!--!-->
+                    <td>New Year's Eve (partial day)</td><td><span class="state-badge">NT</span><span class="state-badge">SA</span></td></tr><tr class="holiday-row future"><td class="date-column">1 Jan 2027</td><!--!-->
+                    <td class="day-column">Friday</td><!--!-->
+                    <td>New Year's Day</td><td><span class="state-badge">ACT</span><span class="state-badge">NSW</span><span class="state-badge">NT</span><span class="state-badge">QLD</span><span class="state-badge">SA</span><span class="state-badge">TAS</span><span class="state-badge">VIC</span><span class="state-badge">WA</span></td></tr></tbody></table><!--!-->
+
+<!--!--><div class="holiday-logic-info"><!--!--><h2>Disclaimer</h2>
+<p><strong>The holiday dates provided are based on best efforts to ensure accuracy. However, dates are not guarantee to be correct or up-to-date. Consumers should verify the holiday dates with official sources before relying on them for any critical purposes. The authors and contributors of this project are not responsible for any inaccuracies or any consequences arising from the use of this information.</strong></p>
+<h2>Official sources</h2>
+<ul>
+<li><a href="https://www.cmtedd.act.gov.au/communication/holidays">Australian Capital Territory</a></li>
+<li><a href="https://www.nsw.gov.au/about-nsw/public-holidays">New South Wales</a></li>
+<li><a href="https://nt.gov.au/nt-public-holidays">Northern Territory</a></li>
+<li><a href="https://www.qld.gov.au/recreation/travel/holidays/public">Queensland</a></li>
+<li><a href="https://www.safework.sa.gov.au/resources/public-holidays">South Australia</a></li>
+<li><a href="https://worksafe.tas.gov.au/topics/laws-and-compliance/public-holidays">Tasmania</a></li>
+<li><a href="https://business.vic.gov.au/business-information/public-holidays/victorian-public-holidays-2025">Victoria</a></li>
+<li><a href="https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia">Western Australia</a></li>
+</ul>
+<h2>Public Holiday Substitution Rules</h2>
+<p>When public holidays fall on weekends, Australian states and territories have different rules about whether a substitute weekday holiday is provided. This section documents these substitution rules for all major public holidays.</p>
+<h3>New Year's Day (1 January)</h3>
+<p><strong>New South Wales</strong> - Additional day when on weekend</p>
+<ul>
+<li>When 1 January falls on a weekday → observed on 1 January</li>
+<li>When 1 January falls on Saturday → <strong>Both</strong> Saturday (1 January) <strong>and</strong> Monday (3 January) are public holidays</li>
+<li>When 1 January falls on Sunday → <strong>Both</strong> Sunday (1 January) <strong>and</strong> Monday (2 January) are public holidays</li>
+<li><strong>Important</strong>: This is <strong>additional</strong>, not substitution - both the actual 1 January date AND the Monday are public holidays</li>
+</ul>
+<p><strong>All Other States</strong></p>
+<ul>
+<li>New Year's Day is always observed on 1 January, regardless of the day of the week</li>
+<li>No substitute holidays are provided when it falls on a weekend</li>
+</ul>
+<h3>Australia Day (26 January)</h3>
+<p><strong>All States and Territories</strong> - Substitution (Monday replaces weekend day)</p>
+<ul>
+<li>When 26 January falls on a weekday → observed on 26 January</li>
+<li>When 26 January falls on Saturday → <strong>Only</strong> Monday (28 January) is a public holiday, labeled "Australia Day (observed)"</li>
+<li>When 26 January falls on Sunday → <strong>Only</strong> Monday (27 January) is a public holiday, labeled "Australia Day (observed)"</li>
+<li><strong>Important</strong>: This is <strong>substitution</strong>, not additional - the actual 26 January date is NOT a public holiday when it falls on a weekend, only the Monday substitute counts</li>
+<li>This is consistent across all Australian states and territories</li>
+</ul>
+<h3>ANZAC Day (25 April)</h3>
+<p>ANZAC Day is observed on 25 April each year. When 25 April falls on a weekend (Saturday or Sunday), some Australian states and territories provide an <strong>additional</strong> public holiday on the following Monday.</p>
+<p><strong>Important</strong>: The Monday is an "additional" holiday, not a "substitution" - both the actual 25 April <strong>and</strong> the Monday are public holidays. The Monday provides workers with an extra day off since the actual ANZAC Day fell on a non-working day.</p>
+<h4>States with Additional Day Off</h4>
+<p><strong>Western Australia</strong> - Both Saturday and Sunday</p>
+<ul>
+<li>When ANZAC Day falls on Saturday (25 April) → Monday (27 April) is "Anzac Day (additional)"</li>
+<li>When ANZAC Day falls on Sunday (25 April) → Monday (26 April) is "Anzac Day (additional)"</li>
+<li><strong>Established</strong>: 1972 via Public and Bank Holidays Act 1972</li>
+</ul>
+<p><strong>Queensland</strong> - Sunday only</p>
+<ul>
+<li>When ANZAC Day falls on Sunday (25 April) → Monday (26 April) is "Anzac Day (additional)"</li>
+<li>No substitute when ANZAC Day falls on Saturday</li>
+<li><strong>Established</strong>: Holidays Act 1983</li>
+</ul>
+<p><strong>Australian Capital Territory</strong> - Both Saturday and Sunday</p>
+<ul>
+<li>When ANZAC Day falls on Saturday (25 April) → Monday (27 April) is "Anzac Day (additional)"</li>
+<li>When ANZAC Day falls on Sunday (25 April) → Monday (26 April) is "Anzac Day (additional)"</li>
+<li><strong>Established</strong>: Approximately 2020, confirmed for 2026</li>
+</ul>
+<p><strong>Northern Territory</strong> - Sunday only</p>
+<ul>
+<li>When ANZAC Day falls on Sunday (25 April) → Monday (26 April) is "Anzac Day (additional)"</li>
+<li>No substitute when ANZAC Day falls on Saturday</li>
+</ul>
+<h4>States Without Additional Day</h4>
+<p>ANZAC Day is always observed on 25 April, regardless of the day of the week. No additional Monday holiday is provided when 25 April falls on a weekend.</p>
+<ul>
+<li>New South Wales</li>
+<li>Victoria</li>
+<li>Tasmania</li>
+<li>South Australia</li>
+</ul>
+<h3>Christmas Day (25 December) and Boxing Day (26 December)</h3>
+<p><strong>Most States</strong> (NSW, VIC, TAS, WA, ACT, QLD, NT)</p>
+<ul>
+<li>Christmas Day (25 December) and Boxing Day (26 December) are always observed on their actual dates</li>
+<li>When either or both fall on a weekend, additional weekday holidays are provided:
+<ul>
+<li>If only <strong>one</strong> falls on weekend → One "Christmas (additional)" on the next weekday after Boxing Day</li>
+<li>If <strong>both</strong> fall on weekend (Sat/Sun) → Two "Christmas (additional)" days on the following Monday and Tuesday</li>
+</ul>
+</li>
+<li>Examples:
+<ul>
+<li><strong>2026</strong>: Christmas Friday, Boxing Day Saturday → Monday 28 December is "Christmas (additional)"</li>
+<li><strong>2027</strong>: Christmas Saturday, Boxing Day Sunday → Monday 27 December and Tuesday 28 December are both "Christmas (additional)"</li>
+</ul>
+</li>
+</ul>
+<p><strong>South Australia</strong> - Special "Proclamation Day" rules</p>
+<ul>
+<li>25 December is always "Christmas Day"</li>
+<li>26 December is called "Proclamation Day" (instead of Boxing Day)</li>
+<li>Substitution rules:
+<ul>
+<li>If 26 December is a weekday → "Proclamation and Boxing Day"</li>
+<li>If 26 December is Saturday → "Proclamation Day" + Monday 28 December "Proclamation Day (additional)"</li>
+<li>If 26 December is Sunday → "Proclamation Day" + Monday 27 December "Proclamation Day (additional)"</li>
+</ul>
+</li>
+<li>Note: Only one additional day even when Christmas is also on weekend</li>
+</ul>
+</div></div><!--!-->
+
+<!--!--><footer><p>Data provided by <a href="https://github.com/pmcau/AustralianHolidays" target="_blank">AustralianHolidays</a></p></footer><!--!-->
+        <!--!--></div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">X</a>
+    </div>
+    <script src="_framework/blazor.webassembly.js"></script>
+    <script src="js/interop.js"></script>
+
+
+
+</body></html>

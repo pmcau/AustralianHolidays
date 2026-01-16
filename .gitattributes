@@ -1,6 +1,7 @@
 * text=auto eol=lf
 *.snk binary
 *.png binary
+*.xlsx binary
 
 *.verified.sql text eol=lf working-tree-encoding=UTF-8
 *.verified.txt text eol=lf working-tree-encoding=UTF-8
