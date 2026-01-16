@@ -5,6 +5,12 @@ namespace AustralianHolidays;
 
 public static partial class Holidays
 {
+    /// <summary>
+    /// Exports national public holidays to Excel (XLSX) format.
+    /// </summary>
+    /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
+    /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    /// <returns>A byte array containing the Excel file data.</returns>
     public static async Task<byte[]> ExportToExcel(int? startYear = null, int yearCount = 5)
     {
         var stream = new MemoryStream();
@@ -12,12 +18,25 @@ public static partial class Holidays
         return stream.ToArray();
     }
 
+    /// <summary>
+    /// Exports national public holidays to Excel (XLSX) format, writing to a Stream.
+    /// </summary>
+    /// <param name="stream">The Stream to write the Excel file data to.</param>
+    /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
+    /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
     public static Task ExportToExcel(Stream stream, int? startYear = null, int yearCount = 5)
     {
         var forYears = NationalForYears(startYear, yearCount);
         return ToExcel(stream, forYears);
     }
 
+    /// <summary>
+    /// Exports public holidays for a specific state to Excel (XLSX) format.
+    /// </summary>
+    /// <param name="state">The Australian state to export holidays for.</param>
+    /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
+    /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    /// <returns>A byte array containing the Excel file data.</returns>
     public static async Task<byte[]> ExportToExcel(State state, int? startYear = null, int yearCount = 5)
     {
         var stream = new MemoryStream();
@@ -25,18 +44,38 @@ public static partial class Holidays
         return stream.ToArray();
     }
 
+    /// <summary>
+    /// Exports public holidays for a specific state to Excel (XLSX) format, writing to a Stream.
+    /// </summary>
+    /// <param name="stream">The Stream to write the Excel file data to.</param>
+    /// <param name="state">The Australian state to export holidays for.</param>
+    /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
+    /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
     public static Task ExportToExcel(Stream stream, State state, int? startYear = null, int yearCount = 5)
     {
         var forYears = ForYears(state, startYear, yearCount);
         return ToExcel(stream, forYears);
     }
 
+    /// <summary>
+    /// Exports national public holidays to an Excel (XLSX) file.
+    /// </summary>
+    /// <param name="path">The file path where the Excel file will be written.</param>
+    /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
+    /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
     public static async Task ExportToExcel(string path, int? startYear = null, int yearCount = 5)
     {
         await using var stream = File.Create(path);
         await ExportToExcel(stream, startYear, yearCount);
     }
 
+    /// <summary>
+    /// Exports public holidays for a specific state to an Excel (XLSX) file.
+    /// </summary>
+    /// <param name="path">The file path where the Excel file will be written.</param>
+    /// <param name="state">The Australian state to export holidays for.</param>
+    /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
+    /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
     public static async Task ExportToExcel(string path, State state, int? startYear = null, int yearCount = 5)
     {
         await using var stream = File.Create(path);
