@@ -15,7 +15,7 @@
 <HolidayLogicInfo />
 
 @code {
-    HashSet<State> selectedStates = new(Enum.GetValues<State>());
+    HashSet<State> selectedStates = [.. Enum.GetValues<State>()];
     IReadOnlyList<HolidayViewModel>? holidays;
     Date startDate;
     Date endDate;

@@ -1,6 +1,3 @@
-using System.IO.Compression;
-using System.Security;
-
 namespace AustralianHolidays;
 
 public static partial class Holidays
