@@ -288,6 +288,9 @@ footer a:hover {
     }
 }
 
+.date-mobile {
+    display: none;
+}
 .holiday-logic-info {
     margin-top: 2rem;
     padding: 1.5rem;
