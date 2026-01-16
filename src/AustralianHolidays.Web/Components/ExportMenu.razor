@@ -12,14 +12,12 @@
 
     bool isExporting;
 
-    State? SingleState => SelectedStates.Count == 1 ? SelectedStates.First() : null;
-
-    async Task ExportJson() => await Export(() => FileDownloadService.DownloadJsonAsync(SingleState, StartYear, YearCount));
-    async Task ExportCsv() => await Export(() => FileDownloadService.DownloadCsvAsync(SingleState, StartYear, YearCount));
-    async Task ExportXml() => await Export(() => FileDownloadService.DownloadXmlAsync(SingleState, StartYear, YearCount));
-    async Task ExportMarkdown() => await Export(() => FileDownloadService.DownloadMarkdownAsync(SingleState, StartYear, YearCount));
-    async Task ExportIcs() => await Export(() => FileDownloadService.DownloadIcsAsync(SingleState, StartYear, YearCount));
-    async Task ExportExcel() => await Export(() => FileDownloadService.DownloadExcelAsync(SingleState, StartYear, YearCount));
+    Task ExportJson() => Export(() => FileDownloadService.DownloadJsonAsync(SelectedStates, StartYear, YearCount));
+    Task ExportCsv() => Export(() => FileDownloadService.DownloadCsvAsync(SelectedStates, StartYear, YearCount));
+    Task ExportXml() => Export(() => FileDownloadService.DownloadXmlAsync(SelectedStates, StartYear, YearCount));
+    Task ExportMarkdown() => Export(() => FileDownloadService.DownloadMarkdownAsync(SelectedStates, StartYear, YearCount));
+    Task ExportIcs() => Export(() => FileDownloadService.DownloadIcsAsync(SelectedStates, StartYear, YearCount));
+    Task ExportExcel() => Export(() => FileDownloadService.DownloadExcelAsync(SelectedStates, StartYear, YearCount));
 
     async Task Export(Func<Task> exportAction)
     {

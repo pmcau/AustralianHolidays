@@ -1,0 +1,662 @@
+﻿[
+  {
+    "date": "2026-01-01",
+    "state": "NSW",
+    "name": "New Year\u0027s Day"
+  },
+  {
+    "date": "2026-01-01",
+    "state": "VIC",
+    "name": "New Year\u0027s Day"
+  },
+  {
+    "date": "2026-01-26",
+    "state": "NSW",
+    "name": "Australia Day"
+  },
+  {
+    "date": "2026-01-26",
+    "state": "VIC",
+    "name": "Australia Day"
+  },
+  {
+    "date": "2026-03-09",
+    "state": "VIC",
+    "name": "Labour Day"
+  },
+  {
+    "date": "2026-04-03",
+    "state": "NSW",
+    "name": "Good Friday"
+  },
+  {
+    "date": "2026-04-03",
+    "state": "VIC",
+    "name": "Good Friday"
+  },
+  {
+    "date": "2026-04-04",
+    "state": "NSW",
+    "name": "Easter Saturday"
+  },
+  {
+    "date": "2026-04-04",
+    "state": "VIC",
+    "name": "Easter Saturday"
+  },
+  {
+    "date": "2026-04-05",
+    "state": "NSW",
+    "name": "Easter Sunday"
+  },
+  {
+    "date": "2026-04-05",
+    "state": "VIC",
+    "name": "Easter Sunday"
+  },
+  {
+    "date": "2026-04-06",
+    "state": "NSW",
+    "name": "Easter Monday"
+  },
+  {
+    "date": "2026-04-06",
+    "state": "VIC",
+    "name": "Easter Monday"
+  },
+  {
+    "date": "2026-04-25",
+    "state": "NSW",
+    "name": "Anzac Day"
+  },
+  {
+    "date": "2026-04-25",
+    "state": "VIC",
+    "name": "Anzac Day"
+  },
+  {
+    "date": "2026-06-08",
+    "state": "NSW",
+    "name": "King\u0027s Birthday"
+  },
+  {
+    "date": "2026-06-08",
+    "state": "VIC",
+    "name": "King\u0027s Birthday"
+  },
+  {
+    "date": "2026-08-03",
+    "state": "NSW",
+    "name": "Bank Holiday"
+  },
+  {
+    "date": "2026-09-25",
+    "state": "VIC",
+    "name": "Friday before AFL Grand Final (Subject to AFL schedule)"
+  },
+  {
+    "date": "2026-10-05",
+    "state": "NSW",
+    "name": "Labour Day"
+  },
+  {
+    "date": "2026-11-03",
+    "state": "VIC",
+    "name": "Melbourne Cup Day"
+  },
+  {
+    "date": "2026-12-25",
+    "state": "NSW",
+    "name": "Christmas Day"
+  },
+  {
+    "date": "2026-12-25",
+    "state": "VIC",
+    "name": "Christmas Day"
+  },
+  {
+    "date": "2026-12-26",
+    "state": "NSW",
+    "name": "Boxing Day"
+  },
+  {
+    "date": "2026-12-26",
+    "state": "VIC",
+    "name": "Boxing Day"
+  },
+  {
+    "date": "2026-12-28",
+    "state": "NSW",
+    "name": "Christmas (additional)"
+  },
+  {
+    "date": "2026-12-28",
+    "state": "VIC",
+    "name": "Christmas (additional)"
+  },
+  {
+    "date": "2027-01-01",
+    "state": "NSW",
+    "name": "New Year\u0027s Day"
+  },
+  {
+    "date": "2027-01-01",
+    "state": "VIC",
+    "name": "New Year\u0027s Day"
+  },
+  {
+    "date": "2027-01-26",
+    "state": "NSW",
+    "name": "Australia Day"
+  },
+  {
+    "date": "2027-01-26",
+    "state": "VIC",
+    "name": "Australia Day"
+  },
+  {
+    "date": "2027-03-08",
+    "state": "VIC",
+    "name": "Labour Day"
+  },
+  {
+    "date": "2027-03-26",
+    "state": "NSW",
+    "name": "Good Friday"
+  },
+  {
+    "date": "2027-03-26",
+    "state": "VIC",
+    "name": "Good Friday"
+  },
+  {
+    "date": "2027-03-27",
+    "state": "NSW",
+    "name": "Easter Saturday"
+  },
+  {
+    "date": "2027-03-27",
+    "state": "VIC",
+    "name": "Easter Saturday"
+  },
+  {
+    "date": "2027-03-28",
+    "state": "NSW",
+    "name": "Easter Sunday"
+  },
+  {
+    "date": "2027-03-28",
+    "state": "VIC",
+    "name": "Easter Sunday"
+  },
+  {
+    "date": "2027-03-29",
+    "state": "NSW",
+    "name": "Easter Monday"
+  },
+  {
+    "date": "2027-03-29",
+    "state": "VIC",
+    "name": "Easter Monday"
+  },
+  {
+    "date": "2027-04-25",
+    "state": "NSW",
+    "name": "Anzac Day"
+  },
+  {
+    "date": "2027-04-25",
+    "state": "VIC",
+    "name": "Anzac Day"
+  },
+  {
+    "date": "2027-06-14",
+    "state": "NSW",
+    "name": "King\u0027s Birthday"
+  },
+  {
+    "date": "2027-06-14",
+    "state": "VIC",
+    "name": "King\u0027s Birthday"
+  },
+  {
+    "date": "2027-08-02",
+    "state": "NSW",
+    "name": "Bank Holiday"
+  },
+  {
+    "date": "2027-09-24",
+    "state": "VIC",
+    "name": "Friday before AFL Grand Final (Subject to AFL schedule)"
+  },
+  {
+    "date": "2027-10-04",
+    "state": "NSW",
+    "name": "Labour Day"
+  },
+  {
+    "date": "2027-11-02",
+    "state": "VIC",
+    "name": "Melbourne Cup Day"
+  },
+  {
+    "date": "2027-12-25",
+    "state": "NSW",
+    "name": "Christmas Day"
+  },
+  {
+    "date": "2027-12-25",
+    "state": "VIC",
+    "name": "Christmas Day"
+  },
+  {
+    "date": "2027-12-26",
+    "state": "NSW",
+    "name": "Boxing Day"
+  },
+  {
+    "date": "2027-12-26",
+    "state": "VIC",
+    "name": "Boxing Day"
+  },
+  {
+    "date": "2027-12-27",
+    "state": "NSW",
+    "name": "Christmas (additional)"
+  },
+  {
+    "date": "2027-12-27",
+    "state": "VIC",
+    "name": "Christmas (additional)"
+  },
+  {
+    "date": "2027-12-28",
+    "state": "NSW",
+    "name": "Christmas (additional)"
+  },
+  {
+    "date": "2027-12-28",
+    "state": "VIC",
+    "name": "Christmas (additional)"
+  },
+  {
+    "date": "2028-01-01",
+    "state": "NSW",
+    "name": "New Year\u0027s Day"
+  },
+  {
+    "date": "2028-01-01",
+    "state": "VIC",
+    "name": "New Year\u0027s Day"
+  },
+  {
+    "date": "2028-01-03",
+    "state": "NSW",
+    "name": "New Year\u0027s Day (additional)"
+  },
+  {
+    "date": "2028-01-26",
+    "state": "NSW",
+    "name": "Australia Day"
+  },
+  {
+    "date": "2028-01-26",
+    "state": "VIC",
+    "name": "Australia Day"
+  },
+  {
+    "date": "2028-03-13",
+    "state": "VIC",
+    "name": "Labour Day"
+  },
+  {
+    "date": "2028-04-14",
+    "state": "NSW",
+    "name": "Good Friday"
+  },
+  {
+    "date": "2028-04-14",
+    "state": "VIC",
+    "name": "Good Friday"
+  },
+  {
+    "date": "2028-04-15",
+    "state": "NSW",
+    "name": "Easter Saturday"
+  },
+  {
+    "date": "2028-04-15",
+    "state": "VIC",
+    "name": "Easter Saturday"
+  },
+  {
+    "date": "2028-04-16",
+    "state": "NSW",
+    "name": "Easter Sunday"
+  },
+  {
+    "date": "2028-04-16",
+    "state": "VIC",
+    "name": "Easter Sunday"
+  },
+  {
+    "date": "2028-04-17",
+    "state": "NSW",
+    "name": "Easter Monday"
+  },
+  {
+    "date": "2028-04-17",
+    "state": "VIC",
+    "name": "Easter Monday"
+  },
+  {
+    "date": "2028-04-25",
+    "state": "NSW",
+    "name": "Anzac Day"
+  },
+  {
+    "date": "2028-04-25",
+    "state": "VIC",
+    "name": "Anzac Day"
+  },
+  {
+    "date": "2028-06-12",
+    "state": "NSW",
+    "name": "King\u0027s Birthday"
+  },
+  {
+    "date": "2028-06-12",
+    "state": "VIC",
+    "name": "King\u0027s Birthday"
+  },
+  {
+    "date": "2028-08-07",
+    "state": "NSW",
+    "name": "Bank Holiday"
+  },
+  {
+    "date": "2028-09-29",
+    "state": "VIC",
+    "name": "Friday before AFL Grand Final (Subject to AFL schedule)"
+  },
+  {
+    "date": "2028-10-02",
+    "state": "NSW",
+    "name": "Labour Day"
+  },
+  {
+    "date": "2028-11-07",
+    "state": "VIC",
+    "name": "Melbourne Cup Day"
+  },
+  {
+    "date": "2028-12-25",
+    "state": "NSW",
+    "name": "Christmas Day"
+  },
+  {
+    "date": "2028-12-25",
+    "state": "VIC",
+    "name": "Christmas Day"
+  },
+  {
+    "date": "2028-12-26",
+    "state": "NSW",
+    "name": "Boxing Day"
+  },
+  {
+    "date": "2028-12-26",
+    "state": "VIC",
+    "name": "Boxing Day"
+  },
+  {
+    "date": "2029-01-01",
+    "state": "NSW",
+    "name": "New Year\u0027s Day"
+  },
+  {
+    "date": "2029-01-01",
+    "state": "VIC",
+    "name": "New Year\u0027s Day"
+  },
+  {
+    "date": "2029-01-26",
+    "state": "NSW",
+    "name": "Australia Day"
+  },
+  {
+    "date": "2029-01-26",
+    "state": "VIC",
+    "name": "Australia Day"
+  },
+  {
+    "date": "2029-03-12",
+    "state": "VIC",
+    "name": "Labour Day"
+  },
+  {
+    "date": "2029-03-30",
+    "state": "NSW",
+    "name": "Good Friday"
+  },
+  {
+    "date": "2029-03-30",
+    "state": "VIC",
+    "name": "Good Friday"
+  },
+  {
+    "date": "2029-03-31",
+    "state": "NSW",
+    "name": "Easter Saturday"
+  },
+  {
+    "date": "2029-03-31",
+    "state": "VIC",
+    "name": "Easter Saturday"
+  },
+  {
+    "date": "2029-04-01",
+    "state": "NSW",
+    "name": "Easter Sunday"
+  },
+  {
+    "date": "2029-04-01",
+    "state": "VIC",
+    "name": "Easter Sunday"
+  },
+  {
+    "date": "2029-04-02",
+    "state": "NSW",
+    "name": "Easter Monday"
+  },
+  {
+    "date": "2029-04-02",
+    "state": "VIC",
+    "name": "Easter Monday"
+  },
+  {
+    "date": "2029-04-25",
+    "state": "NSW",
+    "name": "Anzac Day"
+  },
+  {
+    "date": "2029-04-25",
+    "state": "VIC",
+    "name": "Anzac Day"
+  },
+  {
+    "date": "2029-06-11",
+    "state": "NSW",
+    "name": "King\u0027s Birthday"
+  },
+  {
+    "date": "2029-06-11",
+    "state": "VIC",
+    "name": "King\u0027s Birthday"
+  },
+  {
+    "date": "2029-08-06",
+    "state": "NSW",
+    "name": "Bank Holiday"
+  },
+  {
+    "date": "2029-09-28",
+    "state": "VIC",
+    "name": "Friday before AFL Grand Final (Subject to AFL schedule)"
+  },
+  {
+    "date": "2029-10-01",
+    "state": "NSW",
+    "name": "Labour Day"
+  },
+  {
+    "date": "2029-11-06",
+    "state": "VIC",
+    "name": "Melbourne Cup Day"
+  },
+  {
+    "date": "2029-12-25",
+    "state": "NSW",
+    "name": "Christmas Day"
+  },
+  {
+    "date": "2029-12-25",
+    "state": "VIC",
+    "name": "Christmas Day"
+  },
+  {
+    "date": "2029-12-26",
+    "state": "NSW",
+    "name": "Boxing Day"
+  },
+  {
+    "date": "2029-12-26",
+    "state": "VIC",
+    "name": "Boxing Day"
+  },
+  {
+    "date": "2030-01-01",
+    "state": "NSW",
+    "name": "New Year\u0027s Day"
+  },
+  {
+    "date": "2030-01-01",
+    "state": "VIC",
+    "name": "New Year\u0027s Day"
+  },
+  {
+    "date": "2030-01-28",
+    "state": "NSW",
+    "name": "Australia Day (observed)"
+  },
+  {
+    "date": "2030-01-28",
+    "state": "VIC",
+    "name": "Australia Day (observed)"
+  },
+  {
+    "date": "2030-03-11",
+    "state": "VIC",
+    "name": "Labour Day"
+  },
+  {
+    "date": "2030-04-19",
+    "state": "NSW",
+    "name": "Good Friday"
+  },
+  {
+    "date": "2030-04-19",
+    "state": "VIC",
+    "name": "Good Friday"
+  },
+  {
+    "date": "2030-04-20",
+    "state": "NSW",
+    "name": "Easter Saturday"
+  },
+  {
+    "date": "2030-04-20",
+    "state": "VIC",
+    "name": "Easter Saturday"
+  },
+  {
+    "date": "2030-04-21",
+    "state": "NSW",
+    "name": "Easter Sunday"
+  },
+  {
+    "date": "2030-04-21",
+    "state": "VIC",
+    "name": "Easter Sunday"
+  },
+  {
+    "date": "2030-04-22",
+    "state": "NSW",
+    "name": "Easter Monday"
+  },
+  {
+    "date": "2030-04-22",
+    "state": "VIC",
+    "name": "Easter Monday"
+  },
+  {
+    "date": "2030-04-25",
+    "state": "NSW",
+    "name": "Anzac Day"
+  },
+  {
+    "date": "2030-04-25",
+    "state": "VIC",
+    "name": "Anzac Day"
+  },
+  {
+    "date": "2030-06-10",
+    "state": "NSW",
+    "name": "King\u0027s Birthday"
+  },
+  {
+    "date": "2030-06-10",
+    "state": "VIC",
+    "name": "King\u0027s Birthday"
+  },
+  {
+    "date": "2030-08-05",
+    "state": "NSW",
+    "name": "Bank Holiday"
+  },
+  {
+    "date": "2030-09-27",
+    "state": "VIC",
+    "name": "Friday before AFL Grand Final (Subject to AFL schedule)"
+  },
+  {
+    "date": "2030-10-07",
+    "state": "NSW",
+    "name": "Labour Day"
+  },
+  {
+    "date": "2030-11-05",
+    "state": "VIC",
+    "name": "Melbourne Cup Day"
+  },
+  {
+    "date": "2030-12-25",
+    "state": "NSW",
+    "name": "Christmas Day"
+  },
+  {
+    "date": "2030-12-25",
+    "state": "VIC",
+    "name": "Christmas Day"
+  },
+  {
+    "date": "2030-12-26",
+    "state": "NSW",
+    "name": "Boxing Day"
+  },
+  {
+    "date": "2030-12-26",
+    "state": "VIC",
+    "name": "Boxing Day"
+  }
+]

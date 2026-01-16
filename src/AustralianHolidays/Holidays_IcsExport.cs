@@ -64,6 +64,39 @@ public static partial class Holidays
         return ToIcs(writer, state, forYears);
     }
 
+    /// <summary>
+    /// Exports public holidays for multiple states to iCalendar (ICS) format.
+    /// </summary>
+    /// <param name="states">The Australian states to export holidays for.</param>
+    /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
+    /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    /// <returns>A string containing the ICS-formatted calendar data with state information.</returns>
+    public static async Task<string> ExportToIcs(IEnumerable<State> states, int? startYear = null, int yearCount = 5)
+    {
+        var builder = new StringBuilder();
+        await using (var writer = new StringWriter(builder))
+        {
+            await ExportToIcs(writer, states, startYear, yearCount);
+        }
+
+        return builder.ToString();
+    }
+
+    /// <summary>
+    /// Exports public holidays for multiple states to iCalendar (ICS) format, writing to a TextWriter.
+    /// </summary>
+    /// <param name="writer">The TextWriter to write the ICS output to.</param>
+    /// <param name="states">The Australian states to export holidays for.</param>
+    /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
+    /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    public static Task ExportToIcs(TextWriter writer, IEnumerable<State> states, int? startYear = null, int yearCount = 5)
+    {
+        var stateSet = states as IReadOnlySet<State> ?? states.ToHashSet();
+        var forYears = ForYears(startYear, yearCount)
+            .Where(h => stateSet.Count == 0 || stateSet.Contains(h.state));
+        return ToIcsMultiState(writer, forYears);
+    }
+
     static async Task ToIcs(TextWriter writer, State? state, IOrderedEnumerable<(Date date, string name)> forYears)
     {
         writer.NewLine = "\r\n";
@@ -77,6 +110,26 @@ public static partial class Holidays
             await writer.WriteLineAsync($"UID:{item.name}_{state}@AustralianHolidays");
             await writer.WriteLineAsync($"DTSTART;VALUE=DATE:{item.date:yyyyMMdd}");
             await writer.WriteLineAsync($"DTEND;VALUE=DATE:{item.date.AddDays(1):yyyyMMdd}");
+            await writer.WriteLineAsync("END:VEVENT");
+        }
+
+        await writer.WriteLineAsync("END:VCALENDAR");
+    }
+
+    static async Task ToIcsMultiState(TextWriter writer, IEnumerable<(Date date, State state, string name)> forYears)
+    {
+        writer.NewLine = "\r\n";
+        await writer.WriteLineAsync("BEGIN:VCALENDAR");
+        await writer.WriteLineAsync("VERSION:2.0");
+        await writer.WriteLineAsync("PRODID:-//Australian Holidays//EN");
+
+        foreach (var (date, state, name) in forYears)
+        {
+            await writer.WriteLineAsync("BEGIN:VEVENT");
+            await writer.WriteLineAsync($"SUMMARY:{name} ({state})");
+            await writer.WriteLineAsync($"UID:{date:yyyyMMdd}_{name}_{state}@AustralianHolidays");
+            await writer.WriteLineAsync($"DTSTART;VALUE=DATE:{date:yyyyMMdd}");
+            await writer.WriteLineAsync($"DTEND;VALUE=DATE:{date.AddDays(1):yyyyMMdd}");
             await writer.WriteLineAsync("END:VEVENT");
         }
 
