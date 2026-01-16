@@ -1,5 +1,3 @@
-using AustralianHolidays.Web.Components;
-
 namespace AustralianHolidays.Web.Tests.Components;
 
 [TestFixture]

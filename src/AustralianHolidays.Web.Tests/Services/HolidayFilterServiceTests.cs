@@ -1,5 +1,3 @@
-namespace AustralianHolidays.Web.Tests.Services;
-
 [TestFixture]
 public class HolidayFilterServiceTests
 {
@@ -13,7 +11,7 @@ public class HolidayFilterServiceTests
         var holidays = HolidayFilterService.GetHolidays(states, startDate, endDate);
 
         That(holidays, Is.Not.Empty);
-        That(holidays.All(h => h.State == State.NSW), Is.True);
+        That(holidays.All(h => h.States.Contains(State.NSW)), Is.True);
     }
 
     [Test]
@@ -27,7 +25,7 @@ public class HolidayFilterServiceTests
 
         That(holidays, Is.Not.Empty);
 
-        var returnedStates = holidays.Select(h => h.State).Distinct().ToList();
+        var returnedStates = holidays.SelectMany(h => h.States).Distinct().ToList();
         That(returnedStates.Count, Is.GreaterThan(1));
     }
 
@@ -41,7 +39,23 @@ public class HolidayFilterServiceTests
         var holidays = HolidayFilterService.GetHolidays(states, startDate, endDate);
 
         That(holidays, Is.Not.Empty);
-        That(holidays.All(h => h.State == State.NSW || h.State == State.VIC), Is.True);
+        That(holidays.All(h => h.States.All(s => s == State.NSW || s == State.VIC)), Is.True);
+    }
+
+    [Test]
+    public void GetHolidays_CombinesSameHolidayAcrossStates()
+    {
+        var startDate = new Date(2026, 1, 1);
+        var endDate = new Date(2026, 1, 31);
+        var states = new HashSet<State> { State.NSW, State.VIC };
+
+        var holidays = HolidayFilterService.GetHolidays(states, startDate, endDate);
+
+        // Australia Day should be combined into one entry with both states
+        var australiaDay = holidays.FirstOrDefault(h => h.Name == "Australia Day");
+        That(australiaDay, Is.Not.Null);
+        That(australiaDay!.States, Does.Contain(State.NSW));
+        That(australiaDay.States, Does.Contain(State.VIC));
     }
 
     [Test]
@@ -102,7 +116,7 @@ public class HolidayFilterServiceTests
     public void HolidayViewModel_TimeCategory_Past()
     {
         var pastDate = Date.FromDateTime(DateTime.Today.AddDays(-10));
-        var holiday = new HolidayViewModel(pastDate, "Test", State.NSW);
+        var holiday = new HolidayViewModel(pastDate, "Test", [State.NSW]);
 
         That(holiday.TimeCategory, Is.EqualTo(HolidayTimeCategory.Past));
     }
@@ -111,7 +125,7 @@ public class HolidayFilterServiceTests
     public void HolidayViewModel_TimeCategory_Today()
     {
         var today = Date.FromDateTime(DateTime.Today);
-        var holiday = new HolidayViewModel(today, "Test", State.NSW);
+        var holiday = new HolidayViewModel(today, "Test", [State.NSW]);
 
         That(holiday.TimeCategory, Is.EqualTo(HolidayTimeCategory.Today));
     }
@@ -120,7 +134,7 @@ public class HolidayFilterServiceTests
     public void HolidayViewModel_TimeCategory_Future()
     {
         var futureDate = Date.FromDateTime(DateTime.Today.AddDays(10));
-        var holiday = new HolidayViewModel(futureDate, "Test", State.NSW);
+        var holiday = new HolidayViewModel(futureDate, "Test", [State.NSW]);
 
         That(holiday.TimeCategory, Is.EqualTo(HolidayTimeCategory.Future));
     }
@@ -129,7 +143,7 @@ public class HolidayFilterServiceTests
     public void HolidayViewModel_DayOfWeek_Correct()
     {
         var date = new Date(2025, 1, 1);
-        var holiday = new HolidayViewModel(date, "Test", State.NSW);
+        var holiday = new HolidayViewModel(date, "Test", [State.NSW]);
 
         That(holiday.DayOfWeek, Is.EqualTo("Wednesday"));
     }

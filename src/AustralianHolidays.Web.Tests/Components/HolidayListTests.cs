@@ -1,6 +1,4 @@
-using AustralianHolidays.Web.Components;
-
-namespace AustralianHolidays.Web.Tests.Components;
+using AustralianHolidays.Web.Tests;
 
 [TestFixture]
 public class HolidayListTests : BunitTestContext
@@ -33,8 +31,8 @@ public class HolidayListTests : BunitTestContext
     {
         var holidays = new List<HolidayViewModel>
         {
-            new(new(2025, 1, 1), "New Year's Day", State.NSW),
-            new(new(2025, 1, 27), "Australia Day", State.NSW)
+            new(new(2025, 1, 1), "New Year's Day", [State.NSW]),
+            new(new(2025, 1, 27), "Australia Day", [State.NSW])
         };
 
         var cut = Render<HolidayList>(parameters => parameters
@@ -53,7 +51,7 @@ public class HolidayListTests : BunitTestContext
     {
         var holidays = new List<HolidayViewModel>
         {
-            new(new(2025, 1, 1), "New Year's Day", State.NSW)
+            new(new(2025, 1, 1), "New Year's Day", [State.NSW])
         };
 
         var cut = Render<HolidayList>(parameters => parameters
@@ -68,11 +66,30 @@ public class HolidayListTests : BunitTestContext
     }
 
     [Test]
+    public void ShowStateColumn_DisplaysMultipleStateBadges()
+    {
+        var holidays = new List<HolidayViewModel>
+        {
+            new(new(2025, 1, 26), "Australia Day", [State.NSW, State.VIC, State.QLD])
+        };
+
+        var cut = Render<HolidayList>(parameters => parameters
+            .Add(p => p.Holidays, holidays)
+            .Add(p => p.ShowStateColumn, true));
+
+        var stateBadges = cut.FindAll(".state-badge");
+        That(stateBadges.Count, Is.EqualTo(3));
+        That(stateBadges[0].TextContent, Is.EqualTo("NSW"));
+        That(stateBadges[1].TextContent, Is.EqualTo("VIC"));
+        That(stateBadges[2].TextContent, Is.EqualTo("QLD"));
+    }
+
+    [Test]
     public void HideStateColumn_NoStateColumn()
     {
         var holidays = new List<HolidayViewModel>
         {
-            new(new(2025, 1, 1), "New Year's Day", State.NSW)
+            new(new(2025, 1, 1), "New Year's Day", [State.NSW])
         };
 
         var cut = Render<HolidayList>(parameters => parameters

@@ -466,12 +466,12 @@ public class Tests
     public static IEnumerable<State> GetStates() =>
         Enum.GetValues<State>();
 
-    static readonly State[] MultipleStates = [State.NSW, State.VIC];
+    static readonly State[] multipleStates = [State.NSW, State.VIC];
 
     [Test]
     public async Task ExportToJsonMultiState()
     {
-        var json = await Holidays.ExportToJson(MultipleStates);
+        var json = await Holidays.ExportToJson(multipleStates);
         await Verify(json, "json");
     }
 
@@ -479,7 +479,7 @@ public class Tests
     public async Task ExportToJsonMultiStatePath()
     {
         using var path = new TempFile();
-        await Holidays.ExportToJson(path, MultipleStates);
+        await Holidays.ExportToJson(path, multipleStates);
         var json = await File.ReadAllTextAsync(path);
         await Verify(json, "json");
     }
@@ -487,7 +487,7 @@ public class Tests
     [Test]
     public async Task ExportToCsvMultiState()
     {
-        var csv = await Holidays.ExportToCsv(MultipleStates);
+        var csv = await Holidays.ExportToCsv(multipleStates);
         await Verify(csv, "csv");
     }
 
@@ -495,7 +495,7 @@ public class Tests
     public async Task ExportToCsvMultiStatePath()
     {
         using var path = new TempFile();
-        await Holidays.ExportToCsv(path, MultipleStates);
+        await Holidays.ExportToCsv(path, multipleStates);
         var csv = await File.ReadAllTextAsync(path);
         await Verify(csv, "csv");
     }
@@ -503,7 +503,7 @@ public class Tests
     [Test]
     public async Task ExportToXmlMultiState()
     {
-        var xml = await Holidays.ExportToXml(MultipleStates);
+        var xml = await Holidays.ExportToXml(multipleStates);
         await Verify(xml, "xml");
     }
 
@@ -511,7 +511,7 @@ public class Tests
     public async Task ExportToXmlMultiStatePath()
     {
         using var path = new TempFile();
-        await Holidays.ExportToXml(path, MultipleStates);
+        await Holidays.ExportToXml(path, multipleStates);
         var xml = await File.ReadAllTextAsync(path);
         await Verify(xml, "xml");
     }
@@ -519,21 +519,21 @@ public class Tests
     [Test]
     public async Task ExportToMarkdownMultiState()
     {
-        var md = await Holidays.ExportToMarkdown(MultipleStates);
+        var md = await Holidays.ExportToMarkdown(multipleStates);
         await Verify(md, "md");
     }
 
     [Test]
     public async Task ExportToIcsMultiState()
     {
-        var ics = await Holidays.ExportToIcs(MultipleStates);
+        var ics = await Holidays.ExportToIcs(multipleStates);
         await Verify(ics, "ics");
     }
 
     [Test]
     public async Task ExportToExcelMultiState()
     {
-        var bytes = await Holidays.ExportToExcel(MultipleStates);
+        var bytes = await Holidays.ExportToExcel(multipleStates);
         var stream = new MemoryStream(bytes);
         await Verify(stream, "xlsx");
     }
@@ -542,7 +542,7 @@ public class Tests
     public async Task ExportToExcelMultiStatePath()
     {
         using var path = new TempFile();
-        await Holidays.ExportToExcel(path, MultipleStates);
+        await Holidays.ExportToExcel(path, multipleStates);
         var bytes = await File.ReadAllBytesAsync(path);
         var stream = new MemoryStream(bytes);
         await Verify(stream, "xlsx");

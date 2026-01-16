@@ -35,7 +35,12 @@ else
                     <td>@holiday.Name</td>
                     @if (ShowStateColumn)
                     {
-                        <td><span class="state-badge">@holiday.State</span></td>
+                        <td>
+                            @foreach (var state in holiday.States)
+                            {
+                                <span class="state-badge">@state</span>
+                            }
+                        </td>
                     }
                 </tr>
             }

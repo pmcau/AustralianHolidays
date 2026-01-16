@@ -1,4 +1,4 @@
-﻿# Australian Public Holidays
+# Australian Public Holidays
 
 | Date | State | Holiday |
 |------|-------|---------|
