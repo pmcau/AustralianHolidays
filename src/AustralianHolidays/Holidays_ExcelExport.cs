@@ -111,9 +111,9 @@ public static partial class Holidays
         {
             await writer.WriteAsync($"<row r=\"{rowNum}\">");
 
-            // Date cell (as date value with date format style)
-            var dateValue = new DateTime(date.Year, date.Month, date.Day).ToOADate();
-            await writer.WriteAsync($"<c r=\"A{rowNum}\" s=\"2\" t=\"n\"><v>{dateValue}</v></c>");
+            // Date cell (as inline string with yyyy-MM-dd format)
+            var dateString = date.ToString("yyyy-MM-dd");
+            await writer.WriteAsync($"<c r=\"A{rowNum}\" t=\"inlineStr\"><is><t>{dateString}</t></is></c>");
 
             // Name cell (as inline string)
             var escapedName = SecurityElement.Escape(name);
