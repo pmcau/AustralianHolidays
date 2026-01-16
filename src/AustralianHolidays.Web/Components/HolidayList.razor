@@ -1,0 +1,54 @@
+@code {
+    [Parameter]
+    public IReadOnlyList<HolidayViewModel>? Holidays { get; set; }
+
+    [Parameter]
+    public bool ShowStateColumn { get; set; }
+}
+
+@if (Holidays is null || Holidays.Count == 0)
+{
+    <div class="empty-state">
+        <p>No holidays found for the selected period.</p>
+    </div>
+}
+else
+{
+    <table class="holiday-table">
+        <thead>
+            <tr>
+                <th class="date-column">Date</th>
+                <th class="day-column">Day</th>
+                <th>Holiday</th>
+                @if (ShowStateColumn)
+                {
+                    <th>State</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var holiday in Holidays)
+            {
+                <tr class="holiday-row @GetRowClass(holiday.TimeCategory)">
+                    <td class="date-column">@holiday.Date.ToString("d MMM yyyy")</td>
+                    <td class="day-column">@holiday.DayOfWeek</td>
+                    <td>@holiday.Name</td>
+                    @if (ShowStateColumn)
+                    {
+                        <td><span class="state-badge">@holiday.State</span></td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    static string GetRowClass(HolidayTimeCategory category) => category switch
+    {
+        HolidayTimeCategory.Past => "past",
+        HolidayTimeCategory.Today => "today",
+        HolidayTimeCategory.Future => "future",
+        _ => ""
+    };
+}

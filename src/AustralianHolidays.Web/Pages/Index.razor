@@ -1,0 +1,69 @@
+@page "/"
+@inject HolidayFilterService HolidayFilterService
+@inject StatePreferenceService StatePreferenceService
+
+<PageTitle>Australian Holidays</PageTitle>
+
+@if (showLocationPrompt)
+{
+    <LocationPrompt OnStateDetected="OnStateDetected" OnDismissed="OnLocationDismissed" />
+}
+
+<div class="controls">
+    <StateSelector SelectedState="selectedState" SelectedStateChanged="OnStateChanged" />
+    <ExportMenu SelectedState="selectedState" StartYear="startYear" YearCount="yearCount" />
+</div>
+
+<HolidayList Holidays="holidays" ShowStateColumn="@(!selectedState.HasValue)" />
+
+@code {
+    State? selectedState;
+    IReadOnlyList<HolidayViewModel>? holidays;
+    bool showLocationPrompt;
+    DateOnly startDate;
+    DateOnly endDate;
+    int startYear;
+    int yearCount;
+
+    protected override async Task OnInitializedAsync()
+    {
+        (startDate, endDate) = HolidayFilterService.GetDefaultDateRange();
+        (startYear, yearCount) = HolidayFilterService.GetExportYearRange(startDate, endDate);
+
+        // Try to get saved state preference
+        selectedState = await StatePreferenceService.GetSavedStateAsync();
+
+        if (selectedState is null)
+        {
+            // Check if user has been prompted before
+            var hasBeenPrompted = await StatePreferenceService.HasBeenPromptedAsync();
+            showLocationPrompt = !hasBeenPrompted;
+        }
+
+        LoadHolidays();
+    }
+
+    async Task OnStateChanged(State? state)
+    {
+        selectedState = state;
+        await StatePreferenceService.SaveStateAsync(state);
+        LoadHolidays();
+    }
+
+    void OnStateDetected(State? state)
+    {
+        selectedState = state;
+        showLocationPrompt = false;
+        LoadHolidays();
+    }
+
+    void OnLocationDismissed()
+    {
+        showLocationPrompt = false;
+    }
+
+    void LoadHolidays()
+    {
+        holidays = HolidayFilterService.GetHolidays(selectedState, startDate, endDate);
+    }
+}

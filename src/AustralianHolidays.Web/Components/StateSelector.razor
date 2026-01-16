@@ -1,0 +1,49 @@
+@code {
+    [Parameter]
+    public State? SelectedState { get; set; }
+
+    [Parameter]
+    public EventCallback<State?> SelectedStateChanged { get; set; }
+
+    static readonly State[] AllStates = Enum.GetValues<State>();
+
+    async Task OnStateChanged(ChangeEventArgs e)
+    {
+        State? newState = null;
+        if (e.Value is string value && !string.IsNullOrEmpty(value))
+        {
+            if (Enum.TryParse<State>(value, out var state))
+            {
+                newState = state;
+            }
+        }
+
+        await SelectedStateChanged.InvokeAsync(newState);
+    }
+}
+
+<div class="state-selector">
+    <label for="state-select">State:</label>
+    <select id="state-select" @onchange="OnStateChanged">
+        <option value="" selected="@(!SelectedState.HasValue)">All States</option>
+        @foreach (var state in AllStates)
+        {
+            <option value="@state" selected="@(SelectedState == state)">@GetStateName(state)</option>
+        }
+    </select>
+</div>
+
+@code {
+    static string GetStateName(State state) => state switch
+    {
+        State.ACT => "ACT - Australian Capital Territory",
+        State.NSW => "NSW - New South Wales",
+        State.NT => "NT - Northern Territory",
+        State.QLD => "QLD - Queensland",
+        State.SA => "SA - South Australia",
+        State.TAS => "TAS - Tasmania",
+        State.VIC => "VIC - Victoria",
+        State.WA => "WA - Western Australia",
+        _ => state.ToString()
+    };
+}

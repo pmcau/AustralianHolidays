@@ -1,0 +1,68 @@
+@inject GeolocationService GeolocationService
+@inject StatePreferenceService StatePreferenceService
+
+@code {
+    [Parameter]
+    public EventCallback<State?> OnStateDetected { get; set; }
+
+    [Parameter]
+    public EventCallback OnDismissed { get; set; }
+
+    bool isDetecting;
+
+    async Task AllowLocation()
+    {
+        isDetecting = true;
+        StateHasChanged();
+
+        try
+        {
+            var result = await GeolocationService.GetCurrentPositionAsync();
+            State? detectedState = null;
+
+            if (result.Success)
+            {
+                detectedState = GeolocationService.MapCoordinatesToState(result.Latitude, result.Longitude);
+            }
+
+            await StatePreferenceService.SetPromptedAsync();
+
+            if (detectedState.HasValue)
+            {
+                await StatePreferenceService.SaveStateAsync(detectedState);
+            }
+
+            await OnStateDetected.InvokeAsync(detectedState);
+        }
+        finally
+        {
+            isDetecting = false;
+        }
+    }
+
+    async Task Dismiss()
+    {
+        await StatePreferenceService.SetPromptedAsync();
+        await OnDismissed.InvokeAsync();
+    }
+}
+
+<div class="location-prompt">
+    <div class="location-prompt-content">
+        <h2>Detect Your State</h2>
+        <p>Would you like us to detect your location to show holidays for your state?</p>
+        <div class="location-prompt-buttons">
+            <button class="btn-primary" @onclick="AllowLocation" disabled="@isDetecting">
+                @if (isDetecting)
+                {
+                    <span>Detecting...</span>
+                }
+                else
+                {
+                    <span>Allow</span>
+                }
+            </button>
+            <button class="btn-secondary" @onclick="Dismiss" disabled="@isDetecting">No Thanks</button>
+        </div>
+    </div>
+</div>

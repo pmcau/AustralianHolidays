@@ -1,0 +1,335 @@
+:root {
+    --primary-color: #002855;
+    --accent-color: #ffcd00;
+    --success-color: #28a745;
+    --background-color: #f8f9fa;
+    --text-color: #333;
+    --border-color: #dee2e6;
+    --past-color: #6c757d;
+    --today-color: #007bff;
+    --future-color: #212529;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    color: var(--primary-color);
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid var(--border-color);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+#blazor-error-ui {
+    background: #fff3cd;
+    color: #856404;
+    padding: 1rem;
+    text-align: center;
+    display: none;
+}
+
+#blazor-error-ui.show,
+#blazor-error-ui[style*="display: block"] {
+    display: block;
+}
+
+#blazor-error-ui a {
+    color: #856404;
+    margin-left: 0.5rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+header {
+    background: var(--primary-color);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.75rem;
+}
+
+header p {
+    margin: 0.5rem 0 0;
+    opacity: 0.9;
+    font-size: 0.9rem;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    align-items: center;
+}
+
+.state-selector {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.state-selector label {
+    font-weight: 500;
+}
+
+.state-selector select {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    background: white;
+    cursor: pointer;
+    min-width: 150px;
+}
+
+.state-selector select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 40, 85, 0.1);
+}
+
+.export-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-left: auto;
+}
+
+.export-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--primary-color);
+    background: white;
+    color: var(--primary-color);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+}
+
+.export-btn:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.export-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.holiday-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.holiday-table th,
+.holiday-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.holiday-table th {
+    background: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+}
+
+.holiday-table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+.holiday-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.holiday-row.past {
+    color: var(--past-color);
+}
+
+.holiday-row.today {
+    background: #e7f3ff;
+    font-weight: 600;
+}
+
+.holiday-row.today td {
+    color: var(--today-color);
+}
+
+.holiday-row.future {
+    color: var(--future-color);
+}
+
+.date-column {
+    white-space: nowrap;
+}
+
+.day-column {
+    white-space: nowrap;
+}
+
+.state-badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    background: var(--accent-color);
+    color: var(--primary-color);
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.location-prompt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.location-prompt-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.location-prompt-content h2 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+.location-prompt-content p {
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.location-prompt-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.btn-primary {
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+.btn-primary:hover {
+    background: #003d7a;
+}
+
+.btn-secondary {
+    padding: 0.75rem 1.5rem;
+    background: white;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+    background: #f8f9fa;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem;
+    color: var(--past-color);
+}
+
+.empty-state p {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--past-color);
+    font-size: 0.875rem;
+    margin-top: 2rem;
+}
+
+footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .export-menu {
+        margin-left: 0;
+        justify-content: center;
+    }
+
+    .holiday-table {
+        font-size: 0.875rem;
+    }
+
+    .holiday-table th,
+    .holiday-table td {
+        padding: 0.5rem;
+    }
+}

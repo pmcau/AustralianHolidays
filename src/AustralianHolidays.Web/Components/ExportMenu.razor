@@ -1,0 +1,51 @@
+@inject FileDownloadService FileDownloadService
+
+@code {
+    [Parameter]
+    public State? SelectedState { get; set; }
+
+    [Parameter]
+    public int StartYear { get; set; }
+
+    [Parameter]
+    public int YearCount { get; set; }
+
+    bool isExporting;
+
+    async Task ExportJson() => await Export(() => FileDownloadService.DownloadJsonAsync(SelectedState, StartYear, YearCount));
+    async Task ExportCsv() => await Export(() => FileDownloadService.DownloadCsvAsync(SelectedState, StartYear, YearCount));
+    async Task ExportXml() => await Export(() => FileDownloadService.DownloadXmlAsync(SelectedState, StartYear, YearCount));
+    async Task ExportMarkdown() => await Export(() => FileDownloadService.DownloadMarkdownAsync(SelectedState, StartYear, YearCount));
+    async Task ExportIcs() => await Export(() => FileDownloadService.DownloadIcsAsync(SelectedState, StartYear, YearCount));
+    async Task ExportExcel() => await Export(() => FileDownloadService.DownloadExcelAsync(SelectedState, StartYear, YearCount));
+
+    async Task Export(Func<Task> exportAction)
+    {
+        if (isExporting)
+        {
+            return;
+        }
+
+        isExporting = true;
+        StateHasChanged();
+
+        try
+        {
+            await exportAction();
+        }
+        finally
+        {
+            isExporting = false;
+            StateHasChanged();
+        }
+    }
+}
+
+<div class="export-menu">
+    <button class="export-btn" @onclick="ExportJson" disabled="@isExporting">JSON</button>
+    <button class="export-btn" @onclick="ExportCsv" disabled="@isExporting">CSV</button>
+    <button class="export-btn" @onclick="ExportXml" disabled="@isExporting">XML</button>
+    <button class="export-btn" @onclick="ExportMarkdown" disabled="@isExporting">Markdown</button>
+    <button class="export-btn" @onclick="ExportIcs" disabled="@isExporting">ICS</button>
+    <button class="export-btn" @onclick="ExportExcel" disabled="@isExporting">Excel</button>
+</div>
