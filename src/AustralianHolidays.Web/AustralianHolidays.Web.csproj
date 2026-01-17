@@ -5,7 +5,7 @@
     <PublishTrimmed>true</PublishTrimmed>
     <InvariantGlobalization>true</InvariantGlobalization>
     <BlazorEnableTimeZoneSupport>false</BlazorEnableTimeZoneSupport>
-    <TrimMode>full</TrimMode>
+    <UseNativeHttpHandler>true</UseNativeHttpHandler>
   </PropertyGroup>
 
   <ItemGroup>
