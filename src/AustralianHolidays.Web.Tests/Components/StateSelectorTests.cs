@@ -1,13 +1,11 @@
-namespace AustralianHolidays.Web.Tests.Components;
-
 [TestFixture]
 public class StateSelectorTests : BunitTestContext
 {
     [Test]
     public void InitialRender_HasAllButton()
     {
-        var cut = Render<StateSelector>(parameters => parameters
-            .Add(p => p.SelectedStates, new HashSet<State>()));
+        var cut = Render<StateSelector>(_ => _
+            .Add(_ => _.SelectedStates, new HashSet<State>()));
 
         var allButton = cut.Find(".state-btn");
         That(allButton.TextContent, Is.EqualTo("All"));
@@ -16,8 +14,8 @@ public class StateSelectorTests : BunitTestContext
     [Test]
     public void InitialRender_HasAllStateButtons()
     {
-        var cut = Render<StateSelector>(parameters => parameters
-            .Add(p => p.SelectedStates, new HashSet<State>()));
+        var cut = Render<StateSelector>(_ => _
+            .Add(_ => _.SelectedStates, new HashSet<State>()));
 
         var buttons = cut.FindAll(".state-btn");
 
@@ -39,9 +37,9 @@ public class StateSelectorTests : BunitTestContext
     [Test]
     public void SelectedStates_ShowsSelectedClass()
     {
-        var selectedStates = new HashSet<State> { State.NSW, State.VIC };
-        var cut = Render<StateSelector>(parameters => parameters
-            .Add(p => p.SelectedStates, selectedStates));
+        var selectedStates = new HashSet<State> {State.NSW, State.VIC};
+        var cut = Render<StateSelector>(_ => _
+            .Add(_ => _.SelectedStates, selectedStates));
 
         var nswButton = cut.FindAll(".state-btn").First(b => b.TextContent == "NSW");
         var vicButton = cut.FindAll(".state-btn").First(b => b.TextContent == "VIC");
@@ -56,8 +54,8 @@ public class StateSelectorTests : BunitTestContext
     public void AllStatesSelected_AllButtonShowsSelected()
     {
         var allStates = new HashSet<State>(Enum.GetValues<State>());
-        var cut = Render<StateSelector>(parameters => parameters
-            .Add(p => p.SelectedStates, allStates));
+        var cut = Render<StateSelector>(_ => _
+            .Add(_ => _.SelectedStates, allStates));
 
         var allButton = cut.FindAll(".state-btn").First(b => b.TextContent == "All");
 
@@ -68,9 +66,9 @@ public class StateSelectorTests : BunitTestContext
     public async Task ClickStateButton_TogglesSelection()
     {
         IReadOnlySet<State>? selectedStates = null;
-        var cut = Render<StateSelector>(parameters => parameters
-            .Add(p => p.SelectedStates, new HashSet<State>())
-            .Add(p => p.SelectedStatesChanged, (IReadOnlySet<State> s) => selectedStates = s));
+        var cut = Render<StateSelector>(_ => _
+            .Add(_ => _.SelectedStates, new HashSet<State>())
+            .Add(_ => _.SelectedStatesChanged, (IReadOnlySet<State> s) => selectedStates = s));
 
         var nswButton = cut.FindAll(".state-btn").First(b => b.TextContent == "NSW");
         await nswButton.ClickAsync(new());
@@ -83,11 +81,11 @@ public class StateSelectorTests : BunitTestContext
     public async Task ClickAllButton_SelectsAllStates()
     {
         IReadOnlySet<State>? selectedStates = null;
-        var cut = Render<StateSelector>(parameters => parameters
-            .Add(p => p.SelectedStates, new HashSet<State>())
-            .Add(p => p.SelectedStatesChanged, s => selectedStates = s));
+        var cut = Render<StateSelector>(_ => _
+            .Add(_ => _.SelectedStates, new HashSet<State>())
+            .Add(_ => _.SelectedStatesChanged, s => selectedStates = s));
 
-        var allButton = cut.FindAll(".state-btn").First(b => b.TextContent == "All");
+        var allButton = cut.FindAll(".state-btn").First(_ => _.TextContent == "All");
         await allButton.ClickAsync(new());
 
         That(selectedStates, Is.Not.Null);

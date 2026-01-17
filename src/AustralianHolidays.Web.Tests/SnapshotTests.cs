@@ -11,24 +11,9 @@ public class SnapshotTests
     {
         port = GetAvailablePort();
 
-        var projectPath = Path.Combine(ProjectFiles.SolutionDirectory, "AustralianHolidays.Web");
-
-        var publishPath = Path.Combine(Path.GetTempPath(), "BlazorSnapshotTest");
-        Directory.CreateDirectory(publishPath);
-
-        // Publish the Blazor app
-        var publishProcess = Process.Start(
-            new ProcessStartInfo
-            {
-                FileName = "dotnet",
-                Arguments = $"publish \"{projectPath}\" -o \"{publishPath}\"",
-                UseShellExecute = false,
-                RedirectStandardOutput = true,
-                RedirectStandardError = true
-            });
-        await publishProcess!.WaitForExitAsync();
-
-        var wwwrootPath = Path.Combine(publishPath, "wwwroot");
+        // Use pre-published output from build (see csproj PublishBlazorForTests target)
+        var testAssemblyDir = Path.GetDirectoryName(typeof(SnapshotTests).Assembly.Location)!;
+        var wwwrootPath = Path.Combine(testAssemblyDir, "..", "blazor-publish", "wwwroot");
 
         var builder = WebApplication.CreateBuilder();
         builder.WebHost.UseUrls($"http://localhost:{port}");

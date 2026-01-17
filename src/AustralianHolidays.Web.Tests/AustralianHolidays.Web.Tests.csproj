@@ -2,7 +2,15 @@
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
+    <BlazorPublishDir>$(MSBuildThisFileDirectory)bin\$(Configuration)\blazor-publish\</BlazorPublishDir>
   </PropertyGroup>
+
+  <!-- Publish Blazor app as part of build so tests can use pre-published output -->
+  <Target Name="PublishBlazorForTests" AfterTargets="Build">
+    <MSBuild Projects="..\AustralianHolidays.Web\AustralianHolidays.Web.csproj"
+             Targets="Publish"
+             Properties="Configuration=$(Configuration);PublishDir=$(BlazorPublishDir)" />
+  </Target>
 
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />

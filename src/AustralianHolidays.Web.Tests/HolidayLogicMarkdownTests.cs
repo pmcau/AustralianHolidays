@@ -1,7 +1,3 @@
-using Markdig;
-
-namespace AustralianHolidays.Web.Tests;
-
 public class HolidayLogicMarkdownTests
 {
     static readonly string markdownFile = Path.Combine(ProjectFiles.SolutionDirectory,"../", "holiday-logic.include.md");

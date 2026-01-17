@@ -1,5 +1,3 @@
-namespace AustralianHolidays.Web.Tests.Pages;
-
 [TestFixture]
 public class IndexTests : BunitTestContext
 {

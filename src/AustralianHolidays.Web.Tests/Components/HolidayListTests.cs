@@ -4,9 +4,9 @@ public class HolidayListTests : BunitTestContext
     [Test]
     public void EmptyList_ShowsEmptyState()
     {
-        var cut = Render<HolidayList>(parameters => parameters
-            .Add(p => p.Holidays, new List<HolidayViewModel>())
-            .Add(p => p.ShowStateColumn, false));
+        var cut = Render<HolidayList>(_ => _
+            .Add(_ => _.Holidays, new List<HolidayViewModel>())
+            .Add(_ => _.ShowStateColumn, false));
 
         var emptyState = cut.Find(".empty-state");
         That(emptyState, Is.Not.Null);
@@ -16,9 +16,9 @@ public class HolidayListTests : BunitTestContext
     [Test]
     public void NullHolidays_ShowsEmptyState()
     {
-        var cut = Render<HolidayList>(parameters => parameters
-            .Add(p => p.Holidays, null)
-            .Add(p => p.ShowStateColumn, false));
+        var cut = Render<HolidayList>(_ => _
+            .Add(_ => _.Holidays, null)
+            .Add(_ => _.ShowStateColumn, false));
 
         var emptyState = cut.Find(".empty-state");
         That(emptyState, Is.Not.Null);
@@ -33,9 +33,9 @@ public class HolidayListTests : BunitTestContext
             new(new(2025, 1, 27), "Australia Day", [State.NSW])
         };
 
-        var cut = Render<HolidayList>(parameters => parameters
-            .Add(p => p.Holidays, holidays)
-            .Add(p => p.ShowStateColumn, false));
+        var cut = Render<HolidayList>(_ => _
+            .Add(_ => _.Holidays, holidays)
+            .Add(_ => _.ShowStateColumn, false));
 
         var table = cut.Find(".holiday-table");
         That(table, Is.Not.Null);
@@ -52,9 +52,9 @@ public class HolidayListTests : BunitTestContext
             new(new(2025, 1, 1), "New Year's Day", [State.NSW])
         };
 
-        var cut = Render<HolidayList>(parameters => parameters
-            .Add(p => p.Holidays, holidays)
-            .Add(p => p.ShowStateColumn, true));
+        var cut = Render<HolidayList>(_ => _
+            .Add(_ => _.Holidays, holidays)
+            .Add(_ => _.ShowStateColumn, true));
 
         var headers = cut.FindAll("thead th");
         That(headers.Count, Is.EqualTo(4));
@@ -71,9 +71,9 @@ public class HolidayListTests : BunitTestContext
             new(new(2025, 1, 26), "Australia Day", [State.NSW, State.VIC, State.QLD])
         };
 
-        var cut = Render<HolidayList>(parameters => parameters
-            .Add(p => p.Holidays, holidays)
-            .Add(p => p.ShowStateColumn, true));
+        var cut = Render<HolidayList>(_ => _
+            .Add(_ => _.Holidays, holidays)
+            .Add(_ => _.ShowStateColumn, true));
 
         var stateBadges = cut.FindAll(".state-badge");
         That(stateBadges.Count, Is.EqualTo(3));
@@ -90,9 +90,9 @@ public class HolidayListTests : BunitTestContext
             new(new(2025, 1, 1), "New Year's Day", [State.NSW])
         };
 
-        var cut = Render<HolidayList>(parameters => parameters
-            .Add(p => p.Holidays, holidays)
-            .Add(p => p.ShowStateColumn, false));
+        var cut = Render<HolidayList>(_ => _
+            .Add(_ => _.Holidays, holidays)
+            .Add(_ => _.ShowStateColumn, false));
 
         var headers = cut.FindAll("thead th");
         That(headers.Count, Is.EqualTo(3));

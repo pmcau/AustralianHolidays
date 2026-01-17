@@ -9,10 +9,10 @@ public class ExportMenuTests : BunitTestContext
     {
         JSInterop.SetupVoid("fileDownload.downloadFile", _ => true);
 
-        var cut = Render<ExportMenu>(parameters => parameters
-            .Add(p => p.SelectedStates, new HashSet<State> { State.NSW })
-            .Add(p => p.StartYear, 2025)
-            .Add(p => p.YearCount, 2));
+        var cut = Render<ExportMenu>(_ => _
+            .Add(_ => _.SelectedStates, new HashSet<State> {State.NSW})
+            .Add(_ => _.StartYear, 2025)
+            .Add(_ => _.YearCount, 2));
 
         var buttons = cut.FindAll(".export-btn");
 
@@ -32,10 +32,10 @@ public class ExportMenuTests : BunitTestContext
     {
         JSInterop.SetupVoid("fileDownload.downloadFile", _ => true);
 
-        var cut = Render<ExportMenu>(parameters => parameters
-            .Add(p => p.SelectedStates, new HashSet<State> { State.NSW })
-            .Add(p => p.StartYear, 2025)
-            .Add(p => p.YearCount, 2));
+        var cut = Render<ExportMenu>(_ => _
+            .Add(_ => _.SelectedStates, new HashSet<State> {State.NSW})
+            .Add(_ => _.StartYear, 2025)
+            .Add(_ => _.YearCount, 2));
 
         var buttons = cut.FindAll(".export-btn");
 
@@ -50,10 +50,10 @@ public class ExportMenuTests : BunitTestContext
     {
         JSInterop.SetupVoid("fileDownload.downloadFile", _ => true);
 
-        var cut = Render<ExportMenu>(parameters => parameters
-            .Add(p => p.SelectedStates, new HashSet<State>())
-            .Add(p => p.StartYear, 2025)
-            .Add(p => p.YearCount, 2));
+        var cut = Render<ExportMenu>(_ => _
+            .Add(_ => _.SelectedStates, new HashSet<State>())
+            .Add(_ => _.StartYear, 2025)
+            .Add(_ => _.YearCount, 2));
 
         var label = cut.Find(".export-menu label");
         That(label.TextContent, Is.EqualTo("Export:"));
