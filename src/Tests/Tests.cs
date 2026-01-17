@@ -531,6 +531,14 @@ public class Tests
     }
 
     [Test]
+    public async Task ExportToIcsAllStates()
+    {
+        var allStates = Enum.GetValues<State>();
+        var ics = await Holidays.ExportToIcs(allStates);
+        await Verify(ics, "ics");
+    }
+
+    [Test]
     public async Task ExportToExcelMultiState()
     {
         var bytes = await Holidays.ExportToExcel(multipleStates);

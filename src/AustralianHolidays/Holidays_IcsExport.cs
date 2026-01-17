@@ -116,6 +116,8 @@ public static partial class Holidays
         await writer.WriteLineAsync("END:VCALENDAR");
     }
 
+    static readonly int AllStatesCount = Enum.GetValues<State>().Length;
+
     static async Task ToIcsMultiState(TextWriter writer, IEnumerable<(Date date, State state, string name)> forYears)
     {
         writer.NewLine = "\r\n";
@@ -123,14 +125,36 @@ public static partial class Holidays
         await writer.WriteLineAsync("VERSION:2.0");
         await writer.WriteLineAsync("PRODID:-//Australian Holidays//EN");
 
-        foreach (var (date, state, name) in forYears)
+        // Group by date and name to detect holidays that apply to all states
+        var grouped = forYears
+            .GroupBy(h => (h.date, h.name))
+            .Select(g => (g.Key.date, g.Key.name, states: g.Select(h => h.state).ToList()));
+
+        foreach (var (date, name, states) in grouped)
         {
-            await writer.WriteLineAsync("BEGIN:VEVENT");
-            await writer.WriteLineAsync($"SUMMARY:{name} ({state})");
-            await writer.WriteLineAsync($"UID:{date:yyyyMMdd}_{name}_{state}@AustralianHolidays");
-            await writer.WriteLineAsync($"DTSTART;VALUE=DATE:{date:yyyyMMdd}");
-            await writer.WriteLineAsync($"DTEND;VALUE=DATE:{date.AddDays(1):yyyyMMdd}");
-            await writer.WriteLineAsync("END:VEVENT");
+            // If all states have this holiday with same date and name, merge into single entry
+            if (states.Count == AllStatesCount)
+            {
+                await writer.WriteLineAsync("BEGIN:VEVENT");
+                await writer.WriteLineAsync($"SUMMARY:{name}");
+                await writer.WriteLineAsync($"UID:{date:yyyyMMdd}_{name}@AustralianHolidays");
+                await writer.WriteLineAsync($"DTSTART;VALUE=DATE:{date:yyyyMMdd}");
+                await writer.WriteLineAsync($"DTEND;VALUE=DATE:{date.AddDays(1):yyyyMMdd}");
+                await writer.WriteLineAsync("END:VEVENT");
+            }
+            else
+            {
+                // Output separate entries for each state
+                foreach (var state in states)
+                {
+                    await writer.WriteLineAsync("BEGIN:VEVENT");
+                    await writer.WriteLineAsync($"SUMMARY:{name} ({state})");
+                    await writer.WriteLineAsync($"UID:{date:yyyyMMdd}_{name}_{state}@AustralianHolidays");
+                    await writer.WriteLineAsync($"DTSTART;VALUE=DATE:{date:yyyyMMdd}");
+                    await writer.WriteLineAsync($"DTEND;VALUE=DATE:{date.AddDays(1):yyyyMMdd}");
+                    await writer.WriteLineAsync("END:VEVENT");
+                }
+            }
         }
 
         await writer.WriteLineAsync("END:VCALENDAR");
