@@ -11,11 +11,7 @@ public class SnapshotTests
     {
         port = GetAvailablePort();
 
-        var projectPath = Path.GetFullPath(
-            Path.Combine(
-                AppContext.BaseDirectory,
-                "..", "..", "..", "..",
-                "AustralianHolidays.Web"));
+        var projectPath = Path.Combine(ProjectFiles.SolutionDirectory, "AustralianHolidays.Web");
 
         var publishPath = Path.Combine(Path.GetTempPath(), "BlazorSnapshotTest");
         Directory.CreateDirectory(publishPath);
