@@ -246,10 +246,10 @@ header p {
 
 footer {
     text-align: center;
-    padding: 1.5rem;
+    padding: 0.5rem;
     color: var(--past-color);
     font-size: 0.875rem;
-    margin-top: 2rem;
+    margin-top: 0;
 }
 
 footer a {
