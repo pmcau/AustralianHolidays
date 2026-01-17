@@ -4,18 +4,17 @@ namespace AustralianHolidays.Web.Tests;
 
 public class HolidayLogicMarkdownTests
 {
-    static readonly string RepoRoot = Path.GetFullPath(Path.Combine(NUnit.Framework.TestContext.CurrentContext.TestDirectory, "..", "..", "..", "..", ".."));
-    static readonly string MarkdownFile = Path.Combine(RepoRoot, "holiday-logic.include.md");
-    static readonly string WwwrootPath = Path.Combine(RepoRoot, "src", "AustralianHolidays.Web", "wwwroot");
-    static readonly string HolidayLogicHtml = Path.Combine(WwwrootPath, "holiday-logic.html");
-    static readonly string HolidayLogicCollapsibleHtml = Path.Combine(WwwrootPath, "holiday-logic-collapsible.html");
-    const string SplitMarker = "## Public Holiday Substitution Rules";
+    static readonly string markdownFile = Path.Combine(ProjectFiles.SolutionDirectory,"../", "holiday-logic.include.md");
+    static readonly string wwwrootPath = Path.Combine(ProjectFiles.SolutionDirectory, "AustralianHolidays.Web", "wwwroot");
+    static readonly string holidayLogicHtml = Path.Combine(wwwrootPath, "holiday-logic.html");
+    static readonly string holidayLogicCollapsibleHtml = Path.Combine(wwwrootPath, "holiday-logic-collapsible.html");
+    const string splitMarker = "## Public Holiday Substitution Rules";
 
     [Test]
     public async Task ConvertMarkdownToHtml()
     {
-        var markdown = await File.ReadAllTextAsync(MarkdownFile);
-        var splitIndex = markdown.IndexOf(SplitMarker);
+        var markdown = await File.ReadAllTextAsync(markdownFile);
+        var splitIndex = markdown.IndexOf(splitMarker, StringComparison.Ordinal);
 
         string alwaysVisibleHtml;
         string collapsibleHtml;
@@ -23,7 +22,7 @@ public class HolidayLogicMarkdownTests
         if (splitIndex > 0)
         {
             var alwaysVisibleMd = markdown[..splitIndex];
-            var collapsibleMd = markdown[(splitIndex + SplitMarker.Length)..];
+            var collapsibleMd = markdown[(splitIndex + splitMarker.Length)..];
 
             alwaysVisibleHtml = Markdown.ToHtml(alwaysVisibleMd);
             collapsibleHtml = Markdown.ToHtml(collapsibleMd);
@@ -34,8 +33,8 @@ public class HolidayLogicMarkdownTests
             collapsibleHtml = "";
         }
 
-        await File.WriteAllTextAsync(HolidayLogicHtml, alwaysVisibleHtml);
-        await File.WriteAllTextAsync(HolidayLogicCollapsibleHtml, collapsibleHtml);
+        await File.WriteAllTextAsync(holidayLogicHtml, alwaysVisibleHtml);
+        await File.WriteAllTextAsync(holidayLogicCollapsibleHtml, collapsibleHtml);
 
         await Verify(new { alwaysVisibleHtml, collapsibleHtml });
     }
