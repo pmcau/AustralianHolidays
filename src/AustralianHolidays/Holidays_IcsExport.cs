@@ -125,36 +125,36 @@ public static partial class Holidays
         await writer.WriteLineAsync("VERSION:2.0");
         await writer.WriteLineAsync("PRODID:-//Australian Holidays//EN");
 
-        // Group by date and name to detect holidays that apply to all states
+        // Group by date and name to merge holidays across states
         var grouped = forYears
             .GroupBy(h => (h.date, h.name))
             .Select(g => (g.Key.date, g.Key.name, states: g.Select(h => h.state).ToList()));
 
         foreach (var (date, name, states) in grouped)
         {
-            // If all states have this holiday with same date and name, merge into single entry
+            string summary;
+            string uid;
+
             if (states.Count == AllStatesCount)
             {
-                await writer.WriteLineAsync("BEGIN:VEVENT");
-                await writer.WriteLineAsync($"SUMMARY:{name}");
-                await writer.WriteLineAsync($"UID:{date:yyyyMMdd}_{name}@AustralianHolidays");
-                await writer.WriteLineAsync($"DTSTART;VALUE=DATE:{date:yyyyMMdd}");
-                await writer.WriteLineAsync($"DTEND;VALUE=DATE:{date.AddDays(1):yyyyMMdd}");
-                await writer.WriteLineAsync("END:VEVENT");
+                // All states have this holiday - no suffix needed
+                summary = name;
+                uid = $"{date:yyyyMMdd}_{name}@AustralianHolidays";
             }
             else
             {
-                // Output separate entries for each state
-                foreach (var state in states)
-                {
-                    await writer.WriteLineAsync("BEGIN:VEVENT");
-                    await writer.WriteLineAsync($"SUMMARY:{name} ({state})");
-                    await writer.WriteLineAsync($"UID:{date:yyyyMMdd}_{name}_{state}@AustralianHolidays");
-                    await writer.WriteLineAsync($"DTSTART;VALUE=DATE:{date:yyyyMMdd}");
-                    await writer.WriteLineAsync($"DTEND;VALUE=DATE:{date.AddDays(1):yyyyMMdd}");
-                    await writer.WriteLineAsync("END:VEVENT");
-                }
+                // Merge states into single entry with combined suffix
+                var stateList = string.Join(", ", states);
+                summary = $"{name} ({stateList})";
+                uid = $"{date:yyyyMMdd}_{name}_{stateList}@AustralianHolidays";
             }
+
+            await writer.WriteLineAsync("BEGIN:VEVENT");
+            await writer.WriteLineAsync($"SUMMARY:{summary}");
+            await writer.WriteLineAsync($"UID:{uid}");
+            await writer.WriteLineAsync($"DTSTART;VALUE=DATE:{date:yyyyMMdd}");
+            await writer.WriteLineAsync($"DTEND;VALUE=DATE:{date.AddDays(1):yyyyMMdd}");
+            await writer.WriteLineAsync("END:VEVENT");
         }
 
         await writer.WriteLineAsync("END:VCALENDAR");
