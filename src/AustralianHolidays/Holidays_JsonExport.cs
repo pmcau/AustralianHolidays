@@ -4,10 +4,6 @@ namespace AustralianHolidays;
 
 public static partial class Holidays
 {
-    static readonly JsonSerializerOptions jsonOptions = new()
-    {
-        WriteIndented = true
-    };
 
     /// <summary>
     /// Exports national public holidays to JSON format.
@@ -143,30 +139,17 @@ public static partial class Holidays
     static Task ToJson(TextWriter writer, State? state, IOrderedEnumerable<(Date date, string name)> forYears)
     {
         var holidays = forYears
-            .Select(_ => new
-            {
-                date = _.date.ToString("yyyy-MM-dd"),
-                _.name
-            });
-        var result = new
-        {
-            state = state?.ToString() ?? "National",
-            holidays
-        };
-        var json = JsonSerializer.Serialize(result, jsonOptions);
+            .Select(h => new HolidayJson(h.date.ToString("yyyy-MM-dd"), h.name));
+        var result = new HolidayExportJson(state?.ToString() ?? "National", holidays);
+        var json = JsonSerializer.Serialize(result, HolidayJsonContext.Default.HolidayExportJson);
         return writer.WriteAsync(json);
     }
 
     static Task ToJsonMultiState(TextWriter writer, IEnumerable<(Date date, State state, string name)> forYears)
     {
         var holidays = forYears
-            .Select(h => new
-            {
-                date = h.date.ToString("yyyy-MM-dd"),
-                state = h.state.ToString(),
-                h.name
-            });
-        var json = JsonSerializer.Serialize(holidays, jsonOptions);
+            .Select(h => new MultiStateHolidayJson(h.date.ToString("yyyy-MM-dd"), h.state.ToString(), h.name));
+        var json = JsonSerializer.Serialize(holidays, HolidayJsonContext.Default.IEnumerableMultiStateHolidayJson);
         return writer.WriteAsync(json);
     }
 }
