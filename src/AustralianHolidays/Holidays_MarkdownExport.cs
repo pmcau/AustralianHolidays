@@ -97,15 +97,14 @@ public static partial class Holidays
     {
         var stateSet = states as IReadOnlySet<State> ?? states.ToHashSet();
         var forYears = ForYears(startYear, yearCount)
-            .Where(h => stateSet.Count == 0 || stateSet.Contains(h.state));
+            .Where(_ => stateSet.Count == 0 || stateSet.Contains(_.state));
         return ToMarkdownMultiState(writer, forYears);
     }
 
     static async Task ToMarkdown(TextWriter writer, List<int> years, IOrderedEnumerable<(Date date, string name)> forYears)
     {
         await writer.WriteLineAsync($"|                                   | {string.Join("         | ", years)}         |");
-        await writer.WriteAsync('|');
-        await writer.WriteAsync("-----------------------------------|");
+        await writer.WriteAsync("|-----------------------------------|");
         for (var index = 1; index < years.Count + 1; index++)
         {
             await writer.WriteAsync("--------------|");
