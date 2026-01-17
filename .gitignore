@@ -10,3 +10,4 @@ nugets/
 *claude*
 nul
 src/AustralianHolidays.Web/wwwroot/holiday-logic.md
+/src/AustralianHolidays.Web/publish
