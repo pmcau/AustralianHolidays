@@ -10,6 +10,18 @@
     --future-color: #212529;
 }
 
+[data-theme="dark"] {
+    --primary-color: #4a90e2;
+    --accent-color: #ffcd00;
+    --success-color: #4caf50;
+    --background-color: #1e1e1e;
+    --text-color: #e0e0e0;
+    --border-color: #404040;
+    --past-color: #999999;
+    --today-color: #64b5f6;
+    --future-color: #e0e0e0;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -75,17 +87,41 @@ header {
     padding: 1.5rem;
     text-align: center;
     margin-bottom: 1.5rem;
+    position: relative;
 }
 
 header h1 {
     margin: 0;
     font-size: 1.75rem;
+    outline: none;
 }
 
 header p {
     margin: 0.5rem 0 0;
     opacity: 0.9;
     font-size: 0.9rem;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+.theme-toggle-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+}
+
+.theme-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
 .controls {
@@ -121,7 +157,7 @@ header p {
     padding: 0.5rem 1rem;
     border: 1px solid var(--border-color);
     border-radius: 4px;
-    background: white;
+    background: var(--background-color);
     color: var(--text-color);
     cursor: pointer;
     font-size: 0.875rem;
@@ -130,7 +166,7 @@ header p {
 
 .state-btn:hover {
     border-color: var(--primary-color);
-    background: #f8f9fa;
+    background: var(--border-color);
 }
 
 .state-btn.selected {
@@ -140,13 +176,13 @@ header p {
 }
 
 .state-btn.selected:hover {
-    background: #003d7a;
+    opacity: 0.9;
 }
 
 .export-btn {
     padding: 0.5rem 1rem;
     border: 1px solid var(--primary-color);
-    background: white;
+    background: var(--background-color);
     color: var(--primary-color);
     border-radius: 4px;
     cursor: pointer;
@@ -167,10 +203,10 @@ header p {
 .holiday-table {
     width: 100%;
     border-collapse: collapse;
-    background: white;
+    background: var(--background-color);
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 .holiday-table th,
@@ -189,7 +225,7 @@ header p {
 }
 
 .holiday-table tbody tr:hover {
-    background: #f8f9fa;
+    background: var(--border-color);
 }
 
 .holiday-table tbody tr:last-child td {
@@ -201,7 +237,7 @@ header p {
 }
 
 .holiday-row.today {
-    background: #e7f3ff;
+    background: rgba(100, 181, 246, 0.2);
     font-weight: 600;
 }
 
@@ -299,9 +335,10 @@ footer a:hover {
 .holiday-logic-info {
     margin-top: 2rem;
     padding: 1.5rem;
-    background: white;
+    background: var(--background-color);
+    border: 1px solid var(--border-color);
     border-radius: 8px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     line-height: 1.6;
 }
 
@@ -322,7 +359,7 @@ footer a:hover {
 }
 
 .collapse-btn:hover {
-    background: #003d7a;
+    opacity: 0.9;
 }
 
 .holiday-logic-content {

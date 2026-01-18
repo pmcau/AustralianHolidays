@@ -1,8 +1,30 @@
 @inherits LayoutComponentBase
+@using AustralianHolidays.Web.Components
+@using AustralianHolidays.Web.Services
+@inject ThemePreferenceService ThemePreferenceService
+@inject IJSRuntime JSRuntime
+
+@code {
+    ThemeType currentTheme = ThemeType.Light;
+
+    protected override async Task OnInitializedAsync()
+    {
+        currentTheme = await ThemePreferenceService.GetSavedThemeAsync();
+        await JSRuntime.InvokeVoidAsync("themeManager.applyTheme", currentTheme.ToString());
+    }
+
+    async Task HandleThemeChanged(ThemeType newTheme)
+    {
+        currentTheme = newTheme;
+        await ThemePreferenceService.SaveThemeAsync(newTheme);
+        await JSRuntime.InvokeVoidAsync("themeManager.applyTheme", newTheme.ToString());
+    }
+}
 
 <header>
     <h1>Australian Public Holidays</h1>
     <p>View and export public holidays for all Australian states and territories</p>
+    <ThemeToggle CurrentTheme="currentTheme" OnThemeChanged="HandleThemeChanged" />
 </header>
 
 <div class="container">
