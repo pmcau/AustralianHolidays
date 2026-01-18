@@ -1,7 +1,3 @@
-using Microsoft.JSInterop;
-
-namespace AustralianHolidays.Web.Services;
-
 public class FileDownloadService(IJSRuntime jsRuntime)
 {
     public async Task DownloadJsonAsync(IReadOnlySet<State> states, int startYear, int yearCount)

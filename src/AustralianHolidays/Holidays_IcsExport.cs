@@ -127,8 +127,11 @@ public static partial class Holidays
 
         // Group by date and name to merge holidays across states
         var grouped = forYears
-            .GroupBy(h => (h.date, h.name))
-            .Select(g => (g.Key.date, g.Key.name, states: g.Select(h => h.state).ToList()));
+            .GroupBy(_ => (_.date, _.name))
+            .Select(_ => (
+                _.Key.date,
+                _.Key.name,
+                states: _.Select(_ => _.state).ToList()));
 
         foreach (var (date, name, states) in grouped)
         {

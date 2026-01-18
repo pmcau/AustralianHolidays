@@ -1,7 +1,3 @@
-using Microsoft.JSInterop;
-
-namespace AustralianHolidays.Web.Services;
-
 public enum ThemeType
 {
     Light,
