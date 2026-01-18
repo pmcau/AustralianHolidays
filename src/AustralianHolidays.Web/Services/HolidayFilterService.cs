@@ -1,5 +1,3 @@
-namespace AustralianHolidays.Web.Services;
-
 public class HolidayFilterService
 {
     public static IReadOnlyList<HolidayViewModel> GetHolidays(IReadOnlySet<State> states, Date startDate, Date endDate)
@@ -25,13 +23,14 @@ public class HolidayFilterService
 
         // Group by date and name, combining states
         return holidays
-            .GroupBy(h => (h.date, h.name))
-            .Select(g => new HolidayViewModel(
-                g.Key.date,
-                g.Key.name,
-                g.Select(h => h.state).OrderBy(s => s).ToList()))
-            .OrderBy(h => h.Date)
-            .ThenBy(h => h.Name)
+            .GroupBy(_ => (_.date, _.name))
+            .Select(_ =>
+                new HolidayViewModel(
+                _.Key.date,
+                _.Key.name,
+                _.Select(_=> _.state).OrderBy(_ => _).ToList()))
+            .OrderBy(_ => _.Date)
+            .ThenBy(_ => _.Name)
             .ToList();
     }
 
@@ -45,35 +44,4 @@ public class HolidayFilterService
 
     public static (int StartYear, int YearCount) GetExportYearRange(Date startDate, Date endDate) =>
         (startDate.Year, endDate.Year - startDate.Year + 1);
-}
-
-public record HolidayViewModel(Date Date, string Name, IReadOnlyList<State> States)
-{
-    public string DayOfWeek => Date.DayOfWeek.ToString();
-
-    public HolidayTimeCategory TimeCategory
-    {
-        get
-        {
-            var today = Date.FromDateTime(DateTime.Today);
-            if (Date < today)
-            {
-                return HolidayTimeCategory.Past;
-            }
-
-            if (Date == today)
-            {
-                return HolidayTimeCategory.Today;
-            }
-
-            return HolidayTimeCategory.Future;
-        }
-    }
-}
-
-public enum HolidayTimeCategory
-{
-    Past,
-    Today,
-    Future
 }

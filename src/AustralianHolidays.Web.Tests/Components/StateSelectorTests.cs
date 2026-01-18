@@ -41,9 +41,9 @@ public class StateSelectorTests : BunitTestContext
         var cut = Render<StateSelector>(_ => _
             .Add(_ => _.SelectedStates, selectedStates));
 
-        var nswButton = cut.FindAll(".state-btn").First(b => b.TextContent == "NSW");
-        var vicButton = cut.FindAll(".state-btn").First(b => b.TextContent == "VIC");
-        var qldButton = cut.FindAll(".state-btn").First(b => b.TextContent == "QLD");
+        var nswButton = cut.FindAll(".state-btn").First(_ => _.TextContent == "NSW");
+        var vicButton = cut.FindAll(".state-btn").First(_ => _.TextContent == "VIC");
+        var qldButton = cut.FindAll(".state-btn").First(_ => _.TextContent == "QLD");
 
         That(nswButton.ClassList, Does.Contain("selected"));
         That(vicButton.ClassList, Does.Contain("selected"));
@@ -57,7 +57,7 @@ public class StateSelectorTests : BunitTestContext
         var cut = Render<StateSelector>(_ => _
             .Add(_ => _.SelectedStates, allStates));
 
-        var allButton = cut.FindAll(".state-btn").First(b => b.TextContent == "All");
+        var allButton = cut.FindAll(".state-btn").First(_ => _.TextContent == "All");
 
         That(allButton.ClassList, Does.Contain("selected"));
     }
@@ -70,7 +70,7 @@ public class StateSelectorTests : BunitTestContext
             .Add(_ => _.SelectedStates, new HashSet<State>())
             .Add(_ => _.SelectedStatesChanged, (IReadOnlySet<State> s) => selectedStates = s));
 
-        var nswButton = cut.FindAll(".state-btn").First(b => b.TextContent == "NSW");
+        var nswButton = cut.FindAll(".state-btn").First(_ => _.TextContent == "NSW");
         await nswButton.ClickAsync(new());
 
         That(selectedStates, Is.Not.Null);
