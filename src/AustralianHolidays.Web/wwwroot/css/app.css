@@ -302,8 +302,40 @@ footer a:hover {
 }
 
 @media (max-width: 768px) {
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+    }
+
+    header h1 {
+        font-size: 1.25rem;
+        text-align: left;
+        flex: 1;
+        margin-right: 0.5rem;
+    }
+
     header p {
         display: none;
+    }
+
+    .theme-toggle {
+        position: static;
+        flex-shrink: 0;
+    }
+
+    .theme-toggle-btn {
+        padding: 0.5rem;
+        min-width: 36px;
+    }
+
+    .theme-toggle-btn .text {
+        display: none;
+    }
+
+    .theme-toggle-btn .icon {
+        font-size: 1.25rem;
     }
 
     .controls {
