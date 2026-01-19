@@ -1,7 +1,3 @@
-using Microsoft.JSInterop;
-
-namespace AustralianHolidays.Web.Services;
-
 public class StatePreferenceService(IJSRuntime jsRuntime)
 {
     const string StateKey = "selectedState";

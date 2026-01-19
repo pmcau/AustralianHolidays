@@ -40,3 +40,15 @@ window.fileDownload = {
         URL.revokeObjectURL(url);
     }
 };
+
+window.themeManager = {
+    applyTheme: function (themeName) {
+        document.documentElement.setAttribute('data-theme', themeName.toLowerCase());
+    },
+    initializeTheme: function () {
+        const savedTheme = localStorage.getItem('selectedTheme');
+        if (savedTheme) {
+            document.documentElement.setAttribute('data-theme', savedTheme.toLowerCase());
+        }
+    }
+};

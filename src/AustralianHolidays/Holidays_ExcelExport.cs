@@ -104,7 +104,7 @@ public static partial class Holidays
     {
         var stateSet = states as IReadOnlySet<State> ?? states.ToHashSet();
         var forYears = ForYears(startYear, yearCount)
-            .Where(h => stateSet.Count == 0 || stateSet.Contains(h.state));
+            .Where(_ => stateSet.Count == 0 || stateSet.Contains(_.state));
         return ToExcelMultiState(stream, forYears);
     }
 

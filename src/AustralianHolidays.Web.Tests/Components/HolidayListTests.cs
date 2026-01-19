@@ -5,7 +5,7 @@ public class HolidayListTests : BunitTestContext
     public void EmptyList_ShowsEmptyState()
     {
         var cut = Render<HolidayList>(_ => _
-            .Add(_ => _.Holidays, new List<HolidayViewModel>())
+            .Add(_ => _.Holidays, [])
             .Add(_ => _.ShowStateColumn, false));
 
         var emptyState = cut.Find(".empty-state");
