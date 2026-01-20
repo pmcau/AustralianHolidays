@@ -5,7 +5,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="ProjectDefaults" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.Sbom.Targets" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.Sbom.Targets" PrivateAssets="all" Condition="$(Configuration)=='Release'" />
     <EmbeddedResource Include="Resources\HolidayTemplate.xlsx" />
   </ItemGroup>
 </Project>
