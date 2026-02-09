@@ -29,8 +29,8 @@ public class HolidayListTests : BunitTestContext
     {
         var holidays = new List<HolidayViewModel>
         {
-            new(new(2025, 1, 1), "New Year's Day", [State.NSW]),
-            new(new(2025, 1, 27), "Australia Day", [State.NSW])
+            new(new(2025, 1, 1), "New Year's Day", [State.NSW], HolidayTimeCategory.Past),
+            new(new(2025, 1, 27), "Australia Day", [State.NSW], HolidayTimeCategory.Past)
         };
 
         var cut = Render<HolidayList>(_ => _
@@ -49,7 +49,7 @@ public class HolidayListTests : BunitTestContext
     {
         var holidays = new List<HolidayViewModel>
         {
-            new(new(2025, 1, 1), "New Year's Day", [State.NSW])
+            new(new(2025, 1, 1), "New Year's Day", [State.NSW], HolidayTimeCategory.Past)
         };
 
         var cut = Render<HolidayList>(_ => _
@@ -68,7 +68,7 @@ public class HolidayListTests : BunitTestContext
     {
         var holidays = new List<HolidayViewModel>
         {
-            new(new(2025, 1, 26), "Australia Day", [State.NSW, State.VIC, State.QLD])
+            new(new(2025, 1, 26), "Australia Day", [State.NSW, State.VIC, State.QLD], HolidayTimeCategory.Past)
         };
 
         var cut = Render<HolidayList>(_ => _
@@ -87,7 +87,7 @@ public class HolidayListTests : BunitTestContext
     {
         var holidays = new List<HolidayViewModel>
         {
-            new(new(2025, 1, 1), "New Year's Day", [State.NSW])
+            new(new(2025, 1, 1), "New Year's Day", [State.NSW], HolidayTimeCategory.Past)
         };
 
         var cut = Render<HolidayList>(_ => _

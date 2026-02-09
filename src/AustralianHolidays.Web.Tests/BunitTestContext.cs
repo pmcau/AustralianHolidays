@@ -1,5 +1,9 @@
 public class BunitTestContext : BunitContext
 {
-    public BunitTestContext() =>
+    public BunitTestContext()
+    {
+        var fakeTime = new FakeTimeProvider(new DateTimeOffset(2026, 1, 15, 0, 0, 0, TimeSpan.Zero));
+        Services.AddSingleton<TimeProvider>(fakeTime);
         Services.AddScoped<HolidayFilterService>();
+    }
 }

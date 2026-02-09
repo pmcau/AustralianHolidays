@@ -1,5 +1,6 @@
 @page "/"
 @inject StatePreferenceService StatePreferenceService
+@inject HolidayFilterService HolidayFilterService
 
 <PageTitle>Australian Holidays</PageTitle>
 
@@ -88,7 +89,7 @@
             endDate = new Date(maxYear, 12, 31);
         }
 
-        (startYear, yearCount) = HolidayFilterService.GetExportYearRange(startDate, endDate);
+        (startYear, yearCount) = global::HolidayFilterService.GetExportYearRange(startDate, endDate);
     }
 
     void LoadHolidays()
