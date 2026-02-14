@@ -8,6 +8,7 @@ builder.Services
     {
         BaseAddress = new(builder.HostEnvironment.BaseAddress)
     });
+builder.Services.AddSingleton(TimeProvider.System);
 builder.Services.AddScoped<StatePreferenceService>();
 builder.Services.AddScoped<ThemePreferenceService>();
 builder.Services.AddScoped<HolidayFilterService>();

@@ -7,15 +7,14 @@
 
   <!-- Publish Blazor app as part of build so tests can use pre-published output -->
   <Target Name="PublishBlazorForTests" AfterTargets="Build">
-    <MSBuild Projects="..\AustralianHolidays.Web\AustralianHolidays.Web.csproj"
-             Targets="Publish"
-             Properties="Configuration=$(Configuration);PublishDir=$(BlazorPublishDir)" />
+    <MSBuild Projects="..\AustralianHolidays.Web\AustralianHolidays.Web.csproj" Targets="Publish" Properties="Configuration=$(Configuration);PublishDir=$(BlazorPublishDir)" />
   </Target>
 
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="bunit" />
     <PackageReference Include="Markdig.Signed" />
+    <PackageReference Include="Microsoft.Extensions.TimeProvider.Testing" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" />
     <PackageReference Include="NUnit" />
     <PackageReference Include="NUnit3TestAdapter" />

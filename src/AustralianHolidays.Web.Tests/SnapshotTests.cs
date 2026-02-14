@@ -6,6 +6,9 @@ public class SnapshotTests
     static IPlaywright? playwright;
     static IBrowser? browser;
 
+    // Fixed date: January 15, 2026 00:00:00 UTC
+    const string FakeDateScript = "Date.now = () => 1768435200000; Date.prototype.getTimezoneOffset = () => 0;";
+
     [OneTimeSetUp]
     public async Task OneTimeSetUp()
     {
@@ -78,6 +81,7 @@ public class SnapshotTests
     public async Task HomePage()
     {
         var page = await browser!.NewPageAsync();
+        await page.AddInitScriptAsync(FakeDateScript);
         await page.GotoAsync($"http://localhost:{port}/");
 
         // Wait for Blazor to fully render
@@ -92,6 +96,7 @@ public class SnapshotTests
         var page = await browser!.NewPageAsync();
         await page.SetViewportSizeAsync(375, 667); // iPhone SE size
 
+        await page.AddInitScriptAsync(FakeDateScript);
         await page.GotoAsync($"http://localhost:{port}/");
 
         // Wait for Blazor to fully render
@@ -105,6 +110,7 @@ public class SnapshotTests
     {
         var page = await browser!.NewPageAsync();
 
+        await page.AddInitScriptAsync(FakeDateScript);
         await page.GotoAsync($"http://localhost:{port}/");
 
         // Set dark theme in localStorage before Blazor initializes
@@ -125,6 +131,7 @@ public class SnapshotTests
         var page = await browser!.NewPageAsync();
         await page.SetViewportSizeAsync(375, 667); // iPhone SE size
 
+        await page.AddInitScriptAsync(FakeDateScript);
         await page.GotoAsync($"http://localhost:{port}/");
 
         // Set dark theme in localStorage before Blazor initializes
