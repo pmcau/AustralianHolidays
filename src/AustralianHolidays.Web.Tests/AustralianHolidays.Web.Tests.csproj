@@ -27,6 +27,11 @@
     <PackageReference Include="Verify.DiffPlex" />
     <PackageReference Include="Verify.ImageMagick" />
     <PackageReference Include="Verify.NUnit" />
+    <PackageReference Include="Argon" />
+    <PackageReference Include="DiffEngine" />
+    <PackageReference Include="EmptyFiles" />
+    <PackageReference Include="SimpleInfoName" />
+    <PackageReference Include="Verify" />
     <PackageReference Include="Verify.Playwright" />
     <ProjectReference Include="..\AustralianHolidays.Web\AustralianHolidays.Web.csproj" />
     <Using Include="NUnit.Framework" />
