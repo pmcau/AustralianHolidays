@@ -75,6 +75,11 @@
     "name": "Anzac Day"
   },
   {
+    "date": "2026-04-27",
+    "state": "NSW",
+    "name": "Anzac Day (additional)"
+  },
+  {
     "date": "2026-06-08",
     "state": "NSW",
     "name": "King\u0027s Birthday"
@@ -208,6 +213,11 @@
     "date": "2027-04-25",
     "state": "VIC",
     "name": "Anzac Day"
+  },
+  {
+    "date": "2027-04-26",
+    "state": "NSW",
+    "name": "Anzac Day (additional)"
   },
   {
     "date": "2027-06-14",

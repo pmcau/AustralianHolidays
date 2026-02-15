@@ -17,6 +17,7 @@
 | 2026-04-06 | VIC | Easter Monday |
 | 2026-04-25 | NSW | Anzac Day |
 | 2026-04-25 | VIC | Anzac Day |
+| 2026-04-27 | NSW | Anzac Day (additional) |
 | 2026-06-08 | NSW | King's Birthday |
 | 2026-06-08 | VIC | King's Birthday |
 | 2026-08-03 | NSW | Bank Holiday |
@@ -44,6 +45,7 @@
 | 2027-03-29 | VIC | Easter Monday |
 | 2027-04-25 | NSW | Anzac Day |
 | 2027-04-25 | VIC | Anzac Day |
+| 2027-04-26 | NSW | Anzac Day (additional) |
 | 2027-06-14 | NSW | King's Birthday |
 | 2027-06-14 | VIC | King's Birthday |
 | 2027-08-02 | NSW | Bank Holiday |

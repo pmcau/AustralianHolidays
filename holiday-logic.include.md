@@ -69,10 +69,17 @@ ANZAC Day is observed on 25th April each year. When 25th April falls on a weeken
 - **Established**: Holidays Act 1983
 
 
+**New South Wales** - Both Saturday and Sunday
+
+- When ANZAC Day falls on Saturday (25th April) → Monday (27th April) is "Anzac Day (additional)"
+- When ANZAC Day falls on Sunday (25th April) → Monday (26th April) is "Anzac Day (additional)"
+- **Established**: 2026
+
+
 **Australian Capital Territory** - Both Saturday and Sunday
 
 - When ANZAC Day falls on Saturday (25th April) → Monday (27th April) is "Anzac Day (additional)"
-- When ANZAC Day falls on Sunday (25 thApril) → Monday (26th April) is "Anzac Day (additional)"
+- When ANZAC Day falls on Sunday (25th April) → Monday (26th April) is "Anzac Day (additional)"
 - **Established**: Approximately 2020, confirmed for 2026
 
 
@@ -86,7 +93,6 @@ ANZAC Day is observed on 25th April each year. When 25th April falls on a weeken
 
 ANZAC Day is always observed on 25th April, regardless of the day of the week. No additional Monday holiday is provided when 25th April falls on a weekend.
 
- * New South Wales
  * Victoria
  * Tasmania
  * South Australia

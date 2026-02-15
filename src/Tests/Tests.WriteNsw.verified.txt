@@ -19,6 +19,7 @@
     Apr 05 Sun - Easter Sunday
     Apr 06 Mon - Easter Monday
     Apr 25 Sat - Anzac Day
+    Apr 27 Mon - Anzac Day (additional)
     Jun 08 Mon - King's Birthday
     Aug 03 Mon - Bank Holiday
     Oct 05 Mon - Labour Day
@@ -33,6 +34,7 @@
     Mar 28 Sun - Easter Sunday
     Mar 29 Mon - Easter Monday
     Apr 25 Sun - Anzac Day
+    Apr 26 Mon - Anzac Day (additional)
     Jun 14 Mon - King's Birthday
     Aug 02 Mon - Bank Holiday
     Oct 04 Mon - Labour Day
