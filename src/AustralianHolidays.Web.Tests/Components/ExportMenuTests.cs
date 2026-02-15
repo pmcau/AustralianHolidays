@@ -18,7 +18,7 @@ public class ExportMenuTests : BunitTestContext
 
         That(buttons.Count, Is.EqualTo(6));
 
-        var buttonTexts = buttons.Select(b => b.TextContent).ToList();
+        var buttonTexts = buttons.Select(_ => _.TextContent).ToList();
         That(buttonTexts, Does.Contain("JSON"));
         That(buttonTexts, Does.Contain("CSV"));
         That(buttonTexts, Does.Contain("XML"));
