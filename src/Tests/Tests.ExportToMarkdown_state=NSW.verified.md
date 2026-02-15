@@ -9,6 +9,7 @@
 | Easter Sunday                     | `Sun 05 Apr` | `Sun 28 Mar` | `Sun 16 Apr` | `Sun 01 Apr` | `Sun 21 Apr` | 
 | Easter Monday                     | `Mon 06 Apr` | `Mon 29 Mar` | `Mon 17 Apr` | `Mon 02 Apr` | `Mon 22 Apr` | 
 | Anzac Day                         | `Sat 25 Apr` | `Sun 25 Apr` | `Tue 25 Apr` | `Wed 25 Apr` | `Thu 25 Apr` | 
+| Anzac Day<br>(additional)         | `Mon 27 Apr` | `Mon 26 Apr` |              |              |              | 
 | King's Birthday                   | `Mon 08 Jun` | `Mon 14 Jun` | `Mon 12 Jun` | `Mon 11 Jun` | `Mon 10 Jun` | 
 | Bank Holiday                      | `Mon 03 Aug` | `Mon 02 Aug` | `Mon 07 Aug` | `Mon 06 Aug` | `Mon 05 Aug` | 
 | Labour Day                        | `Mon 05 Oct` | `Mon 04 Oct` | `Mon 02 Oct` | `Mon 01 Oct` | `Mon 07 Oct` | 

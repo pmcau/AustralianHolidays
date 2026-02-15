@@ -89,10 +89,17 @@ ANZAC Day is observed on 25th April each year. When 25th April falls on a weeken
 - **Established**: Holidays Act 1983
 
 
+**New South Wales** - Both Saturday and Sunday
+
+- When ANZAC Day falls on Saturday (25th April) → Monday (27th April) is "Anzac Day (additional)"
+- When ANZAC Day falls on Sunday (25th April) → Monday (26th April) is "Anzac Day (additional)"
+- **Established**: 2026
+
+
 **Australian Capital Territory** - Both Saturday and Sunday
 
 - When ANZAC Day falls on Saturday (25th April) → Monday (27th April) is "Anzac Day (additional)"
-- When ANZAC Day falls on Sunday (25 thApril) → Monday (26th April) is "Anzac Day (additional)"
+- When ANZAC Day falls on Sunday (25th April) → Monday (26th April) is "Anzac Day (additional)"
 - **Established**: Approximately 2020, confirmed for 2026
 
 
@@ -106,7 +113,6 @@ ANZAC Day is observed on 25th April each year. When 25th April falls on a weeken
 
 ANZAC Day is always observed on 25th April, regardless of the day of the week. No additional Monday holiday is provided when 25th April falls on a weekend.
 
- * New South Wales
  * Victoria
  * Tasmania
  * South Australia
@@ -383,6 +389,7 @@ var md = await Holidays.ExportToMarkdown(state);
 | Easter Sunday                     | `Sun 05 Apr` | `Sun 28 Mar` | `Sun 16 Apr` | `Sun 01 Apr` | `Sun 21 Apr` | 
 | Easter Monday                     | `Mon 06 Apr` | `Mon 29 Mar` | `Mon 17 Apr` | `Mon 02 Apr` | `Mon 22 Apr` | 
 | Anzac Day                         | `Sat 25 Apr` | `Sun 25 Apr` | `Tue 25 Apr` | `Wed 25 Apr` | `Thu 25 Apr` | 
+| Anzac Day<br>(additional)         | `Mon 27 Apr` | `Mon 26 Apr` |              |              |              | 
 | King's Birthday                   | `Mon 08 Jun` | `Mon 14 Jun` | `Mon 12 Jun` | `Mon 11 Jun` | `Mon 10 Jun` | 
 | Bank Holiday                      | `Mon 03 Aug` | `Mon 02 Aug` | `Mon 07 Aug` | `Mon 06 Aug` | `Mon 05 Aug` | 
 | Labour Day                        | `Mon 05 Oct` | `Mon 04 Oct` | `Mon 02 Oct` | `Mon 01 Oct` | `Mon 07 Oct` | 

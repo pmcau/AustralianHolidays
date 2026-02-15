@@ -311,6 +311,11 @@
   },
   {
     "date": "2026-04-27",
+    "state": "NSW",
+    "name": "Anzac Day (additional)"
+  },
+  {
+    "date": "2026-04-27",
     "state": "WA",
     "name": "Anzac Day (additional)"
   },
@@ -862,6 +867,11 @@
   {
     "date": "2027-04-26",
     "state": "ACT",
+    "name": "Anzac Day (additional)"
+  },
+  {
+    "date": "2027-04-26",
+    "state": "NSW",
     "name": "Anzac Day (additional)"
   },
   {

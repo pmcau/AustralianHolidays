@@ -54,10 +54,16 @@
 <li>No substitute when ANZAC Day falls on Saturday</li>
 <li><strong>Established</strong>: Holidays Act 1983</li>
 </ul>
+<p><strong>New South Wales</strong> - Both Saturday and Sunday</p>
+<ul>
+<li>When ANZAC Day falls on Saturday (25th April) → Monday (27th April) is &quot;Anzac Day (additional)&quot;</li>
+<li>When ANZAC Day falls on Sunday (25th April) → Monday (26th April) is &quot;Anzac Day (additional)&quot;</li>
+<li><strong>Established</strong>: 2026</li>
+</ul>
 <p><strong>Australian Capital Territory</strong> - Both Saturday and Sunday</p>
 <ul>
 <li>When ANZAC Day falls on Saturday (25th April) → Monday (27th April) is &quot;Anzac Day (additional)&quot;</li>
-<li>When ANZAC Day falls on Sunday (25 thApril) → Monday (26th April) is &quot;Anzac Day (additional)&quot;</li>
+<li>When ANZAC Day falls on Sunday (25th April) → Monday (26th April) is &quot;Anzac Day (additional)&quot;</li>
 <li><strong>Established</strong>: Approximately 2020, confirmed for 2026</li>
 </ul>
 <p><strong>Northern Territory</strong> - Sunday only</p>
@@ -68,7 +74,6 @@
 <h4>States Without Additional Day</h4>
 <p>ANZAC Day is always observed on 25th April, regardless of the day of the week. No additional Monday holiday is provided when 25th April falls on a weekend.</p>
 <ul>
-<li>New South Wales</li>
 <li>Victoria</li>
 <li>Tasmania</li>
 <li>South Australia</li>

@@ -15,6 +15,7 @@
   <Holiday Date="2026-04-06" State="VIC" Name="Easter Monday" />
   <Holiday Date="2026-04-25" State="NSW" Name="Anzac Day" />
   <Holiday Date="2026-04-25" State="VIC" Name="Anzac Day" />
+  <Holiday Date="2026-04-27" State="NSW" Name="Anzac Day (additional)" />
   <Holiday Date="2026-06-08" State="NSW" Name="King's Birthday" />
   <Holiday Date="2026-06-08" State="VIC" Name="King's Birthday" />
   <Holiday Date="2026-08-03" State="NSW" Name="Bank Holiday" />
@@ -42,6 +43,7 @@
   <Holiday Date="2027-03-29" State="VIC" Name="Easter Monday" />
   <Holiday Date="2027-04-25" State="NSW" Name="Anzac Day" />
   <Holiday Date="2027-04-25" State="VIC" Name="Anzac Day" />
+  <Holiday Date="2027-04-26" State="NSW" Name="Anzac Day (additional)" />
   <Holiday Date="2027-06-14" State="NSW" Name="King's Birthday" />
   <Holiday Date="2027-06-14" State="VIC" Name="King's Birthday" />
   <Holiday Date="2027-08-02" State="NSW" Name="Bank Holiday" />

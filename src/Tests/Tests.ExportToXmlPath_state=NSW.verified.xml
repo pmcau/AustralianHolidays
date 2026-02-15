@@ -7,6 +7,7 @@
   <Holiday Date="2026-04-05" Name="Easter Sunday" />
   <Holiday Date="2026-04-06" Name="Easter Monday" />
   <Holiday Date="2026-04-25" Name="Anzac Day" />
+  <Holiday Date="2026-04-27" Name="Anzac Day (additional)" />
   <Holiday Date="2026-06-08" Name="King's Birthday" />
   <Holiday Date="2026-08-03" Name="Bank Holiday" />
   <Holiday Date="2026-10-05" Name="Labour Day" />
@@ -20,6 +21,7 @@
   <Holiday Date="2027-03-28" Name="Easter Sunday" />
   <Holiday Date="2027-03-29" Name="Easter Monday" />
   <Holiday Date="2027-04-25" Name="Anzac Day" />
+  <Holiday Date="2027-04-26" Name="Anzac Day (additional)" />
   <Holiday Date="2027-06-14" Name="King's Birthday" />
   <Holiday Date="2027-08-02" Name="Bank Holiday" />
   <Holiday Date="2027-10-04" Name="Labour Day" />
