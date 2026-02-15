@@ -1,7 +1,7 @@
 [TestFixture]
 public class HolidayFilterServiceTests
 {
-    static readonly FakeTimeProvider fakeTime = new(new DateTimeOffset(2026, 1, 15, 0, 0, 0, TimeSpan.Zero));
+    static readonly FakeTimeProvider fakeTime = new(new(2026, 1, 15, 0, 0, 0, TimeSpan.Zero));
     static readonly HolidayFilterService service = new(fakeTime);
 
     [Test]
@@ -127,13 +127,10 @@ public class HolidayFilterServiceTests
     [Test]
     public void HolidayViewModel_TimeCategory_Past()
     {
-        var pastDate = new Date(2026, 1, 5);
         var states = new HashSet<State> { State.NSW };
 
-        var holidays = service.GetHolidays(states, pastDate, pastDate);
-
         // If there are no holidays on that exact date, test via a broader range
-        var allHolidays = service.GetHolidays(states, new Date(2025, 1, 1), new Date(2025, 12, 31));
+        var allHolidays = service.GetHolidays(states, new(2025, 1, 1), new(2025, 12, 31));
         That(allHolidays.All(_ => _.TimeCategory == HolidayTimeCategory.Past), Is.True);
     }
 
@@ -142,7 +139,7 @@ public class HolidayFilterServiceTests
     {
         var states = new HashSet<State> { State.NSW };
 
-        var holidays = service.GetHolidays(states, new Date(2026, 2, 1), new Date(2026, 12, 31));
+        var holidays = service.GetHolidays(states, new(2026, 2, 1), new(2026, 12, 31));
         That(holidays.All(_ => _.TimeCategory == HolidayTimeCategory.Future), Is.True);
     }
 
