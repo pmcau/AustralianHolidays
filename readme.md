@@ -31,7 +31,7 @@
  * [Queensland](https://www.qld.gov.au/recreation/travel/holidays/public)
  * [South Australia](https://www.safework.sa.gov.au/resources/public-holidays)
  * [Tasmania](https://worksafe.tas.gov.au/topics/laws-and-compliance/public-holidays)
- * [Victoria](https://business.vic.gov.au/business-information/public-holidays/victorian-public-holidays-2025)
+ * [Victoria](https://business.vic.gov.au/business-information/public-holidays/victorian-public-holidays-2026)
  * [Western Australia](https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia)
 
 
@@ -216,7 +216,7 @@ Retrieves public holidays for all states over a specified range of years.
 <!-- snippet: ForYears -->
 <a id='snippet-ForYears'></a>
 ```cs
-var holidays = Holidays.ForYears(startYear: 2025, yearCount: 2);
+var holidays = Holidays.ForYears(startYear: 2026, yearCount: 2);
 foreach (var (date, state, name) in holidays)
 {
     Console.WriteLine($"date: {date}, state: {state}, name: {name}");
@@ -233,7 +233,7 @@ Retrieves public holidays for a specified state over a given range of years.
 <!-- snippet: ForYearsState -->
 <a id='snippet-ForYearsState'></a>
 ```cs
-var holidays = Holidays.ForYears(State.NSW, startYear: 2025, yearCount: 2);
+var holidays = Holidays.ForYears(State.NSW, startYear: 2026, yearCount: 2);
 foreach (var (date, name) in holidays)
 {
     Console.WriteLine($"date: {date}, name: {name}");
@@ -250,7 +250,7 @@ Gets federal holidays that are common for all states.
 <!-- snippet: ForNational -->
 <a id='snippet-ForNational'></a>
 ```cs
-var holidays = Holidays.ForNational(2025);
+var holidays = Holidays.ForNational(2026);
 foreach (var (date, name) in holidays)
 {
     Console.WriteLine($"date: {date}, name: {name}");
@@ -265,7 +265,7 @@ foreach (var (date, name) in holidays)
 <!-- snippet: ForState -->
 <a id='snippet-ForState'></a>
 ```cs
-var holidays = Holidays.ForNsw(2025);
+var holidays = Holidays.ForNsw(2026);
 foreach (var (date, name) in holidays)
 {
     Console.WriteLine($"date: {date}, name: {name}");
@@ -283,7 +283,7 @@ foreach (var (date, name) in holidays)
 <!-- snippet: IsFederalGovernmentShutdown -->
 <a id='snippet-IsFederalGovernmentShutdown'></a>
 ```cs
-var date = new Date(2025, 12, 30);
+var date = new Date(2026, 12, 30);
 var result = date.IsFederalGovernmentShutdown();
 
 IsTrue(result);
@@ -493,7 +493,7 @@ var md = await Holidays.ExportToMarkdown(state);
 <!-- endInclude -->
 
 
-#### Victorian ([Reference](https://business.vic.gov.au/business-information/public-holidays/victorian-public-holidays-2025))
+#### Victorian ([Reference](https://business.vic.gov.au/business-information/public-holidays/victorian-public-holidays-2026))
 
 <!-- include: Tests.ExportToMarkdown_state=VIC.verified.md -->
 |                                   | 2026         | 2027         | 2028         | 2029         | 2030         |
@@ -692,7 +692,7 @@ All members are virtual so it can be mocked.
 public void Usage()
 {
     var holidayService = new HolidayService(TimeProvider.System);
-    var holidays = holidayService.ForYears(startYear: 2025, yearCount: 2);
+    var holidays = holidayService.ForYears(startYear: 2026, yearCount: 2);
     foreach (var (date, state, name) in holidays)
     {
         Console.WriteLine($"date: {date}, state: {state}, name: {name}");
@@ -725,7 +725,7 @@ public class ClassUsingHolidays(HolidayService holidayService)
 {
     public void WriteHolidays()
     {
-        var holidays = holidayService.ForYears(startYear: 2025, yearCount: 2);
+        var holidays = holidayService.ForYears(startYear: 2026, yearCount: 2);
         foreach (var (date, state, name) in holidays)
         {
             Console.WriteLine($"date: {date}, state: {state}, name: {name}");
