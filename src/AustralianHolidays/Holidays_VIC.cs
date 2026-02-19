@@ -4,24 +4,26 @@ public static partial class Holidays
 {
     static ConcurrentDictionary<int, FrozenDictionary<Date, string>> vicCache;
 
-    /// <summary>
-    ///  Determines if the date is a public holiday in Victoria.
-    ///  Reference: https://business.vic.gov.au/business-information/public-holidays/victorian-public-holidays-2025
-    /// </summary>
     /// <param name="date">The date to check.</param>
-    public static bool IsVicHoliday(this Date date) =>
-        ForVic(date.Year)
-            .ContainsKey(date);
+    extension(Date date)
+    {
+        /// <summary>
+        ///  Determines if the date is a public holiday in Victoria.
+        ///  Reference: https://business.vic.gov.au/business-information/public-holidays/victorian-public-holidays-2026
+        /// </summary>
+        public bool IsVicHoliday() =>
+            ForVic(date.Year)
+                .ContainsKey(date);
 
-    /// <summary>
-    ///  Determines if the date is a public holiday in Victoria.
-    ///  Reference: https://business.vic.gov.au/business-information/public-holidays/victorian-public-holidays-2025
-    /// </summary>
-    /// <param name="date">The date to check.</param>
-    /// <param name="name">The name of the holiday.</param>
-    public static bool IsVicHoliday(this Date date, [NotNullWhen(true)] out string? name) =>
-        ForVic(date.Year)
-            .TryGetValue(date, out name);
+        /// <summary>
+        ///  Determines if the date is a public holiday in Victoria.
+        ///  Reference: https://business.vic.gov.au/business-information/public-holidays/victorian-public-holidays-2026
+        /// </summary>
+        /// <param name="name">The name of the holiday.</param>
+        public bool IsVicHoliday([NotNullWhen(true)] out string? name) =>
+            ForVic(date.Year)
+                .TryGetValue(date, out name);
+    }
 
     /// <summary>
     /// Gets all public holidays for Victoria for the specified year.
@@ -48,7 +50,11 @@ public static partial class Holidays
             { 2021, (9, 24) },   // Final: Sep 25, 2021 (COVID - played in Perth)
             { 2022, (9, 23) },   // Final: Sep 24, 2022
             { 2023, (9, 29) },   // Final: Sep 30, 2023
-            { 2024, (9, 27) }    // Final: Sep 28, 2024
+            { 2024, (9, 27) },   // Final: Sep 28, 2024
+            { 2025, (9, 26) }    // Final: Sep 26, 2025
+
+            // TODO: 2026 - Friday before AFL Grand Final typically falls on the last Friday in September
+            // awaiting exact date upon release of the 2026 AFL schedule.
         };
 
         if (historicalDates.TryGetValue(year, out var dateInfo))

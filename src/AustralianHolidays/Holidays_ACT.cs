@@ -4,24 +4,26 @@ public static partial class Holidays
 {
     static ConcurrentDictionary<int, FrozenDictionary<Date, string>> actCache;
 
-    /// <summary>
-    ///  Determines if the date is a public holiday in the Australian Capital Territory.
-    ///  Reference: https://www.cmtedd.act.gov.au/communication/holidays
-    /// </summary>
     /// <param name="date">The date to check.</param>
-    public static bool IsActHoliday(this Date date) =>
-        ForAct(date.Year)
-            .ContainsKey(date);
+    extension(Date date)
+    {
+        /// <summary>
+        ///  Determines if the date is a public holiday in the Australian Capital Territory.
+        ///  Reference: https://www.cmtedd.act.gov.au/communication/holidays
+        /// </summary>
+        public bool IsActHoliday() =>
+            ForAct(date.Year)
+                .ContainsKey(date);
 
-    /// <summary>
-    ///  Determines if the date is a public holiday in the Australian Capital Territory.
-    ///  Reference: https://www.cmtedd.act.gov.au/communication/holidays
-    /// </summary>
-    /// <param name="date">The date to check.</param>
-    /// <param name="name">The name of the holiday.</param>
-    public static bool IsActHoliday(this Date date, [NotNullWhen(true)] out string? name) =>
-        ForAct(date.Year)
-            .TryGetValue(date, out name);
+        /// <summary>
+        ///  Determines if the date is a public holiday in the Australian Capital Territory.
+        ///  Reference: https://www.cmtedd.act.gov.au/communication/holidays
+        /// </summary>
+        /// <param name="name">The name of the holiday.</param>
+        public bool IsActHoliday([NotNullWhen(true)] out string? name) =>
+            ForAct(date.Year)
+                .TryGetValue(date, out name);
+    }
 
     /// <summary>
     /// Gets all public holidays for the Australian Capital Territory for the specified year.
@@ -56,14 +58,6 @@ public static partial class Holidays
 
         yield return (Extensions.GetSecondMonday(March, year), "Canberra Day");
 
-        static Date GetReconciliationDay(int year)
-        {
-            var startDate = new Date(year, May, 27);
-            var dayOfWeek = (int)startDate.DayOfWeek;
-            var daysUntilMonday = (8 - dayOfWeek) % 7;
-            return startDate.AddDays(daysUntilMonday);
-        }
-
         yield return (GetReconciliationDay(year), "Reconciliation Day");
 
         var anzacDate = AnzacDayCalculator.GetAnzacDay(year);
@@ -91,6 +85,14 @@ public static partial class Holidays
         foreach (var date in ChristmasCalculator.Get(year))
         {
             yield return date;
+        }
+
+        static Date GetReconciliationDay(int year)
+        {
+            var startDate = new Date(year, May, 27);
+            var dayOfWeek = (int)startDate.DayOfWeek;
+            var daysUntilMonday = (8 - dayOfWeek) % 7;
+            return startDate.AddDays(daysUntilMonday);
         }
     }
 }

@@ -244,7 +244,7 @@ public class Tests
     {
         #region ForYears
 
-        var holidays = Holidays.ForYears(startYear: 2025, yearCount: 2);
+        var holidays = Holidays.ForYears(startYear: 2026, yearCount: 2);
         foreach (var (date, state, name) in holidays)
         {
             Console.WriteLine($"date: {date}, state: {state}, name: {name}");
@@ -258,7 +258,7 @@ public class Tests
     {
         #region ForYearsState
 
-        var holidays = Holidays.ForYears(State.NSW, startYear: 2025, yearCount: 2);
+        var holidays = Holidays.ForYears(State.NSW, startYear: 2026, yearCount: 2);
         foreach (var (date, name) in holidays)
         {
             Console.WriteLine($"date: {date}, name: {name}");
@@ -272,7 +272,7 @@ public class Tests
     {
         #region ForNational
 
-        var holidays = Holidays.ForNational(2025);
+        var holidays = Holidays.ForNational(2026);
         foreach (var (date, name) in holidays)
         {
             Console.WriteLine($"date: {date}, name: {name}");
@@ -286,7 +286,7 @@ public class Tests
     {
         #region ForState
 
-        var holidays = Holidays.ForNsw(2025);
+        var holidays = Holidays.ForNsw(2026);
         foreach (var (date, name) in holidays)
         {
             Console.WriteLine($"date: {date}, name: {name}");
@@ -325,7 +325,7 @@ public class Tests
     {
         #region IsHoliday
 
-        var date = new Date(2024, 12, 25);
+        var date = new Date(2026, 12, 25);
 
         IsTrue(date.IsHoliday(State.NSW));
 
@@ -337,7 +337,7 @@ public class Tests
     {
         #region IsHolidayForStateNamed
 
-        var date = new Date(2024, 12, 25);
+        var date = new Date(2026, 12, 25);
 
         IsTrue(date.IsNswHoliday(out var name));
         AreEqual("Christmas Day", name);
@@ -350,7 +350,7 @@ public class Tests
     {
         #region IsHolidayForState
 
-        var date = new Date(2024, 12, 25);
+        var date = new Date(2026, 12, 25);
 
         IsTrue(date.IsNswHoliday());
 
@@ -362,7 +362,7 @@ public class Tests
     {
         #region IsHolidayNamed
 
-        var date = new Date(2024, 12, 25);
+        var date = new Date(2026, 12, 25);
 
         IsTrue(date.IsHoliday(State.NSW, out var name));
 
@@ -376,7 +376,7 @@ public class Tests
     {
         #region IsFederalGovernmentShutdown
 
-        var date = new Date(2025, 12, 30);
+        var date = new Date(2026, 12, 30);
         var result = date.IsFederalGovernmentShutdown();
 
         IsTrue(result);

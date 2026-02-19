@@ -4,22 +4,24 @@ public static partial class Holidays
 {
     static ConcurrentDictionary<int, FrozenDictionary<Date, string>> cache;
 
-    /// <summary>
-    ///  Determines if the date is a public holiday in Australian for all states.
-    /// </summary>
     /// <param name="date">The date to check.</param>
-    public static bool IsNationalHoliday(this Date date) =>
-        ForNational(date.Year)
-            .ContainsKey(date);
+    extension(Date date)
+    {
+        /// <summary>
+        ///  Determines if the date is a public holiday in Australian for all states.
+        /// </summary>
+        public bool IsNationalHoliday() =>
+            ForNational(date.Year)
+                .ContainsKey(date);
 
-    /// <summary>
-    ///  Determines if the date is a public holiday in Australian for all states.
-    /// </summary>
-    /// <param name="date">The date to check.</param>
-    /// <param name="name">The name of the holiday.</param>
-    public static bool IsNationalHoliday(this Date date, [NotNullWhen(true)] out string? name) =>
-        ForNational(date.Year)
-            .TryGetValue(date, out name);
+        /// <summary>
+        ///  Determines if the date is a public holiday in Australian for all states.
+        /// </summary>
+        /// <param name="name">The name of the holiday.</param>
+        public bool IsNationalHoliday([NotNullWhen(true)] out string? name) =>
+            ForNational(date.Year)
+                .TryGetValue(date, out name);
+    }
 
     /// <summary>
     /// Gets all public holidays that exist in all states.

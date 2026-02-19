@@ -153,7 +153,7 @@ Determines if a given date is a public holiday in a specified Australian state.
 <!-- snippet: IsHoliday -->
 <a id='snippet-IsHoliday'></a>
 ```cs
-var date = new Date(2024, 12, 25);
+var date = new Date(2026, 12, 25);
 
 IsTrue(date.IsHoliday(State.NSW));
 ```
@@ -168,7 +168,7 @@ Determines if a specific date is a recognized public holiday in a specified stat
 <!-- snippet: IsHolidayNamed -->
 <a id='snippet-IsHolidayNamed'></a>
 ```cs
-var date = new Date(2024, 12, 25);
+var date = new Date(2026, 12, 25);
 
 IsTrue(date.IsHoliday(State.NSW, out var name));
 
@@ -185,7 +185,7 @@ The same as [IsHoliday](#isholiday) but a convenience wrapper named method is pr
 <!-- snippet: IsHolidayForState -->
 <a id='snippet-IsHolidayForState'></a>
 ```cs
-var date = new Date(2024, 12, 25);
+var date = new Date(2026, 12, 25);
 
 IsTrue(date.IsNswHoliday());
 ```
@@ -200,7 +200,7 @@ The same as [IsHoliday with name](#is-state-holiday) but a convenience wrapper n
 <!-- snippet: IsHolidayForStateNamed -->
 <a id='snippet-IsHolidayForStateNamed'></a>
 ```cs
-var date = new Date(2024, 12, 25);
+var date = new Date(2026, 12, 25);
 
 IsTrue(date.IsNswHoliday(out var name));
 AreEqual("Christmas Day", name);
