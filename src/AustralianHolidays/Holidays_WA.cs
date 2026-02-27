@@ -4,22 +4,25 @@ public static partial class Holidays
 {
     static ConcurrentDictionary<int, FrozenDictionary<Date, string>> waCache;
 
-    /// <summary>
-    ///  Determines if the date is a public holiday in Western Australia.
-    ///  Reference: https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia
-    /// </summary>
     /// <param name="date">The date to check.</param>
-    public static bool IsWaHoliday(this Date date) =>
-        ForWa(date.Year)
-            .ContainsKey(date);
+    extension(Date date)
+    {
+        /// <summary>
+        ///  Determines if the date is a public holiday in Western Australia.
+        ///  Reference: https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia
+        /// </summary>
+        public bool IsWaHoliday() =>
+            ForWa(date.Year)
+                .ContainsKey(date);
 
-    /// <summary>
-    ///  Gets all public holidays for  Western Australia.
-    ///  Reference: https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia
-    /// </summary>
-    public static bool IsWaHoliday(this Date date, [NotNullWhen(true)] out string? name) =>
-        ForWa(date.Year)
-            .TryGetValue(date, out name);
+        /// <summary>
+        ///  Gets all public holidays for  Western Australia.
+        ///  Reference: https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia
+        /// </summary>
+        public bool IsWaHoliday([NotNullWhen(true)] out string? name) =>
+            ForWa(date.Year)
+                .TryGetValue(date, out name);
+    }
 
     /// <summary>
     /// Gets all public holidays for Western Australia for the specified year.

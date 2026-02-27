@@ -4,24 +4,26 @@ public static partial class Holidays
 {
     static ConcurrentDictionary<int, FrozenDictionary<Date, string>> tasCache;
 
-    /// <summary>
-    ///  Determines if the date is a public holiday in Tasmania.
-    ///  Reference: https://worksafe.tas.gov.au/topics/laws-and-compliance/public-holidays
-    /// </summary>
     /// <param name="date">The date to check.</param>
-    public static bool IsTasHoliday(this Date date) =>
-        ForTas(date.Year)
-            .ContainsKey(date);
+    extension(Date date)
+    {
+        /// <summary>
+        ///  Determines if the date is a public holiday in Tasmania.
+        ///  Reference: https://worksafe.tas.gov.au/topics/laws-and-compliance/public-holidays
+        /// </summary>
+        public bool IsTasHoliday() =>
+            ForTas(date.Year)
+                .ContainsKey(date);
 
-    /// <summary>
-    ///  Determines if the date is a public holiday in Tasmania.
-    ///  Reference: https://worksafe.tas.gov.au/topics/laws-and-compliance/public-holidays
-    /// </summary>
-    /// <param name="date">The date to check.</param>
-    /// <param name="name">The name of the holiday.</param>
-    public static bool IsTasHoliday(this Date date, [NotNullWhen(true)] out string? name) =>
-        ForTas(date.Year)
-            .TryGetValue(date, out name);
+        /// <summary>
+        ///  Determines if the date is a public holiday in Tasmania.
+        ///  Reference: https://worksafe.tas.gov.au/topics/laws-and-compliance/public-holidays
+        /// </summary>
+        /// <param name="name">The name of the holiday.</param>
+        public bool IsTasHoliday([NotNullWhen(true)] out string? name) =>
+            ForTas(date.Year)
+                .TryGetValue(date, out name);
+    }
 
     /// <summary>
     ///  Gets all public holidays for Tasmania for the specified year.

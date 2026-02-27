@@ -4,24 +4,26 @@ public static partial class Holidays
 {
     static ConcurrentDictionary<int, FrozenDictionary<Date, string>> nswCache;
 
-    /// <summary>
-    ///  Determines if the date is a public holiday in the New South Wales.
-    ///  Reference: https://www.nsw.gov.au/about-nsw/public-holidays
-    /// </summary>
     /// <param name="date">The date to check.</param>
-    public static bool IsNswHoliday(this Date date) =>
-        ForNsw(date.Year)
-            .ContainsKey(date);
+    extension(Date date)
+    {
+        /// <summary>
+        ///  Determines if the date is a public holiday in the New South Wales.
+        ///  Reference: https://www.nsw.gov.au/about-nsw/public-holidays
+        /// </summary>
+        public bool IsNswHoliday() =>
+            ForNsw(date.Year)
+                .ContainsKey(date);
 
-    /// <summary>
-    ///  Determines if the date is a public holiday in the New South Wales.
-    ///  Reference: https://www.nsw.gov.au/about-nsw/public-holidays
-    /// </summary>
-    /// <param name="date">The date to check.</param>
-    /// <param name="name">The name of the holiday.</param>
-    public static bool IsNswHoliday(this Date date, [NotNullWhen(true)] out string? name) =>
-        ForNsw(date.Year)
-            .TryGetValue(date, out name);
+        /// <summary>
+        ///  Determines if the date is a public holiday in the New South Wales.
+        ///  Reference: https://www.nsw.gov.au/about-nsw/public-holidays
+        /// </summary>
+        /// <param name="name">The name of the holiday.</param>
+        public bool IsNswHoliday([NotNullWhen(true)] out string? name) =>
+            ForNsw(date.Year)
+                .TryGetValue(date, out name);
+    }
 
     /// <summary>
     ///  Gets all public holidays for New South Wales for the specified year.
