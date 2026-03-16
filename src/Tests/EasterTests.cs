@@ -61,7 +61,7 @@ public class EasterTests
     public void IsEasterFriday_InvalidDates()
     {
         // Test day before Easter Friday
-        var dayBefore = EasterCalculator.GetEasterFriday(2025).AddDays(-1);
+        var dayBefore = EasterCalculator.GetEasterFriday(2026).AddDays(-1);
         IsFalse(dayBefore.IsEasterFriday());
 
         // Test day after Easter Friday
