@@ -4,24 +4,26 @@ public static partial class Holidays
 {
     static ConcurrentDictionary<int, FrozenDictionary<Date, string>> ntCache;
 
-    /// <summary>
-    ///  Determines if the date is a public holiday in the Northern Territory.
-    ///  Reference: https://nt.gov.au/nt-public-holidays
-    /// </summary>
     /// <param name="date">The date to check.</param>
-    public static bool IsNtHoliday(this Date date) =>
-        ForNt(date.Year)
-            .ContainsKey(date);
+    extension(Date date)
+    {
+        /// <summary>
+        ///  Determines if the date is a public holiday in the Northern Territory.
+        ///  Reference: https://nt.gov.au/nt-public-holidays
+        /// </summary>
+        public bool IsNtHoliday() =>
+            ForNt(date.Year)
+                .ContainsKey(date);
 
-    /// <summary>
-    ///  Determines if the date is a public holiday in the Northern Territory.
-    ///  Reference: https://nt.gov.au/nt-public-holidays
-    /// </summary>
-    /// <param name="date">The date to check.</param>
-    /// <param name="name">The name of the holiday.</param>
-    public static bool IsNtHoliday(this Date date, [NotNullWhen(true)] out string? name) =>
-        ForNt(date.Year)
-            .TryGetValue(date, out name);
+        /// <summary>
+        ///  Determines if the date is a public holiday in the Northern Territory.
+        ///  Reference: https://nt.gov.au/nt-public-holidays
+        /// </summary>
+        /// <param name="name">The name of the holiday.</param>
+        public bool IsNtHoliday([NotNullWhen(true)] out string? name) =>
+            ForNt(date.Year)
+                .TryGetValue(date, out name);
+    }
 
     /// <summary>
     ///  Gets all public holidays for the Northern Territory for the specified year.
