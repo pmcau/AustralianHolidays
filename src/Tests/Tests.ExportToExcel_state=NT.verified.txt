@@ -1,6 +1,18 @@
 ﻿{
-  SheetNames: [
-    Holidays
+  Sheets: [
+    {
+      Name: Holidays,
+      Columns: [
+        {
+          Name: Date,
+          Width: 14.0
+        },
+        {
+          Name: Name,
+          Width: 70.0
+        }
+      ]
+    }
   ],
   WorksheetCount: 1
 }
