@@ -5,15 +5,21 @@
       Columns: [
         {
           Name: Date,
-          Width: 14.0
+          Width: 14.0,
+          ContainsRichText: false,
+          RequiredHighlight: false
         },
         {
           Name: State,
-          Width: 8.0
+          Width: 8.0,
+          ContainsRichText: false,
+          RequiredHighlight: false
         },
         {
           Name: Name,
-          Width: 70.0
+          Width: 70.0,
+          ContainsRichText: false,
+          RequiredHighlight: false
         }
       ]
     }
