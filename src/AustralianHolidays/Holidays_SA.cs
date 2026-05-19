@@ -4,24 +4,26 @@ public static partial class Holidays
 {
     static ConcurrentDictionary<int, FrozenDictionary<Date, string>> saCache;
 
-    /// <summary>
-    ///  Determines if the date is a public holiday in South Australia.
-    ///  Reference: https://www.safework.sa.gov.au/resources/public-holidays
-    /// </summary>
     /// <param name="date">The date to check.</param>
-    public static bool IsSaHoliday(this Date date) =>
-        ForSa(date.Year)
-            .ContainsKey(date);
+    extension(Date date)
+    {
+        /// <summary>
+        ///  Determines if the date is a public holiday in South Australia.
+        ///  Reference: https://www.safework.sa.gov.au/resources/public-holidays
+        /// </summary>
+        public bool IsSaHoliday() =>
+            ForSa(date.Year)
+                .ContainsKey(date);
 
-    /// <summary>
-    ///  Determines if the date is a public holiday in South Australia.
-    ///  Reference: https://www.safework.sa.gov.au/resources/public-holidays
-    /// </summary>
-    /// <param name="date">The date to check.</param>
-    /// <param name="name">The name of the holiday.</param>
-    public static bool IsSaHoliday(this Date date, [NotNullWhen(true)] out string? name) =>
-        ForSa(date.Year)
-            .TryGetValue(date, out name);
+        /// <summary>
+        ///  Determines if the date is a public holiday in South Australia.
+        ///  Reference: https://www.safework.sa.gov.au/resources/public-holidays
+        /// </summary>
+        /// <param name="name">The name of the holiday.</param>
+        public bool IsSaHoliday([NotNullWhen(true)] out string? name) =>
+            ForSa(date.Year)
+                .TryGetValue(date, out name);
+    }
 
     /// <summary>
     ///  Gets all public holidays for South Australia for the specified year.

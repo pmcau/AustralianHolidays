@@ -14,17 +14,20 @@ public static class EasterCalculator
     public static Date GetEasterMonday(int year) =>
         GetEasterSunday(year).AddDays(1);
 
-    public static bool IsEasterMonday(this Date date) =>
-        GetEasterMonday(date.Year) == date;
-
     public static Date GetEasterFriday(int year) =>
         GetEasterSunday(year).AddDays(-2);
 
-    public static bool IsEasterFriday(this Date date) =>
-        GetEasterFriday(date.Year) == date;
+    extension(Date date)
+    {
+        public bool IsEasterFriday() =>
+            GetEasterFriday(date.Year) == date;
 
-    public static bool IsEasterSunday(this Date date) =>
-        GetEasterSunday(date.Year) == date;
+        public bool IsEasterSunday() =>
+            GetEasterSunday(date.Year) == date;
+
+        public bool IsEasterMonday() =>
+            GetEasterMonday(date.Year) == date;
+    }
 
     // Computus algorithm - calculates Easter Sunday using astronomical/calendar calculations
     static Date GetEasterSunday(int year)

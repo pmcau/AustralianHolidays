@@ -116,7 +116,7 @@ public static partial class Holidays
         await writer.WriteLineAsync("END:VCALENDAR");
     }
 
-    static readonly int AllStatesCount = Enum.GetValues<State>().Length;
+    static readonly int allStatesCount = Enum.GetValues<State>().Length;
 
     static async Task ToIcsMultiState(TextWriter writer, IEnumerable<(Date date, State state, string name)> forYears)
     {
@@ -138,7 +138,7 @@ public static partial class Holidays
             string summary;
             string uid;
 
-            if (states.Count == AllStatesCount)
+            if (states.Count == allStatesCount)
             {
                 // All states have this holiday - no suffix needed
                 summary = name;
