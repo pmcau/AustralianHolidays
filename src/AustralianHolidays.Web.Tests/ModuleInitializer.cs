@@ -5,8 +5,7 @@ static class ModuleInitializer
     {
         VerifyDiffPlex.Initialize(OutputType.Compact);
         VerifyPlaywright.Initialize(installPlaywright: true);
-        VerifyImageMagick.Initialize();
-        VerifyImageMagick.RegisterComparers(.4);
+        VerifierSettings.UseSsimForPng();
         VerifierSettings.InitializePlugins();
     }
 }

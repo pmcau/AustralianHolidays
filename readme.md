@@ -31,7 +31,7 @@
  * [Queensland](https://www.qld.gov.au/recreation/travel/holidays/public)
  * [South Australia](https://www.safework.sa.gov.au/resources/public-holidays)
  * [Tasmania](https://worksafe.tas.gov.au/topics/laws-and-compliance/public-holidays)
- * [Victoria](https://business.vic.gov.au/business-information/public-holidays/victorian-public-holidays-2026)
+ * [Victoria](https://business.vic.gov.au/business-information/public-holidays/victorian-public-holidays-2025)
  * [Western Australia](https://www.wa.gov.au/service/employment/workplace-arrangements/public-holidays-western-australia)
 
 

@@ -9,7 +9,7 @@ public class HolidayServiceTests
     public void Usage()
     {
         var holidayService = new HolidayService(TimeProvider.System);
-        var holidays = holidayService.ForYears(startYear: 2025, yearCount: 2);
+        var holidays = holidayService.ForYears(startYear: 2026, yearCount: 2);
         foreach (var (date, state, name) in holidays)
         {
             Console.WriteLine($"date: {date}, state: {state}, name: {name}");
@@ -37,7 +37,7 @@ public class HolidayServiceTests
     {
         public void WriteHolidays()
         {
-            var holidays = holidayService.ForYears(startYear: 2025, yearCount: 2);
+            var holidays = holidayService.ForYears(startYear: 2026, yearCount: 2);
             foreach (var (date, state, name) in holidays)
             {
                 Console.WriteLine($"date: {date}, state: {state}, name: {name}");
