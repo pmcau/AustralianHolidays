@@ -89,7 +89,7 @@
             endDate = new Date(maxYear, 12, 31);
         }
 
-        (startYear, yearCount) = global::HolidayFilterService.GetExportYearRange(startDate, endDate);
+        (startYear, yearCount) = HolidayFilterService.GetExportYearRange(startDate, endDate);
     }
 
     void LoadHolidays()
