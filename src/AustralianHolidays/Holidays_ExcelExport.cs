@@ -51,6 +51,7 @@ public static partial class Holidays
     /// <param name="state">The Australian state to export holidays for.</param>
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    /// <param name="cancel">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
     public static Task ExportToExcel(Stream stream, State state, int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
         var forYears = ForYears(state, startYear, yearCount);
@@ -77,6 +78,7 @@ public static partial class Holidays
     /// <param name="state">The Australian state to export holidays for.</param>
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    /// <param name="cancel">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
     public static async Task ExportToExcel(string path, State state, int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
         await using var stream = File.Create(path);
@@ -105,6 +107,7 @@ public static partial class Holidays
     /// <param name="states">The Australian states to export holidays for.</param>
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    /// <param name="cancel">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
     public static Task ExportToExcel(Stream stream, IEnumerable<State> states, int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
         var stateSet = states as IReadOnlySet<State> ?? states.ToHashSet();

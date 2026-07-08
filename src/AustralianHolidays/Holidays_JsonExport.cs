@@ -1,5 +1,3 @@
-using System.Text.Json;
-
 namespace AustralianHolidays;
 
 public static partial class Holidays
@@ -75,6 +73,7 @@ public static partial class Holidays
     /// <param name="path">The file path where the JSON data will be written.</param>
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    /// <param name="cancel">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
     public static async Task ExportToJson(string path, int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
         await using var writer = File.CreateText(path);
@@ -137,6 +136,7 @@ public static partial class Holidays
     /// <param name="states">The Australian states to export holidays for.</param>
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    /// <param name="cancel">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
     public static async Task ExportToJson(string path, IEnumerable<State> states, int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
         await using var writer = File.CreateText(path);

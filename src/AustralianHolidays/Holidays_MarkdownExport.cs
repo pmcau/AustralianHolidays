@@ -26,6 +26,7 @@ public static partial class Holidays
     /// <param name="writer">The TextWriter to write the Markdown output to.</param>
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    /// <param name="cancel">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
     public static Task ExportToMarkdown(TextWriter writer, int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
         var years = BuildYears(startYear);
@@ -141,7 +142,7 @@ public static partial class Holidays
                 await writer.WriteAsync(" | ", cancel);
             }
 
-            await writer.WriteLineAsync();
+            await writer.WriteLineAsync(cancel);
         }
     }
 
@@ -154,7 +155,7 @@ public static partial class Holidays
 
         foreach (var (date, state, name) in forYears)
         {
-            await writer.WriteLineAsync($"| {date.ToString("yyyy-MM-dd")} | {state} | {name} |", cancel);
+            await writer.WriteLineAsync($"| {date:yyyy-MM-dd} | {state} | {name} |", cancel);
         }
     }
 }

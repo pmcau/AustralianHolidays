@@ -7,6 +7,7 @@ public static partial class Holidays
     /// </summary>
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    /// <param name="cancel">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
     /// <returns>A string containing the XML-formatted holiday data.</returns>
     public static async Task<string> ExportToXml(int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
@@ -25,6 +26,7 @@ public static partial class Holidays
     /// <param name="writer">The TextWriter to write the XML output to.</param>
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    /// <param name="cancel">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
     public static Task ExportToXml(TextWriter writer, int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
         var forYears = NationalForYears(startYear, yearCount);
@@ -37,6 +39,7 @@ public static partial class Holidays
     /// <param name="state">The Australian state to export holidays for.</param>
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    /// <param name="cancel">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
     /// <returns>A string containing the XML-formatted holiday data.</returns>
     public static async Task<string> ExportToXml(State state, int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
@@ -133,6 +136,7 @@ public static partial class Holidays
     /// <param name="states">The Australian states to export holidays for.</param>
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    /// <param name="cancel">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
     public static async Task ExportToXml(string path, IEnumerable<State> states, int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
         await using var writer = File.CreateText(path);

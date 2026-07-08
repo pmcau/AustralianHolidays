@@ -74,6 +74,7 @@ public static partial class Holidays
     /// <param name="states">The Australian states to export holidays for.</param>
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    /// <param name="cancel">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
     /// <returns>A string containing the ICS-formatted calendar data with state information.</returns>
     public static async Task<string> ExportToIcs(IEnumerable<State> states, int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
@@ -105,17 +106,17 @@ public static partial class Holidays
     static async Task ToIcs(TextWriter writer, State? state, IOrderedEnumerable<(Date date, string name)> forYears, Cancel cancel)
     {
         writer.NewLine = "\r\n";
-        await writer.WriteLineAsync("BEGIN:VCALENDAR");
-        await writer.WriteLineAsync("VERSION:2.0");
+        await writer.WriteLineAsync("BEGIN:VCALENDAR", cancel);
+        await writer.WriteLineAsync("VERSION:2.0", cancel);
 
         foreach (var item in forYears)
         {
-            await writer.WriteLineAsync("BEGIN:VEVENT");
+            await writer.WriteLineAsync("BEGIN:VEVENT", cancel);
             await writer.WriteLineAsync($"SUMMARY:{item.name}");
-            await writer.WriteLineAsync($"UID:{item.date:yyyyMMdd}_{item.name}_{state}@AustralianHolidays");
-            await writer.WriteLineAsync($"DTSTART;VALUE=DATE:{item.date:yyyyMMdd}");
-            await writer.WriteLineAsync($"DTEND;VALUE=DATE:{item.date.AddDays(1):yyyyMMdd}");
-            await writer.WriteLineAsync("END:VEVENT");
+            await writer.WriteLineAsync($"UID:{item.date:yyyyMMdd}_{item.name}_{state}@AustralianHolidays", cancel);
+            await writer.WriteLineAsync($"DTSTART;VALUE=DATE:{item.date:yyyyMMdd}", cancel);
+            await writer.WriteLineAsync($"DTEND;VALUE=DATE:{item.date.AddDays(1):yyyyMMdd}", cancel);
+            await writer.WriteLineAsync("END:VEVENT", cancel);
         }
 
         await writer.WriteLineAsync("END:VCALENDAR", cancel);

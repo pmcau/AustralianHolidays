@@ -39,6 +39,7 @@ public static partial class Holidays
     /// <param name="state">The Australian state to export holidays for.</param>
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    /// <param name="cancel">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
     /// <returns>A string containing the CSV-formatted holiday data with Date and Name columns.</returns>
     public static async Task<string> ExportToCsv(State state, int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
