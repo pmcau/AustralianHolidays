@@ -403,6 +403,41 @@ foreach (var (start, end, name) in holidays)
 <!-- endSnippet -->
 
 
+### Export
+
+School holidays can be exported to the same formats as public holidays: Markdown, CSV, JSON, XML, iCalendar (ICS), and Excel. Because school calendars are set per state, an export takes a single state or a set of states; passing no state exports all states combined. Each period is exported as a date range (start and end) named for its season. The requested year range is clamped to the years for which data is available, so a range that extends past the available data returns only the covered years rather than throwing.
+
+Export the New South Wales school holidays to an iCalendar (`.ics`) file, where each break is a multi-day event that can be subscribed to:
+
+<!-- snippet: SchoolExportToIcs -->
+<a id='snippet-SchoolExportToIcs'></a>
+```cs
+var ics = await SchoolHolidays.ExportToIcs(State.NSW, startYear: 2025);
+```
+<sup><a href='/src/Tests/SchoolHolidaysExportTests.cs#L39-L43' title='Snippet source file'>snippet source</a> | <a href='#snippet-SchoolExportToIcs' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+Export to CSV:
+
+<!-- snippet: SchoolExportToCsv -->
+<a id='snippet-SchoolExportToCsv'></a>
+```cs
+var csv = await SchoolHolidays.ExportToCsv(State.NSW, startYear: 2025);
+```
+<sup><a href='/src/Tests/SchoolHolidaysExportTests.cs#L65-L69' title='Snippet source file'>snippet source</a> | <a href='#snippet-SchoolExportToCsv' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+Export to a Markdown table (a row per season, a column per year):
+
+<!-- snippet: SchoolExportToMarkdown -->
+<a id='snippet-SchoolExportToMarkdown'></a>
+```cs
+var markdown = await SchoolHolidays.ExportToMarkdown(State.NSW, startYear: 2025);
+```
+<sup><a href='/src/Tests/SchoolHolidaysExportTests.cs#L13-L17' title='Snippet source file'>snippet source</a> | <a href='#snippet-SchoolExportToMarkdown' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
 ### School term official sources
 
  * [Australian Capital Territory](https://www.act.gov.au/living-in-the-act/public-holidays-school-terms-and-daylight-saving)

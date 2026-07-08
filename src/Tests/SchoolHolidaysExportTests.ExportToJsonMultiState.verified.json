@@ -1,0 +1,194 @@
+﻿[
+  {
+    "start": "2025-01-01",
+    "end": "2025-02-05",
+    "state": "NSW",
+    "name": "Summer"
+  },
+  {
+    "start": "2025-01-01",
+    "end": "2025-01-28",
+    "state": "VIC",
+    "name": "Summer"
+  },
+  {
+    "start": "2025-04-05",
+    "end": "2025-04-21",
+    "state": "VIC",
+    "name": "Autumn"
+  },
+  {
+    "start": "2025-04-12",
+    "end": "2025-04-29",
+    "state": "NSW",
+    "name": "Autumn"
+  },
+  {
+    "start": "2025-07-05",
+    "end": "2025-07-21",
+    "state": "NSW",
+    "name": "Winter"
+  },
+  {
+    "start": "2025-07-05",
+    "end": "2025-07-20",
+    "state": "VIC",
+    "name": "Winter"
+  },
+  {
+    "start": "2025-09-20",
+    "end": "2025-10-05",
+    "state": "VIC",
+    "name": "Spring"
+  },
+  {
+    "start": "2025-09-27",
+    "end": "2025-10-13",
+    "state": "NSW",
+    "name": "Spring"
+  },
+  {
+    "start": "2025-12-20",
+    "end": "2026-02-01",
+    "state": "NSW",
+    "name": "Summer"
+  },
+  {
+    "start": "2025-12-20",
+    "end": "2026-01-27",
+    "state": "VIC",
+    "name": "Summer"
+  },
+  {
+    "start": "2026-04-03",
+    "end": "2026-04-21",
+    "state": "NSW",
+    "name": "Autumn"
+  },
+  {
+    "start": "2026-04-03",
+    "end": "2026-04-19",
+    "state": "VIC",
+    "name": "Autumn"
+  },
+  {
+    "start": "2026-06-27",
+    "end": "2026-07-12",
+    "state": "VIC",
+    "name": "Winter"
+  },
+  {
+    "start": "2026-07-04",
+    "end": "2026-07-20",
+    "state": "NSW",
+    "name": "Winter"
+  },
+  {
+    "start": "2026-09-19",
+    "end": "2026-10-04",
+    "state": "VIC",
+    "name": "Spring"
+  },
+  {
+    "start": "2026-09-26",
+    "end": "2026-10-12",
+    "state": "NSW",
+    "name": "Spring"
+  },
+  {
+    "start": "2026-12-18",
+    "end": "2027-02-02",
+    "state": "NSW",
+    "name": "Summer"
+  },
+  {
+    "start": "2026-12-19",
+    "end": "2027-01-27",
+    "state": "VIC",
+    "name": "Summer"
+  },
+  {
+    "start": "2027-03-26",
+    "end": "2027-04-11",
+    "state": "VIC",
+    "name": "Autumn"
+  },
+  {
+    "start": "2027-04-10",
+    "end": "2027-04-28",
+    "state": "NSW",
+    "name": "Autumn"
+  },
+  {
+    "start": "2027-06-26",
+    "end": "2027-07-11",
+    "state": "VIC",
+    "name": "Winter"
+  },
+  {
+    "start": "2027-07-03",
+    "end": "2027-07-19",
+    "state": "NSW",
+    "name": "Winter"
+  },
+  {
+    "start": "2027-09-18",
+    "end": "2027-10-03",
+    "state": "VIC",
+    "name": "Spring"
+  },
+  {
+    "start": "2027-09-25",
+    "end": "2027-10-11",
+    "state": "NSW",
+    "name": "Spring"
+  },
+  {
+    "start": "2027-12-18",
+    "end": "2028-01-27",
+    "state": "VIC",
+    "name": "Summer"
+  },
+  {
+    "start": "2028-04-01",
+    "end": "2028-04-17",
+    "state": "VIC",
+    "name": "Autumn"
+  },
+  {
+    "start": "2028-07-01",
+    "end": "2028-07-16",
+    "state": "VIC",
+    "name": "Winter"
+  },
+  {
+    "start": "2028-09-23",
+    "end": "2028-10-08",
+    "state": "VIC",
+    "name": "Spring"
+  },
+  {
+    "start": "2028-12-22",
+    "end": "2029-01-29",
+    "state": "VIC",
+    "name": "Summer"
+  },
+  {
+    "start": "2029-03-30",
+    "end": "2029-04-15",
+    "state": "VIC",
+    "name": "Autumn"
+  },
+  {
+    "start": "2029-06-30",
+    "end": "2029-07-15",
+    "state": "VIC",
+    "name": "Winter"
+  },
+  {
+    "start": "2029-09-22",
+    "end": "2029-10-07",
+    "state": "VIC",
+    "name": "Spring"
+  }
+]

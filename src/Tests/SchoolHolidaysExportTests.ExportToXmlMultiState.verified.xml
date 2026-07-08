@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<SchoolHolidays>
+  <Holiday Start="2025-01-01" End="2025-02-05" State="NSW" Name="Summer" />
+  <Holiday Start="2025-01-01" End="2025-01-28" State="VIC" Name="Summer" />
+  <Holiday Start="2025-04-05" End="2025-04-21" State="VIC" Name="Autumn" />
+  <Holiday Start="2025-04-12" End="2025-04-29" State="NSW" Name="Autumn" />
+  <Holiday Start="2025-07-05" End="2025-07-21" State="NSW" Name="Winter" />
+  <Holiday Start="2025-07-05" End="2025-07-20" State="VIC" Name="Winter" />
+  <Holiday Start="2025-09-20" End="2025-10-05" State="VIC" Name="Spring" />
+  <Holiday Start="2025-09-27" End="2025-10-13" State="NSW" Name="Spring" />
+  <Holiday Start="2025-12-20" End="2026-02-01" State="NSW" Name="Summer" />
+  <Holiday Start="2025-12-20" End="2026-01-27" State="VIC" Name="Summer" />
+  <Holiday Start="2026-04-03" End="2026-04-21" State="NSW" Name="Autumn" />
+  <Holiday Start="2026-04-03" End="2026-04-19" State="VIC" Name="Autumn" />
+  <Holiday Start="2026-06-27" End="2026-07-12" State="VIC" Name="Winter" />
+  <Holiday Start="2026-07-04" End="2026-07-20" State="NSW" Name="Winter" />
+  <Holiday Start="2026-09-19" End="2026-10-04" State="VIC" Name="Spring" />
+  <Holiday Start="2026-09-26" End="2026-10-12" State="NSW" Name="Spring" />
+  <Holiday Start="2026-12-18" End="2027-02-02" State="NSW" Name="Summer" />
+  <Holiday Start="2026-12-19" End="2027-01-27" State="VIC" Name="Summer" />
+  <Holiday Start="2027-03-26" End="2027-04-11" State="VIC" Name="Autumn" />
+  <Holiday Start="2027-04-10" End="2027-04-28" State="NSW" Name="Autumn" />
+  <Holiday Start="2027-06-26" End="2027-07-11" State="VIC" Name="Winter" />
+  <Holiday Start="2027-07-03" End="2027-07-19" State="NSW" Name="Winter" />
+  <Holiday Start="2027-09-18" End="2027-10-03" State="VIC" Name="Spring" />
+  <Holiday Start="2027-09-25" End="2027-10-11" State="NSW" Name="Spring" />
+  <Holiday Start="2027-12-18" End="2028-01-27" State="VIC" Name="Summer" />
+  <Holiday Start="2028-04-01" End="2028-04-17" State="VIC" Name="Autumn" />
+  <Holiday Start="2028-07-01" End="2028-07-16" State="VIC" Name="Winter" />
+  <Holiday Start="2028-09-23" End="2028-10-08" State="VIC" Name="Spring" />
+  <Holiday Start="2028-12-22" End="2029-01-29" State="VIC" Name="Summer" />
+  <Holiday Start="2029-03-30" End="2029-04-15" State="VIC" Name="Autumn" />
+  <Holiday Start="2029-06-30" End="2029-07-15" State="VIC" Name="Winter" />
+  <Holiday Start="2029-09-22" End="2029-10-07" State="VIC" Name="Spring" />
+</SchoolHolidays>

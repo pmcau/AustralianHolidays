@@ -161,6 +161,47 @@ public static partial class SchoolHolidays
             .Order()
             .ToList();
 
+    /// <summary>
+    /// Enumerates the school holiday (vacation) periods for a state across a range of years, ordered by
+    /// start date. Years outside the available data are skipped rather than throwing, so the range can
+    /// safely extend past the covered years.
+    /// </summary>
+    internal static IOrderedEnumerable<(Date start, Date end, string name)> HolidaysForYears(State state, int? startYear, int yearCount)
+    {
+        var first = startYear ?? DateTime.Now.Year;
+        var data = TermData(state);
+        List<(Date start, Date end, string name)> list = [];
+        for (var year = first; year <= first + yearCount - 1; year++)
+        {
+            if (!data.ContainsKey(year))
+            {
+                continue;
+            }
+
+            list.AddRange(GetHolidays(state, year));
+        }
+
+        return list.OrderBy(_ => _.start);
+    }
+
+    /// <summary>
+    /// Enumerates the school holiday (vacation) periods for all states across a range of years, ordered
+    /// by start date, tagging each period with its state.
+    /// </summary>
+    internal static IOrderedEnumerable<(Date start, Date end, State state, string name)> HolidaysForYears(int? startYear, int yearCount)
+    {
+        List<(Date start, Date end, State state, string name)> list = [];
+        foreach (var state in Enum.GetValues<State>())
+        {
+            foreach (var (start, end, name) in HolidaysForYears(state, startYear, yearCount))
+            {
+                list.Add((start, end, state, name));
+            }
+        }
+
+        return list.OrderBy(_ => _.start);
+    }
+
     static (Date start, Date end)[] TermsForYear(State state, int year)
     {
         var data = TermData(state);

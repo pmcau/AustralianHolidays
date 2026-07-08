@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-16"?>
+<SchoolHolidays State="NSW">
+  <Holiday Start="2025-01-01" End="2025-02-05" Name="Summer" />
+  <Holiday Start="2025-04-12" End="2025-04-29" Name="Autumn" />
+  <Holiday Start="2025-07-05" End="2025-07-21" Name="Winter" />
+  <Holiday Start="2025-09-27" End="2025-10-13" Name="Spring" />
+  <Holiday Start="2025-12-20" End="2026-02-01" Name="Summer" />
+  <Holiday Start="2026-04-03" End="2026-04-21" Name="Autumn" />
+  <Holiday Start="2026-07-04" End="2026-07-20" Name="Winter" />
+  <Holiday Start="2026-09-26" End="2026-10-12" Name="Spring" />
+  <Holiday Start="2026-12-18" End="2027-02-02" Name="Summer" />
+  <Holiday Start="2027-04-10" End="2027-04-28" Name="Autumn" />
+  <Holiday Start="2027-07-03" End="2027-07-19" Name="Winter" />
+  <Holiday Start="2027-09-25" End="2027-10-11" Name="Spring" />
+</SchoolHolidays>
