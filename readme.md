@@ -306,6 +306,115 @@ AreEqual(new Date(2025, 1, 1), end);
 <!-- endSnippet -->
 
 
+## School Holidays
+
+School term and holiday dates for Australian **government** schools.
+
+Unlike public holidays, school term dates cannot be calculated. They are set administratively by each state and territory education department and published year by year, so they are stored as data sourced from official calendars and are only available for a bounded range of years (currently 2025 onwards, extending to 2027–2030 depending on the state).
+
+Each year has four terms; the school holidays are the vacation periods between them (`Autumn`, `Winter`, `Spring`) plus the `Summer` break that spans the new year into Term 1.
+
+**Notes:**
+
+- Dates are for government (public) schools. Non-government (Catholic/independent) schools can differ.
+- Term start is the first day students attend; preceding staff/curriculum/pupil-free days count as part of the break.
+- New South Wales uses the Eastern Division calendar. Western Division "late-start" schools begin Term 1 about a week later.
+- A `Date` inside a school term (including term-time weekends) is not a school holiday. Years outside the available data return `false` from `IsSchoolHoliday`, and throw from `GetTerms`/`GetHolidays`.
+
+
+### IsSchoolHoliday
+
+Determines if a date falls within a government school holiday period for a state.
+
+<!-- snippet: IsSchoolHoliday -->
+<a id='snippet-IsSchoolHoliday'></a>
+```cs
+var date = new Date(2026, 4, 10);
+
+IsTrue(date.IsSchoolHoliday(State.NSW));
+```
+<sup><a href='/src/Tests/SchoolHolidaysTests.cs#L104-L110' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsSchoolHoliday' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
+#### With name
+
+Also gets the name of the holiday period (`Summer`, `Autumn`, `Winter` or `Spring`).
+
+<!-- snippet: IsSchoolHolidayNamed -->
+<a id='snippet-IsSchoolHolidayNamed'></a>
+```cs
+var date = new Date(2026, 4, 10);
+
+IsTrue(date.IsSchoolHoliday(State.NSW, out var name));
+
+AreEqual("Autumn", name);
+```
+<sup><a href='/src/Tests/SchoolHolidaysTests.cs#L116-L124' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsSchoolHolidayNamed' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
+#### For a state
+
+A convenience wrapper named method is provided for each state.
+
+<!-- snippet: IsSchoolHolidayForState -->
+<a id='snippet-IsSchoolHolidayForState'></a>
+```cs
+var date = new Date(2026, 4, 10);
+
+IsTrue(date.IsNswSchoolHoliday());
+```
+<sup><a href='/src/Tests/SchoolHolidaysTests.cs#L130-L136' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsSchoolHolidayForState' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
+### GetTerms
+
+Gets the four school terms (number, start and end) for a state and year.
+
+<!-- snippet: GetSchoolTerms -->
+<a id='snippet-GetSchoolTerms'></a>
+```cs
+var terms = SchoolHolidays.GetTerms(State.NSW, 2026);
+foreach (var (number, start, end) in terms)
+{
+    Console.WriteLine($"Term {number}: {start} - {end}");
+}
+```
+<sup><a href='/src/Tests/SchoolHolidaysTests.cs#L142-L150' title='Snippet source file'>snippet source</a> | <a href='#snippet-GetSchoolTerms' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
+### GetHolidays
+
+Gets the school holiday (vacation) periods for a state and year.
+
+<!-- snippet: GetSchoolHolidays -->
+<a id='snippet-GetSchoolHolidays'></a>
+```cs
+var holidays = SchoolHolidays.GetHolidays(State.NSW, 2026);
+foreach (var (start, end, name) in holidays)
+{
+    Console.WriteLine($"{name}: {start} - {end}");
+}
+```
+<sup><a href='/src/Tests/SchoolHolidaysTests.cs#L158-L166' title='Snippet source file'>snippet source</a> | <a href='#snippet-GetSchoolHolidays' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
+### School term official sources
+
+ * [Australian Capital Territory](https://www.act.gov.au/living-in-the-act/public-holidays-school-terms-and-daylight-saving)
+ * [New South Wales](https://education.nsw.gov.au/schooling/calendars)
+ * [Northern Territory](https://nt.gov.au/learning/primary-and-secondary-students/school-term-dates-in-nt)
+ * [Queensland](https://education.qld.gov.au/about-us/calendar/future-dates)
+ * [South Australia](https://www.education.sa.gov.au/students/term-dates-south-australian-state-schools)
+ * [Tasmania](https://www.decyp.tas.gov.au/learning/term-dates/)
+ * [Victoria](https://www.vic.gov.au/school-term-dates-and-holidays-victoria)
+ * [Western Australia](https://www.education.wa.edu.au/future-term-dates)
+
+
 ## ExportToMarkdown
 
 
