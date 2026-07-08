@@ -30,7 +30,7 @@ public static partial class Holidays
     public static Task ExportToXml(TextWriter writer, int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
         var forYears = NationalForYears(startYear, yearCount);
-        return ToXml(writer, null, forYears);
+        return ToXml(writer, null, forYears, cancel);
     }
 
     /// <summary>
@@ -63,7 +63,7 @@ public static partial class Holidays
     public static Task ExportToXml(TextWriter writer, State state, int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
         var forYears = ForYears(state, startYear, yearCount);
-        return ToXml(writer, state, forYears);
+        return ToXml(writer, state, forYears, cancel);
     }
 
     /// <summary>
@@ -126,7 +126,7 @@ public static partial class Holidays
         var forYears = ForYears(startYear, yearCount)
             .Where(_ => stateSet.Count == 0 ||
                         stateSet.Contains(_.state));
-        return ToXmlMultiState(writer, forYears);
+        return ToXmlMultiState(writer, forYears, cancel);
     }
 
     /// <summary>
@@ -143,7 +143,7 @@ public static partial class Holidays
         await ExportToXml(writer, states, startYear, yearCount, cancel);
     }
 
-    static async Task ToXml(TextWriter writer, State? state, IOrderedEnumerable<(Date date, string name)> forYears)
+    static async Task ToXml(TextWriter writer, State? state, IOrderedEnumerable<(Date date, string name)> forYears, Cancel cancel)
     {
         var settings = new XmlWriterSettings
         {
@@ -158,6 +158,7 @@ public static partial class Holidays
 
         foreach (var (date, name) in forYears)
         {
+            cancel.ThrowIfCancellationRequested();
             await xmlWriter.WriteStartElementAsync(null, "Holiday", null);
             await xmlWriter.WriteAttributeStringAsync(null, "Date", null, date.ToString("yyyy-MM-dd"));
             await xmlWriter.WriteAttributeStringAsync(null, "Name", null, name);
@@ -168,7 +169,7 @@ public static partial class Holidays
         await xmlWriter.WriteEndDocumentAsync();
     }
 
-    static async Task ToXmlMultiState(TextWriter writer, IEnumerable<(Date date, State state, string name)> forYears)
+    static async Task ToXmlMultiState(TextWriter writer, IEnumerable<(Date date, State state, string name)> forYears, Cancel cancel)
     {
         var settings = new XmlWriterSettings
         {
@@ -182,6 +183,7 @@ public static partial class Holidays
 
         foreach (var (date, state, name) in forYears)
         {
+            cancel.ThrowIfCancellationRequested();
             await xmlWriter.WriteStartElementAsync(null, "Holiday", null);
             await xmlWriter.WriteAttributeStringAsync(null, "Date", null, date.ToString("yyyy-MM-dd"));
             await xmlWriter.WriteAttributeStringAsync(null, "State", null, state.ToString());
