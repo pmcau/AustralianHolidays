@@ -7,13 +7,14 @@ public static partial class Holidays
     /// </summary>
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    /// <param name="cancel">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
     /// <returns>A string containing the Markdown-formatted table of holidays.</returns>
-    public static async Task<string> ExportToMarkdown(int? startYear = null, int yearCount = 5)
+    public static async Task<string> ExportToMarkdown(int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
         var builder = new StringBuilder();
         await using (var writer = new StringWriter(builder))
         {
-            await ExportToMarkdown(writer, startYear, yearCount);
+            await ExportToMarkdown(writer, startYear, yearCount, cancel);
         }
 
         return builder.ToString();
@@ -25,13 +26,14 @@ public static partial class Holidays
     /// <param name="writer">The TextWriter to write the Markdown output to.</param>
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
-    public static Task ExportToMarkdown(TextWriter writer, int? startYear = null, int yearCount = 5)
+    /// <param name="cancel">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
+    public static Task ExportToMarkdown(TextWriter writer, int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
         var years = BuildYears(startYear);
 
         var forYears = NationalForYears(startYear, yearCount);
 
-        return ToMarkdown(writer, years, forYears);
+        return ToMarkdown(writer, years, forYears, cancel);
     }
 
     /// <summary>
@@ -40,13 +42,14 @@ public static partial class Holidays
     /// <param name="state">The Australian state to export holidays for.</param>
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    /// <param name="cancel">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
     /// <returns>A string containing the Markdown-formatted table of holidays.</returns>
-    public static async Task<string> ExportToMarkdown(State state, int? startYear = null, int yearCount = 5)
+    public static async Task<string> ExportToMarkdown(State state, int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
         var builder = new StringBuilder();
         await using (var writer = new StringWriter(builder))
         {
-            await ExportToMarkdown(writer, state, startYear, yearCount);
+            await ExportToMarkdown(writer, state, startYear, yearCount, cancel);
         }
 
         return builder.ToString();
@@ -59,13 +62,14 @@ public static partial class Holidays
     /// <param name="state">The Australian state to export holidays for.</param>
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
-    public static Task ExportToMarkdown(TextWriter writer, State state, int? startYear = null, int yearCount = 5)
+    /// <param name="cancel">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
+    public static Task ExportToMarkdown(TextWriter writer, State state, int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
         var years = BuildYears(startYear);
 
         var forYears = ForYears(state, startYear, yearCount);
 
-        return ToMarkdown(writer, years, forYears);
+        return ToMarkdown(writer, years, forYears, cancel);
     }
 
     /// <summary>
@@ -74,13 +78,14 @@ public static partial class Holidays
     /// <param name="states">The Australian states to export holidays for.</param>
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    /// <param name="cancel">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
     /// <returns>A string containing the Markdown-formatted table of holidays with state information.</returns>
-    public static async Task<string> ExportToMarkdown(IEnumerable<State> states, int? startYear = null, int yearCount = 5)
+    public static async Task<string> ExportToMarkdown(IEnumerable<State> states, int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
         var builder = new StringBuilder();
         await using (var writer = new StringWriter(builder))
         {
-            await ExportToMarkdown(writer, states, startYear, yearCount);
+            await ExportToMarkdown(writer, states, startYear, yearCount, cancel);
         }
 
         return builder.ToString();
@@ -93,24 +98,25 @@ public static partial class Holidays
     /// <param name="states">The Australian states to export holidays for.</param>
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
-    public static Task ExportToMarkdown(TextWriter writer, IEnumerable<State> states, int? startYear = null, int yearCount = 5)
+    /// <param name="cancel">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
+    public static Task ExportToMarkdown(TextWriter writer, IEnumerable<State> states, int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
         var stateSet = states as IReadOnlySet<State> ?? states.ToHashSet();
         var forYears = ForYears(startYear, yearCount)
             .Where(_ => stateSet.Count == 0 || stateSet.Contains(_.state));
-        return ToMarkdownMultiState(writer, forYears);
+        return ToMarkdownMultiState(writer, forYears, cancel);
     }
 
-    static async Task ToMarkdown(TextWriter writer, List<int> years, IOrderedEnumerable<(Date date, string name)> forYears)
+    static async Task ToMarkdown(TextWriter writer, List<int> years, IOrderedEnumerable<(Date date, string name)> forYears, Cancel cancel)
     {
-        await writer.WriteLineAsync($"|                                   | {string.Join("         | ", years)}         |");
-        await writer.WriteAsync("|-----------------------------------|");
+        await writer.WriteLineAsync($"|                                   | {string.Join("         | ", years)}         |", cancel);
+        await writer.WriteAsync("|-----------------------------------|", cancel);
         for (var index = 1; index < years.Count + 1; index++)
         {
-            await writer.WriteAsync("--------------|");
+            await writer.WriteAsync("--------------|", cancel);
         }
 
-        await writer.WriteLineAsync();
+        await writer.WriteLineAsync(cancel);
 
         var items = forYears.GroupBy(_ => _.name)
             .OrderBy(_ => _.First().date.Month)
@@ -118,7 +124,7 @@ public static partial class Holidays
 
         foreach (var item in items)
         {
-            await writer.WriteAsync("| " + item.Key.Replace(" (", "<br>(").PadRight(33) + " | ");
+            await writer.WriteAsync("| " + item.Key.Replace(" (", "<br>(").PadRight(33) + " | ", cancel);
             foreach (var year in years)
             {
                 var dates = item.Select(_ => _.date)
@@ -126,30 +132,30 @@ public static partial class Holidays
                     .ToList();
                 if (dates.Count == 0)
                 {
-                    await writer.WriteAsync("            ");
+                    await writer.WriteAsync("            ", cancel);
                 }
                 else
                 {
-                    await writer.WriteAsync(string.Join("<br>", dates.Select(_ => _.ToString("`ddd dd MMM`", CultureInfo.InvariantCulture))));
+                    await writer.WriteAsync(string.Join("<br>", dates.Select(_ => _.ToString("`ddd dd MMM`", CultureInfo.InvariantCulture))), cancel);
                 }
 
-                await writer.WriteAsync(" | ");
+                await writer.WriteAsync(" | ", cancel);
             }
 
-            await writer.WriteLineAsync();
+            await writer.WriteLineAsync(cancel);
         }
     }
 
-    static async Task ToMarkdownMultiState(TextWriter writer, IEnumerable<(Date date, State state, string name)> forYears)
+    static async Task ToMarkdownMultiState(TextWriter writer, IEnumerable<(Date date, State state, string name)> forYears, Cancel cancel)
     {
-        await writer.WriteLineAsync("# Australian Public Holidays");
-        await writer.WriteLineAsync();
-        await writer.WriteLineAsync("| Date | State | Holiday |");
-        await writer.WriteLineAsync("|------|-------|---------|");
+        await writer.WriteLineAsync("# Australian Public Holidays", cancel);
+        await writer.WriteLineAsync(cancel);
+        await writer.WriteLineAsync("| Date | State | Holiday |", cancel);
+        await writer.WriteLineAsync("|------|-------|---------|", cancel);
 
         foreach (var (date, state, name) in forYears)
         {
-            await writer.WriteLineAsync($"| {date.ToString("yyyy-MM-dd")} | {state} | {name} |");
+            await writer.WriteLineAsync($"| {date:yyyy-MM-dd} | {state} | {name} |", cancel);
         }
     }
 }
