@@ -33,7 +33,7 @@ public static partial class Holidays
             year,
             year =>
                 BuildVicHolidays(year)
-                    .ToFrozenDictionary(_ => _.date, _ => _.name));
+                    .ToHolidayDictionary());
 
     static (Date date, string name) GetAflFinalFriday(int year)
     {

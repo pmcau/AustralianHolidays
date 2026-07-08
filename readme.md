@@ -699,7 +699,7 @@ public void Usage()
     }
 }
 ```
-<sup><a href='/src/Tests/HolidayServiceTests.cs#L6-L19' title='Snippet source file'>snippet source</a> | <a href='#snippet-HolidayServiceUsage' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/HolidayServiceTests.cs#L7-L20' title='Snippet source file'>snippet source</a> | <a href='#snippet-HolidayServiceUsage' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -733,7 +733,7 @@ public class ClassUsingHolidays(HolidayService holidayService)
     }
 }
 ```
-<sup><a href='/src/Tests/HolidayServiceTests.cs#L21-L48' title='Snippet source file'>snippet source</a> | <a href='#snippet-DependencyInjectionUsage' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/HolidayServiceTests.cs#L22-L49' title='Snippet source file'>snippet source</a> | <a href='#snippet-DependencyInjectionUsage' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 

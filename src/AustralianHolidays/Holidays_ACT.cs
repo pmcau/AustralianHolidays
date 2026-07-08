@@ -32,7 +32,7 @@ public static partial class Holidays
         actCache.GetOrAdd(
             year,
             year => BuildActHolidays(year)
-                .ToFrozenDictionary(_ => _.date, _ => _.name));
+                .ToHolidayDictionary());
 
     static IEnumerable<(Date date, string name)> BuildActHolidays(int year)
     {

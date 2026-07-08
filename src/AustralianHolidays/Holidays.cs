@@ -39,10 +39,21 @@ public static partial class Holidays
         {
             yield return new(
                 year,
-                action(year)
-                    .ToFrozenDictionary(_ => _.date, _ => _.name));
+                action(year).ToHolidayDictionary());
         }
     }
+
+    /// <summary>
+    /// Builds a date-keyed lookup from a sequence of holidays. Multiple holidays can legitimately
+    /// fall on the same date (for example, Easter Sunday coincides with Anzac Day on 25 April 2038),
+    /// so names sharing a date are merged into a single entry rather than throwing on a duplicate key.
+    /// </summary>
+    static FrozenDictionary<Date, string> ToHolidayDictionary(this IEnumerable<(Date date, string name)> holidays) =>
+        holidays
+            .GroupBy(_ => _.date)
+            .ToFrozenDictionary(
+                group => group.Key,
+                group => string.Join(" and ", group.Select(_ => _.name).Distinct()));
 
     /// <summary>
     /// Retrieves public holidays for all states over a specified range of years.

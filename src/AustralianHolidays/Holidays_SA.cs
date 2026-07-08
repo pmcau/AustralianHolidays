@@ -33,7 +33,7 @@ public static partial class Holidays
             year,
             year =>
                 BuildSaHolidays(year)
-                    .ToFrozenDictionary(_ => _.date, _ => _.name));
+                    .ToHolidayDictionary());
 
     static IEnumerable<(Date date, string name)> BuildSaHolidays(int year)
     {
