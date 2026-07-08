@@ -72,7 +72,7 @@ public static partial class SchoolHolidays
         // spanning the year boundary. When the previous year has no data, clamp to 1 January.
         var summerStart = data.TryGetValue(year - 1, out var previous)
             ? previous[3].end.AddDays(1)
-            : new Date(year, 1, 1);
+            : new(year, 1, 1);
         var summerEnd = terms[0].start.AddDays(-1);
         if (summerStart <= summerEnd)
         {
@@ -152,7 +152,10 @@ public static partial class SchoolHolidays
         return "Summer";
     }
 
-    internal static IReadOnlyList<int> CoveredYears(State state) =>
+    /// <summary>
+    /// Gets the years for which school term data is available for a state, in ascending order.
+    /// </summary>
+    public static IReadOnlyList<int> CoveredYears(State state) =>
         TermData(state)
             .Keys
             .Order()

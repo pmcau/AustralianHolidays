@@ -12,6 +12,7 @@ builder.Services.AddSingleton(TimeProvider.System);
 builder.Services.AddScoped<StatePreferenceService>();
 builder.Services.AddScoped<ThemePreferenceService>();
 builder.Services.AddScoped<HolidayFilterService>();
+builder.Services.AddScoped<SchoolHolidayFilterService>();
 builder.Services.AddScoped<FileDownloadService>();
 
 await builder.Build().RunAsync();

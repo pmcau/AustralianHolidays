@@ -146,6 +146,38 @@ public class SnapshotTests
         await Verify(page);
     }
 
+    [Test]
+    public async Task SchoolHolidaysPage()
+    {
+        var page = await browser!.NewPageAsync();
+        await page.AddInitScriptAsync(FakeDateScript);
+        await page.GotoAsync($"http://localhost:{port}/");
+
+        await page.WaitForSelectorAsync(".holiday-table");
+        await page.ClickAsync("button:has-text('School Holidays')");
+        await page.WaitForSelectorAsync(".school-holiday-table");
+
+        await Verify(page);
+    }
+
+    [Test]
+    public async Task SchoolHolidaysPageDarkMode()
+    {
+        var page = await browser!.NewPageAsync();
+
+        await page.AddInitScriptAsync(FakeDateScript);
+        await page.GotoAsync($"http://localhost:{port}/");
+
+        await page.EvaluateAsync("() => localStorage.setItem('selectedTheme', 'Dark')");
+        await page.ReloadAsync();
+
+        await page.WaitForSelectorAsync(".holiday-table");
+        await page.ClickAsync("button:has-text('School Holidays')");
+        await page.WaitForSelectorAsync(".school-holiday-table");
+
+        await Verify(page);
+    }
+
     static int GetAvailablePort()
     {
         using var listener = new TcpListener(IPAddress.Loopback, 0);
