@@ -4,11 +4,15 @@ public class HolidayService(TimeProvider timeProvider)
 {
     protected TimeProvider TimeProvider { get; } = timeProvider;
 
-    public virtual IOrderedEnumerable<(Date date, State state, string name)> ForYears(int? startYear = null, int yearCount = 1) => Holidays.ForYears(startYear, yearCount);
+    // Resolve a null start year against the injected TimeProvider rather than the static
+    // DateTime.Now used inside Holidays, so callers (and tests) can control "the current year".
+    int OrCurrentYear(int? year) => year ?? TimeProvider.GetLocalNow().Year;
 
-    public virtual IOrderedEnumerable<(Date date, string name)> ForYears(State state, int? startYear = null, int yearCount = 1) => Holidays.ForYears(state, startYear, yearCount);
+    public virtual IOrderedEnumerable<(Date date, State state, string name)> ForYears(int? startYear = null, int yearCount = 1) => Holidays.ForYears(OrCurrentYear(startYear), yearCount);
 
-    public virtual IOrderedEnumerable<(Date date, string name)> NationalForYears(int? startYear = null, int yearCount = 1) => Holidays.NationalForYears(startYear, yearCount);
+    public virtual IOrderedEnumerable<(Date date, string name)> ForYears(State state, int? startYear = null, int yearCount = 1) => Holidays.ForYears(state, OrCurrentYear(startYear), yearCount);
+
+    public virtual IOrderedEnumerable<(Date date, string name)> NationalForYears(int? startYear = null, int yearCount = 1) => Holidays.NationalForYears(OrCurrentYear(startYear), yearCount);
 
     public virtual bool IsHoliday(Date date, State state) => date.IsHoliday(state);
 
@@ -30,13 +34,13 @@ public class HolidayService(TimeProvider timeProvider)
 
     public virtual (Date start, Date end) GetFederalGovernmentShutdown(int startYear) => Holidays.GetFederalGovernmentShutdown(startYear);
 
-    public virtual Task<string> ExportToMarkdown(int? startYear = null, int yearCount = 5) => Holidays.ExportToMarkdown(startYear, yearCount);
+    public virtual Task<string> ExportToMarkdown(int? startYear = null, int yearCount = 5) => Holidays.ExportToMarkdown(OrCurrentYear(startYear), yearCount);
 
-    public virtual Task ExportToMarkdown(TextWriter writer, int? startYear = null, int yearCount = 5) => Holidays.ExportToMarkdown(writer, startYear, yearCount);
+    public virtual Task ExportToMarkdown(TextWriter writer, int? startYear = null, int yearCount = 5) => Holidays.ExportToMarkdown(writer, OrCurrentYear(startYear), yearCount);
 
-    public virtual Task<string> ExportToMarkdown(State state, int? startYear = null, int yearCount = 5) => Holidays.ExportToMarkdown(state, startYear, yearCount);
+    public virtual Task<string> ExportToMarkdown(State state, int? startYear = null, int yearCount = 5) => Holidays.ExportToMarkdown(state, OrCurrentYear(startYear), yearCount);
 
-    public virtual Task ExportToMarkdown(TextWriter writer, State state, int? startYear = null, int yearCount = 5) => Holidays.ExportToMarkdown(writer, state, startYear, yearCount);
+    public virtual Task ExportToMarkdown(TextWriter writer, State state, int? startYear = null, int yearCount = 5) => Holidays.ExportToMarkdown(writer, state, OrCurrentYear(startYear), yearCount);
 
     public virtual bool IsNswHoliday(Date date) => date.IsNswHoliday();
 

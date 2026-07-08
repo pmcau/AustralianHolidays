@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Time.Testing;
 
 [TestFixture]
 public class HolidayServiceTests
@@ -46,4 +47,21 @@ public class HolidayServiceTests
     }
 
     #endregion
+
+    // When no start year is supplied the service must resolve "the current year" from its injected
+    // TimeProvider, not the process clock, so time can be controlled in tests and via DI.
+    [Test]
+    public void DefaultYearResolvesViaInjectedTimeProvider()
+    {
+        var timeProvider = new FakeTimeProvider(new DateTimeOffset(2031, 6, 15, 0, 0, 0, TimeSpan.Zero));
+        var service = new HolidayService(timeProvider);
+
+        var years = service.NationalForYears()
+            .Select(_ => _.date.Year)
+            .Distinct()
+            .ToList();
+
+        AreEqual(1, years.Count);
+        AreEqual(2031, years[0]);
+    }
 }
