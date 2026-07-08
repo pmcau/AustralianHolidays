@@ -7,13 +7,14 @@ public static partial class Holidays
     /// </summary>
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    /// <param name="cancel">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
     /// <returns>A string containing the ICS-formatted calendar data.</returns>
-    public static async Task<string> ExportToIcs(int? startYear = null, int yearCount = 5)
+    public static async Task<string> ExportToIcs(int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
         var builder = new StringBuilder();
         await using (var writer = new StringWriter(builder))
         {
-            await ExportToIcs(writer, startYear, yearCount);
+            await ExportToIcs(writer, startYear, yearCount, cancel);
         }
 
         return builder.ToString();
@@ -25,11 +26,12 @@ public static partial class Holidays
     /// <param name="writer">The TextWriter to write the ICS output to.</param>
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
-    public static Task ExportToIcs(TextWriter writer, int? startYear = null, int yearCount = 5)
+    /// <param name="cancel">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
+    public static Task ExportToIcs(TextWriter writer, int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
         var forYears = NationalForYears(startYear, yearCount);
 
-        return ToIcs(writer, null, forYears);
+        return ToIcs(writer, null, forYears, cancel);
     }
 
     /// <summary>
@@ -38,13 +40,14 @@ public static partial class Holidays
     /// <param name="state">The Australian state to export holidays for.</param>
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    /// <param name="cancel">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
     /// <returns>A string containing the ICS-formatted calendar data.</returns>
-    public static async Task<string> ExportToIcs(State state, int? startYear = null, int yearCount = 5)
+    public static async Task<string> ExportToIcs(State state, int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
         var builder = new StringBuilder();
         await using (var writer = new StringWriter(builder))
         {
-            await ExportToIcs(writer, state, startYear, yearCount);
+            await ExportToIcs(writer, state, startYear, yearCount, cancel);
         }
 
         return builder.ToString();
@@ -57,11 +60,12 @@ public static partial class Holidays
     /// <param name="state">The Australian state to export holidays for.</param>
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
-    public static Task ExportToIcs(TextWriter writer, State state, int? startYear = null, int yearCount = 5)
+    /// <param name="cancel">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
+    public static Task ExportToIcs(TextWriter writer, State state, int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
         var forYears = ForYears(state, startYear, yearCount);
 
-        return ToIcs(writer, state, forYears);
+        return ToIcs(writer, state, forYears, cancel);
     }
 
     /// <summary>
@@ -71,12 +75,12 @@ public static partial class Holidays
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
     /// <returns>A string containing the ICS-formatted calendar data with state information.</returns>
-    public static async Task<string> ExportToIcs(IEnumerable<State> states, int? startYear = null, int yearCount = 5)
+    public static async Task<string> ExportToIcs(IEnumerable<State> states, int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
         var builder = new StringBuilder();
         await using (var writer = new StringWriter(builder))
         {
-            await ExportToIcs(writer, states, startYear, yearCount);
+            await ExportToIcs(writer, states, startYear, yearCount, cancel);
         }
 
         return builder.ToString();
@@ -89,15 +93,16 @@ public static partial class Holidays
     /// <param name="states">The Australian states to export holidays for.</param>
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
-    public static Task ExportToIcs(TextWriter writer, IEnumerable<State> states, int? startYear = null, int yearCount = 5)
+    /// <param name="cancel">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
+    public static Task ExportToIcs(TextWriter writer, IEnumerable<State> states, int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
         var stateSet = states as IReadOnlySet<State> ?? states.ToHashSet();
         var forYears = ForYears(startYear, yearCount)
-            .Where(h => stateSet.Count == 0 || stateSet.Contains(h.state));
-        return ToIcsMultiState(writer, forYears);
+            .Where(_ => stateSet.Count == 0 || stateSet.Contains(_.state));
+        return ToIcsMultiState(writer, forYears, cancel);
     }
 
-    static async Task ToIcs(TextWriter writer, State? state, IOrderedEnumerable<(Date date, string name)> forYears)
+    static async Task ToIcs(TextWriter writer, State? state, IOrderedEnumerable<(Date date, string name)> forYears, Cancel cancel)
     {
         writer.NewLine = "\r\n";
         await writer.WriteLineAsync("BEGIN:VCALENDAR");
@@ -113,17 +118,17 @@ public static partial class Holidays
             await writer.WriteLineAsync("END:VEVENT");
         }
 
-        await writer.WriteLineAsync("END:VCALENDAR");
+        await writer.WriteLineAsync("END:VCALENDAR", cancel);
     }
 
     static readonly int allStatesCount = Enum.GetValues<State>().Length;
 
-    static async Task ToIcsMultiState(TextWriter writer, IEnumerable<(Date date, State state, string name)> forYears)
+    static async Task ToIcsMultiState(TextWriter writer, IEnumerable<(Date date, State state, string name)> forYears, Cancel cancel)
     {
         writer.NewLine = "\r\n";
-        await writer.WriteLineAsync("BEGIN:VCALENDAR");
-        await writer.WriteLineAsync("VERSION:2.0");
-        await writer.WriteLineAsync("PRODID:-//Australian Holidays//EN");
+        await writer.WriteLineAsync("BEGIN:VCALENDAR", cancel);
+        await writer.WriteLineAsync("VERSION:2.0", cancel);
+        await writer.WriteLineAsync("PRODID:-//Australian Holidays//EN", cancel);
 
         // Group by date and name to merge holidays across states
         var grouped = forYears
@@ -152,14 +157,14 @@ public static partial class Holidays
                 uid = $"{date:yyyyMMdd}_{name}_{stateList}@AustralianHolidays";
             }
 
-            await writer.WriteLineAsync("BEGIN:VEVENT");
-            await writer.WriteLineAsync($"SUMMARY:{summary}");
-            await writer.WriteLineAsync($"UID:{uid}");
-            await writer.WriteLineAsync($"DTSTART;VALUE=DATE:{date:yyyyMMdd}");
-            await writer.WriteLineAsync($"DTEND;VALUE=DATE:{date.AddDays(1):yyyyMMdd}");
-            await writer.WriteLineAsync("END:VEVENT");
+            await writer.WriteLineAsync("BEGIN:VEVENT", cancel);
+            await writer.WriteLineAsync($"SUMMARY:{summary}", cancel);
+            await writer.WriteLineAsync($"UID:{uid}", cancel);
+            await writer.WriteLineAsync($"DTSTART;VALUE=DATE:{date:yyyyMMdd}", cancel);
+            await writer.WriteLineAsync($"DTEND;VALUE=DATE:{date.AddDays(1):yyyyMMdd}", cancel);
+            await writer.WriteLineAsync("END:VEVENT", cancel);
         }
 
-        await writer.WriteLineAsync("END:VCALENDAR");
+        await writer.WriteLineAsync("END:VCALENDAR", cancel);
     }
 }

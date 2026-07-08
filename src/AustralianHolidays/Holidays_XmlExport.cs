@@ -8,12 +8,12 @@ public static partial class Holidays
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
     /// <returns>A string containing the XML-formatted holiday data.</returns>
-    public static async Task<string> ExportToXml(int? startYear = null, int yearCount = 5)
+    public static async Task<string> ExportToXml(int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
         var builder = new StringBuilder();
         await using (var writer = new StringWriter(builder))
         {
-            await ExportToXml(writer, startYear, yearCount);
+            await ExportToXml(writer, startYear, yearCount, cancel);
         }
 
         return builder.ToString();
@@ -25,7 +25,7 @@ public static partial class Holidays
     /// <param name="writer">The TextWriter to write the XML output to.</param>
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
-    public static Task ExportToXml(TextWriter writer, int? startYear = null, int yearCount = 5)
+    public static Task ExportToXml(TextWriter writer, int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
         var forYears = NationalForYears(startYear, yearCount);
         return ToXml(writer, null, forYears);
@@ -38,12 +38,12 @@ public static partial class Holidays
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
     /// <returns>A string containing the XML-formatted holiday data.</returns>
-    public static async Task<string> ExportToXml(State state, int? startYear = null, int yearCount = 5)
+    public static async Task<string> ExportToXml(State state, int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
         var builder = new StringBuilder();
         await using (var writer = new StringWriter(builder))
         {
-            await ExportToXml(writer, state, startYear, yearCount);
+            await ExportToXml(writer, state, startYear, yearCount, cancel);
         }
 
         return builder.ToString();
@@ -56,7 +56,8 @@ public static partial class Holidays
     /// <param name="state">The Australian state to export holidays for.</param>
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
-    public static Task ExportToXml(TextWriter writer, State state, int? startYear = null, int yearCount = 5)
+    /// <param name="cancel">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
+    public static Task ExportToXml(TextWriter writer, State state, int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
         var forYears = ForYears(state, startYear, yearCount);
         return ToXml(writer, state, forYears);
@@ -68,10 +69,11 @@ public static partial class Holidays
     /// <param name="path">The file path where the XML data will be written.</param>
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
-    public static async Task ExportToXml(string path, int? startYear = null, int yearCount = 5)
+    /// <param name="cancel">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
+    public static async Task ExportToXml(string path, int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
         await using var writer = File.CreateText(path);
-        await ExportToXml(writer, startYear, yearCount);
+        await ExportToXml(writer, startYear, yearCount, cancel);
     }
 
     /// <summary>
@@ -81,10 +83,11 @@ public static partial class Holidays
     /// <param name="state">The Australian state to export holidays for.</param>
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
-    public static async Task ExportToXml(string path, State state, int? startYear = null, int yearCount = 5)
+    /// <param name="cancel">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
+    public static async Task ExportToXml(string path, State state, int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
         await using var writer = File.CreateText(path);
-        await ExportToXml(writer, state, startYear, yearCount);
+        await ExportToXml(writer, state, startYear, yearCount, cancel);
     }
 
     /// <summary>
@@ -93,13 +96,14 @@ public static partial class Holidays
     /// <param name="states">The Australian states to export holidays for.</param>
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
+    /// <param name="cancel">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
     /// <returns>A string containing the XML-formatted holiday data with state information per holiday.</returns>
-    public static async Task<string> ExportToXml(IEnumerable<State> states, int? startYear = null, int yearCount = 5)
+    public static async Task<string> ExportToXml(IEnumerable<State> states, int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
         var builder = new StringBuilder();
         await using (var writer = new StringWriter(builder))
         {
-            await ExportToXml(writer, states, startYear, yearCount);
+            await ExportToXml(writer, states, startYear, yearCount, cancel);
         }
 
         return builder.ToString();
@@ -112,7 +116,8 @@ public static partial class Holidays
     /// <param name="states">The Australian states to export holidays for.</param>
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
-    public static Task ExportToXml(TextWriter writer, IEnumerable<State> states, int? startYear = null, int yearCount = 5)
+    /// <param name="cancel">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None"/>.</param>
+    public static Task ExportToXml(TextWriter writer, IEnumerable<State> states, int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
         var stateSet = states as IReadOnlySet<State> ?? states.ToHashSet();
         var forYears = ForYears(startYear, yearCount)
@@ -128,15 +133,19 @@ public static partial class Holidays
     /// <param name="states">The Australian states to export holidays for.</param>
     /// <param name="startYear">The starting year for the export. If null, uses the current year.</param>
     /// <param name="yearCount">The number of years to include in the export. Default is 5.</param>
-    public static async Task ExportToXml(string path, IEnumerable<State> states, int? startYear = null, int yearCount = 5)
+    public static async Task ExportToXml(string path, IEnumerable<State> states, int? startYear = null, int yearCount = 5, Cancel cancel = default)
     {
         await using var writer = File.CreateText(path);
-        await ExportToXml(writer, states, startYear, yearCount);
+        await ExportToXml(writer, states, startYear, yearCount, cancel);
     }
 
     static async Task ToXml(TextWriter writer, State? state, IOrderedEnumerable<(Date date, string name)> forYears)
     {
-        var settings = new XmlWriterSettings {Async = true, Indent = true};
+        var settings = new XmlWriterSettings
+        {
+            Async = true,
+            Indent = true
+        };
         await using var xmlWriter = XmlWriter.Create(writer, settings);
 
         await xmlWriter.WriteStartDocumentAsync();
@@ -157,7 +166,11 @@ public static partial class Holidays
 
     static async Task ToXmlMultiState(TextWriter writer, IEnumerable<(Date date, State state, string name)> forYears)
     {
-        var settings = new XmlWriterSettings { Async = true, Indent = true };
+        var settings = new XmlWriterSettings
+        {
+            Async = true,
+            Indent = true
+        };
         await using var xmlWriter = XmlWriter.Create(writer, settings);
 
         await xmlWriter.WriteStartDocumentAsync();
