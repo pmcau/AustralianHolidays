@@ -5,6 +5,7 @@ global using System.Globalization;
 global using System.IO.Compression;
 global using System.Runtime.CompilerServices;
 global using System.Security;
+global using System.Text;
 global using System.Xml;
 global using static Month;
 global using static AustralianHolidays.State;
