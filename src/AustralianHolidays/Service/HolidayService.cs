@@ -83,4 +83,12 @@ public class HolidayService(TimeProvider timeProvider)
     public virtual bool IsWaHoliday(Date date, [NotNullWhen(true)] out string? name) => date.IsWaHoliday(out name);
 
     public virtual IReadOnlyDictionary<Date, string> ForWa(int year) => Holidays.ForWa(year);
+
+    public virtual bool IsSchoolHoliday(Date date, State state) => date.IsSchoolHoliday(state);
+
+    public virtual bool IsSchoolHoliday(Date date, State state, [NotNullWhen(true)] out string? name) => date.IsSchoolHoliday(state, out name);
+
+    public virtual IReadOnlyList<(int number, Date start, Date end)> GetSchoolTerms(State state, int year) => SchoolHolidays.GetTerms(state, year);
+
+    public virtual IReadOnlyList<(Date start, Date end, string name)> GetSchoolHolidays(State state, int year) => SchoolHolidays.GetHolidays(state, year);
 }

@@ -280,6 +280,32 @@ header p {
     font-size: 1.1rem;
 }
 
+.view-toggle {
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.school-group {
+    margin-bottom: 1.5rem;
+}
+
+.school-group h3 {
+    margin: 0 0 0.5rem;
+    color: var(--primary-color);
+    font-size: 1.15rem;
+}
+
+.school-nodata {
+    margin: 0 0 0.5rem;
+    color: var(--past-color);
+    font-style: italic;
+}
+
+.holiday-table .number-column {
+    white-space: nowrap;
+    text-align: right;
+}
+
 footer {
     text-align: center;
     padding: 0.5rem;
@@ -361,6 +387,10 @@ footer a:hover {
     }
 
     .day-column {
+        display: none;
+    }
+
+    .weekdays-column {
         display: none;
     }
 }

@@ -1,0 +1,115 @@
+name: school-holiday-coverage
+
+# School term dates are hand-sourced administrative data that runs out and must be topped up
+# periodically. This scheduled check flags when any state's coverage is nearly exhausted by
+# opening (and then keeping up to date) a single tracking issue.
+
+on:
+  schedule:
+    - cron: '0 6 1 * *' # 06:00 UTC on the 1st of each month
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check coverage runway and open/update issue
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+
+            // Flag a state when the last covered year is within this many years of the current year.
+            const RUNWAY_THRESHOLD = 1;
+            const currentYear = new Date().getUTCFullYear();
+
+            const dir = 'src/AustralianHolidays';
+            const files = fs.readdirSync(dir)
+              .filter(f => /^SchoolHolidays_[A-Z]+\.cs$/.test(f))
+              .sort();
+
+            const rows = [];
+            const low = [];
+            for (const file of files) {
+              const state = file.replace('SchoolHolidays_', '').replace('.cs', '');
+              const text = fs.readFileSync(path.join(dir, file), 'utf8');
+              // Per-state data is keyed by year: `[2025] = [...]`. Take the furthest such key.
+              const years = [...text.matchAll(/\[(20\d{2})\]\s*=/g)].map(m => Number(m[1]));
+              if (years.length === 0) {
+                continue;
+              }
+              const maxYear = Math.max(...years);
+              const runway = maxYear - currentYear;
+              const row = { state, maxYear, runway };
+              rows.push(row);
+              if (runway <= RUNWAY_THRESHOLD) {
+                low.push(row);
+              }
+            }
+
+            const title = 'School holiday data: coverage running low';
+            const marker = '<!-- school-holiday-coverage -->';
+            const { owner, repo } = context.repo;
+
+            // Find an existing open issue by title or hidden marker.
+            const open = await github.paginate(github.rest.issues.listForRepo, {
+              owner, repo, state: 'open', per_page: 100
+            });
+            const existing = open.find(i =>
+              !i.pull_request && (i.title === title || (i.body || '').includes(marker)));
+
+            if (low.length === 0) {
+              core.info('All states have sufficient school-holiday coverage runway.');
+              if (existing) {
+                await github.rest.issues.createComment({
+                  owner, repo, issue_number: existing.number,
+                  body: 'Coverage is now sufficient for every state; closing.'
+                });
+                await github.rest.issues.update({
+                  owner, repo, issue_number: existing.number, state: 'closed'
+                });
+              }
+              return;
+            }
+
+            const fmt = r => `- **${r.state}**: covered through ${r.maxYear} ` +
+              `(${r.runway <= 0 ? 'no runway left' : r.runway + ' year(s) left'})`;
+
+            const body = [
+              marker,
+              `Some states' hand-sourced school-term data is within ${RUNWAY_THRESHOLD} year of ` +
+                `running out (checked ${new Date().toISOString().slice(0, 10)}; current year ${currentYear}).`,
+              '',
+              '### Refresh needed',
+              ...low.map(fmt),
+              '',
+              '### All states',
+              ...rows.map(fmt),
+              '',
+              '### How to refresh',
+              'For each state above, edit `src/AustralianHolidays/SchoolHolidays_{State}.cs` using the ' +
+                "official source URL in that file's header comment. Keep the conventions: use the first " +
+                'day students attend (staff/curriculum/School Development Days count as holiday), ' +
+                'NSW = Eastern Division, government schools only, skip "preliminary / subject to ' +
+                'confirmation" years, and cross-check each year against a second source.',
+              '',
+              'Then run `dotnet test src` — the `TermsAndHolidaysAreConsistent` test guards against ' +
+                'gaps and overlaps — and accept the Verify snapshots.',
+              '',
+              '_Maintained automatically by the `school-holiday-coverage` workflow; it edits this issue ' +
+                'in place while coverage stays low and closes it once every state is topped up._'
+            ].join('\n');
+
+            if (existing) {
+              await github.rest.issues.update({ owner, repo, issue_number: existing.number, body });
+              core.info(`Updated issue #${existing.number}`);
+            } else {
+              const created = await github.rest.issues.create({ owner, repo, title, body });
+              core.info(`Created issue #${created.data.number}`);
+            }

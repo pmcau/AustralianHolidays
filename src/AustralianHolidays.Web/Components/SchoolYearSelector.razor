@@ -1,0 +1,32 @@
+@code {
+    [Parameter]
+    public IReadOnlyList<int> AvailableYears { get; set; } = [];
+
+    [Parameter]
+    public IReadOnlySet<int> SelectedYears { get; set; } = new HashSet<int>();
+
+    [Parameter]
+    public EventCallback<IReadOnlySet<int>> SelectedYearsChanged { get; set; }
+
+    Task ToggleYear(int year)
+    {
+        var newSelection = new HashSet<int>(SelectedYears);
+
+        if (!newSelection.Add(year))
+        {
+            newSelection.Remove(year);
+        }
+
+        return SelectedYearsChanged.InvokeAsync(newSelection);
+    }
+}
+
+<div class="year-selector">
+    <label>Year:</label>
+    <div class="state-buttons">
+        @foreach (var year in AvailableYears)
+        {
+            <button class="state-btn @(SelectedYears.Contains(year) ? "selected" : "")" @onclick="() => ToggleYear(year)">@year</button>
+        }
+    </div>
+</div>

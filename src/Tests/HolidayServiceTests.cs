@@ -53,7 +53,7 @@ public class HolidayServiceTests
     [Test]
     public void DefaultYearResolvesViaInjectedTimeProvider()
     {
-        var timeProvider = new FakeTimeProvider(new DateTimeOffset(2031, 6, 15, 0, 0, 0, TimeSpan.Zero));
+        var timeProvider = new FakeTimeProvider(new(2031, 6, 15, 0, 0, 0, TimeSpan.Zero));
         var service = new HolidayService(timeProvider);
 
         var years = service.NationalForYears()

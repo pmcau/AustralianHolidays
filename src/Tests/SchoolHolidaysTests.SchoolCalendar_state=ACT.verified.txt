@@ -1,0 +1,66 @@
+﻿2025
+  Terms
+    Term 1: Mon 03 Feb 2025 - Fri 11 Apr 2025
+    Term 2: Tue 29 Apr 2025 - Fri 04 Jul 2025
+    Term 3: Tue 22 Jul 2025 - Fri 26 Sep 2025
+    Term 4: Tue 14 Oct 2025 - Thu 18 Dec 2025
+  Holidays
+    Summer: Wed 01 Jan 2025 - Sun 02 Feb 2025
+    Autumn: Sat 12 Apr 2025 - Mon 28 Apr 2025
+    Winter: Sat 05 Jul 2025 - Mon 21 Jul 2025
+    Spring: Sat 27 Sep 2025 - Mon 13 Oct 2025
+2026
+  Terms
+    Term 1: Fri 30 Jan 2026 - Thu 02 Apr 2026
+    Term 2: Tue 21 Apr 2026 - Fri 03 Jul 2026
+    Term 3: Tue 21 Jul 2026 - Fri 25 Sep 2026
+    Term 4: Tue 13 Oct 2026 - Fri 18 Dec 2026
+  Holidays
+    Summer: Fri 19 Dec 2025 - Thu 29 Jan 2026
+    Autumn: Fri 03 Apr 2026 - Mon 20 Apr 2026
+    Winter: Sat 04 Jul 2026 - Mon 20 Jul 2026
+    Spring: Sat 26 Sep 2026 - Mon 12 Oct 2026
+2027
+  Terms
+    Term 1: Mon 01 Feb 2027 - Fri 09 Apr 2027
+    Term 2: Wed 28 Apr 2027 - Fri 02 Jul 2027
+    Term 3: Tue 20 Jul 2027 - Fri 24 Sep 2027
+    Term 4: Tue 12 Oct 2027 - Fri 17 Dec 2027
+  Holidays
+    Summer: Sat 19 Dec 2026 - Sun 31 Jan 2027
+    Autumn: Sat 10 Apr 2027 - Tue 27 Apr 2027
+    Winter: Sat 03 Jul 2027 - Mon 19 Jul 2027
+    Spring: Sat 25 Sep 2027 - Mon 11 Oct 2027
+2028
+  Terms
+    Term 1: Tue 08 Feb 2028 - Fri 07 Apr 2028
+    Term 2: Wed 26 Apr 2028 - Fri 07 Jul 2028
+    Term 3: Tue 25 Jul 2028 - Fri 29 Sep 2028
+    Term 4: Tue 17 Oct 2028 - Fri 22 Dec 2028
+  Holidays
+    Summer: Sat 18 Dec 2027 - Mon 07 Feb 2028
+    Autumn: Sat 08 Apr 2028 - Tue 25 Apr 2028
+    Winter: Sat 08 Jul 2028 - Mon 24 Jul 2028
+    Spring: Sat 30 Sep 2028 - Mon 16 Oct 2028
+2029
+  Terms
+    Term 1: Tue 06 Feb 2029 - Fri 13 Apr 2029
+    Term 2: Tue 01 May 2029 - Fri 06 Jul 2029
+    Term 3: Tue 24 Jul 2029 - Fri 28 Sep 2029
+    Term 4: Tue 16 Oct 2029 - Fri 21 Dec 2029
+  Holidays
+    Summer: Sat 23 Dec 2028 - Mon 05 Feb 2029
+    Autumn: Sat 14 Apr 2029 - Mon 30 Apr 2029
+    Winter: Sat 07 Jul 2029 - Mon 23 Jul 2029
+    Spring: Sat 29 Sep 2029 - Mon 15 Oct 2029
+2030
+  Terms
+    Term 1: Tue 05 Feb 2030 - Fri 12 Apr 2030
+    Term 2: Tue 30 Apr 2030 - Fri 05 Jul 2030
+    Term 3: Tue 23 Jul 2030 - Fri 27 Sep 2030
+    Term 4: Tue 15 Oct 2030 - Fri 20 Dec 2030
+  Holidays
+    Summer: Sat 22 Dec 2029 - Mon 04 Feb 2030
+    Autumn: Sat 13 Apr 2030 - Mon 29 Apr 2030
+    Winter: Sat 06 Jul 2030 - Mon 22 Jul 2030
+    Spring: Sat 28 Sep 2030 - Mon 14 Oct 2030
