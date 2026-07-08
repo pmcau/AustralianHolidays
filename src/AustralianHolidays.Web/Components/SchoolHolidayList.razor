@@ -1,0 +1,81 @@
+@using System.Globalization
+
+@if (SelectedStates.Count == 0 || SelectedYears.Count == 0)
+{
+    <div class="empty-state">
+        <p>Select one or more states and a year to see school holidays.</p>
+    </div>
+}
+else
+{
+    @foreach (var state in SelectedStates.OrderBy(_ => _))
+    {
+        @foreach (var year in SelectedYears.OrderBy(_ => _))
+        {
+            var periods = Holidays?
+                .Where(_ => _.State == state && _.Year == year)
+                .OrderBy(_ => _.Start)
+                .ToList() ?? [];
+            var nextInGroup = periods.FirstOrDefault(_ => _.TimeCategory == HolidayTimeCategory.Future);
+
+            <div class="school-group">
+                <h3>@state @year</h3>
+                @if (periods.Count == 0)
+                {
+                    <p class="school-nodata">No published school holiday dates for @state @year.</p>
+                }
+                else
+                {
+                    <table class="holiday-table school-holiday-table">
+                        <thead>
+                            <tr>
+                                <th>Holiday</th>
+                                <th class="date-column">Start</th>
+                                <th class="date-column">End</th>
+                                <th class="number-column">Days</th>
+                                <th class="number-column weekdays-column">Weekdays</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var period in periods)
+                            {
+                                <tr class="holiday-row @GetRowClass(period.TimeCategory)">
+                                    <td>
+                                        @period.Name
+                                        @if (period == nextInGroup)
+                                        {
+                                            <span class="state-badge">Next</span>
+                                        }
+                                    </td>
+                                    <td class="date-column">@period.Start.ToString("d MMM yyyy", CultureInfo.InvariantCulture)</td>
+                                    <td class="date-column">@period.End.ToString("d MMM yyyy", CultureInfo.InvariantCulture)</td>
+                                    <td class="number-column">@period.Days</td>
+                                    <td class="number-column weekdays-column">@period.Weekdays</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+            </div>
+        }
+    }
+}
+
+@code {
+    [Parameter]
+    public IReadOnlyList<SchoolHolidayViewModel>? Holidays { get; set; }
+
+    [Parameter]
+    public IReadOnlySet<State> SelectedStates { get; set; } = new HashSet<State>();
+
+    [Parameter]
+    public IReadOnlySet<int> SelectedYears { get; set; } = new HashSet<int>();
+
+    static string GetRowClass(HolidayTimeCategory category) => category switch
+    {
+        HolidayTimeCategory.Past => "past",
+        HolidayTimeCategory.Today => "today",
+        HolidayTimeCategory.Future => "future",
+        _ => ""
+    };
+}

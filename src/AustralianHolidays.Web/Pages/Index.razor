@@ -1,26 +1,48 @@
 @page "/"
 @inject StatePreferenceService StatePreferenceService
 @inject HolidayFilterService HolidayFilterService
+@inject SchoolHolidayFilterService SchoolHolidayFilterService
 
 <PageTitle>Australian Holidays</PageTitle>
+
+<div class="controls view-toggle">
+    <button class="state-btn @(!schoolView ? "selected" : "")" @onclick="() => SetView(false)">Public Holidays</button>
+    <button class="state-btn @(schoolView ? "selected" : "")" @onclick="() => SetView(true)">School Holidays</button>
+</div>
 
 <div class="controls">
     <StateSelector SelectedStates="selectedStates" SelectedStatesChanged="OnStatesChanged" />
 </div>
-<div class="controls">
-    <YearSelector Is12MonthsMode="is12MonthsMode" Is12MonthsModeChanged="OnIs12MonthsModeChanged"
-                  SelectedYears="selectedYears" SelectedYearsChanged="OnSelectedYearsChanged" />
-</div>
-<div class="controls">
-    <ExportMenu SelectedStates="selectedStates" StartYear="startYear" YearCount="yearCount" />
-</div>
 
-<HolidayList Holidays="holidays" ShowStateColumn="@(selectedStates.Count != 1)" />
+@if (!schoolView)
+{
+    <div class="controls">
+        <YearSelector Is12MonthsMode="is12MonthsMode" Is12MonthsModeChanged="OnIs12MonthsModeChanged"
+                      SelectedYears="selectedYears" SelectedYearsChanged="OnSelectedYearsChanged" />
+    </div>
+    <div class="controls">
+        <ExportMenu SelectedStates="selectedStates" StartYear="startYear" YearCount="yearCount" />
+    </div>
 
-<HolidayLogicInfo />
+    <HolidayList Holidays="holidays" ShowStateColumn="@(selectedStates.Count != 1)" />
+
+    <HolidayLogicInfo />
+}
+else
+{
+    <div class="controls">
+        <SchoolYearSelector AvailableYears="availableSchoolYears" SelectedYears="selectedSchoolYears" SelectedYearsChanged="OnSchoolYearsChanged" />
+    </div>
+
+    <SchoolHolidayList Holidays="schoolHolidays" SelectedStates="selectedStates" SelectedYears="selectedSchoolYears" />
+
+    <SchoolHolidayInfo />
+}
 
 @code {
+    bool schoolView;
     HashSet<State> selectedStates = [.. Enum.GetValues<State>()];
+
     IReadOnlyList<HolidayViewModel>? holidays;
     Date startDate;
     Date endDate;
@@ -28,6 +50,10 @@
     int yearCount;
     bool is12MonthsMode = true;
     HashSet<int> selectedYears = [];
+
+    IReadOnlyList<int> availableSchoolYears = [];
+    HashSet<int> selectedSchoolYears = [];
+    IReadOnlyList<SchoolHolidayViewModel>? schoolHolidays;
 
     protected override async Task OnInitializedAsync()
     {
@@ -41,11 +67,15 @@
         }
 
         LoadHolidays();
+        RefreshSchoolYears();
+        LoadSchoolHolidays();
     }
+
+    void SetView(bool school) => schoolView = school;
 
     async Task OnStatesChanged(IReadOnlySet<State> states)
     {
-        selectedStates = new HashSet<State>(states);
+        selectedStates = new(states);
 
         if (states.Count == 1)
         {
@@ -57,6 +87,8 @@
         }
 
         LoadHolidays();
+        RefreshSchoolYears();
+        LoadSchoolHolidays();
     }
 
     Task OnIs12MonthsModeChanged(bool value)
@@ -69,9 +101,16 @@
 
     Task OnSelectedYearsChanged(IReadOnlySet<int> years)
     {
-        selectedYears = new HashSet<int>(years);
+        selectedYears = new(years);
         UpdateDateRange();
         LoadHolidays();
+        return Task.CompletedTask;
+    }
+
+    Task OnSchoolYearsChanged(IReadOnlySet<int> years)
+    {
+        selectedSchoolYears = new(years);
+        LoadSchoolHolidays();
         return Task.CompletedTask;
     }
 
@@ -85,8 +124,8 @@
         {
             var minYear = selectedYears.Min();
             var maxYear = selectedYears.Max();
-            startDate = new Date(minYear, 1, 1);
-            endDate = new Date(maxYear, 12, 31);
+            startDate = new(minYear, 1, 1);
+            endDate = new(maxYear, 12, 31);
         }
 
         (startYear, yearCount) = HolidayFilterService.GetExportYearRange(startDate, endDate);
@@ -95,5 +134,27 @@
     void LoadHolidays()
     {
         holidays = HolidayFilterService.GetHolidays(selectedStates, startDate, endDate);
+    }
+
+    // Keep the school year options in sync with the selected states (coverage differs per state) and
+    // keep at least the default year selected so the view is not empty.
+    void RefreshSchoolYears()
+    {
+        availableSchoolYears = SchoolHolidayFilterService.GetAvailableYears(selectedStates);
+        selectedSchoolYears = [.. selectedSchoolYears.Where(availableSchoolYears.Contains)];
+
+        if (selectedSchoolYears.Count == 0)
+        {
+            var defaultYear = SchoolHolidayFilterService.GetDefaultYear(selectedStates);
+            if (defaultYear.HasValue)
+            {
+                selectedSchoolYears = [defaultYear.Value];
+            }
+        }
+    }
+
+    void LoadSchoolHolidays()
+    {
+        schoolHolidays = SchoolHolidayFilterService.GetHolidays(selectedStates, selectedSchoolYears);
     }
 }

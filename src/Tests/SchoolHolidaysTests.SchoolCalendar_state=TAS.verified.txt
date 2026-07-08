@@ -1,0 +1,33 @@
+﻿2025
+  Terms
+    Term 1: Thu 06 Feb 2025 - Fri 11 Apr 2025
+    Term 2: Mon 28 Apr 2025 - Fri 04 Jul 2025
+    Term 3: Mon 21 Jul 2025 - Fri 26 Sep 2025
+    Term 4: Mon 13 Oct 2025 - Thu 18 Dec 2025
+  Holidays
+    Summer: Wed 01 Jan 2025 - Wed 05 Feb 2025
+    Autumn: Sat 12 Apr 2025 - Sun 27 Apr 2025
+    Winter: Sat 05 Jul 2025 - Sun 20 Jul 2025
+    Spring: Sat 27 Sep 2025 - Sun 12 Oct 2025
+2026
+  Terms
+    Term 1: Thu 05 Feb 2026 - Fri 17 Apr 2026
+    Term 2: Mon 04 May 2026 - Fri 10 Jul 2026
+    Term 3: Mon 27 Jul 2026 - Fri 02 Oct 2026
+    Term 4: Mon 19 Oct 2026 - Fri 18 Dec 2026
+  Holidays
+    Summer: Fri 19 Dec 2025 - Wed 04 Feb 2026
+    Autumn: Sat 18 Apr 2026 - Sun 03 May 2026
+    Winter: Sat 11 Jul 2026 - Sun 26 Jul 2026
+    Spring: Sat 03 Oct 2026 - Sun 18 Oct 2026
+2027
+  Terms
+    Term 1: Thu 04 Feb 2027 - Fri 09 Apr 2027
+    Term 2: Mon 26 Apr 2027 - Fri 02 Jul 2027
+    Term 3: Mon 19 Jul 2027 - Fri 24 Sep 2027
+    Term 4: Mon 11 Oct 2027 - Thu 16 Dec 2027
+  Holidays
+    Summer: Sat 19 Dec 2026 - Wed 03 Feb 2027
+    Autumn: Sat 10 Apr 2027 - Sun 25 Apr 2027
+    Winter: Sat 03 Jul 2027 - Sun 18 Jul 2027
+    Spring: Sat 25 Sep 2027 - Sun 10 Oct 2027

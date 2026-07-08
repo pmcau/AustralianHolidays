@@ -5,5 +5,6 @@ public class BunitTestContext : BunitContext
         var fakeTime = new FakeTimeProvider(new(2026, 1, 15, 0, 0, 0, TimeSpan.Zero));
         Services.AddSingleton<TimeProvider>(fakeTime);
         Services.AddScoped<HolidayFilterService>();
+        Services.AddScoped<SchoolHolidayFilterService>();
     }
 }
