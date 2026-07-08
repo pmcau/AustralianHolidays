@@ -150,7 +150,7 @@ public static partial class Holidays
             var escapedName = name.Contains(',') || name.Contains('"')
                 ? $"\"{name.Replace("\"", "\"\"")}\""
                 : name;
-            await writer.WriteLineAsync($"{date.ToString("yyyy-MM-dd")},{escapedName}", cancel);
+            await writer.WriteLineAsync($"{date:yyyy-MM-dd},{escapedName}", cancel);
         }
     }
 
@@ -162,7 +162,7 @@ public static partial class Holidays
             var escapedName = name.Contains(',') || name.Contains('"')
                 ? $"\"{name.Replace("\"", "\"\"")}\""
                 : name;
-            await writer.WriteLineAsync($"{date.ToString("yyyy-MM-dd")},{state},{escapedName}", cancel);
+            await writer.WriteLineAsync($"{date:yyyy-MM-dd},{state},{escapedName}", cancel);
         }
     }
 }
