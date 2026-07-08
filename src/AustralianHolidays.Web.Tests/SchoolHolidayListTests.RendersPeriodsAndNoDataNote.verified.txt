@@ -1,17 +1,22 @@
 ﻿<div class="school-group"><h3>NSW 2026</h3><table class="holiday-table school-holiday-table"><thead><tr><th>Holiday</th>
                                 <th class="date-column">Start</th>
                                 <th class="date-column">End</th>
-                                <th class="duration-column">Duration</th></tr></thead>
+                                <th class="number-column">Days</th>
+                                <th class="number-column weekdays-column">Weekdays</th></tr></thead>
                         <tbody><tr class="holiday-row today"><td>Summer</td>
                                     <td class="date-column">20 Dec 2025</td>
                                     <td class="date-column">1 Feb 2026</td>
-                                    <td class="duration-column">6.5 wks</td></tr><tr class="holiday-row future"><td>Autumn<span class="state-badge">Next</span></td>
+                                    <td class="number-column">44</td>
+                                    <td class="number-column weekdays-column">30</td></tr><tr class="holiday-row future"><td>Autumn<span class="state-badge">Next</span></td>
                                     <td class="date-column">3 Apr 2026</td>
                                     <td class="date-column">21 Apr 2026</td>
-                                    <td class="duration-column">2.5 wks</td></tr><tr class="holiday-row future"><td>Winter</td>
+                                    <td class="number-column">19</td>
+                                    <td class="number-column weekdays-column">13</td></tr><tr class="holiday-row future"><td>Winter</td>
                                     <td class="date-column">4 Jul 2026</td>
                                     <td class="date-column">20 Jul 2026</td>
-                                    <td class="duration-column">2.5 wks</td></tr><tr class="holiday-row future"><td>Spring</td>
+                                    <td class="number-column">17</td>
+                                    <td class="number-column weekdays-column">11</td></tr><tr class="holiday-row future"><td>Spring</td>
                                     <td class="date-column">26 Sep 2026</td>
                                     <td class="date-column">12 Oct 2026</td>
-                                    <td class="duration-column">2.5 wks</td></tr></tbody></table></div><div class="school-group"><h3>NSW 2029</h3><p class="school-nodata">No published school holiday dates for NSW 2029.</p></div>
+                                    <td class="number-column">17</td>
+                                    <td class="number-column weekdays-column">11</td></tr></tbody></table></div><div class="school-group"><h3>NSW 2029</h3><p class="school-nodata">No published school holiday dates for NSW 2029.</p></div>

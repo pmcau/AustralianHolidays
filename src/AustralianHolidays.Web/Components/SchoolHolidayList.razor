@@ -32,7 +32,8 @@ else
                                 <th>Holiday</th>
                                 <th class="date-column">Start</th>
                                 <th class="date-column">End</th>
-                                <th class="duration-column">Duration</th>
+                                <th class="number-column">Days</th>
+                                <th class="number-column weekdays-column">Weekdays</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -48,7 +49,8 @@ else
                                     </td>
                                     <td class="date-column">@period.Start.ToString("d MMM yyyy", CultureInfo.InvariantCulture)</td>
                                     <td class="date-column">@period.End.ToString("d MMM yyyy", CultureInfo.InvariantCulture)</td>
-                                    <td class="duration-column">@period.Duration</td>
+                                    <td class="number-column">@period.Days</td>
+                                    <td class="number-column weekdays-column">@period.Weekdays</td>
                                 </tr>
                             }
                         </tbody>

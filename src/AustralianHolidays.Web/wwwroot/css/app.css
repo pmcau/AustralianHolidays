@@ -301,8 +301,9 @@ header p {
     font-style: italic;
 }
 
-.holiday-table .duration-column {
+.holiday-table .number-column {
     white-space: nowrap;
+    text-align: right;
 }
 
 footer {
@@ -386,6 +387,10 @@ footer a:hover {
     }
 
     .day-column {
+        display: none;
+    }
+
+    .weekdays-column {
         display: none;
     }
 }

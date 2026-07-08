@@ -8,13 +8,20 @@ public record SchoolHolidayViewModel(
 {
     public int Days => End.DayNumber - Start.DayNumber + 1;
 
-    public string Duration
+    public int Weekdays
     {
         get
         {
-            var weeks = Math.Round(Days / 7d * 2, MidpointRounding.AwayFromZero) / 2;
-            var unit = weeks == 1 ? "wk" : "wks";
-            return $"{weeks:0.#} {unit}";
+            var count = 0;
+            for (var date = Start; date <= End; date = date.AddDays(1))
+            {
+                if (date.DayOfWeek is not (DayOfWeek.Saturday or DayOfWeek.Sunday))
+                {
+                    count++;
+                }
+            }
+
+            return count;
         }
     }
 }

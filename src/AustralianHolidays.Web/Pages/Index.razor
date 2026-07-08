@@ -75,7 +75,7 @@ else
 
     async Task OnStatesChanged(IReadOnlySet<State> states)
     {
-        selectedStates = new HashSet<State>(states);
+        selectedStates = new(states);
 
         if (states.Count == 1)
         {
@@ -101,7 +101,7 @@ else
 
     Task OnSelectedYearsChanged(IReadOnlySet<int> years)
     {
-        selectedYears = new HashSet<int>(years);
+        selectedYears = new(years);
         UpdateDateRange();
         LoadHolidays();
         return Task.CompletedTask;
@@ -109,7 +109,7 @@ else
 
     Task OnSchoolYearsChanged(IReadOnlySet<int> years)
     {
-        selectedSchoolYears = new HashSet<int>(years);
+        selectedSchoolYears = new(years);
         LoadSchoolHolidays();
         return Task.CompletedTask;
     }
@@ -124,8 +124,8 @@ else
         {
             var minYear = selectedYears.Min();
             var maxYear = selectedYears.Max();
-            startDate = new Date(minYear, 1, 1);
-            endDate = new Date(maxYear, 12, 31);
+            startDate = new(minYear, 1, 1);
+            endDate = new(maxYear, 12, 31);
         }
 
         (startYear, yearCount) = HolidayFilterService.GetExportYearRange(startDate, endDate);
