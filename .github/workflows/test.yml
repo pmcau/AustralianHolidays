@@ -1,0 +1,57 @@
+name: Test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+# Cancel in-progress runs when a new commit lands on the same branch/PR.
+concurrency:
+  group: test-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    # Windows matches the retired AppVeyor image (Visual Studio 2022); the Verify
+    # snapshots are authored on Windows, so this avoids line-ending/culture diffs.
+    # Switch to ubuntu-latest for cheaper minutes if the snapshots prove portable.
+    runs-on: windows-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          global-json-file: global.json
+
+      - name: Build
+        run: dotnet build src --configuration Release
+
+      - name: Test
+        run: dotnet test src --configuration Release --no-build --no-restore --filter Category!=Integration
+
+      # Verify drops *.received.* next to each failing snapshot. Publish them so a
+      # failed diff can be inspected (or accepted) straight from the run.
+      - name: Upload received snapshots on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verify-received-files
+          path: '**/*.received.*'
+          if-no-files-found: ignore
+          retention-days: 14
+
+      # GeneratePackageOnBuild (via ProjectDefaults) packs the nupkgs into ./nugets
+      # during the Release build above. Upload them only on a green run.
+      - name: Upload NuGet packages
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nupkgs
+          path: nugets/*.nupkg
+          if-no-files-found: warn
+          retention-days: 30
