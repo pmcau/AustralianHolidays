@@ -132,6 +132,7 @@ public static partial class SchoolHolidays
 
     static async Task ToExcel(Stream stream, IEnumerable<(Date start, Date end, string name)> holidays, Cancel cancel)
     {
+        holidays = holidays.ToArray();
         var assembly = typeof(SchoolHolidays).Assembly;
         await using var templateStream = assembly.GetManifestResourceStream("AustralianHolidays.Resources.HolidayTemplate.xlsx");
 
@@ -203,6 +204,7 @@ public static partial class SchoolHolidays
 
     static async Task ToExcelMultiState(Stream stream, IEnumerable<(Date start, Date end, State state, string name)> holidays, Cancel cancel)
     {
+        holidays = holidays.ToArray();
         var assembly = typeof(SchoolHolidays).Assembly;
         await using var templateStream = assembly.GetManifestResourceStream("AustralianHolidays.Resources.HolidayTemplate.xlsx");
 
