@@ -16,7 +16,14 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    # Windows so the Verify/Playwright screenshot snapshots (authored on Windows)
+    # match; Chromium renders text at slightly different heights on Linux.
+    runs-on: windows-latest
+    # sed/touch/cp below need a POSIX shell; Windows runners default run: to
+    # PowerShell, so pin the whole job to the bundled Git Bash.
+    defaults:
+      run:
+        shell: bash
     steps:
       - name: Checkout
         uses: actions/checkout@v4
