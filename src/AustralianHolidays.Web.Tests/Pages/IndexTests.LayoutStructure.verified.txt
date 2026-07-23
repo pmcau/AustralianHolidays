@@ -1,18 +1,17 @@
 ﻿
 
 <div class="controls view-toggle"><button class="state-btn selected" blazor:onclick="1">Public Holidays</button>
-    <button class="state-btn " blazor:onclick="2">School Holidays</button></div>
-
-<div class="controls"><div class="state-selector"><label>States:</label>
-    <div class="state-buttons"><button class="state-btn selected" blazor:onclick="3">All</button><button class="state-btn selected" blazor:onclick="4">ACT</button><button class="state-btn selected" blazor:onclick="5">NSW</button><button class="state-btn selected" blazor:onclick="6">NT</button><button class="state-btn selected" blazor:onclick="7">QLD</button><button class="state-btn selected" blazor:onclick="8">SA</button><button class="state-btn selected" blazor:onclick="9">TAS</button><button class="state-btn selected" blazor:onclick="10">VIC</button><button class="state-btn selected" blazor:onclick="11">WA</button></div></div></div><div class="controls"><div class="year-selector"><label>Period:</label>
-    <div class="state-buttons"><button class="state-btn selected" blazor:onclick="12">12 Months</button><button class="state-btn " blazor:onclick="13">2025</button><button class="state-btn " blazor:onclick="14">2026</button><button class="state-btn " blazor:onclick="15">2027</button><button class="state-btn " blazor:onclick="16">2028</button></div></div></div>
+    <button class="state-btn " blazor:onclick="2">School Holidays</button>
+    <button class="state-btn " blazor:onclick="3">Parliament</button></div><div class="controls"><div class="state-selector"><label>States:</label>
+    <div class="state-buttons"><button class="state-btn selected" blazor:onclick="4">All</button><button class="state-btn selected" blazor:onclick="5">ACT</button><button class="state-btn selected" blazor:onclick="6">NSW</button><button class="state-btn selected" blazor:onclick="7">NT</button><button class="state-btn selected" blazor:onclick="8">QLD</button><button class="state-btn selected" blazor:onclick="9">SA</button><button class="state-btn selected" blazor:onclick="10">TAS</button><button class="state-btn selected" blazor:onclick="11">VIC</button><button class="state-btn selected" blazor:onclick="12">WA</button></div></div></div><div class="controls"><div class="year-selector"><label>Period:</label>
+    <div class="state-buttons"><button class="state-btn selected" blazor:onclick="13">12 Months</button><button class="state-btn " blazor:onclick="14">2025</button><button class="state-btn " blazor:onclick="15">2026</button><button class="state-btn " blazor:onclick="16">2027</button><button class="state-btn " blazor:onclick="17">2028</button></div></div></div>
     <div class="controls"><div class="export-menu"><label>Export:</label>
-    <div class="state-buttons"><button class="export-btn" blazor:onclick="17">JSON</button>
-        <button class="export-btn" blazor:onclick="18">CSV</button>
-        <button class="export-btn" blazor:onclick="19">XML</button>
-        <button class="export-btn" blazor:onclick="20">Markdown</button>
-        <button class="export-btn" blazor:onclick="21">ICS</button>
-        <button class="export-btn" blazor:onclick="22">Excel</button></div></div></div><table class="holiday-table"><thead><tr><th class="date-column">Date</th>
+    <div class="state-buttons"><button class="export-btn" blazor:onclick="18">JSON</button>
+        <button class="export-btn" blazor:onclick="19">CSV</button>
+        <button class="export-btn" blazor:onclick="20">XML</button>
+        <button class="export-btn" blazor:onclick="21">Markdown</button>
+        <button class="export-btn" blazor:onclick="22">ICS</button>
+        <button class="export-btn" blazor:onclick="23">Excel</button></div></div></div><table class="holiday-table"><thead><tr><th class="date-column">Date</th>
                 <th class="day-column">Day</th>
                 <th>Holiday</th><th>State</th></tr></thead>
         <tbody><tr class="holiday-row future"><td class="date-column"><span class="date-desktop">26 Jan 2026</span><span class="date-mobile">Mon 26 Jan 2026</span></td>
