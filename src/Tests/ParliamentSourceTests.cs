@@ -44,7 +44,7 @@ public class ParliamentSourceTests
             }
             catch (Exception exception) when (exception is HttpRequestException or TaskCanceledException)
             {
-                Assert.Inconclusive($"Could not reach {sittingDaysUrl}{year}: {exception.Message}");
+                Inconclusive($"Could not reach {sittingDaysUrl}{year}: {exception.Message}");
                 return;
             }
 
@@ -77,7 +77,7 @@ public class ParliamentSourceTests
 
         if (verifiedYears == 0)
         {
-            Assert.Inconclusive("None of the covered years are in the official record yet, so nothing was verified.");
+            Inconclusive("None of the covered years are in the official record yet, so nothing was verified.");
         }
 
         if (mismatches.Count > 0)
