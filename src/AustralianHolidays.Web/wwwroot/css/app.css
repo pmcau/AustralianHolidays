@@ -285,17 +285,45 @@ header p {
     padding-bottom: 1rem;
 }
 
-.school-group {
+.school-group,
+.sitting-group {
     margin-bottom: 1.5rem;
 }
 
-.school-group h3 {
+.school-group h3,
+.sitting-group h3 {
     margin: 0 0 0.5rem;
     color: var(--primary-color);
     font-size: 1.15rem;
 }
 
-.school-nodata {
+.sitting-next {
+    margin: 0 0 1rem;
+    color: var(--text-color);
+}
+
+.sitting-next strong {
+    color: var(--primary-color);
+}
+
+.sitting-next-item {
+    margin-left: 0.5rem;
+}
+
+.sitting-next-item + .sitting-next-item::before {
+    content: "\00b7";
+    margin-right: 0.5rem;
+    color: var(--past-color);
+}
+
+/* Razor drops the whitespace between the period name and the chamber badges, so space them off the
+   name here rather than leaving the first one flush against it. */
+.sitting-table .state-badge {
+    margin-left: 0.4rem;
+}
+
+.school-nodata,
+.sitting-nodata {
     margin: 0 0 0.5rem;
     color: var(--past-color);
     font-style: italic;

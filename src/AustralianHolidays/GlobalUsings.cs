@@ -10,3 +10,4 @@ global using System.Text.Json;
 global using System.Xml;
 global using static Month;
 global using static AustralianHolidays.State;
+global using static AustralianHolidays.Chamber;

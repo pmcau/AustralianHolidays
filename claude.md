@@ -8,7 +8,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Build & Test
 
-Requires .NET SDK 10.0+ (see `src/global.json`). All commands run from the repo root:
+Requires the .NET 11 preview SDK (see `global.json` in the repo root). All commands run from the repo root:
 
 ```bash
 dotnet build src --configuration Release

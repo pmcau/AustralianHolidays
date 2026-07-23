@@ -450,6 +450,151 @@ var markdown = await SchoolHolidays.ExportToMarkdown(State.NSW, startYear: 2025)
  * [Western Australia](https://www.education.wa.edu.au/future-term-dates)
 
 
+## Parliamentary Sittings
+
+Sitting days for the federal Parliament of Australia, for the `House` of Representatives and the `Senate`.
+
+Like school terms, sitting dates cannot be calculated. They are agreed to by each House and published a year at a time by the Department of the Prime Minister and Cabinet, so they are stored as data and are only available for a bounded range of years (currently 2026).
+
+Each year is divided into the `Autumn`, `Winter` and `Spring` sitting blocks. Within a block, sittings run in short bursts of consecutive weekdays (typically Monday to Thursday). Sittings that happen outside the published calendar are named `Recall`; 19 to 20 January 2026 is one, when Parliament was recalled after the December 2025 Bondi attack.
+
+**Notes:**
+
+- The published calendar is indicative. Extra sittings can be added (see `Recall` above), scheduled ones cancelled, and the whole calendar is displaced when Parliament is dissolved for an election.
+- The two chambers do not always sit together. In 2026 the House sits alone during the three Senate estimates rounds, and the Senate sits alone from 16 to 19 November.
+- Senate estimates are committee hearings rather than sittings, so `IsSenateSittingDay` returns `false` during an estimates round. Use `IsSenateEstimatesDay` to detect one.
+- Years outside the available data return `false` from `IsSittingDay`, and throw from `GetSittingPeriods`/`GetSittingDays`/`GetSenateEstimates`.
+
+
+### IsSittingDay
+
+Determines if a date is a sitting day for a chamber.
+
+<!-- snippet: IsSittingDay -->
+<a id='snippet-IsSittingDay'></a>
+```cs
+var date = new Date(2026, 3, 2);
+
+IsTrue(date.IsSittingDay(Chamber.House));
+```
+<sup><a href='/src/Tests/ParliamentTests.cs#L109-L115' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsSittingDay' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
+#### With name
+
+Also gets the name of the sitting block (`Autumn`, `Winter` or `Spring`).
+
+<!-- snippet: IsSittingDayNamed -->
+<a id='snippet-IsSittingDayNamed'></a>
+```cs
+var date = new Date(2026, 3, 2);
+
+IsTrue(date.IsSittingDay(Chamber.House, out var name));
+
+AreEqual("Autumn", name);
+```
+<sup><a href='/src/Tests/ParliamentTests.cs#L121-L129' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsSittingDayNamed' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
+#### For a chamber
+
+A convenience wrapper named method is provided for each chamber.
+
+<!-- snippet: IsChamberSittingDay -->
+<a id='snippet-IsChamberSittingDay'></a>
+```cs
+var date = new Date(2026, 3, 2);
+
+IsTrue(date.IsHouseSittingDay());
+IsTrue(date.IsSenateSittingDay());
+```
+<sup><a href='/src/Tests/ParliamentTests.cs#L135-L142' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsChamberSittingDay' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
+#### Both chambers
+
+Determines if both chambers sit on a date. These are the dates marked with an asterisk on the published calendar. This is not a joint sitting in the sense of section 57 of the Constitution; it only means both chambers are scheduled to sit that day.
+
+<!-- snippet: IsBothChambersSittingDay -->
+<a id='snippet-IsBothChambersSittingDay'></a>
+```cs
+// 9 to 12 February 2026 is a House sitting week, but the Senate is in estimates.
+IsFalse(new Date(2026, 2, 9).IsBothChambersSittingDay());
+
+IsTrue(new Date(2026, 3, 2).IsBothChambersSittingDay());
+```
+<sup><a href='/src/Tests/ParliamentTests.cs#L148-L155' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsBothChambersSittingDay' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
+### IsSenateEstimatesDay
+
+Determines if a date falls within a Senate estimates hearing round, and gets the name of that round (`Additional`, `Budget` or `Supplementary Budget`).
+
+<!-- snippet: IsSenateEstimatesDay -->
+<a id='snippet-IsSenateEstimatesDay'></a>
+```cs
+var date = new Date(2026, 2, 9);
+
+IsTrue(date.IsSenateEstimatesDay(out var name));
+
+AreEqual("Additional", name);
+```
+<sup><a href='/src/Tests/ParliamentTests.cs#L161-L169' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsSenateEstimatesDay' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
+### GetSittingPeriods
+
+Gets the sitting periods for a chamber and year. Each period is one run of consecutive sitting days.
+
+<!-- snippet: GetSittingPeriods -->
+<a id='snippet-GetSittingPeriods'></a>
+```cs
+var periods = Parliament.GetSittingPeriods(Chamber.House, 2026);
+foreach (var (start, end, name) in periods)
+{
+    Console.WriteLine($"{name}: {start} - {end}");
+}
+```
+<sup><a href='/src/Tests/ParliamentTests.cs#L175-L183' title='Snippet source file'>snippet source</a> | <a href='#snippet-GetSittingPeriods' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
+### GetSittingDays
+
+Gets every individual sitting day for a chamber and year.
+
+<!-- snippet: GetSittingDays -->
+<a id='snippet-GetSittingDays'></a>
+```cs
+var days = Parliament.GetSittingDays(Chamber.Senate, 2026);
+foreach (var day in days)
+{
+    Console.WriteLine(day);
+}
+```
+<sup><a href='/src/Tests/ParliamentTests.cs#L191-L199' title='Snippet source file'>snippet source</a> | <a href='#snippet-GetSittingDays' title='Start of snippet'>anchor</a></sup>
+<!-- endSnippet -->
+
+
+### Parliamentary sitting official sources
+
+ * [Parliamentary sittings](https://www.pmc.gov.au/resources/parliamentary-sittings) (Department of the Prime Minister and Cabinet) — the calendar for the year ahead, published around November for the following year.
+ * [Sitting calendars](https://handbook.aph.gov.au/resources/sitting-calendars) (Parliamentary Handbook) — the record of days Parliament actually sat, filled in as the year goes.
+
+`ParliamentSourceTests` checks the stored dates against the Parliamentary Handbook record and fails listing any date that disagrees. It hits the network, so it is excluded from the default test run and has to be asked for:
+
+```
+dotnet test src/Tests --filter "FullyQualifiedName~ParliamentSourceTests"
+```
+
+It can only confirm dates that have already happened, because the Handbook records sittings rather than publishing them ahead of time. Adding a new year still means transcribing the PM&C calendar by hand: pmc.gov.au sits behind a bot check that returns a stub to any plain HTTP client, so it has to be read in a browser.
+
+
 ## ExportToMarkdown
 
 

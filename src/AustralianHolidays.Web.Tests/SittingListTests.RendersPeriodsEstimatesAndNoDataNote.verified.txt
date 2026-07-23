@@ -1,0 +1,70 @@
+﻿<p class="sitting-next"><strong>Next sitting:</strong><span class="sitting-next-item">Senate — 19 to 20 Jan 2026</span></p><div class="sitting-group"><h3>Senate 2026</h3><table class="holiday-table sitting-table"><thead><tr><th>Sittings</th>
+                                <th class="date-column">Start</th>
+                                <th class="date-column">End</th>
+                                <th class="number-column">Days</th></tr></thead>
+                        <tbody><tr class="holiday-row future"><td>Recall</td>
+                                    <td class="date-column">19 Jan 2026</td>
+                                    <td class="date-column">20 Jan 2026</td>
+                                    <td class="number-column">2</td></tr><tr class="holiday-row future"><td>Autumn</td>
+                                    <td class="date-column">3 Feb 2026</td>
+                                    <td class="date-column">5 Feb 2026</td>
+                                    <td class="number-column">3</td></tr><tr class="holiday-row future"><td>Autumn</td>
+                                    <td class="date-column">2 Mar 2026</td>
+                                    <td class="date-column">5 Mar 2026</td>
+                                    <td class="number-column">4</td></tr><tr class="holiday-row future"><td>Autumn</td>
+                                    <td class="date-column">10 Mar 2026</td>
+                                    <td class="date-column">12 Mar 2026</td>
+                                    <td class="number-column">3</td></tr><tr class="holiday-row future"><td>Autumn</td>
+                                    <td class="date-column">23 Mar 2026</td>
+                                    <td class="date-column">26 Mar 2026</td>
+                                    <td class="number-column">4</td></tr><tr class="holiday-row future"><td>Autumn</td>
+                                    <td class="date-column">30 Mar 2026</td>
+                                    <td class="date-column">1 Apr 2026</td>
+                                    <td class="number-column">3</td></tr><tr class="holiday-row future"><td>Winter</td>
+                                    <td class="date-column">12 May 2026</td>
+                                    <td class="date-column">14 May 2026</td>
+                                    <td class="number-column">3</td></tr><tr class="holiday-row future"><td>Winter</td>
+                                    <td class="date-column">22 Jun 2026</td>
+                                    <td class="date-column">25 Jun 2026</td>
+                                    <td class="number-column">4</td></tr><tr class="holiday-row future"><td>Winter</td>
+                                    <td class="date-column">29 Jun 2026</td>
+                                    <td class="date-column">2 Jul 2026</td>
+                                    <td class="number-column">4</td></tr><tr class="holiday-row future"><td>Spring</td>
+                                    <td class="date-column">11 Aug 2026</td>
+                                    <td class="date-column">13 Aug 2026</td>
+                                    <td class="number-column">3</td></tr><tr class="holiday-row future"><td>Spring</td>
+                                    <td class="date-column">17 Aug 2026</td>
+                                    <td class="date-column">20 Aug 2026</td>
+                                    <td class="number-column">4</td></tr><tr class="holiday-row future"><td>Spring</td>
+                                    <td class="date-column">7 Sep 2026</td>
+                                    <td class="date-column">10 Sep 2026</td>
+                                    <td class="number-column">4</td></tr><tr class="holiday-row future"><td>Spring</td>
+                                    <td class="date-column">14 Sep 2026</td>
+                                    <td class="date-column">17 Sep 2026</td>
+                                    <td class="number-column">4</td></tr><tr class="holiday-row future"><td>Spring</td>
+                                    <td class="date-column">12 Oct 2026</td>
+                                    <td class="date-column">15 Oct 2026</td>
+                                    <td class="number-column">4</td></tr><tr class="holiday-row future"><td>Spring<span class="state-badge" title="The House of Representatives is not sitting">Senate only</span></td>
+                                    <td class="date-column">16 Nov 2026</td>
+                                    <td class="date-column">19 Nov 2026</td>
+                                    <td class="number-column">4</td></tr><tr class="holiday-row future"><td>Spring</td>
+                                    <td class="date-column">23 Nov 2026</td>
+                                    <td class="date-column">26 Nov 2026</td>
+                                    <td class="number-column">4</td></tr></tbody></table></div><div class="sitting-group"><h3>Senate 2029</h3><p class="sitting-nodata">No published sitting dates for the Senate in 2029.</p></div><div class="sitting-group"><h3>Senate estimates 2026</h3>
+                    <table class="holiday-table sitting-table"><thead><tr><th>Round</th>
+                                <th class="date-column">Start</th>
+                                <th class="date-column">End</th>
+                                <th class="number-column">Days</th></tr></thead>
+                        <tbody><tr class="holiday-row future"><td>Additional</td>
+                                    <td class="date-column">9 Feb 2026</td>
+                                    <td class="date-column">12 Feb 2026</td>
+                                    <td class="number-column">4</td></tr><tr class="holiday-row future"><td>Budget</td>
+                                    <td class="date-column">25 May 2026</td>
+                                    <td class="date-column">28 May 2026</td>
+                                    <td class="number-column">4</td></tr><tr class="holiday-row future"><td>Budget</td>
+                                    <td class="date-column">2 Jun 2026</td>
+                                    <td class="date-column">5 Jun 2026</td>
+                                    <td class="number-column">4</td></tr><tr class="holiday-row future"><td>Supplementary Budget</td>
+                                    <td class="date-column">26 Oct 2026</td>
+                                    <td class="date-column">29 Oct 2026</td>
+                                    <td class="number-column">4</td></tr></tbody></table></div>

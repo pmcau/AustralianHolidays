@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "web",
+      "runtimeExecutable": "dotnet",
+      "runtimeArgs": ["watch", "--project", "src/AustralianHolidays.Web", "run", "--urls", "http://localhost:5177"],
+      "port": 5177
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+@code {
+    [Parameter]
+    public IReadOnlySet<Chamber> SelectedChambers { get; set; } = new HashSet<Chamber>();
+
+    [Parameter]
+    public EventCallback<IReadOnlySet<Chamber>> SelectedChambersChanged { get; set; }
+
+    static readonly Chamber[] AllChambers = Enum.GetValues<Chamber>();
+
+    bool AllSelected => SelectedChambers.Count == AllChambers.Length;
+
+    Task ToggleAll()
+    {
+        var newSelection = AllSelected
+            ? new HashSet<Chamber>()
+            : new HashSet<Chamber>(AllChambers);
+
+        return SelectedChambersChanged.InvokeAsync(newSelection);
+    }
+
+    Task ToggleChamber(Chamber chamber)
+    {
+        var newSelection = new HashSet<Chamber>(SelectedChambers);
+
+        if (newSelection.Contains(chamber))
+        {
+            newSelection.Remove(chamber);
+        }
+        else
+        {
+            newSelection.Add(chamber);
+        }
+
+        return SelectedChambersChanged.InvokeAsync(newSelection);
+    }
+}
+
+<div class="state-selector">
+    <label>Chambers:</label>
+    <div class="state-buttons">
+        <button class="state-btn @(AllSelected ? "selected" : "")" @onclick="ToggleAll">All</button>
+        @foreach (var chamber in AllChambers)
+        {
+            <button class="state-btn @(SelectedChambers.Contains(chamber) ? "selected" : "")" @onclick="() => ToggleChamber(chamber)">@ChamberNames.Short(chamber)</button>
+        }
+    </div>
+</div>

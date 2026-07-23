@@ -1,0 +1,175 @@
+@using System.Globalization
+
+@if (SelectedChambers.Count == 0 || SelectedYears.Count == 0)
+{
+    <div class="empty-state">
+        <p>Select a chamber and a year to see sitting periods.</p>
+    </div>
+}
+else
+{
+    <p class="sitting-next">
+        <strong>Next sitting:</strong>
+        @foreach (var chamber in SelectedChambers.OrderBy(_ => _))
+        {
+            <span class="sitting-next-item">@ChamberNames.Full(chamber) &mdash; @Describe(NextFor(chamber))</span>
+        }
+    </p>
+
+    @foreach (var chamber in SelectedChambers.OrderBy(_ => _))
+    {
+        @foreach (var year in SelectedYears.OrderBy(_ => _))
+        {
+            var periods = Periods?
+                .Where(_ => _.Chamber == chamber && _.Year == year)
+                .OrderBy(_ => _.Start)
+                .ToList() ?? [];
+
+            <div class="sitting-group">
+                <h3>@ChamberNames.Full(chamber) @year</h3>
+                @if (periods.Count == 0)
+                {
+                    <p class="sitting-nodata">No published sitting dates for the @ChamberNames.Full(chamber) in @year.</p>
+                }
+                else
+                {
+                    <table class="holiday-table sitting-table">
+                        <thead>
+                            <tr>
+                                <th>Sittings</th>
+                                <th class="date-column">Start</th>
+                                <th class="date-column">End</th>
+                                <th class="number-column">Days</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var period in periods)
+                            {
+                                <tr class="holiday-row @GetRowClass(period.TimeCategory)">
+                                    <td>
+                                        @period.Name
+                                        @* The table already names the chamber, so tagging every row with
+                                           it is noise. Both chambers sitting is the norm; only call out
+                                           the periods where this one sits without the other. *@
+                                        @if (period.SittingChambers.Count == 1)
+                                        {
+                                            <span class="state-badge" title="The @ChamberNames.Full(Other(chamber)) is not sitting">@ChamberNames.Short(chamber) only</span>
+                                        }
+                                    </td>
+                                    <td class="date-column">@period.Start.ToString("d MMM yyyy", CultureInfo.InvariantCulture)</td>
+                                    <td class="date-column">@period.End.ToString("d MMM yyyy", CultureInfo.InvariantCulture)</td>
+                                    <td class="number-column">@period.Days</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+            </div>
+        }
+    }
+
+    @* Estimates explain the weeks the Senate is absent while the House sits, so they are only worth
+       showing when the Senate is in view. *@
+    @if (SelectedChambers.Contains(Chamber.Senate))
+    {
+        @foreach (var year in SelectedYears.OrderBy(_ => _))
+        {
+            var rounds = Estimates?
+                .Where(_ => _.Year == year)
+                .OrderBy(_ => _.Start)
+                .ToList() ?? [];
+
+            @if (rounds.Count > 0)
+            {
+                <div class="sitting-group">
+                    <h3>Senate estimates @year</h3>
+                    <table class="holiday-table sitting-table">
+                        <thead>
+                            <tr>
+                                <th>Round</th>
+                                <th class="date-column">Start</th>
+                                <th class="date-column">End</th>
+                                <th class="number-column">Days</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var round in rounds)
+                            {
+                                <tr class="holiday-row @GetRowClass(round.TimeCategory)">
+                                    <td>@round.Name</td>
+                                    <td class="date-column">@round.Start.ToString("d MMM yyyy", CultureInfo.InvariantCulture)</td>
+                                    <td class="date-column">@round.End.ToString("d MMM yyyy", CultureInfo.InvariantCulture)</td>
+                                    <td class="number-column">@round.Days</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+        }
+    }
+}
+
+@code {
+    [Parameter]
+    public IReadOnlyList<SittingViewModel>? Periods { get; set; }
+
+    [Parameter]
+    public IReadOnlyList<SittingViewModel>? Estimates { get; set; }
+
+    [Parameter]
+    public IReadOnlySet<Chamber> SelectedChambers { get; set; } = new HashSet<Chamber>();
+
+    [Parameter]
+    public IReadOnlySet<int> SelectedYears { get; set; } = new HashSet<int>();
+
+    // Answered once across every selected year rather than per table, so there is exactly one "next"
+    // per chamber however many years are in view. A period already under way wins over a later one.
+    SittingViewModel? NextFor(Chamber chamber)
+    {
+        var forChamber = Periods?
+            .Where(_ => _.Chamber == chamber)
+            .OrderBy(_ => _.Start)
+            .ToList() ?? [];
+
+        return forChamber.FirstOrDefault(_ => _.TimeCategory == HolidayTimeCategory.Today) ??
+               forChamber.FirstOrDefault(_ => _.TimeCategory == HolidayTimeCategory.Future);
+    }
+
+    static Chamber Other(Chamber chamber) =>
+        chamber == Chamber.House ? Chamber.Senate : Chamber.House;
+
+    static string Describe(SittingViewModel? period)
+    {
+        if (period == null)
+        {
+            return "no further sittings published";
+        }
+
+        var end = period.End.ToString("d MMM yyyy", CultureInfo.InvariantCulture);
+
+        if (period.TimeCategory == HolidayTimeCategory.Today)
+        {
+            return $"sitting now, until {end}";
+        }
+
+        // Drop the parts of the start date the end date repeats, so a range reads "19 to 20 Jan 2026"
+        // rather than "19 Jan 2026 to 20 Jan 2026".
+        var startFormat = "d MMM yyyy";
+        if (period.Start.Year == period.End.Year)
+        {
+            // "%d" not "d": a lone "d" is the standard short-date specifier, not the day of the month.
+            startFormat = period.Start.Month == period.End.Month ? "%d" : "d MMM";
+        }
+
+        return $"{period.Start.ToString(startFormat, CultureInfo.InvariantCulture)} to {end}";
+    }
+
+    static string GetRowClass(HolidayTimeCategory category) => category switch
+    {
+        HolidayTimeCategory.Past => "past",
+        HolidayTimeCategory.Today => "today",
+        HolidayTimeCategory.Future => "future",
+        _ => ""
+    };
+}

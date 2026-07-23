@@ -6,5 +6,6 @@ public class BunitTestContext : BunitContext
         Services.AddSingleton<TimeProvider>(fakeTime);
         Services.AddScoped<HolidayFilterService>();
         Services.AddScoped<SchoolHolidayFilterService>();
+        Services.AddScoped<SittingFilterService>();
     }
 }

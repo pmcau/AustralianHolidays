@@ -2,19 +2,25 @@
 @inject StatePreferenceService StatePreferenceService
 @inject HolidayFilterService HolidayFilterService
 @inject SchoolHolidayFilterService SchoolHolidayFilterService
+@inject SittingFilterService SittingFilterService
 
 <PageTitle>Australian Holidays</PageTitle>
 
 <div class="controls view-toggle">
-    <button class="state-btn @(!schoolView ? "selected" : "")" @onclick="() => SetView(false)">Public Holidays</button>
-    <button class="state-btn @(schoolView ? "selected" : "")" @onclick="() => SetView(true)">School Holidays</button>
+    <button class="state-btn @(view == ViewMode.Public ? "selected" : "")" @onclick="() => SetView(ViewMode.Public)">Public Holidays</button>
+    <button class="state-btn @(view == ViewMode.School ? "selected" : "")" @onclick="() => SetView(ViewMode.School)">School Holidays</button>
+    <button class="state-btn @(view == ViewMode.Parliament ? "selected" : "")" @onclick="() => SetView(ViewMode.Parliament)">Parliament</button>
 </div>
 
-<div class="controls">
-    <StateSelector SelectedStates="selectedStates" SelectedStatesChanged="OnStatesChanged" />
-</div>
+@* Sittings are federal, so the state picker has nothing to act on in that view. *@
+@if (view != ViewMode.Parliament)
+{
+    <div class="controls">
+        <StateSelector SelectedStates="selectedStates" SelectedStatesChanged="OnStatesChanged" />
+    </div>
+}
 
-@if (!schoolView)
+@if (view == ViewMode.Public)
 {
     <div class="controls">
         <YearSelector Is12MonthsMode="is12MonthsMode" Is12MonthsModeChanged="OnIs12MonthsModeChanged"
@@ -28,7 +34,7 @@
 
     <HolidayLogicInfo />
 }
-else
+else if (view == ViewMode.School)
 {
     <div class="controls">
         <SchoolYearSelector AvailableYears="availableSchoolYears" SelectedYears="selectedSchoolYears" SelectedYearsChanged="OnSchoolYearsChanged" />
@@ -38,9 +44,29 @@ else
 
     <SchoolHolidayInfo />
 }
+else
+{
+    <div class="controls">
+        <ChamberSelector SelectedChambers="selectedChambers" SelectedChambersChanged="OnChambersChanged" />
+    </div>
+    <div class="controls">
+        <SchoolYearSelector AvailableYears="availableSittingYears" SelectedYears="selectedSittingYears" SelectedYearsChanged="OnSittingYearsChanged" />
+    </div>
+
+    <SittingList Periods="sittings" Estimates="estimates" SelectedChambers="selectedChambers" SelectedYears="selectedSittingYears" />
+
+    <SittingInfo />
+}
 
 @code {
-    bool schoolView;
+    enum ViewMode
+    {
+        Public,
+        School,
+        Parliament
+    }
+
+    ViewMode view = ViewMode.Public;
     HashSet<State> selectedStates = [.. Enum.GetValues<State>()];
 
     IReadOnlyList<HolidayViewModel>? holidays;
@@ -54,6 +80,12 @@ else
     IReadOnlyList<int> availableSchoolYears = [];
     HashSet<int> selectedSchoolYears = [];
     IReadOnlyList<SchoolHolidayViewModel>? schoolHolidays;
+
+    HashSet<Chamber> selectedChambers = [.. Enum.GetValues<Chamber>()];
+    IReadOnlyList<int> availableSittingYears = [];
+    HashSet<int> selectedSittingYears = [];
+    IReadOnlyList<SittingViewModel>? sittings;
+    IReadOnlyList<SittingViewModel>? estimates;
 
     protected override async Task OnInitializedAsync()
     {
@@ -69,9 +101,11 @@ else
         LoadHolidays();
         RefreshSchoolYears();
         LoadSchoolHolidays();
+        RefreshSittingYears();
+        LoadSittings();
     }
 
-    void SetView(bool school) => schoolView = school;
+    void SetView(ViewMode mode) => view = mode;
 
     async Task OnStatesChanged(IReadOnlySet<State> states)
     {
@@ -111,6 +145,21 @@ else
     {
         selectedSchoolYears = new(years);
         LoadSchoolHolidays();
+        return Task.CompletedTask;
+    }
+
+    Task OnChambersChanged(IReadOnlySet<Chamber> chambers)
+    {
+        selectedChambers = new(chambers);
+        RefreshSittingYears();
+        LoadSittings();
+        return Task.CompletedTask;
+    }
+
+    Task OnSittingYearsChanged(IReadOnlySet<int> years)
+    {
+        selectedSittingYears = new(years);
+        LoadSittings();
         return Task.CompletedTask;
     }
 
@@ -156,5 +205,28 @@ else
     void LoadSchoolHolidays()
     {
         schoolHolidays = SchoolHolidayFilterService.GetHolidays(selectedStates, selectedSchoolYears);
+    }
+
+    // Same shape as RefreshSchoolYears: keep the year options in sync with the selected chambers and
+    // keep at least the default year selected so the view is not empty.
+    void RefreshSittingYears()
+    {
+        availableSittingYears = SittingFilterService.GetAvailableYears(selectedChambers);
+        selectedSittingYears = [.. selectedSittingYears.Where(availableSittingYears.Contains)];
+
+        if (selectedSittingYears.Count == 0)
+        {
+            var defaultYear = SittingFilterService.GetDefaultYear(selectedChambers);
+            if (defaultYear.HasValue)
+            {
+                selectedSittingYears = [defaultYear.Value];
+            }
+        }
+    }
+
+    void LoadSittings()
+    {
+        sittings = SittingFilterService.GetPeriods(selectedChambers, selectedSittingYears);
+        estimates = SittingFilterService.GetEstimates(selectedSittingYears);
     }
 }
