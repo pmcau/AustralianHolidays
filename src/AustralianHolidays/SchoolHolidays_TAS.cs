@@ -22,6 +22,8 @@ public static partial class SchoolHolidays
     }
 
     // Tasmanian government school term dates (student first/last days).
+    // Coverage stops at 2027 because that is the furthest year DECYP has published (checked
+    // August 2026); 2028 term dates are not yet available from any official source.
     // Source: https://www.decyp.tas.gov.au/learning/term-dates/
     static readonly IReadOnlyDictionary<int, (Date start, Date end)[]> tasTerms =
         new Dictionary<int, (Date start, Date end)[]>

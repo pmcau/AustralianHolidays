@@ -24,8 +24,10 @@ public static partial class SchoolHolidays
     // New South Wales government school term dates, Eastern Division (student first/last days; the
     // School Development Days before Term 1 count as part of the summer break). Western Division
     // schools start Term 1 about a week later; Terms 2-4 are identical.
-    // Coverage stops at 2027 because NSW only publishes the student first-day breakdown through 2027;
-    // 2028+ terms are gazetted only as staff-inclusive start dates, which would misreport late January.
+    // Coverage stops at 2027 because NSW only publishes the student first-day breakdown through 2027
+    // (checked August 2026); 2028+ terms are gazetted only as staff-inclusive start dates, which
+    // would misreport late January. The breakdown comes from the school development days page:
+    // https://education.nsw.gov.au/schooling/calendars/school-development-days
     // Source: https://education.nsw.gov.au/schooling/calendars
     static readonly IReadOnlyDictionary<int, (Date start, Date end)[]> nswTerms =
         new Dictionary<int, (Date start, Date end)[]>
