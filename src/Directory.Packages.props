@@ -13,7 +13,7 @@
     <PackageVersion Include="NUnit" Version="4.6.1" />
     <PackageVersion Include="NUnit3TestAdapter" Version="6.2.0" />
     <PackageVersion Include="Polyfill" Version="11.2.0" />
-    <PackageVersion Include="ProjectDefaults" Version="1.0.176" />
+    <PackageVersion Include="ProjectDefaults" Version="1.0.180" />
     <PackageVersion Include="ProjectFiles" Version="1.4.0" />
     <PackageVersion Include="System.Text.Json" Version="10.0.11" />
     <PackageVersion Include="Verify" Version="31.28.0" />
@@ -29,7 +29,7 @@
     <PackageVersion Include="Microsoft.Playwright" Version="1.62.0" />
     <PackageVersion Include="Verify.Playwright" Version="3.1.1" />
     <PackageVersion Include="Argon" Version="0.35.2" />
-    <PackageVersion Include="DiffEngine" Version="20.0.0-beta.29" />
+    <PackageVersion Include="DiffEngine" Version="20.0.0-beta.30" />
     <PackageVersion Include="EmptyFiles" Version="8.18.2" />
     <PackageVersion Include="SimpleInfoName" Version="3.2.0" />
   </ItemGroup>
