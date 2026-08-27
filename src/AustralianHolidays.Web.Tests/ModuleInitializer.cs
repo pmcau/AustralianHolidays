@@ -5,6 +5,7 @@ static class ModuleInitializer
     {
         VerifyPlaywright.Initialize(installPlaywright: true);
         VerifierSettings.UseSsimForPng();
+        VerifierSettings.Inline(maxLines: 10, applyMaxLinesToExisting: true);
         VerifierSettings.InitializePlugins();
     }
 }

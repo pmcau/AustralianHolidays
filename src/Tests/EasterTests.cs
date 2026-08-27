@@ -34,7 +34,16 @@ public class EasterTests
     [Test]
     public Task GetEaster() =>
         VerifyTuple(() => EasterCalculator.ForYear(2020))
-            .DontScrubDateTimes();
+            .DontScrubDateTimes()
+            .Snapshot(
+                """
+                {
+                  friday: 2020-04-10,
+                  monday: 2020-04-13,
+                  saturday: 2020-04-11,
+                  sunday: 2020-04-12
+                }
+                """);
 
     [Test]
     public void GetEasterMonday()

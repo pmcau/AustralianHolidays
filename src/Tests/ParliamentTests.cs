@@ -30,7 +30,16 @@ public class ParliamentTests
             }
         }
 
-        return Verify(builder);
+        return Verify(builder)
+            .Snapshot(
+                """
+                2026
+                  Additional: Mon 09 Feb 2026 - Thu 12 Feb 2026
+                  Budget: Mon 25 May 2026 - Thu 28 May 2026
+                  Budget: Tue 02 Jun 2026 - Fri 05 Jun 2026
+                  Supplementary Budget: Mon 26 Oct 2026 - Thu 29 Oct 2026
+
+                """);
     }
 
     // Guards against transcription errors. Sitting periods are runs of consecutive weekdays that never
