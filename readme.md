@@ -1,6 +1,6 @@
 # <img src="/src/icon.png" height="30px"> AustralianHolidays
 
-[![Build status](https://github.com/pmcau/AustralianHolidays/actions/workflows/test.yml/badge.svg)](https://github.com/pmcau/AustralianHolidays/actions/workflows/test.yml)
+[![Build status](https://github.com/pmcau/AustralianHolidays/actions/workflows/build.yml/badge.svg)](https://github.com/pmcau/AustralianHolidays/actions/workflows/build.yml)
 [![NuGet Status](https://img.shields.io/nuget/v/AustralianHolidays.svg?label=AustralianHolidays)](https://www.nuget.org/packages/AustralianHolidays/)
 
 .net library retrieving public holiday dates in Australia.
