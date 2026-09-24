@@ -414,7 +414,7 @@ Export the New South Wales school holidays to an iCalendar (`.ics`) file, where 
 ```cs
 var ics = await SchoolHolidays.ExportToIcs(State.NSW, startYear: 2025);
 ```
-<sup><a href='/src/Tests/SchoolHolidaysExportTests.cs#L39-L43' title='Snippet source file'>snippet source</a> | <a href='#snippet-SchoolExportToIcs' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/SchoolHolidaysExportTests.cs#L49-L53' title='Snippet source file'>snippet source</a> | <a href='#snippet-SchoolExportToIcs' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Export to CSV:
@@ -424,7 +424,7 @@ Export to CSV:
 ```cs
 var csv = await SchoolHolidays.ExportToCsv(State.NSW, startYear: 2025);
 ```
-<sup><a href='/src/Tests/SchoolHolidaysExportTests.cs#L65-L69' title='Snippet source file'>snippet source</a> | <a href='#snippet-SchoolExportToCsv' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/SchoolHolidaysExportTests.cs#L75-L79' title='Snippet source file'>snippet source</a> | <a href='#snippet-SchoolExportToCsv' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 Export to a Markdown table (a row per season, a column per year):
@@ -477,7 +477,7 @@ var date = new Date(2026, 3, 2);
 
 IsTrue(date.IsSittingDay(Chamber.House));
 ```
-<sup><a href='/src/Tests/ParliamentTests.cs#L109-L115' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsSittingDay' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/ParliamentTests.cs#L118-L124' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsSittingDay' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -494,7 +494,7 @@ IsTrue(date.IsSittingDay(Chamber.House, out var name));
 
 AreEqual("Autumn", name);
 ```
-<sup><a href='/src/Tests/ParliamentTests.cs#L121-L129' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsSittingDayNamed' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/ParliamentTests.cs#L130-L138' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsSittingDayNamed' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -510,7 +510,7 @@ var date = new Date(2026, 3, 2);
 IsTrue(date.IsHouseSittingDay());
 IsTrue(date.IsSenateSittingDay());
 ```
-<sup><a href='/src/Tests/ParliamentTests.cs#L135-L142' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsChamberSittingDay' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/ParliamentTests.cs#L144-L151' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsChamberSittingDay' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -526,7 +526,7 @@ IsFalse(new Date(2026, 2, 9).IsBothChambersSittingDay());
 
 IsTrue(new Date(2026, 3, 2).IsBothChambersSittingDay());
 ```
-<sup><a href='/src/Tests/ParliamentTests.cs#L148-L155' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsBothChambersSittingDay' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/ParliamentTests.cs#L157-L164' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsBothChambersSittingDay' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -543,7 +543,7 @@ IsTrue(date.IsSenateEstimatesDay(out var name));
 
 AreEqual("Additional", name);
 ```
-<sup><a href='/src/Tests/ParliamentTests.cs#L161-L169' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsSenateEstimatesDay' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/ParliamentTests.cs#L170-L178' title='Snippet source file'>snippet source</a> | <a href='#snippet-IsSenateEstimatesDay' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -560,7 +560,7 @@ foreach (var (start, end, name) in periods)
     Console.WriteLine($"{name}: {start} - {end}");
 }
 ```
-<sup><a href='/src/Tests/ParliamentTests.cs#L175-L183' title='Snippet source file'>snippet source</a> | <a href='#snippet-GetSittingPeriods' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/ParliamentTests.cs#L184-L192' title='Snippet source file'>snippet source</a> | <a href='#snippet-GetSittingPeriods' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
@@ -577,7 +577,7 @@ foreach (var day in days)
     Console.WriteLine(day);
 }
 ```
-<sup><a href='/src/Tests/ParliamentTests.cs#L191-L199' title='Snippet source file'>snippet source</a> | <a href='#snippet-GetSittingDays' title='Start of snippet'>anchor</a></sup>
+<sup><a href='/src/Tests/ParliamentTests.cs#L200-L208' title='Snippet source file'>snippet source</a> | <a href='#snippet-GetSittingDays' title='Start of snippet'>anchor</a></sup>
 <!-- endSnippet -->
 
 
