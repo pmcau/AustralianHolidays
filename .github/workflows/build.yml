@@ -23,7 +23,7 @@ env:
 
 jobs:
   build:
-    # Windows matches the retired AppVeyor image (Visual Studio 2022); the Verify
+    # Windows, because the Verify
     # snapshots are authored on Windows, so this avoids line-ending/culture diffs.
     runs-on: windows-latest
     timeout-minutes: 30
