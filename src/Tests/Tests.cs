@@ -1,10 +1,12 @@
 using System.Diagnostics.CodeAnalysis;
 using Argon;
 
-[TestFixture]
+namespace PublicHolidays;
+
 public class Tests
 {
-    [TestCaseSource(nameof(GetStates))]
+    [Test]
+    [MethodDataSource(nameof(GetStates))]
     public Task IsPublicHolidayWithName(State state)
     {
         var builder = new StringBuilder();
@@ -31,7 +33,8 @@ public class Tests
         await Verify(md, "md");
     }
 
-    [TestCaseSource(nameof(GetStates))]
+    [Test]
+    [MethodDataSource(nameof(GetStates))]
     public async Task ExportToMarkdown(State state)
     {
         #region ExportToMarkdownState
@@ -55,7 +58,8 @@ public class Tests
         await Verify(ics, "ics");
     }
 
-    [TestCaseSource(nameof(GetStates))]
+    [Test]
+    [MethodDataSource(nameof(GetStates))]
     public async Task ExportToIcs(State state)
     {
         #region ExportToIcsState
@@ -79,7 +83,8 @@ public class Tests
         await Verify(json, "json");
     }
 
-    [TestCaseSource(nameof(GetStates))]
+    [Test]
+    [MethodDataSource(nameof(GetStates))]
     public async Task ExportToJson(State state)
     {
         #region ExportToJsonState
@@ -103,7 +108,8 @@ public class Tests
         await Verify(xml, "xml");
     }
 
-    [TestCaseSource(nameof(GetStates))]
+    [Test]
+    [MethodDataSource(nameof(GetStates))]
     public async Task ExportToXml(State state)
     {
         #region ExportToXmlState
@@ -127,7 +133,8 @@ public class Tests
         await Verify(csv, "csv");
     }
 
-    [TestCaseSource(nameof(GetStates))]
+    [Test]
+    [MethodDataSource(nameof(GetStates))]
     public async Task ExportToCsv(State state)
     {
         #region ExportToCsvState
@@ -152,7 +159,8 @@ public class Tests
         await Verify(stream, "xlsx");
     }
 
-    [TestCaseSource(nameof(GetStates))]
+    [Test]
+    [MethodDataSource(nameof(GetStates))]
     public async Task ExportToExcel(State state)
     {
         #region ExportToExcelState
@@ -174,7 +182,8 @@ public class Tests
         await Verify(json, "json");
     }
 
-    [TestCaseSource(nameof(GetStates))]
+    [Test]
+    [MethodDataSource(nameof(GetStates))]
     public async Task ExportToJsonPath(State state)
     {
         using var path = new TempFile();
@@ -192,7 +201,8 @@ public class Tests
         await Verify(xml, "xml");
     }
 
-    [TestCaseSource(nameof(GetStates))]
+    [Test]
+    [MethodDataSource(nameof(GetStates))]
     public async Task ExportToXmlPath(State state)
     {
         using var path = new TempFile();
@@ -210,7 +220,8 @@ public class Tests
         await Verify(csv, "csv");
     }
 
-    [TestCaseSource(nameof(GetStates))]
+    [Test]
+    [MethodDataSource(nameof(GetStates))]
     public async Task ExportToCsvPath(State state)
     {
         using var path = new TempFile();
@@ -229,7 +240,8 @@ public class Tests
         await Verify(stream, "xlsx");
     }
 
-    [TestCaseSource(nameof(GetStates))]
+    [Test]
+    [MethodDataSource(nameof(GetStates))]
     public async Task ExportToExcelPath(State state)
     {
         using var path = new TempFile();
@@ -308,78 +320,78 @@ public class Tests
             .AddExtraSettings(_ => _.DefaultValueHandling = DefaultValueHandling.Include);
 
     [Test]
-    public void GetFederalGovernmentShutdown()
+    public async Task GetFederalGovernmentShutdown()
     {
         #region GetFederalGovernmentShutdown
 
         var (start, end) = Holidays.GetFederalGovernmentShutdown(startYear: 2024);
 
-        AreEqual(new Date(2024, 12, 25), start);
-        AreEqual(new Date(2025, 1, 1), end);
+        await Assert.That(start).IsEqualTo(new Date(2024, 12, 25));
+        await Assert.That(end).IsEqualTo(new Date(2025, 1, 1));
 
         #endregion
     }
 
     [Test]
-    public void IsHoliday()
+    public async Task IsHoliday()
     {
         #region IsHoliday
 
         var date = new Date(2026, 12, 25);
 
-        IsTrue(date.IsHoliday(State.NSW));
+        await Assert.That(date.IsHoliday(State.NSW)).IsTrue();
 
         #endregion
     }
 
     [Test]
-    public void IsHolidayForStateNamed()
+    public async Task IsHolidayForStateNamed()
     {
         #region IsHolidayForStateNamed
 
         var date = new Date(2026, 12, 25);
 
-        IsTrue(date.IsNswHoliday(out var name));
-        AreEqual("Christmas Day", name);
+        await Assert.That(date.IsNswHoliday(out var name)).IsTrue();
+        await Assert.That(name).IsEqualTo("Christmas Day");
 
         #endregion
     }
 
     [Test]
-    public void IsHolidayForState()
+    public async Task IsHolidayForState()
     {
         #region IsHolidayForState
 
         var date = new Date(2026, 12, 25);
 
-        IsTrue(date.IsNswHoliday());
+        await Assert.That(date.IsNswHoliday()).IsTrue();
 
         #endregion
     }
 
     [Test]
-    public void IsHolidayNamed()
+    public async Task IsHolidayNamed()
     {
         #region IsHolidayNamed
 
         var date = new Date(2026, 12, 25);
 
-        IsTrue(date.IsHoliday(State.NSW, out var name));
+        await Assert.That(date.IsHoliday(State.NSW, out var name)).IsTrue();
 
-        AreEqual("Christmas Day", name);
+        await Assert.That(name).IsEqualTo("Christmas Day");
 
         #endregion
     }
 
     [Test]
-    public void IsFederalGovernmentShutdown()
+    public async Task IsFederalGovernmentShutdown()
     {
         #region IsFederalGovernmentShutdown
 
         var date = new Date(2026, 12, 30);
         var result = date.IsFederalGovernmentShutdown();
 
-        IsTrue(result);
+        await Assert.That(result).IsTrue();
 
         #endregion
     }
@@ -448,7 +460,8 @@ public class Tests
         return builder.ToString();
     }
 
-    [TestCaseSource(nameof(GetStates))]
+    [Test]
+    [MethodDataSource(nameof(GetStates))]
     public Task IsPublicHoliday(State state)
     {
         var builder = new StringBuilder();

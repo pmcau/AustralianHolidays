@@ -1,11 +1,10 @@
-[TestFixture]
 public class ExportMenuTests : BunitTestContext
 {
     public ExportMenuTests() =>
         Services.AddScoped<FileDownloadService>();
 
     [Test]
-    public void InitialRender_HasAllExportButtons()
+    public async Task InitialRender_HasAllExportButtons()
     {
         JSInterop.SetupVoid("fileDownload.downloadFile", _ => true);
 
@@ -16,19 +15,19 @@ public class ExportMenuTests : BunitTestContext
 
         var buttons = cut.FindAll(".export-btn");
 
-        That(buttons.Count, Is.EqualTo(6));
+        await Assert.That(buttons.Count).IsEqualTo(6);
 
         var buttonTexts = buttons.Select(_ => _.TextContent).ToList();
-        That(buttonTexts, Does.Contain("JSON"));
-        That(buttonTexts, Does.Contain("CSV"));
-        That(buttonTexts, Does.Contain("XML"));
-        That(buttonTexts, Does.Contain("Markdown"));
-        That(buttonTexts, Does.Contain("ICS"));
-        That(buttonTexts, Does.Contain("Excel"));
+        await Assert.That(buttonTexts).Contains("JSON");
+        await Assert.That(buttonTexts).Contains("CSV");
+        await Assert.That(buttonTexts).Contains("XML");
+        await Assert.That(buttonTexts).Contains("Markdown");
+        await Assert.That(buttonTexts).Contains("ICS");
+        await Assert.That(buttonTexts).Contains("Excel");
     }
 
     [Test]
-    public void AllButtonsEnabled_WhenNotExporting()
+    public async Task AllButtonsEnabled_WhenNotExporting()
     {
         JSInterop.SetupVoid("fileDownload.downloadFile", _ => true);
 
@@ -41,12 +40,12 @@ public class ExportMenuTests : BunitTestContext
 
         foreach (var button in buttons)
         {
-            That(button.HasAttribute("disabled"), Is.False);
+            await Assert.That(button.HasAttribute("disabled")).IsFalse();
         }
     }
 
     [Test]
-    public void HasExportLabel()
+    public async Task HasExportLabel()
     {
         JSInterop.SetupVoid("fileDownload.downloadFile", _ => true);
 
@@ -56,6 +55,6 @@ public class ExportMenuTests : BunitTestContext
             .Add(_ => _.YearCount, 2));
 
         var label = cut.Find(".export-menu label");
-        That(label.TextContent, Is.EqualTo("Export:"));
+        await Assert.That(label.TextContent).IsEqualTo("Export:");
     }
 }

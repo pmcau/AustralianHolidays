@@ -1,4 +1,3 @@
-[TestFixture]
 public class SchoolHolidaysExportTests
 {
     // School data is bounded to a fixed range of years, so an explicit startYear is pinned to keep the
@@ -203,7 +202,7 @@ public class SchoolHolidaysExportTests
     {
         var all = await SchoolHolidays.ExportToCsv(startYear: startYear);
         var empty = await SchoolHolidays.ExportToCsv(Array.Empty<State>(), startYear: startYear);
-        AreEqual(all, empty);
+        await Assert.That(empty).IsEqualTo(all);
     }
 
     [Test]
@@ -211,7 +210,7 @@ public class SchoolHolidaysExportTests
     {
         // NSW data does not extend to 2035; the export must return only the header, without throwing.
         var csv = await SchoolHolidays.ExportToCsv(State.NSW, startYear: 2035);
-        AreEqual("Start,End,Name", csv.Trim());
+        await Assert.That(csv.Trim()).IsEqualTo("Start,End,Name");
     }
 
     [Test]
@@ -220,8 +219,8 @@ public class SchoolHolidaysExportTests
         // NSW data ends in 2027; a five-year window from 2027 must yield only 2027 and must not throw for
         // the uncovered 2028-2031 years.
         var csv = await SchoolHolidays.ExportToCsv(State.NSW, startYear: 2027, yearCount: 5);
-        IsTrue(csv.Contains("2027"), "expected the covered 2027 year to be present");
-        IsFalse(csv.Contains("2028"), "expected uncovered years to be skipped");
+        await Assert.That(csv.Contains("2027")).IsTrue().Because("expected the covered 2027 year to be present");
+        await Assert.That(csv.Contains("2028")).IsFalse().Because("expected uncovered years to be skipped");
     }
 
     [Test]
@@ -229,6 +228,6 @@ public class SchoolHolidaysExportTests
     {
         // No state has data in 2050; the all-states export must return an empty JSON array, not throw.
         var json = await SchoolHolidays.ExportToJson(startYear: 2050);
-        AreEqual("[]", json);
+        await Assert.That(json).IsEqualTo("[]");
     }
 }

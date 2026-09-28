@@ -1,4 +1,3 @@
-[TestFixture]
 public class EasterTests
 {
     [Test]
@@ -22,12 +21,12 @@ public class EasterTests
     }
 
     [Test]
-    public void GetEasterFriday()
+    public async Task GetEasterFriday()
     {
         for (var i = 2025; i <= 2044; i++)
         {
             var easterFriday = EasterCalculator.GetEasterFriday(i);
-            AreEqual(DateBuilder.EasterFridays[i - 2025], easterFriday);
+            await Assert.That(easterFriday).IsEqualTo(DateBuilder.EasterFridays[i - 2025]);
         }
     }
 
@@ -46,85 +45,85 @@ public class EasterTests
                 """);
 
     [Test]
-    public void GetEasterMonday()
+    public async Task GetEasterMonday()
     {
         for (var i = 2025; i <= 2044; i++)
         {
             var easterMonday = EasterCalculator.GetEasterMonday(i);
             var expected = DateBuilder.EasterFridays[i - 2025].AddDays(3);
-            AreEqual(expected, easterMonday);
+            await Assert.That(easterMonday).IsEqualTo(expected);
         }
     }
 
     [Test]
-    public void IsEasterFriday_ValidDates()
+    public async Task IsEasterFriday_ValidDates()
     {
         for (var i = 2025; i <= 2044; i++)
         {
             var easterFriday = EasterCalculator.GetEasterFriday(i);
-            IsTrue(easterFriday.IsEasterFriday());
+            await Assert.That(easterFriday.IsEasterFriday()).IsTrue();
         }
     }
 
     [Test]
-    public void IsEasterFriday_InvalidDates()
+    public async Task IsEasterFriday_InvalidDates()
     {
         // Test day before Easter Friday
         var dayBefore = EasterCalculator.GetEasterFriday(2026).AddDays(-1);
-        IsFalse(dayBefore.IsEasterFriday());
+        await Assert.That(dayBefore.IsEasterFriday()).IsFalse();
 
         // Test day after Easter Friday
         var dayAfter = EasterCalculator.GetEasterFriday(2025).AddDays(1);
-        IsFalse(dayAfter.IsEasterFriday());
+        await Assert.That(dayAfter.IsEasterFriday()).IsFalse();
 
         // Test random date
-        IsFalse(new Date(2025, 1, 1).IsEasterFriday());
+        await Assert.That(new Date(2025, 1, 1).IsEasterFriday()).IsFalse();
     }
 
     [Test]
-    public void IsEasterSunday_ValidDates()
+    public async Task IsEasterSunday_ValidDates()
     {
         for (var i = 2025; i <= 2044; i++)
         {
             var (_, _, sunday, _) = EasterCalculator.ForYear(i);
-            IsTrue(sunday.IsEasterSunday());
+            await Assert.That(sunday.IsEasterSunday()).IsTrue();
         }
     }
 
     [Test]
-    public void IsEasterSunday_InvalidDates()
+    public async Task IsEasterSunday_InvalidDates()
     {
         var (friday, saturday, _, monday) = EasterCalculator.ForYear(2025);
 
-        IsFalse(friday.IsEasterSunday());
-        IsFalse(saturday.IsEasterSunday());
-        IsFalse(monday.IsEasterSunday());
-        IsFalse(new Date(2025, 1, 1).IsEasterSunday());
+        await Assert.That(friday.IsEasterSunday()).IsFalse();
+        await Assert.That(saturday.IsEasterSunday()).IsFalse();
+        await Assert.That(monday.IsEasterSunday()).IsFalse();
+        await Assert.That(new Date(2025, 1, 1).IsEasterSunday()).IsFalse();
     }
 
     [Test]
-    public void IsEasterMonday_ValidDates()
+    public async Task IsEasterMonday_ValidDates()
     {
         for (var i = 2025; i <= 2044; i++)
         {
             var easterMonday = EasterCalculator.GetEasterMonday(i);
-            IsTrue(easterMonday.IsEasterMonday());
+            await Assert.That(easterMonday.IsEasterMonday()).IsTrue();
         }
     }
 
     [Test]
-    public void IsEasterMonday_InvalidDates()
+    public async Task IsEasterMonday_InvalidDates()
     {
         // Test day before Easter Monday
         var dayBefore = EasterCalculator.GetEasterMonday(2025).AddDays(-1);
-        IsFalse(dayBefore.IsEasterMonday());
+        await Assert.That(dayBefore.IsEasterMonday()).IsFalse();
 
         // Test day after Easter Monday
         var dayAfter = EasterCalculator.GetEasterMonday(2025).AddDays(1);
-        IsFalse(dayAfter.IsEasterMonday());
+        await Assert.That(dayAfter.IsEasterMonday()).IsFalse();
 
         // Test random date
-        IsFalse(new Date(2025, 7, 1).IsEasterMonday());
+        await Assert.That(new Date(2025, 7, 1).IsEasterMonday()).IsFalse();
     }
 
     [Test]

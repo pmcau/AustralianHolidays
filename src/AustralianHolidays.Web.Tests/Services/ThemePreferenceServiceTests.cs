@@ -1,4 +1,3 @@
-[TestFixture]
 public class ThemePreferenceServiceTests : BunitTestContext
 {
     [Test]
@@ -10,7 +9,7 @@ public class ThemePreferenceServiceTests : BunitTestContext
         var service = new ThemePreferenceService(JSInterop.JSRuntime);
         var theme = await service.GetSavedThemeAsync();
 
-        That(theme, Is.EqualTo(ThemeType.Dark));
+        await Assert.That(theme).IsEqualTo(ThemeType.Dark);
     }
 
     [Test]
@@ -22,7 +21,7 @@ public class ThemePreferenceServiceTests : BunitTestContext
         var service = new ThemePreferenceService(JSInterop.JSRuntime);
         var theme = await service.GetSavedThemeAsync();
 
-        That(theme, Is.EqualTo(ThemeType.Light));
+        await Assert.That(theme).IsEqualTo(ThemeType.Light);
     }
 
     [Test]
@@ -34,7 +33,7 @@ public class ThemePreferenceServiceTests : BunitTestContext
         var service = new ThemePreferenceService(JSInterop.JSRuntime);
         var theme = await service.GetSavedThemeAsync();
 
-        That(theme, Is.EqualTo(ThemeType.Light));
+        await Assert.That(theme).IsEqualTo(ThemeType.Light);
     }
 
     [Test]
@@ -47,8 +46,8 @@ public class ThemePreferenceServiceTests : BunitTestContext
         await service.SaveThemeAsync(ThemeType.Dark);
 
         var invocations = JSInterop.Invocations["statePreference.set"];
-        That(invocations, Has.Count.EqualTo(1));
-        That(invocations[0].Arguments[0], Is.EqualTo("selectedTheme"));
-        That(invocations[0].Arguments[1], Is.EqualTo("Dark"));
+        await Assert.That(invocations).Count().IsEqualTo(1);
+        await Assert.That(invocations[0].Arguments[0]).IsEqualTo("selectedTheme");
+        await Assert.That(invocations[0].Arguments[1]).IsEqualTo("Dark");
     }
 }

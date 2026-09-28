@@ -1,4 +1,3 @@
-[TestFixture]
 public class SittingListTests
 {
     [Test]
@@ -22,7 +21,7 @@ public class SittingListTests
     }
 
     [Test]
-    public void PromptsWhenNothingSelected()
+    public async Task PromptsWhenNothingSelected()
     {
         using var context = new BunitTestContext();
 
@@ -31,15 +30,16 @@ public class SittingListTests
                 .Add(_ => _.SelectedChambers, new HashSet<Chamber>())
                 .Add(_ => _.SelectedYears, new HashSet<int>()));
 
-        That(component.Markup, Does.Contain("Select a chamber and a year"));
+        await Assert.That(component.Markup).Contains("Select a chamber and a year");
     }
 
     // The "next sitting" line trims the parts of the start date the end date repeats, so each branch of
     // that formatting needs a date that exercises it.
-    [TestCase("2026-01-15", "19 to 20 Jan 2026", TestName = "NextSitting_SameMonth")]
-    [TestCase("2026-06-26", "29 Jun to 2 Jul 2026", TestName = "NextSitting_SpansMonths")]
-    [TestCase("2026-03-03", "sitting now, until 5 Mar 2026", TestName = "NextSitting_Underway")]
-    public void NextSittingLine(string today, string expected)
+    [Test]
+    [Arguments("2026-01-15", "19 to 20 Jan 2026", DisplayName = "NextSitting_SameMonth")]
+    [Arguments("2026-06-26", "29 Jun to 2 Jul 2026", DisplayName = "NextSitting_SpansMonths")]
+    [Arguments("2026-03-03", "sitting now, until 5 Mar 2026", DisplayName = "NextSitting_Underway")]
+    public async Task NextSittingLine(string today, string expected)
     {
         using var context = new BunitTestContext();
         var date = Date.Parse(today, System.Globalization.CultureInfo.InvariantCulture);
@@ -55,12 +55,12 @@ public class SittingListTests
                 .Add(_ => _.SelectedChambers, chambers)
                 .Add(_ => _.SelectedYears, years));
 
-        That(component.Find(".sitting-next").TextContent, Does.Contain(expected));
+        await Assert.That(component.Find(".sitting-next").TextContent).Contains(expected);
     }
 
     // Once the last sitting of the published calendar has passed there is nothing left to point at.
     [Test]
-    public void NextSittingLineWhenCalendarExhausted()
+    public async Task NextSittingLineWhenCalendarExhausted()
     {
         using var context = new BunitTestContext();
         var service = new SittingFilterService(new FakeTimeProvider(new(2026, 12, 31, 0, 0, 0, TimeSpan.Zero)));
@@ -74,12 +74,12 @@ public class SittingListTests
                 .Add(_ => _.SelectedChambers, chambers)
                 .Add(_ => _.SelectedYears, years));
 
-        That(component.Find(".sitting-next").TextContent, Does.Contain("no further sittings published"));
+        await Assert.That(component.Find(".sitting-next").TextContent).Contains("no further sittings published");
     }
 
     // Estimates belong to the Senate, so they should not appear when only the House is in view.
     [Test]
-    public void EstimatesHiddenWhenSenateNotSelected()
+    public async Task EstimatesHiddenWhenSenateNotSelected()
     {
         using var context = new BunitTestContext();
         var service = new SittingFilterService(new FakeTimeProvider(new(2026, 1, 15, 0, 0, 0, TimeSpan.Zero)));
@@ -94,6 +94,6 @@ public class SittingListTests
                 .Add(_ => _.SelectedChambers, chambers)
                 .Add(_ => _.SelectedYears, years));
 
-        That(component.Markup, Does.Not.Contain("Senate estimates"));
+        await Assert.That(component.Markup).DoesNotContain("Senate estimates");
     }
 }

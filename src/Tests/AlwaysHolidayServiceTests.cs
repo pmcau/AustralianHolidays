@@ -1,99 +1,98 @@
-﻿[TestFixture]
 public class AlwaysHolidayServiceTests
 {
     #region AlwaysHolidayServiceUsage
 
     [Test]
-    public void AlwaysHolidayServiceUsage()
+    public async Task AlwaysHolidayServiceUsage()
     {
         var service = new AlwaysHolidayService();
         var result = service.ForYears(2023, 1).ToList();
 
-        AreEqual(8 * 365, result.Count); // 8 states * 365 days
-        IsTrue(result.All(item => item.name == "Holiday"));
+        await Assert.That(result.Count).IsEqualTo(8 * 365); // 8 states * 365 days
+        await Assert.That(result.All(item => item.name == "Holiday")).IsTrue();
     }
 
     #endregion
 
     [Test]
-    public void ForYears_ShouldReturnAllDaysForAllStates()
+    public async Task ForYears_ShouldReturnAllDaysForAllStates()
     {
         var service = new AlwaysHolidayService();
         var result = service.ForYears(2023, 1).ToList();
 
-        AreEqual(8 * 365, result.Count); // 8 states * 365 days
-        IsTrue(result.All(item => item.name == "Holiday"));
+        await Assert.That(result.Count).IsEqualTo(8 * 365); // 8 states * 365 days
+        await Assert.That(result.All(item => item.name == "Holiday")).IsTrue();
     }
 
     [Test]
-    public void ForYears_WithState_ShouldReturnAllDaysForState()
+    public async Task ForYears_WithState_ShouldReturnAllDaysForState()
     {
         var service = new AlwaysHolidayService();
         var result = service.ForYears(State.NSW, 2023, 1).ToList();
 
-        AreEqual(365, result.Count);
-        IsTrue(result.All(item => item.name == "Holiday"));
+        await Assert.That(result.Count).IsEqualTo(365);
+        await Assert.That(result.All(item => item.name == "Holiday")).IsTrue();
     }
 
     [Test]
-    public void NationalForYears_ShouldReturnAllDays()
+    public async Task NationalForYears_ShouldReturnAllDays()
     {
         var service = new AlwaysHolidayService();
         var result = service.NationalForYears(2023, 1).ToList();
 
-        AreEqual(365, result.Count);
-        IsTrue(result.All(item => item.name == "Holiday"));
+        await Assert.That(result.Count).IsEqualTo(365);
+        await Assert.That(result.All(item => item.name == "Holiday")).IsTrue();
     }
 
     [Test]
-    public void IsHoliday_ShouldReturnTrue()
+    public async Task IsHoliday_ShouldReturnTrue()
     {
         var service = new AlwaysHolidayService();
         var date = new Date(2023, 1, 1);
         var result = service.IsHoliday(date, State.NSW);
 
-        IsTrue(result);
+        await Assert.That(result).IsTrue();
     }
 
     [Test]
-    public void IsHoliday_WithName_ShouldReturnTrueAndName()
+    public async Task IsHoliday_WithName_ShouldReturnTrueAndName()
     {
         var service = new AlwaysHolidayService();
         var date = new Date(2023, 1, 1);
         var result = service.IsHoliday(date, State.NSW, out var name);
 
-        IsTrue(result);
-        AreEqual("Holiday", name);
+        await Assert.That(result).IsTrue();
+        await Assert.That(name).IsEqualTo("Holiday");
     }
 
     [Test]
-    public void IsActHoliday_ShouldReturnTrue()
+    public async Task IsActHoliday_ShouldReturnTrue()
     {
         var service = new AlwaysHolidayService();
         var date = new Date(2023, 1, 1);
         var result = service.IsActHoliday(date);
 
-        IsTrue(result);
+        await Assert.That(result).IsTrue();
     }
 
     [Test]
-    public void IsActHoliday_WithName_ShouldReturnTrueAndName()
+    public async Task IsActHoliday_WithName_ShouldReturnTrueAndName()
     {
         var service = new AlwaysHolidayService();
         var date = new Date(2023, 1, 1);
         var result = service.IsActHoliday(date, out var name);
 
-        IsTrue(result);
-        AreEqual("ACT Holiday", name);
+        await Assert.That(result).IsTrue();
+        await Assert.That(name).IsEqualTo("ACT Holiday");
     }
 
     [Test]
-    public void ForAct_ShouldReturnAllDaysWithNames()
+    public async Task ForAct_ShouldReturnAllDaysWithNames()
     {
         var service = new AlwaysHolidayService();
         var result = service.ForAct(2023);
 
-        AreEqual(365, result.Count);
-        IsTrue(result.Values.All(name => name == "ACT Holiday"));
+        await Assert.That(result.Count).IsEqualTo(365);
+        await Assert.That(result.Values.All(name => name == "ACT Holiday")).IsTrue();
     }
 }

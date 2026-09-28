@@ -1,4 +1,4 @@
-[TestFixture]
+[NotInParallel]
 public class SnapshotTests
 {
     static WebApplication? app;
@@ -9,8 +9,8 @@ public class SnapshotTests
     // Fixed date: January 15, 2026 00:00:00 UTC
     const string FakeDateScript = "Date.now = () => 1768435200000; Date.prototype.getTimezoneOffset = () => 0;";
 
-    [OneTimeSetUp]
-    public async Task OneTimeSetUp()
+    [Before(Class)]
+    public static async Task OneTimeSetUp()
     {
         port = GetAvailablePort();
 
@@ -60,8 +60,8 @@ public class SnapshotTests
         browser = await playwright.Chromium.LaunchAsync();
     }
 
-    [OneTimeTearDown]
-    public async Task OneTimeTearDown()
+    [After(Class)]
+    public static async Task OneTimeTearDown()
     {
         if (browser != null)
         {

@@ -40,7 +40,7 @@ jobs:
         run: dotnet build src/AustralianHolidays.Web --configuration Release --no-restore
 
       - name: Run tests
-        run: dotnet test src/AustralianHolidays.Web.Tests --configuration Release --verbosity normal
+        run: dotnet test --project src/AustralianHolidays.Web.Tests --configuration Release
 
       - name: Publish
         run: dotnet publish src/AustralianHolidays.Web --configuration Release --output publish

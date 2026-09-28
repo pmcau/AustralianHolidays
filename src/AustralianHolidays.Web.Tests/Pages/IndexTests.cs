@@ -1,4 +1,3 @@
-[TestFixture]
 public class IndexTests : BunitTestContext
 {
     public IndexTests()

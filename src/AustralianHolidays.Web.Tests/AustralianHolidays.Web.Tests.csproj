@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
+    <OutputType>Exe</OutputType>
     <BlazorPublishDir>$(MSBuildThisFileDirectory)bin\$(Configuration)\blazor-publish\</BlazorPublishDir>
   </PropertyGroup>
 
@@ -15,16 +16,14 @@
     <PackageReference Include="bunit" />
     <PackageReference Include="Markdig.Signed" />
     <PackageReference Include="Microsoft.Extensions.TimeProvider.Testing" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" />
-    <PackageReference Include="NUnit" />
-    <PackageReference Include="NUnit3TestAdapter" />
     <PackageReference Include="ProjectDefaults" PrivateAssets="all" />
     <PackageReference Include="Microsoft.AspNetCore.TestHost" />
     <PackageReference Include="Microsoft.Playwright" />
     <PackageReference Include="ProjectFiles" />
     <PackageReference Include="Verify.Bunit" />
     <PackageReference Include="Verify.DiffPlex" />
-    <PackageReference Include="Verify.NUnit" />
+    <PackageReference Include="TUnit" />
+    <PackageReference Include="Verify.TUnit" />
     <PackageReference Include="Argon" />
     <PackageReference Include="DiffEngine" />
     <PackageReference Include="EmptyFiles" />
@@ -32,9 +31,6 @@
     <PackageReference Include="Verify" />
     <PackageReference Include="Verify.Playwright" />
     <ProjectReference Include="..\AustralianHolidays.Web\AustralianHolidays.Web.csproj" />
-    <Using Include="NUnit.Framework" />
-    <Using Include="NUnit.Framework.Legacy.ClassicAssert" Static="True" />
-    <Using Include="NUnit.Framework.Assert" Static="True" />
     <Using Include="Bunit" />
   </ItemGroup>
 

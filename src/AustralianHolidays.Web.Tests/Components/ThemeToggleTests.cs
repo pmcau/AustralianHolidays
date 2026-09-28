@@ -1,24 +1,23 @@
-[TestFixture]
 public class ThemeToggleTests : BunitTestContext
 {
     [Test]
-    public void InitialRender_WithLightTheme_ShowsDarkButton()
+    public async Task InitialRender_WithLightTheme_ShowsDarkButton()
     {
         var cut = Render<ThemeToggle>(_ => _
             .Add(_ => _.CurrentTheme, ThemeType.Light));
 
         var button = cut.Find(".theme-toggle-btn");
-        That(button.TextContent, Does.Contain("Dark"));
+        await Assert.That(button.TextContent).Contains("Dark");
     }
 
     [Test]
-    public void InitialRender_WithDarkTheme_ShowsLightButton()
+    public async Task InitialRender_WithDarkTheme_ShowsLightButton()
     {
         var cut = Render<ThemeToggle>(_ => _
             .Add(_ => _.CurrentTheme, ThemeType.Dark));
 
         var button = cut.Find(".theme-toggle-btn");
-        That(button.TextContent, Does.Contain("Light"));
+        await Assert.That(button.TextContent).Contains("Light");
     }
 
     [Test]
@@ -32,7 +31,7 @@ public class ThemeToggleTests : BunitTestContext
         var button = cut.Find(".theme-toggle-btn");
         await button.ClickAsync(new());
 
-        That(newTheme, Is.EqualTo(ThemeType.Dark));
+        await Assert.That(newTheme).IsEqualTo(ThemeType.Dark);
     }
 
     [Test]
@@ -46,16 +45,16 @@ public class ThemeToggleTests : BunitTestContext
         var button = cut.Find(".theme-toggle-btn");
         await button.ClickAsync(new());
 
-        That(newTheme, Is.EqualTo(ThemeType.Light));
+        await Assert.That(newTheme).IsEqualTo(ThemeType.Light);
     }
 
     [Test]
-    public void Button_HasAriaLabel()
+    public async Task Button_HasAriaLabel()
     {
         var cut = Render<ThemeToggle>(_ => _
             .Add(_ => _.CurrentTheme, ThemeType.Light));
 
         var button = cut.Find(".theme-toggle-btn");
-        That(button.GetAttribute("aria-label"), Is.EqualTo("Toggle theme"));
+        await Assert.That(button.GetAttribute("aria-label")).IsEqualTo("Toggle theme");
     }
 }

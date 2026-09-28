@@ -59,7 +59,7 @@ jobs:
         run: dotnet build src --configuration Release ${{ env.VERSION_ARGUMENT }}
 
       - name: Test
-        run: dotnet test src --configuration Release --no-build --no-restore --filter Category!=Integration
+        run: dotnet test --solution src/AustralianHolidays.slnx --configuration Release --no-build --no-restore --treenode-filter "/*/*/*/*[Category!=Integration]"
 
       # Verify drops *.received.* next to each failing snapshot. Publish them so a
       # failed diff can be inspected (or accepted) straight from the run.

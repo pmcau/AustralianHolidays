@@ -1,4 +1,3 @@
-[TestFixture]
 public class SittingFilterServiceTests
 {
     // 15 January 2026 sits just before the 19-20 January recall, so the recall is the next sitting.
@@ -6,7 +5,7 @@ public class SittingFilterServiceTests
         new(new FakeTimeProvider(new(2026, 1, 15, 0, 0, 0, TimeSpan.Zero)));
 
     [Test]
-    public void ReturnsNamedBlocksForCoveredYear()
+    public async Task ReturnsNamedBlocksForCoveredYear()
     {
         var service = CreateService();
 
@@ -14,17 +13,16 @@ public class SittingFilterServiceTests
             new HashSet<Chamber> { Chamber.House },
             new HashSet<int> { 2026 });
 
-        That(
-            result.Select(_ => _.Name).Distinct(),
-            Is.EqualTo(["Recall", "Autumn", "Winter", "Spring"]));
+        await Assert.That(result.Select(_ => _.Name).Distinct())
+            .IsEquivalentTo(["Recall", "Autumn", "Winter", "Spring"], CollectionOrdering.Matching);
 
         // Nothing has happened yet on 15 Jan 2026, so every period is still ahead.
-        That(result.Select(_ => _.TimeCategory), Is.All.EqualTo(HolidayTimeCategory.Future));
+        await Assert.That(result.Select(_ => _.TimeCategory)).All().Satisfy(_ => _.IsEqualTo(HolidayTimeCategory.Future));
     }
 
     // The House sits alone during estimates weeks, so those periods must be tagged House only.
     [Test]
-    public void ChambersTaggedOnlyWhenTheySitEveryDay()
+    public async Task ChambersTaggedOnlyWhenTheySitEveryDay()
     {
         var service = CreateService();
 
@@ -33,63 +31,62 @@ public class SittingFilterServiceTests
             new HashSet<int> { 2026 });
 
         var shared = result.Single(_ => _.Start == new Date(2026, 3, 2));
-        That(shared.SittingChambers, Is.EqualTo([Chamber.House, Chamber.Senate]));
+        await Assert.That(shared.SittingChambers).IsEquivalentTo([Chamber.House, Chamber.Senate], CollectionOrdering.Matching);
 
         var houseOnly = result.Single(_ => _.Start == new Date(2026, 2, 9));
-        That(houseOnly.SittingChambers, Is.EqualTo([Chamber.House]));
+        await Assert.That(houseOnly.SittingChambers).IsEquivalentTo([Chamber.House], CollectionOrdering.Matching);
 
         // A Senate-only week is tagged Senate even when read from the Senate table.
         var senateOnly = service
             .GetPeriods(new HashSet<Chamber> { Chamber.Senate }, new HashSet<int> { 2026 })
             .Single(_ => _.Start == new Date(2026, 11, 16));
-        That(senateOnly.SittingChambers, Is.EqualTo([Chamber.Senate]));
+        await Assert.That(senateOnly.SittingChambers).IsEquivalentTo([Chamber.Senate], CollectionOrdering.Matching);
     }
 
     [Test]
-    public void EstimatesAreSeparateFromSittings()
+    public async Task EstimatesAreSeparateFromSittings()
     {
         var service = CreateService();
 
         var estimates = service.GetEstimates(new HashSet<int> { 2026 });
 
-        That(
-            estimates.Select(_ => _.Name),
-            Is.EqualTo(["Additional", "Budget", "Budget", "Supplementary Budget"]));
+        await Assert.That(estimates.Select(_ => _.Name))
+            .IsEquivalentTo(["Additional", "Budget", "Budget", "Supplementary Budget"], CollectionOrdering.Matching);
 
         // An estimates round is not a Senate sitting period.
         var senate = service.GetPeriods(
             new HashSet<Chamber> { Chamber.Senate },
             new HashSet<int> { 2026 });
-        IsFalse(senate.Any(_ => _.Start == new Date(2026, 2, 9)));
+        await Assert.That(senate.Any(_ => _.Start == new Date(2026, 2, 9))).IsFalse();
     }
 
     [Test]
-    public void UncoveredYearReturnsEmpty()
+    public async Task UncoveredYearReturnsEmpty()
     {
         var service = CreateService();
 
-        IsEmpty(
+        await Assert.That(
             service.GetPeriods(
                 new HashSet<Chamber> { Chamber.House },
-                new HashSet<int> { 2029 }));
-        IsEmpty(service.GetEstimates(new HashSet<int> { 2029 }));
+                new HashSet<int> { 2029 }))
+            .IsEmpty();
+        await Assert.That(service.GetEstimates(new HashSet<int> { 2029 })).IsEmpty();
     }
 
     [Test]
-    public void AvailableYearsReflectCoverage()
+    public async Task AvailableYearsReflectCoverage()
     {
-        That(
-            SittingFilterService.GetAvailableYears(new HashSet<Chamber> { Chamber.House }),
-            Is.EqualTo([2026]));
-        IsEmpty(SittingFilterService.GetAvailableYears(new HashSet<Chamber>()));
+        await Assert.That(SittingFilterService.GetAvailableYears(new HashSet<Chamber> { Chamber.House }))
+            .IsEquivalentTo([2026], CollectionOrdering.Matching);
+        await Assert.That(SittingFilterService.GetAvailableYears(new HashSet<Chamber>())).IsEmpty();
     }
 
     [Test]
-    public void DefaultYearIsCurrentWhenCovered()
+    public async Task DefaultYearIsCurrentWhenCovered()
     {
         var service = CreateService();
 
-        AreEqual(2026, service.GetDefaultYear(new HashSet<Chamber> { Chamber.House })!.Value);
-        IsNull(service.GetDefaultYear(new HashSet<Chamber>()));
+        await Assert.That(service.GetDefaultYear(new HashSet<Chamber> { Chamber.House })!.Value).IsEqualTo(2026);
+        await Assert.That(service.GetDefaultYear(new HashSet<Chamber>())).IsNull();
     }
 }

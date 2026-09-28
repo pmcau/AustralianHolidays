@@ -1,7 +1,7 @@
-[TestFixture]
 public class ParliamentTests
 {
-    [TestCaseSource(nameof(GetChambers))]
+    [Test]
+    [MethodDataSource(nameof(GetChambers))]
     public Task SittingCalendar(Chamber chamber)
     {
         var builder = new StringBuilder();
@@ -44,8 +44,9 @@ public class ParliamentTests
 
     // Guards against transcription errors. Sitting periods are runs of consecutive weekdays that never
     // overlap, and IsSittingDay must agree with them for every day of the year.
-    [TestCaseSource(nameof(GetChambers))]
-    public void PeriodsAreConsistent(Chamber chamber)
+    [Test]
+    [MethodDataSource(nameof(GetChambers))]
+    public async Task PeriodsAreConsistent(Chamber chamber)
     {
         foreach (var year in Parliament.CoveredYears(chamber))
         {
@@ -54,13 +55,13 @@ public class ParliamentTests
             for (var i = 0; i < periods.Count; i++)
             {
                 var (start, end, name) = periods[i];
-                IsTrue(start <= end, $"{chamber} {year} period {name} starts after it ends");
-                AreEqual(year, start.Year, $"{chamber} {year} period {name} starts in another year");
-                AreEqual(year, end.Year, $"{chamber} {year} period {name} ends in another year");
+                await Assert.That(start <= end).IsTrue().Because($"{chamber} {year} period {name} starts after it ends");
+                await Assert.That(start.Year).IsEqualTo(year).Because($"{chamber} {year} period {name} starts in another year");
+                await Assert.That(end.Year).IsEqualTo(year).Because($"{chamber} {year} period {name} ends in another year");
 
                 if (i > 0)
                 {
-                    IsTrue(periods[i - 1].end < start, $"{chamber} {year} periods overlap or are out of order at {name}");
+                    await Assert.That(periods[i - 1].end < start).IsTrue().Because($"{chamber} {year} periods overlap or are out of order at {name}");
                 }
             }
 
@@ -68,21 +69,21 @@ public class ParliamentTests
             // a plain range, so a weekend inside one would silently become a sitting day.
             foreach (var date in Parliament.GetSittingDays(chamber, year))
             {
-                AreNotEqual(DayOfWeek.Saturday, date.DayOfWeek, $"{chamber} {date:yyyy-MM-dd} is a Saturday");
-                AreNotEqual(DayOfWeek.Sunday, date.DayOfWeek, $"{chamber} {date:yyyy-MM-dd} is a Sunday");
+                await Assert.That(date.DayOfWeek).IsNotEqualTo(DayOfWeek.Saturday).Because($"{chamber} {date:yyyy-MM-dd} is a Saturday");
+                await Assert.That(date.DayOfWeek).IsNotEqualTo(DayOfWeek.Sunday).Because($"{chamber} {date:yyyy-MM-dd} is a Sunday");
             }
 
             var days = Parliament.GetSittingDays(chamber, year).ToHashSet();
             for (var date = new Date(year, 1, 1); date <= new Date(year, 12, 31); date = date.AddDays(1))
             {
-                AreEqual(days.Contains(date), date.IsSittingDay(chamber), $"{chamber} {date:yyyy-MM-dd} IsSittingDay disagrees with GetSittingDays");
+                await Assert.That(date.IsSittingDay(chamber)).IsEqualTo(days.Contains(date)).Because($"{chamber} {date:yyyy-MM-dd} IsSittingDay disagrees with GetSittingDays");
             }
         }
     }
 
     // Estimates are committee hearings, so the Senate never sits during one.
     [Test]
-    public void EstimatesNeverClashWithSenateSittings()
+    public async Task EstimatesNeverClashWithSenateSittings()
     {
         foreach (var year in Parliament.CoveredYears(Chamber.Senate))
         {
@@ -90,96 +91,96 @@ public class ParliamentTests
             {
                 for (var date = start; date <= end; date = date.AddDays(1))
                 {
-                    IsFalse(date.IsSenateSittingDay(), $"{date:yyyy-MM-dd} is both a Senate sitting day and in {name} estimates");
+                    await Assert.That(date.IsSenateSittingDay()).IsFalse().Because($"{date:yyyy-MM-dd} is both a Senate sitting day and in {name} estimates");
                 }
             }
         }
     }
 
     [Test]
-    public void UncoveredYearThrows()
+    public async Task UncoveredYearThrows()
     {
-        Throws<ArgumentOutOfRangeException>(() => Parliament.GetSittingPeriods(Chamber.House, 1980));
-        Throws<ArgumentOutOfRangeException>(() => Parliament.GetSittingDays(Chamber.Senate, 1980));
-        Throws<ArgumentOutOfRangeException>(() => Parliament.GetSenateEstimates(1980));
+        await Assert.That(() => Parliament.GetSittingPeriods(Chamber.House, 1980)).Throws<ArgumentOutOfRangeException>();
+        await Assert.That(() => Parliament.GetSittingDays(Chamber.Senate, 1980)).Throws<ArgumentOutOfRangeException>();
+        await Assert.That(() => Parliament.GetSenateEstimates(1980)).Throws<ArgumentOutOfRangeException>();
     }
 
     [Test]
-    public void UncoveredYearIsNotASittingDay()
+    public async Task UncoveredYearIsNotASittingDay()
     {
-        IsFalse(new Date(1980, 7, 1).IsSittingDay(Chamber.House));
-        IsFalse(new Date(1980, 7, 1).IsSittingDay());
-        IsFalse(new Date(1980, 7, 1).IsSenateEstimatesDay());
+        await Assert.That(new Date(1980, 7, 1).IsSittingDay(Chamber.House)).IsFalse();
+        await Assert.That(new Date(1980, 7, 1).IsSittingDay()).IsFalse();
+        await Assert.That(new Date(1980, 7, 1).IsSenateEstimatesDay()).IsFalse();
     }
 
     [Test]
-    public void IsSittingDayUsage()
+    public async Task IsSittingDayUsage()
     {
         #region IsSittingDay
 
         var date = new Date(2026, 3, 2);
 
-        IsTrue(date.IsSittingDay(Chamber.House));
+        await Assert.That(date.IsSittingDay(Chamber.House)).IsTrue();
 
         #endregion
     }
 
     [Test]
-    public void IsSittingDayNamedUsage()
+    public async Task IsSittingDayNamedUsage()
     {
         #region IsSittingDayNamed
 
         var date = new Date(2026, 3, 2);
 
-        IsTrue(date.IsSittingDay(Chamber.House, out var name));
+        await Assert.That(date.IsSittingDay(Chamber.House, out var name)).IsTrue();
 
-        AreEqual("Autumn", name);
+        await Assert.That(name).IsEqualTo("Autumn");
 
         #endregion
     }
 
     [Test]
-    public void IsChamberSittingDayUsage()
+    public async Task IsChamberSittingDayUsage()
     {
         #region IsChamberSittingDay
 
         var date = new Date(2026, 3, 2);
 
-        IsTrue(date.IsHouseSittingDay());
-        IsTrue(date.IsSenateSittingDay());
+        await Assert.That(date.IsHouseSittingDay()).IsTrue();
+        await Assert.That(date.IsSenateSittingDay()).IsTrue();
 
         #endregion
     }
 
     [Test]
-    public void IsBothChambersSittingDayUsage()
+    public async Task IsBothChambersSittingDayUsage()
     {
         #region IsBothChambersSittingDay
 
         // 9 to 12 February 2026 is a House sitting week, but the Senate is in estimates.
-        IsFalse(new Date(2026, 2, 9).IsBothChambersSittingDay());
+        await Assert.That(new Date(2026, 2, 9).IsBothChambersSittingDay()).IsFalse();
 
-        IsTrue(new Date(2026, 3, 2).IsBothChambersSittingDay());
+        await Assert.That(new Date(2026, 3, 2).IsBothChambersSittingDay()).IsTrue();
 
         #endregion
     }
 
     [Test]
-    public void IsSenateEstimatesDayUsage()
+    public async Task IsSenateEstimatesDayUsage()
     {
         #region IsSenateEstimatesDay
 
         var date = new Date(2026, 2, 9);
 
-        IsTrue(date.IsSenateEstimatesDay(out var name));
+        await Assert.That(date.IsSenateEstimatesDay(out var name)).IsTrue();
 
-        AreEqual("Additional", name);
+        await Assert.That(name).IsEqualTo("Additional");
 
         #endregion
     }
 
     [Test]
-    public void GetSittingPeriodsUsage()
+    public async Task GetSittingPeriodsUsage()
     {
         #region GetSittingPeriods
 
@@ -191,11 +192,11 @@ public class ParliamentTests
 
         #endregion
 
-        AreEqual(19, periods.Count);
+        await Assert.That(periods.Count).IsEqualTo(19);
     }
 
     [Test]
-    public void GetSittingDaysUsage()
+    public async Task GetSittingDaysUsage()
     {
         #region GetSittingDays
 
@@ -207,7 +208,7 @@ public class ParliamentTests
 
         #endregion
 
-        AreEqual(57, days.Count);
+        await Assert.That(days.Count).IsEqualTo(57);
     }
 
     static string Format(Date date) =>

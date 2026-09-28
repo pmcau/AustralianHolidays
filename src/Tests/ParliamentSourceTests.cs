@@ -4,12 +4,11 @@ using System.Net.Http.Json;
 // record, so transcription errors and later changes to the calendar get caught without re-reading the
 // source by hand. Hits the network, so it is excluded from the default test run:
 //
-//   dotnet test src --filter Category!=Integration
+//   dotnet test --project src/Tests --treenode-filter "/*/*/*/*[Category!=Integration]"
 //
 // To run it:
 //
 //   dotnet test src/Tests --filter "FullyQualifiedName~ParliamentSourceTests"
-[TestFixture]
 [Category("Integration")]
 public class ParliamentSourceTests
 {
@@ -44,13 +43,13 @@ public class ParliamentSourceTests
             }
             catch (Exception exception) when (exception is HttpRequestException or TaskCanceledException)
             {
-                Inconclusive($"Could not reach {sittingDaysUrl}{year}: {exception.Message}");
+                Skip.Test($"Could not reach {sittingDaysUrl}{year}: {exception.Message}");
                 return;
             }
 
             if (recorded.Count == 0)
             {
-                await TestContext.Out.WriteLineAsync($"{year}: not yet in the official record, so nothing to check.");
+                await Console.Out.WriteLineAsync($"{year}: not yet in the official record, so nothing to check.");
                 continue;
             }
 
@@ -70,19 +69,19 @@ public class ParliamentSourceTests
                 Compare(mismatches, date, "Senate estimates", date.IsSenateEstimatesDay(), official?.SenateEstimates ?? false);
             }
 
-            await TestContext.Out.WriteLineAsync(
+            await Console.Out.WriteLineAsync(
                 $"{year}: checked 1 Jan to {lastRecorded:yyyy-MM-dd} against {recorded.Count} recorded sitting days. " +
                 $"Dates after {lastRecorded:yyyy-MM-dd} are not in the official record yet and cannot be checked.");
         }
 
         if (verifiedYears == 0)
         {
-            Inconclusive("None of the covered years are in the official record yet, so nothing was verified.");
+            Skip.Test("None of the covered years are in the official record yet, so nothing was verified.");
         }
 
         if (mismatches.Count > 0)
         {
-            Fail(
+            Assert.Fail(
                 $"""
                  {mismatches.Count} date(s) disagree with the official record at {sittingDaysUrl}<year>.
 
