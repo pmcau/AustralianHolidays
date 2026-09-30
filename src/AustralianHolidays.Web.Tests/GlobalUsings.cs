@@ -11,5 +11,4 @@ global using Microsoft.Extensions.FileProviders;
 global using Microsoft.Extensions.Logging;
 global using Microsoft.Extensions.Time.Testing;
 global using Microsoft.Playwright;
-global using VerifyTests.DiffPlex;
 global using TUnit.Assertions.Enums;
