@@ -21,7 +21,6 @@
     <PackageReference Include="Microsoft.Playwright" />
     <PackageReference Include="ProjectFiles" />
     <PackageReference Include="Verify.Bunit" />
-    <PackageReference Include="Verify.DiffPlex" />
     <PackageReference Include="TUnit" />
     <PackageReference Include="Verify.TUnit" />
     <PackageReference Include="Argon" />
