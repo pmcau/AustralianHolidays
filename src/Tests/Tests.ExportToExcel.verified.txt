@@ -1,22 +1,24 @@
 ﻿{
-  Sheets: [
-    {
-      Name: Holidays,
-      Columns: [
-        {
-          Name: Date,
-          Width: 14.0,
-          ContainsRichText: false,
-          RequiredHighlight: false
-        },
-        {
-          Name: Name,
-          Width: 70.0,
-          ContainsRichText: false,
-          RequiredHighlight: false
-        }
-      ]
-    }
-  ],
-  WorksheetCount: 1
+  Document: {
+    Sheets: [
+      {
+        Name: Holidays,
+        Columns: [
+          {
+            Name: Date,
+            Width: 14.0,
+            ContainsRichText: false,
+            RequiredHighlight: false
+          },
+          {
+            Name: Name,
+            Width: 70.0,
+            ContainsRichText: false,
+            RequiredHighlight: false
+          }
+        ]
+      }
+    ],
+    WorksheetCount: 1
+  }
 }

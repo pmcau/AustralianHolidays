@@ -1,28 +1,30 @@
 ﻿{
-  Sheets: [
-    {
-      Name: Holidays,
-      Columns: [
-        {
-          Name: Start,
-          Width: 14.0,
-          ContainsRichText: false,
-          RequiredHighlight: false
-        },
-        {
-          Name: End,
-          Width: 14.0,
-          ContainsRichText: false,
-          RequiredHighlight: false
-        },
-        {
-          Name: Name,
-          Width: 14.0,
-          ContainsRichText: false,
-          RequiredHighlight: false
-        }
-      ]
-    }
-  ],
-  WorksheetCount: 1
+  Document: {
+    Sheets: [
+      {
+        Name: Holidays,
+        Columns: [
+          {
+            Name: Start,
+            Width: 14.0,
+            ContainsRichText: false,
+            RequiredHighlight: false
+          },
+          {
+            Name: End,
+            Width: 14.0,
+            ContainsRichText: false,
+            RequiredHighlight: false
+          },
+          {
+            Name: Name,
+            Width: 14.0,
+            ContainsRichText: false,
+            RequiredHighlight: false
+          }
+        ]
+      }
+    ],
+    WorksheetCount: 1
+  }
 }

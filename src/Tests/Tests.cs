@@ -1,6 +1,3 @@
-using System.Diagnostics.CodeAnalysis;
-using Argon;
-
 namespace PublicHolidays;
 
 public class Tests
@@ -326,8 +323,8 @@ public class Tests
 
         var (start, end) = Holidays.GetFederalGovernmentShutdown(startYear: 2024);
 
-        await Assert.That(start).IsEqualTo(new Date(2024, 12, 25));
-        await Assert.That(end).IsEqualTo(new Date(2025, 1, 1));
+        await Assert.That(start).IsEqualTo(new(2024, 12, 25));
+        await Assert.That(end).IsEqualTo(new(2025, 1, 1));
 
         #endregion
     }
