@@ -86,13 +86,13 @@
   <Holiday Start="2027-07-03" End="2027-07-19" State="ACT" Name="Winter" />
   <Holiday Start="2027-07-03" End="2027-07-19" State="NSW" Name="Winter" />
   <Holiday Start="2027-07-03" End="2027-07-18" State="SA" Name="Winter" />
-  <Holiday Start="2027-07-03" End="2027-07-18" State="TAS" Name="Winter" />
+  <Holiday Start="2027-07-03" End="2027-07-19" State="TAS" Name="Winter" />
   <Holiday Start="2027-07-03" End="2027-07-18" State="WA" Name="Winter" />
   <Holiday Start="2027-09-18" End="2027-10-04" State="NT" Name="Spring" />
   <Holiday Start="2027-09-18" End="2027-10-04" State="QLD" Name="Spring" />
   <Holiday Start="2027-09-18" End="2027-10-03" State="VIC" Name="Spring" />
   <Holiday Start="2027-09-25" End="2027-10-11" State="ACT" Name="Spring" />
-  <Holiday Start="2027-09-25" End="2027-10-11" State="NSW" Name="Spring" />
+  <Holiday Start="2027-09-25" End="2027-10-10" State="NSW" Name="Spring" />
   <Holiday Start="2027-09-25" End="2027-10-10" State="SA" Name="Spring" />
   <Holiday Start="2027-09-25" End="2027-10-10" State="TAS" Name="Spring" />
   <Holiday Start="2027-09-25" End="2027-10-10" State="WA" Name="Spring" />

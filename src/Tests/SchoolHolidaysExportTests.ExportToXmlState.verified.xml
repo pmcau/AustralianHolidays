@@ -11,5 +11,5 @@
   <Holiday Start="2026-12-18" End="2027-02-02" Name="Summer" />
   <Holiday Start="2027-04-10" End="2027-04-28" Name="Autumn" />
   <Holiday Start="2027-07-03" End="2027-07-19" Name="Winter" />
-  <Holiday Start="2027-09-25" End="2027-10-11" Name="Spring" />
+  <Holiday Start="2027-09-25" End="2027-10-10" Name="Spring" />
 </SchoolHolidays>

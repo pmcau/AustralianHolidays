@@ -23,7 +23,7 @@
   <Holiday Start="2027-06-26" End="2027-07-11" State="VIC" Name="Winter" />
   <Holiday Start="2027-07-03" End="2027-07-19" State="NSW" Name="Winter" />
   <Holiday Start="2027-09-18" End="2027-10-03" State="VIC" Name="Spring" />
-  <Holiday Start="2027-09-25" End="2027-10-11" State="NSW" Name="Spring" />
+  <Holiday Start="2027-09-25" End="2027-10-10" State="NSW" Name="Spring" />
   <Holiday Start="2027-12-18" End="2028-01-27" State="VIC" Name="Summer" />
   <Holiday Start="2028-04-01" End="2028-04-17" State="VIC" Name="Autumn" />
   <Holiday Start="2028-07-01" End="2028-07-16" State="VIC" Name="Winter" />
