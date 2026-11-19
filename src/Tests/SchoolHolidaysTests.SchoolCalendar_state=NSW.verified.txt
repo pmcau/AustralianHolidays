@@ -25,9 +25,9 @@
     Term 1: Wed 03 Feb 2027 - Fri 09 Apr 2027
     Term 2: Thu 29 Apr 2027 - Fri 02 Jul 2027
     Term 3: Tue 20 Jul 2027 - Fri 24 Sep 2027
-    Term 4: Tue 12 Oct 2027 - Mon 20 Dec 2027
+    Term 4: Mon 11 Oct 2027 - Fri 17 Dec 2027
   Holidays
     Summer: Fri 18 Dec 2026 - Tue 02 Feb 2027
     Autumn: Sat 10 Apr 2027 - Wed 28 Apr 2027
     Winter: Sat 03 Jul 2027 - Mon 19 Jul 2027
-    Spring: Sat 25 Sep 2027 - Mon 11 Oct 2027
+    Spring: Sat 25 Sep 2027 - Sun 10 Oct 2027

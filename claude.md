@@ -12,15 +12,17 @@ Requires the .NET 11 preview SDK (see `global.json` in the repo root). All comma
 
 ```bash
 dotnet build src --configuration Release
-dotnet test src --configuration Release --no-build --no-restore --filter Category!=Integration
+dotnet test --solution src/AustralianHolidays.slnx --configuration Release --no-build --no-restore --treenode-filter "/*/*/*/*[Category!=Integration]"
 ```
+
+`global.json` selects **Microsoft.Testing.Platform** as the test runner, so the VSTest `--filter` option is rejected; use `--treenode-filter` (path is `/assembly/namespace/class/test`).
 
 To run a single test:
 ```bash
-dotnet test src/Tests --filter "FullyQualifiedName~TestMethodName"
+dotnet test --project src/Tests --treenode-filter "/*/*/*/TestMethodName"
 ```
 
-Tests use **NUnit** with **Verify** for snapshot testing. When holiday logic changes, snapshot files (`.verified.txt`, `.verified.md`, `.verified.csv`, etc.) need updating. Failed snapshots produce `.received.*` files — use a diff tool or accept them to update baselines.
+Tests use **TUnit** with **Verify** for snapshot testing. When holiday logic changes, snapshot files (`.verified.txt`, `.verified.md`, `.verified.csv`, etc.) need updating. Failed snapshots produce `.received.*` files — use a diff tool or accept them to update baselines. Some tests use inline snapshots (`.Snapshot("""...""")` in the test source), which produce no `.received.*` file; update the string in the test itself.
 
 ## Architecture
 
@@ -52,7 +54,7 @@ Blazor WASM app deployed to GitHub Pages. Components in `Components/`, pages in 
 - Holiday rules vary significantly by state — each state has unique substitution logic for weekends
 - Cache is populated in the static constructor for current year ± range, using FrozenDictionary for immutable read-only access
 - `Date` (DateOnly alias) is used throughout, not DateTime
-- The library targets net8.0, net9.0, and net10.0
+- The library targets net8.0, net9.0, net10.0, and net11.0; the test and web projects target net11.0 only
 - `TreatWarningsAsErrors` is enabled; `LangVersion` is `preview`
 - Assembly is strong-named (`key.snk`); tests use `InternalsVisibleTo`
 - MarkdownSnippets.MsBuild auto-generates README code samples from test snippets
