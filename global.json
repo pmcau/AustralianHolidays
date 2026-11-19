@@ -3,7 +3,7 @@
     "runner": "Microsoft.Testing.Platform"
   },
   "sdk": {
-    "version": "11.0.100-preview.6.26359.118",
+    "version": "11.0.100",
     "allowPrerelease": true,
     "rollForward": "latestFeature"
   }
