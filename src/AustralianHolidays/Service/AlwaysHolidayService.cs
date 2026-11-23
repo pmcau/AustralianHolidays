@@ -110,7 +110,7 @@ public class AlwaysHolidayService(TimeProvider? timeProvider = null) :
 
     public override IReadOnlyDictionary<Date, string> ForQld(int year) =>
         GetDates(year, 1)
-            .ToDictionary(_ => _, _ => "Qld Holiday");
+            .ToDictionary(_ => _, _ => "QLD Holiday");
 
     public override bool IsSaHoliday(Date date) => true;
 
@@ -134,7 +134,7 @@ public class AlwaysHolidayService(TimeProvider? timeProvider = null) :
 
     public override IReadOnlyDictionary<Date, string> ForTas(int year) =>
         GetDates(year, 1)
-            .ToDictionary(_ => _, _ => "Tas Holiday");
+            .ToDictionary(_ => _, _ => "TAS Holiday");
 
     public override bool IsVicHoliday(Date date) => true;
 
@@ -146,7 +146,7 @@ public class AlwaysHolidayService(TimeProvider? timeProvider = null) :
 
     public override IReadOnlyDictionary<Date, string> ForVic(int year) =>
         GetDates(year, 1)
-            .ToDictionary(_ => _, _ => "Vic Holiday");
+            .ToDictionary(_ => _, _ => "VIC Holiday");
 
     public override bool IsWaHoliday(Date date) => true;
 
