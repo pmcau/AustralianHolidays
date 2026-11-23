@@ -67,7 +67,7 @@ public class StateSelectorTests : BunitTestContext
         IReadOnlySet<State>? selectedStates = null;
         var cut = Render<StateSelector>(_ => _
             .Add(_ => _.SelectedStates, new HashSet<State>())
-            .Add(_ => _.SelectedStatesChanged, (IReadOnlySet<State> s) => selectedStates = s));
+            .Add(_ => _.SelectedStatesChanged, _ => selectedStates = _));
 
         var nswButton = cut.FindAll(".state-btn").First(_ => _.TextContent == "NSW");
         await nswButton.ClickAsync(new());
@@ -82,7 +82,7 @@ public class StateSelectorTests : BunitTestContext
         IReadOnlySet<State>? selectedStates = null;
         var cut = Render<StateSelector>(_ => _
             .Add(_ => _.SelectedStates, new HashSet<State>())
-            .Add(_ => _.SelectedStatesChanged, s => selectedStates = s));
+            .Add(_ => _.SelectedStatesChanged, _ => selectedStates = _));
 
         var allButton = cut.FindAll(".state-btn").First(_ => _.TextContent == "All");
         await allButton.ClickAsync(new());

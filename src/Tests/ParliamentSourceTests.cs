@@ -1,5 +1,3 @@
-using System.Net.Http.Json;
-
 // Checks the hardcoded sitting data in Parliament_House.cs / Parliament_Senate.cs against the official
 // record, so transcription errors and later changes to the calendar get caught without re-reading the
 // source by hand. Hits the network, so it is excluded from the default test run:
